@@ -14,3 +14,9 @@ tools/MapleCouponInstaller/build/
 tools/MapleIdRetriever/build/
 tools/MobBookIndexer/build/
 tools/MobBookUpdate/build/
+
+#Config
+configuration.ini
+
+#Server
+*.pem

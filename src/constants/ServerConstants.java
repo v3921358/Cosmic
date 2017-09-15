@@ -20,7 +20,7 @@ public class ServerConstants {
     public static final long PURGING_INTERVAL = 5 * 60 * 1000;
     public static final long RANKING_INTERVAL = 60 * 60 * 1000;	//60 minutes, 3600000.
     public static final long COUPON_INTERVAL = 60 * 60 * 1000;	//60 minutes, 3600000.
-    public static final boolean ENABLE_PIC = false;             //Pick true/false to enable or disable Pic. Delete character needs this feature ENABLED.
+    public static final boolean ENABLE_PIC = true;             //Pick true/false to enable or disable Pic. Delete character needs this feature ENABLED.
     public static final boolean ENABLE_PIN = false;             //Pick true/false to enable or disable Pin.
 		
     //Ip Configuration
@@ -31,7 +31,7 @@ public class ServerConstants {
     public static boolean SHUTDOWNHOOK;
 	
     //Server Flags
-    public static final boolean USE_CUSTOM_KEYSET = true;           //Enables auto-setup of the MapleSolaxiaV2's custom keybindings when creating characters.
+    public static final boolean USE_CUSTOM_KEYSET = false;           //Enables auto-setup of the MapleSolaxiaV2's custom keybindings when creating characters.
     public static final boolean USE_MAXRANGE_ECHO_OF_HERO = true;
     public static final boolean USE_MAXRANGE = true;                //Will send and receive packets from all events of a map, rather than those of only view range.
     public static final boolean USE_DEBUG = false;                  //Will enable some text prints on the client, oriented for debugging purposes.
@@ -51,11 +51,11 @@ public class ServerConstants {
     public static final boolean USE_ERASE_UNTRADEABLE_DROP = true;  //Forces flagged untradeable items to disappear when dropped.
     
     //Server Rates And Experience
-    public static final int EXP_RATE = 10;
+    public static final int EXP_RATE = 3;
     public static final int MESO_RATE = 10;
     public static final int DROP_RATE = 10;
-    public static final int BOSS_DROP_RATE = 20;
-    public static final int PARTY_EXPERIENCE_MOD = 1;           //Change for event stuff.
+    public static final int BOSS_DROP_RATE = 25;
+    public static final int PARTY_EXPERIENCE_MOD = 2.5;           //Change for event stuff.
     public static final double EQUIP_EXPERIENCE_MOD = 10.0;     //Rate for equipment exp needed, grows linearly. Set 1.0 for default (about 100~200 same-level range mobs killed to pass equip from level 1 to 2).
     public static final double PQ_BONUS_EXP_MOD = 0.5;
     
@@ -71,28 +71,28 @@ public class ServerConstants {
     
     //Some Gameplay Enhancing Configurations
     //Scroll Configuration
-    public static final boolean USE_PERFECT_SCROLLING = true;   //Scrolls doesn't use slots upon failure.
-    public static final boolean USE_ENHANCED_CHSCROLL = true;   //Equips even more powerful with chaos upgrade.
-    public static final boolean USE_ENHANCED_CRAFTING = true;   //Applys chaos scroll on every equip crafted.
+    public static final boolean USE_PERFECT_SCROLLING = false;   //Scrolls doesn't use slots upon failure.
+    public static final boolean USE_ENHANCED_CHSCROLL = false;   //Equips even more powerful with chaos upgrade.
+    public static final boolean USE_ENHANCED_CRAFTING = false;   //Applys chaos scroll on every equip crafted.
     
     //Beginner Skills Configuration
-    public static final boolean USE_ULTRA_NIMBLE_FEET = true;   //Haste-like speed & jump upgrade.
-    public static final boolean USE_ULTRA_RECOVERY = true;      //Massive recovery amounts overtime.
-    public static final boolean USE_ULTRA_THREE_SNAILS = true;  //Massive damage on shell toss.
+    public static final boolean USE_ULTRA_NIMBLE_FEET = false;   //Haste-like speed & jump upgrade.
+    public static final boolean USE_ULTRA_RECOVERY = false;      //Massive recovery amounts overtime.
+    public static final boolean USE_ULTRA_THREE_SNAILS = false;  //Massive damage on shell toss.
     
     //Character Configuration
     public static final boolean USE_ADD_SLOTS_BY_LEVEL = true;  //Slots are added each 20 levels.
     public static final boolean USE_ADD_RATES_BY_LEVEL = true;  //Rates are added each 20 levels.
     public static final boolean USE_STACK_COUPON_RATES = true;  //Multiple coupons effects builds up together.
     public static final boolean USE_PERFECT_PITCH = true;	//For lvl 30 or above, each lvlup grants player 1 perfect pitch.
-    public static final int FAME_GAIN_BY_QUEST = 4;             //Fame gain each N quest completes, set 0 to disable.
-    public static final int SCROLL_CHANCE_RATE = 10;            //Number of rolls for success on a scroll, set 0 for default.
+    public static final int FAME_GAIN_BY_QUEST = 1;             //Fame gain each N quest completes, set 0 to disable.
+    public static final int SCROLL_CHANCE_RATE = 0;            //Number of rolls for success on a scroll, set 0 for default.
     
     //Equipment Configuration
-    public static final boolean USE_EQUIPMNT_LVLUP_SLOTS = true;//Equips can upgrade slots at level up.
-    public static final boolean USE_EQUIPMNT_LVLUP_POWER = true;//Enable more powerful stats upgrades at equip level up.
-    public static final boolean USE_SPIKES_AVOID_BANISH = true; //Shoes equipped with spikes prevents mobs from banishing wearer.
-    public static final boolean USE_CHAIR_EXTRAHEAL = true;     //Enable map chairs to further recover player's HP and MP.
+    public static final boolean USE_EQUIPMNT_LVLUP_SLOTS = false;//Equips can upgrade slots at level up.
+    public static final boolean USE_EQUIPMNT_LVLUP_POWER = false;//Enable more powerful stats upgrades at equip level up.
+    public static final boolean USE_SPIKES_AVOID_BANISH = false; //Shoes equipped with spikes prevents mobs from banishing wearer.
+    public static final boolean USE_CHAIR_EXTRAHEAL = false;     //Enable map chairs to further recover player's HP and MP.
     public static final int MAX_EQUIPMNT_LVLUP_STAT_GAIN = 10000; //Max stat upgrade an equipment can have on a levelup.
     public static final int MAX_EQUIPMNT_STAT = 32767;            //Max stat on an equipment by leveling up.
     public static final int USE_EQUIPMNT_LVLUP = 7;             //All equips lvlup at max level of N, set 1 to disable.
