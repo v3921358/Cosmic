@@ -16,7 +16,7 @@ tools/MobBookIndexer/build/
 tools/MobBookUpdate/build/
 
 #Config
-configuration.ini
+*.ini
 
 #Server
 *.pem
