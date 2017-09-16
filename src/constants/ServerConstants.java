@@ -51,9 +51,9 @@ public class ServerConstants {
     public static final boolean USE_ERASE_UNTRADEABLE_DROP = true;  //Forces flagged untradeable items to disappear when dropped.
     
     //Server Rates And Experience
-    public static final int EXP_RATE = 3;
-    public static final int MESO_RATE = 10;
-    public static final int DROP_RATE = 10;
+    public static final int EXP_RATE = 4;
+    public static final int MESO_RATE = 7;
+    public static final int DROP_RATE = 6;
     public static final int BOSS_DROP_RATE = 25;
     public static final int PARTY_EXPERIENCE_MOD = 2;           //Change for event stuff.
     public static final double EQUIP_EXPERIENCE_MOD = 10.0;     //Rate for equipment exp needed, grows linearly. Set 1.0 for default (about 100~200 same-level range mobs killed to pass equip from level 1 to 2).
