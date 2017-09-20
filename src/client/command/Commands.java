@@ -2045,7 +2045,7 @@ public class Commands {
                         try {
                                 if (sub.length == 2) {
                                         int itemId = Integer.parseInt(sub[1]);
-                                        if(!(itemId >= 30000 && itemId < 32000) || MapleItemInformationProvider.getInstance().getName(itemId) == null) {
+                                        if(!(itemId >= 30000 && itemId < 44417) || MapleItemInformationProvider.getInstance().getName(itemId) == null) {
                                                 player.yellowMessage("Hair id '" + sub[1] + "' does not exist.");
                                                 break;
                                         }

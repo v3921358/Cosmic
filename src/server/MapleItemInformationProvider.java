@@ -246,7 +246,7 @@ public class MapleItemInformationProvider {
         } else if (itemId >= 1080000 && itemId < 1090000) {
             theData = eqpStringData;
             cat = "Eqp/Glove";
-        } else if (itemId >= 30000 && itemId < 32000) {
+        } else if (itemId >= 30000 && itemId < 44418) {
             theData = eqpStringData;
             cat = "Eqp/Hair";
         } else if (itemId >= 1050000 && itemId < 1060000) {
