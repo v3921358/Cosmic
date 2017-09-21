@@ -67,10 +67,12 @@ function clearStage(stage, eim, curMap) {
 
 function start() {
     curMap = cm.getMapId();
-    //Debug
-    cm.mapMessage(5, eim.getProperty("stage" + stage + "combo").split(','));
+    
     stage = Math.floor((curMap - 922010100) / 100) + 1;
     
+    //Debug
+    cm.mapMessage(5, eim.getProperty("stage" + stage + "combo").split(','));
+
     status = -1;
     action(1, 0, 0);
 }
