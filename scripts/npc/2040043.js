@@ -67,6 +67,8 @@ function clearStage(stage, eim, curMap) {
 
 function start() {
     curMap = cm.getMapId();
+    //Debug
+    cm.mapMessage(5, eim.getProperty("stage" + stage + "combo").split(','));
     stage = Math.floor((curMap - 922010100) / 100) + 1;
     
     status = -1;
@@ -91,6 +93,9 @@ function action(mode, type, selection) {
                 }
                 else {
                         if (eim.isEventLeader(cm.getPlayer())) {
+                                //Debug
+                                cm.mapMessage(5, "Leader Talked");
+
                                 var state = eim.getIntProperty("statusStg" + stage);
 
                                 if(state == -1) {           // preamble
@@ -127,7 +132,7 @@ function action(mode, type, selection) {
                                             var correctCombo = true;
                                             for (i = 0; i < objset.length && correctCombo; i++)
                                                 if (parseInt(combo[i]) != objset[i]) {
-                                                    //cm.mapMessage(5, "Combo failed on " + (i + 1));
+                                                    cm.mapMessage(5, "Combo failed on " + (i + 1));
                                                     correctCombo = false;
                                                 }
                                             if (correctCombo || cm.getPlayer().gmLevel() > 1) {
@@ -144,6 +149,8 @@ function action(mode, type, selection) {
                                         }
                                 }
                         } else {
+                                //Debug
+                                cm.mapMessage(5, "Others talked");
                                 cm.sendNext("Please tell your #bParty-Leader#k to come talk to me.");
                         }
                 }

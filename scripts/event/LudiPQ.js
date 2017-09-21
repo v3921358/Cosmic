@@ -93,7 +93,12 @@ function setup(level, lobbyid) {
         eim.setProperty("statusStg6", -1);
         eim.setProperty("statusStg7", -1);
         eim.setProperty("statusStg8", -1);
+        eim.setProperty("stage8combo", generateCombo());
         eim.setProperty("statusStg9", -1);
+        
+        var MCTracker = Packages.server.partyquest.mcpq.MCTracker;
+        MCTracker.log(eim.GetProperty("stage8combo"));
+        MCTracker.log(generateCombo());
         
         eim.getInstanceMap(922010100).resetPQ(level);
         eim.getInstanceMap(922010200).resetPQ(level);
@@ -235,3 +240,25 @@ function allMonstersDead(eim) {}
 function cancelSchedule() {}
 
 function dispose(eim) {}
+
+function generateCombo() {
+	var countPicked = 0;
+	var positions = Array(0,0,0,0,0,0,0,0,0);
+	while(countPicked < 5) {
+		var picked = Math.floor(Math.random() * positions.length);
+		if(positions[picked] == 1) // Don't let it pick one its already picked.
+			continue;
+			
+		positions[picked] = 1;
+		countPicked++;
+	}
+	
+	var returnString = "";
+	for(var i = 0; i < positions.length; i++) {
+		returnString += positions[i];
+		if(i != positions.length - 1)
+		returnString += ",";
+	}
+	
+	return returnString;
+}
