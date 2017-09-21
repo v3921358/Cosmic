@@ -22,6 +22,7 @@
 /*
 @	Author : Twdtwd
 @       Author : Ronan
+@   Fix: BenjixD
 @
 @	NPC = Blue Balloon
 @	Map = Hidden-Street <Stage 8>
@@ -30,29 +31,6 @@
 @
 @	Description: Used to find the combo to unlock the next door. Players stand on 5 different crates to guess the combo.
 */
-
-function generateCombo() {
-	var countPicked = 0;
-	var positions = Array(0,0,0,0,0,0,0,0,0);
-	while(countPicked < 5) {
-		var picked = Math.floor(Math.random() * positions.length);
-		if(positions[picked] == 1) // Don't let it pick one its already picked.
-			continue;
-			
-		positions[picked] = 1;
-		countPicked++;
-	}
-	
-	var returnString = "";
-	for(var i = 0; i < positions.length; i++) {
-		returnString += positions[i];
-		if(i != positions.length - 1)
-		returnString += ",";
-	}
-	
-	return returnString;
-	
-}
 
 var debug = false;
 var status = 0;
@@ -93,7 +71,7 @@ function action(mode, type, selection) {
                 }
                 else {
                         if (eim.isEventLeader(cm.getPlayer())) {
-                            
+
                                 var state = eim.getIntProperty("statusStg" + stage);
 
                                 if(state == -1) {           // preamble
