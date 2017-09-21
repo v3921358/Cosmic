@@ -93,9 +93,7 @@ function action(mode, type, selection) {
                 }
                 else {
                         if (eim.isEventLeader(cm.getPlayer())) {
-                                //Debug
-                                cm.mapMessage(5, "Leader Talked");
-
+                            
                                 var state = eim.getIntProperty("statusStg" + stage);
 
                                 if(state == -1) {           // preamble
@@ -129,8 +127,8 @@ function action(mode, type, selection) {
 
                                         if (playersOnCombo == 5 || cm.getPlayer().gmLevel() > 1) {
                                             //Debug
-                                            cm.mapMessage(5, stage);
-                                            cm.mapMessage(5, "Combo is: " + eim.getProperty("stage" + stage + "combo"));
+                                            //cm.mapMessage(5, stage);
+                                            //cm.mapMessage(5, "Combo is: " + eim.getProperty("stage" + stage + "combo"));
 
                                             var combo = eim.getProperty("stage" + stage + "combo").split(',');
                                             var correctCombo = true;
@@ -153,8 +151,6 @@ function action(mode, type, selection) {
                                         }
                                 }
                         } else {
-                                //Debug
-                                cm.mapMessage(5, "Others talked");
                                 cm.sendNext("Please tell your #bParty-Leader#k to come talk to me.");
                         }
                 }
