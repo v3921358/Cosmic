@@ -219,7 +219,8 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     private MapleMiniGame miniGame;
     private MapleMount maplemount;
     private MapleParty party;
-    private MaplePet[] pets = new MaplePet[127];
+    private MaplePet[] pets = new MaplePet[3];
+    private MaplePet[] allPets = new MaplePet[127];
     private MaplePlayerShop playerShop = null;
     private MapleShop shop = null;
     private MapleSkinColor skinColor = MapleSkinColor.NORMAL;
@@ -515,9 +516,29 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     public void addPet(MaplePet pet) {
         petLock.lock();
         try {
-            for (int i = 0; i < pets.length; i++) {
+            for (int i = 0; i < 3; i++) {
                 if (pets[i] == null) {
                     pets[i] = pet;
+                    for (int j = 0; j < i; j++){
+                        pets[j].setSummoned(false);
+                    }
+                    return;
+                }
+            }
+        } finally {
+            petLock.unlock();
+        }
+    }
+    
+    public void appendAllPets(MaplePet pet){
+        petLock.lock();
+        try{
+            for (int i = 0; i < allPets.length; i++){
+                if (allPets[i] == null){
+                    allPets[i] = pet;
+                    for (int j = 0; j < i; j++){
+                        allPets[j].setSummoned(false);
+                    }
                     return;
                 }
             }
@@ -2358,7 +2379,10 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
                             }
                         }
                         for (Item item : toberemove) {
-                            if(item.getPetId() > -1) unequipPet(getPet(getPetIndex(item.getPetId())), true);
+                            if(item.getPetId() > -1) {
+                                MaplePet petTBR = allPets[getAllPetIndex(item.getPetId())];
+                                unequipPet(petTBR, true);
+                            }
                             MapleInventoryManipulator.removeFromSlot(client, inv.getType(), item.getPosition(), item.getQuantity(), true);
                         }
                         toberemove.clear();
@@ -3271,7 +3295,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     public int getNextEmptyPetIndex() {
         petLock.lock();
         try {
-            for (int i = 0; i < pets.length; i++) {
+            for (int i = 0; i < 3; i++) {
                 if (pets[i] == null) {
                     return i;
                 }
@@ -3286,7 +3310,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         petLock.lock();
         try {
             int ret = 0;
-            for (int i = 0; i < pets.length; i++) {
+            for (int i = 0; i < 3; i++) {
                 if (pets[i] != null) {
                     ret++;
                 }
@@ -3469,7 +3493,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     public byte getPetIndex(int petId) {
         petLock.lock();
         try {
-            for (byte i = 0; i < pets.length; i++) {
+            for (byte i = 0; i < 3; i++) {
                 if (pets[i] != null) {
                     if (pets[i].getUniqueId() == petId) {
                         return i;
@@ -3481,11 +3505,25 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             petLock.unlock();
         }
     }
+    
+    public byte getAllPetIndex(int petId) {
+        petLock.lock();
+        try {
+            for (byte i = 0; i < allPets.length; i++) {
+                if (allPets[i] != null && allPets[i].getUniqueId() == petId) {
+                    return i;
+                }
+            }
+            return -1;
+        } finally {
+            petLock.unlock();
+        }
+    }
 
     public byte getPetIndex(MaplePet pet) {
         petLock.lock();
         try {
-            for (byte i = 0; i < pets.length; i++) {
+            for (byte i = 0; i < 3; i++) {
                 if (pets[i] != null) {
                     if (pets[i].getUniqueId() == pet.getUniqueId()) {
                         return i;
@@ -4508,8 +4546,11 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
                 Item itemz = item.getLeft();
                 if (itemz.getPetId() > -1) {
                     MaplePet pet = itemz.getPet();
-                    if (pet != null) {
+                    if (pet != null && pet.isSummoned()) {
                         ret.addPet(pet);
+                    }
+                    if (pet != null){
+                        ret.appendAllPets(pet);
                     }
                     continue;
                 }
@@ -5279,11 +5320,19 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         petLock.lock();
         try {
             int slot = -1;
-            for (int i = 0; i < pets.length; i++) {
+            for (int i = 0; i < 3; i++) {
                 if (pets[i] != null) {
                     if (pets[i].getUniqueId() == pet.getUniqueId()) {
                         pets[i] = null;
                         slot = i;
+                        break;
+                    }
+                }
+            }
+            for (int i = 0; i < allPets.length; i++) {
+                if (allPets[i] != null) {
+                    if (allPets[i].getUniqueId() == pet.getUniqueId()) {
+                        allPets[i] = null;
                         break;
                     }
                 }
@@ -5662,7 +5711,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             
             petLock.lock();
             try {
-                for (int i = 0; i < pets.length; i++) {
+                for (int i = 0; i < 3; i++) {
                     if (pets[i] != null) {
                         pets[i].saveToDb();
                     }
@@ -6413,10 +6462,9 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     public void shiftPetsRight() {
         petLock.lock();
         try {
-            if (pets[pets.length-1] == null) {
-                for(int i = pets.length-1; i >= 0; i++){
-                    pets[i] = pets[i-1];
-                }
+            if (pets[2] == null) {
+                pets[2] = pets[1];
+                pets[1] = pets[0];
                 pets[0] = null;
             }
         } finally {
@@ -6568,9 +6616,13 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     }
 
     public void unequipPet(MaplePet pet, boolean shift_left, boolean hunger) {
-        if (this.getPet(this.getPetIndex(pet)) != null) {
-            this.getPet(this.getPetIndex(pet)).setSummoned(false);
-            this.getPet(this.getPetIndex(pet)).saveToDb();
+//        if (this.getPet(this.getPetIndex(pet)) != null) {
+//            this.getPet(this.getPetIndex(pet)).setSummoned(false);
+//            this.getPet(this.getPetIndex(pet)).saveToDb();
+//        }
+        if (pet != null) {
+            pet.setSummoned(false);
+            pet.saveToDb();
         }
         
         this.getClient().getWorldServer().unregisterPetHunger(this, getPetIndex(pet));
