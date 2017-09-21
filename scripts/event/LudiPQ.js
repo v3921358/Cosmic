@@ -96,10 +96,6 @@ function setup(level, lobbyid) {
         eim.setProperty("stage8combo", generateCombo());
         eim.setProperty("statusStg9", -1);
         
-        var MCTracker = Packages.server.partyquest.mcpq.MCTracker;
-        MCTracker.log(eim.GetProperty("stage8combo"));
-        MCTracker.log(generateCombo());
-        
         eim.getInstanceMap(922010100).resetPQ(level);
         eim.getInstanceMap(922010200).resetPQ(level);
         eim.getInstanceMap(922010201).resetPQ(level);

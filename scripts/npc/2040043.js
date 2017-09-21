@@ -69,9 +69,6 @@ function start() {
     curMap = cm.getMapId();
     
     stage = Math.floor((curMap - 922010100) / 100) + 1;
-    
-    //Debug
-    cm.mapMessage(5, eim.getProperty("stage" + stage + "combo").split(','));
 
     status = -1;
     action(1, 0, 0);
@@ -131,6 +128,9 @@ function action(mode, type, selection) {
 
                                         if (playersOnCombo == 5 || cm.getPlayer().gmLevel() > 1) {
                                             var combo = eim.getProperty("stage" + stage + "combo").split(',');
+                                            //Debug
+                                            cm.mapMessage(5, "Combo is " + combo);
+
                                             var correctCombo = true;
                                             for (i = 0; i < objset.length && correctCombo; i++)
                                                 if (parseInt(combo[i]) != objset[i]) {
