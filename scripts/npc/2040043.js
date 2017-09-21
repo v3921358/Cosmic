@@ -129,6 +129,8 @@ function action(mode, type, selection) {
                                         if (playersOnCombo == 5 || cm.getPlayer().gmLevel() > 1) {
                                             var combo = eim.getProperty("stage" + stage + "combo").split(',');
                                             //Debug
+                                            cm.mapMessage(5, stage);
+                                            cm.mapMessage(5, eim.getProperty("stage" + stage + "combo"));
                                             cm.mapMessage(5, "Combo is " + combo);
 
                                             var correctCombo = true;
