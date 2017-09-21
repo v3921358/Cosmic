@@ -617,6 +617,11 @@ public class EventInstanceManager {
 	public String getProperty(String key) {
 		return props.getProperty(key);
 	}
+        
+        public void PrintProperty(String key)
+        {
+            System.out.println(key + ": " +  props.getProperty(key));
+        }
 
         public Properties getProperties() {
                 return props;

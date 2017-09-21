@@ -96,6 +96,9 @@ function setup(level, lobbyid) {
         eim.setProperty("stage8combo", generateCombo());
         eim.setProperty("statusStg9", -1);
         
+        eim.printProperty("stage8combo");
+        eim.printProperty("statusStg9");
+        
         eim.getInstanceMap(922010100).resetPQ(level);
         eim.getInstanceMap(922010200).resetPQ(level);
         eim.getInstanceMap(922010201).resetPQ(level);
