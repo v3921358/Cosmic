@@ -219,7 +219,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     private MapleMiniGame miniGame;
     private MapleMount maplemount;
     private MapleParty party;
-    private MaplePet[] pets = new MaplePet[3];
+    private MaplePet[] pets = new MaplePet[127];
     private MaplePlayerShop playerShop = null;
     private MapleShop shop = null;
     private MapleSkinColor skinColor = MapleSkinColor.NORMAL;
@@ -515,7 +515,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     public void addPet(MaplePet pet) {
         petLock.lock();
         try {
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < pets.length; i++) {
                 if (pets[i] == null) {
                     pets[i] = pet;
                     return;
@@ -3271,7 +3271,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     public int getNextEmptyPetIndex() {
         petLock.lock();
         try {
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < pets.length; i++) {
                 if (pets[i] == null) {
                     return i;
                 }
@@ -3286,7 +3286,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         petLock.lock();
         try {
             int ret = 0;
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < pets.length; i++) {
                 if (pets[i] != null) {
                     ret++;
                 }
@@ -3469,7 +3469,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     public byte getPetIndex(int petId) {
         petLock.lock();
         try {
-            for (byte i = 0; i < 3; i++) {
+            for (byte i = 0; i < pets.length; i++) {
                 if (pets[i] != null) {
                     if (pets[i].getUniqueId() == petId) {
                         return i;
@@ -3485,7 +3485,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     public byte getPetIndex(MaplePet pet) {
         petLock.lock();
         try {
-            for (byte i = 0; i < 3; i++) {
+            for (byte i = 0; i < pets.length; i++) {
                 if (pets[i] != null) {
                     if (pets[i].getUniqueId() == pet.getUniqueId()) {
                         return i;
@@ -4508,7 +4508,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
                 Item itemz = item.getLeft();
                 if (itemz.getPetId() > -1) {
                     MaplePet pet = itemz.getPet();
-                    if (pet != null && pet.isSummoned()) {
+                    if (pet != null) {
                         ret.addPet(pet);
                     }
                     continue;
@@ -4774,7 +4774,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             ret.maplemount.setExp(mountexp);
             ret.maplemount.setLevel(mountlevel);
             ret.maplemount.setTiredness(mounttiredness);
-            ret.maplemount.setActive(false);
+            ret.maplemount.setActive(false);    
             
             con.close();
             return ret;
@@ -5279,7 +5279,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         petLock.lock();
         try {
             int slot = -1;
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < pets.length; i++) {
                 if (pets[i] != null) {
                     if (pets[i].getUniqueId() == pet.getUniqueId()) {
                         pets[i] = null;
@@ -5662,7 +5662,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             
             petLock.lock();
             try {
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < pets.length; i++) {
                     if (pets[i] != null) {
                         pets[i].saveToDb();
                     }
@@ -6413,9 +6413,10 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     public void shiftPetsRight() {
         petLock.lock();
         try {
-            if (pets[2] == null) {
-                pets[2] = pets[1];
-                pets[1] = pets[0];
+            if (pets[pets.length-1] == null) {
+                for(int i = pets.length-1; i >= 0; i++){
+                    pets[i] = pets[i-1];
+                }
                 pets[0] = null;
             }
         } finally {
