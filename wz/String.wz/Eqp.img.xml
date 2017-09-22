@@ -35410,6 +35410,57 @@
       </imgdir>
     </imgdir>
     <imgdir name="Weapon">
+      <imgdir name="1302147">
+      <string name="name" value="VIP One-Handed Sword"/>
+      </imgdir>
+      <imgdir name="1312062">
+      <string name="name" value="VIP One-Handed Axe"/>
+      </imgdir>
+      <imgdir name="1322090">
+      <string name="name" value="VIP One-Handed Blunt Weapon"/>
+      </imgdir>
+      <imgdir name="1332120">
+      <string name="name" value="VIP Dagger (LUK)"/>
+      </imgdir>
+      <imgdir name="1332125">
+      <string name="name" value="VIP Dagger (STR)"/>
+      </imgdir>
+      <imgdir name="1372078">
+      <string name="name" value="VIP Wand"/>
+      </imgdir>
+      <imgdir name="1382099">
+      <string name="name" value="VIP Staff"/>
+      </imgdir>
+      <imgdir name="1402090">
+      <string name="name" value="VIP Two-Handed Sword"/>
+      </imgdir>
+      <imgdir name="1412062">
+      <string name="name" value="VIP Two-Handed Axe"/>
+      </imgdir>
+      <imgdir name="1422063">
+      <string name="name" value="VIP Two-Handed Blunt Weapon"/>
+      </imgdir>
+      <imgdir name="1432081">
+      <string name="name" value="VIP Spear"/>
+      </imgdir>
+      <imgdir name="1442111">
+      <string name="name" value="VIP Polearm"/>
+      </imgdir>
+      <imgdir name="1452106">
+      <string name="name" value="VIP Bow"/>
+      </imgdir>
+      <imgdir name="1462091">
+      <string name="name" value="VIP Crossbow"/>
+      </imgdir>
+      <imgdir name="1472117">
+      <string name="name" value="VIP Claw"/>
+      </imgdir>
+      <imgdir name="1482079">
+      <string name="name" value="VIP Knuckle"/>
+      </imgdir>
+      <imgdir name="1492079">
+      <string name="name" value="VIP Gun"/>
+      </imgdir>
       <imgdir name="1302107">
         <string name="name" value="Black Crystal Blade"/>
       </imgdir>
