@@ -24,6 +24,7 @@ package scripting.quest;
 import client.MapleClient;
 import scripting.npc.NPCConversationManager;
 import server.quest.MapleQuest;
+import constants.ServerConstants;
 
 /**
  *
@@ -50,6 +51,11 @@ public class QuestActionManager extends NPCConversationManager {
     @Override
     public void dispose() {
         QuestScriptManager.getInstance().dispose(this, getClient());
+    }
+    
+    @Override
+    public void gainExp(int gain) {
+        c.getPlayer().gainExp((int)(gain * ServerConstants.QUEST_EXP_MOD), true, true);
     }
 
     public boolean forceStartQuest() {

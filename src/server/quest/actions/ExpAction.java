@@ -26,6 +26,7 @@ import provider.MapleData;
 import provider.MapleDataTool;
 import server.quest.MapleQuest;
 import server.quest.MapleQuestActionType;
+import constants.ServerConstants;
 
 /**
  *
@@ -50,7 +51,7 @@ public class ExpAction extends MapleQuestAction {
 		if (chr.isBeginnerJob() && chr.getLevel() < 10) {
 			chr.gainExp(exp, true, true);
 		} else {
-			chr.gainExp(exp * chr.getExpRate(), true, true);
+			chr.gainExp((int)(exp * chr.getExpRate() * ServerConstants.QUEST_EXP_MOD), true, true);
 		}
 	}
 } 
