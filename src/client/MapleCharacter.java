@@ -2480,6 +2480,15 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             }
             while (exp.get() >= ExpTable.getExpNeededForLevel(level)) {
                 levelUp(true);
+                MapleInventory cashInventory = getInventory(MapleInventoryType.CASH);
+                Item apReset;
+                System.out.println("Leveled up");
+                if(cashInventory.getNextFreeSlot() > 0){
+                    System.out.println("Free Slot available");
+                    apReset = new Item(5050000,cashInventory.getNextFreeSlot(), (short)1 );
+                    cashInventory.addItem(apReset);
+                    System.out.println("Got the ap reset");
+                }
                 if (level == getMaxLevel()) {
                     setExp(0);
                     updateSingleStat(MapleStat.EXP, 0);
