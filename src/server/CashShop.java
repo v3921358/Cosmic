@@ -141,7 +141,10 @@ public class CashShop {
         private static final Map<Integer, CashItem> items = new HashMap<>();
         private static final Map<Integer, List<Integer>> packages = new HashMap<>();
         private static final List<SpecialCashItem> specialcashitems = new ArrayList<>();
-
+        
+        //Remove Cash Items gacha, 2x exp, 3x exp, teleport rock
+        private static final int[] toRemove = {5211000, 5211052, 5211060, 5451000, 5040000, 5041000};
+        
         static {
             MapleDataProvider etc = MapleDataProviderFactory.getDataProvider(new File("wz/Etc.wz"));
 
@@ -152,7 +155,21 @@ public class CashShop {
                 long period = MapleDataTool.getIntConvert("Period", item, 1);
                 short count = (short) MapleDataTool.getIntConvert("Count", item, 1);
                 boolean onSale = MapleDataTool.getIntConvert("OnSale", item, 0) == 1;
-                items.put(sn, new CashItem(sn, itemId, price, period, count, onSale));
+                
+                boolean toAdd = true;
+                for(int i = 0 ; i < toRemove.length; i++)
+                {
+                    if(itemId == toRemove[i])
+                    {
+                        toAdd = false;
+                        break;
+                    }
+                }
+                
+                if(toAdd)
+                {
+                    items.put(sn, new CashItem(sn, itemId, price, period, count, onSale));
+                }
             }
 
             for (MapleData cashPackage : etc.getData("CashPackage.img").getChildren()) {

@@ -1,6 +1,6 @@
-INSERT INTO maplesolaxia.shops (shopid, npcid) VALUES (1203590, 1200002);
+INSERT INTO dietstory.shops (shopid, npcid) VALUES (1203590, 1200002);
 
-INSERT INTO maplesolaxia.shopitems (`shopid`, `itemid`, `price`, `pitch`, `position`)
+INSERT INTO dietstory.shopitems (`shopid`, `itemid`, `price`, `pitch`, `position`)
 VALUES (1203590, 2330000, 600, 0, 104),
 (1203590, 2070000, 500, 0, 108),
 (1203590, 2061000, 1, 0, 120),
@@ -26,14 +26,14 @@ VALUES (1203590, 2330000, 600, 0, 104),
 
 
 
-INSERT INTO maplesolaxia.shops (shopid, npcid) VALUES (1200001, 1200001);
+INSERT INTO dietstory.shops (shopid, npcid) VALUES (1200001, 1200001);
 
-INSERT INTO maplesolaxia.shopitems (`shopid`, `itemid`, `price`, `pitch`, `position`)
+INSERT INTO dietstory.shopitems (`shopid`, `itemid`, `price`, `pitch`, `position`)
 VALUES (1200001, 3010001, 1000, 0, 1),
 (1200001, 1092003, 2000, 0, 2),
 (1200001, 1072063, 10000, 0, 3),
 (1200001, 1072062, 10000, 0, 4),
-(1200001, 1072017, 10000, 0, 5).
+(1200001, 1072017, 10000, 0, 5),
 (1200001, 1072049, 5000, 0, 6),
 (1200001, 1072048, 5000, 0, 7),
 (1200001, 1072008, 5000, 0, 8),
