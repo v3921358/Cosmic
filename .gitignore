@@ -15,6 +15,9 @@ tools/MapleIdRetriever/build/
 tools/MobBookIndexer/build/
 tools/MobBookUpdate/build/
 
+# dist files
+dist/
+
 #Config
 *.ini
 
