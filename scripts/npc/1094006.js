@@ -1,35 +1,51 @@
 /*
-	This file is part of the OdinMS Maple Story Server
-    Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
-                       Matthias Butz <matze@odinms.de>
-                       Jan Christian Meyer <vimes@odinms.de>
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Affero General Public License version 3
-    as published by the Free Software Foundation. You may not use, modify
-    or distribute this program under any other version of the
-    GNU Affero General Public License.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
-    You should have received a copy of the GNU Affero General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-/*
-    Author: XxOsirisxX （BubblesDev 0.75)
+    Author: Kevin (DietStory v1.02)
     NPC: Bush - Abel Glasses Quest
 */
 
+var status;
+
 function start(mode, type, selection){
-    cm.sendGetText("Do you want to obtain a glasses?");
+	status = -1;
+    action(1, 0, 0);
 }
 
 function action(mode, type, selection) {
-    if(!(cm.haveItem(4031853) || cm.haveItem(4031854) || cm.haveItem(4031855)))
-        cm.gainItem(4031854, 1);
-    cm.saveSquadMembers(cm.getText());
-    cm.dispose();
+
+	if(mode == -1){
+		cm.dispose();
+	}
+	else{
+		if(mode == 0 && status == 0){
+			cm.dipose();
+			return;
+		}
+
+		if(mode == 1){
+			status++;
+		}
+		else{
+			status--;
+		}
+
+		if(status == 0){
+			if(!cm.isQuestStarted(2186) || cm.hasItem(4031853)){
+				cm.sendOk("You found nothing of interest...");
+				cm.dispose();
+			}
+			else{
+				cm.sendYesNo("You found #b#t4031853##k. Would you like to take #b#t4031853##k?  #i4031853#");
+			}
+		}
+		if(status == 1){
+			if(cm.getPlayer().canHold(4031853)){
+				cm.gainItem(4031853, 1);
+				cm.sendOk("You have taken #b#t4031853##k  #i4031853#");
+			}
+			else{
+				cm.sendOk("No free inventory spot available. Please make room in your ETC inventory.");
+			}
+			cm.dispose();
+		}
+	}
 }
