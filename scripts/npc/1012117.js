@@ -69,7 +69,13 @@ function action(mode, type, selection) {
                 }
                 
                 cm.gainItem(5150040, -1);
-                cm.setHair(hairnew[Math.floor(Math.random() * hairnew.length)]);
+                var newHairId;
+
+       			do{ // Makes sure the hair salon actually changes your hair.
+       				newHairId = hairnew[Math.floor(Math.random() * hairnew.length)]
+       			} while (newHairId == cm.getPlayer().getHair());
+
+                cm.setHair(newHairId);
                 cm.sendOk("Enjoy your new and improved hairstyle!");
             } else {
                 cm.sendOk("Hmmm...it looks like you don't have our designated coupon...I'm afraid I can't give you a haircut without it. I'm sorry...");
