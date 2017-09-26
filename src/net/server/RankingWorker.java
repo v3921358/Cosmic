@@ -45,7 +45,7 @@ public class RankingWorker implements Runnable {
     }
 
     private void updateRanking(int job, int world) throws SQLException {
-        String sqlCharSelect = "SELECT c.id, " + (job != -1 ? "c.jobRank, c.jobRankMove" : "c.rank, c.rankMove") + ", a.lastlogin AS lastlogin, a.loggedin FROM characters AS c LEFT JOIN accounts AS a ON c.accountid = a.id WHERE c.world = ? AND c.gm = 0";
+        String sqlCharSelect = "SELECT c.id, " + (job != -1 ? "c.jobRank, c.jobRankMove" : "c.rank, c.rankMove") + ", a.lastlogin AS lastlogin, a.loggedin FROM characters AS c LEFT JOIN accounts AS a ON c.accountid = a.id WHERE c.world = ? AND c.gm = 0 ";
         if (job != -1) {
             sqlCharSelect += "AND c.job DIV 100 = ? ";
         }
