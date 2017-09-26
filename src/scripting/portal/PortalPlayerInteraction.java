@@ -28,6 +28,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import scripting.AbstractPlayerInteraction;
 import server.MaplePortal;
+import server.quest.MapleQuest;
 import tools.DatabaseConnection;
 import tools.MaplePacketCreator;
 
@@ -92,4 +93,13 @@ public class PortalPlayerInteraction extends AbstractPlayerInteraction {
     public void playPortalSound() {
         c.announce(MaplePacketCreator.playPortalSound());
     }
+    
+    public void forceCompleteQuest(int id, int npc) {
+	try {
+            MapleQuest.getInstance(id).forceComplete(getPlayer(), npc);
+	} catch (NullPointerException ex) {
+            ex.printStackTrace();
+	}
+    }
+    
 }

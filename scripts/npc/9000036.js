@@ -53,6 +53,22 @@ function action(mode, type, selection) {
     status++;
     if (mode != 1) {
         cm.dispose();
+    }
+
+    if(status == 0){
+        cm.sendOk("This NPC has been temporarily disabled for game balance issues.");
+    }
+    else{
+        cm.dispose
+    }
+}
+
+/* DISABLED FOR NOW!!
+
+function action(mode, type, selection) {
+    status++;
+    if (mode != 1) {
+        cm.dispose();
         return;
     }
     if (status == 0) {
@@ -194,3 +210,4 @@ function action(mode, type, selection) {
         cm.dispose();
     }
 }
+*/
