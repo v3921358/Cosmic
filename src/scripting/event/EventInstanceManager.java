@@ -883,7 +883,7 @@ public class EventInstanceManager {
                 int rnd = (int)Math.floor(Math.random() * rewardsSet.size());
 
                 api.gainItem(rewardsSet.get(rnd), rewardsQty.get(rnd).shortValue());
-                if(rewardExp > 0) player.gainExp(rewardExp);
+                if(rewardExp > 0) player.gainExp(new Integer(rewardExp.intValue() * player.getExpRate()));
                 return true;
         }
         
