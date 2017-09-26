@@ -47,14 +47,15 @@ function action(mode, type, selection) {
                         status--;
     
                 if(status == 0) {
-                        cm.sendYesNo("So, are you going to use the Internet Cafe? There is a fee to use the spaces there, that is #b5,000 mesos#k. Are you going to enter the Cafe?");
+                        //cm.sendYesNo("So, are you going to use the Internet Cafe? There is a fee to use the spaces there, that is #b5,000 mesos#k. Are you going to enter the Cafe?");
+                        cm.sendYesNo("So, are you going to use the Internet Cafe?");
                 } else if(status == 1) {
-                        if(cm.getMeso() < 5000) {
+                        /*if(cm.getMeso() < 5000) {
                                 cm.sendOk("Oh, you don't have the money, right? Sorry, I can't let you in.");
                         } else {
                                 cm.warp(193000000);
-                        }
-                    
+                        }*/
+                        cm.sendOk("Get lost scrub. Play the game legitimately.");
                         cm.dispose();
                 }
         }

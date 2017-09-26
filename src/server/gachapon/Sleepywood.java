@@ -100,7 +100,7 @@ public class Sleepywood extends GachaponItems {
 
 	@Override
 	public int[] getRareItems() {
-		return new int [] {1302068, 2070007, 1022082, 1022058};
+		return new int [] {1302068, 2070007, /*1022082,*/ 1022058};
 	}
 
 }
