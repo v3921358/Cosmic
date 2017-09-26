@@ -84,7 +84,7 @@ function action(mode, type, selection) {
                 selStr += "\r\n#L" + i + "##t" + items[i] + "##b";
         }else if (selection == 2) { //eye accessory
             var selStr = "Got hard sight? Okay, so which glasses do you want me to make?#b";
-            items = [1022073, 1022088, 1022103, 1022089, 1022082];
+            items = [1022073, 1022088, 1022103, 1022089/*, 1022082*/];
             for (var i = 0; i < items.length; i++)
                 selStr += "\r\n#L" + i + "##t" + items[i] + "##b";
         }else if (selection == 3) { //belt & medal
