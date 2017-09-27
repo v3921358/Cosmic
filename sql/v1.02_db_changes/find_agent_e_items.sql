@@ -24,3 +24,9 @@ SELECT inventoryitemid, itemid, characterid, name FROM inventoryitems AS ii
 INNER JOIN characters AS cc ON cc.id = ii.characterid
 WHERE ii.itemid IN (1102041, 1102042, 1102021, 1102022, 1102023, 1102024, 1102084, 1102085, 1102086, 1102087)
 ORDER BY cc.name ASC;
+
+#White Scrolls
+select * from inventoryitems where itemid in (2340000)
+
+#spectrum goggles
+select * from inventoryitems where itemid in (1022082)
