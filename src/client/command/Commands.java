@@ -345,8 +345,8 @@ public class Commands {
                     
 		case "time":
 			DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-			dateFormat.setTimeZone(TimeZone.getTimeZone("-GMT3"));
-			player.yellowMessage("Solaxia Server Time: " + dateFormat.format(new Date()));
+			dateFormat.setTimeZone(TimeZone.getTimeZone("GMT-5"));
+			player.yellowMessage("DietStory Server Time: " + dateFormat.format(new Date()));
 			break;
                     
 		case "staff":
