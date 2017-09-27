@@ -28,7 +28,9 @@ function start() {
         cm.resetMapObjects(923010000);
         cm.warp(923010000);
     }
-        
-    else cm.sendSimple("Only few adventurers, from a selected public, are eligible to protect the Watch Hog.");
+    else
+    {
+        cm.sendOk("Only few adventurers, from a selected public, are eligible to protect the Watch Hog.");
+    } 
     cm.dispose();
 }
