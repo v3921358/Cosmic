@@ -29,89 +29,20 @@ function action(mode, type, selection) {
         else
             status--;
         if (status == 0) {
-            cm.sendSimple("Hello#b #h ##k, you currently have #b#c4001126# maple leaves.#k \r\nWhat would you like to do?\r\n#k#L1# Trade 1 leaf for 5,000 NX#l\r\n\#L2# Trade 1 leaf for 1 random chair #l\r\n\#L3# Trade 1 leaf for 3 random Maple Weapons #l\r\n\#L4# Trade 1 leaf for 3 Swiss Cheese and Onyx Apples#l\r\n#L5#Trade 1 leaf for a 10 day Hired Merchant#l");
+            cm.sendSimple("Hello#b #h ##k, you currently have #b#c4001126# maple leaves.#k \r\nWhat would you like to do?\r\n#k#L1# Trade 1 leaf for 500 NX");
         } else if (status == 1) {
             if (selection == 1) {
                 if(cm.haveItem(leaf, 1)) {
-					cm.getPlayer().getCashShop().gainCash(1, 5000);
-					cm.getPlayer().announce(MaplePacketCreator.earnTitleMessage("You have earned 5,000 NX"));
+					cm.getPlayer().getCashShop().gainCash(1, 500);
+					cm.getPlayer().announce(MaplePacketCreator.earnTitleMessage("You have earned 500 NX"));
                     cm.gainItem(leaf, -1);
-                    cm.sendOk("Here is your 5,000 NX!");
-					cm.logLeaf("5k NX");
+                    cm.sendOk("Here is your 500 NX!");
+					cm.logLeaf("500 NX");
                 } else {
                     cm.sendOk("Sorry, you don't have a maple leaf!");
 				}
                 cm.dispose();
-            } else if (selection == 2) {
-                if(cm.haveItem(leaf, 1)) {
-					var chair1 = chairs[Math.floor(Math.random()*chairs.length)];
-					if(cm.canHold(chair1)){
-						cm.gainItem(chair1);
-						cm.gainItem(leaf, -1);
-						cm.sendOk("Here is your random chair!");
-						cm.logLeaf("Chair ID: " + chair1);
-					} else {
-						cm.sendOk("Please make sure you have enough space to hold this chair!");
-					}
-                 } else {
-                    cm.sendOk("Sorry, you don't have a maple leaf!");
-				}
-                cm.dispose();
-			} else if (selection == 3) {
-                if(cm.haveItem(leaf, 1)) {
-					var weapon1 = weapons[Math.floor(Math.random()*weapons.length)];
-					var weapon2 = weapons[Math.floor(Math.random()*weapons.length)];
-					var weapon3 = weapons[Math.floor(Math.random()*weapons.length)];
-					if(!cm.getPlayer().getInventory(Packages.client.inventory.MapleInventoryType.EQUIP).isFull(3)) {
-						cm.gainItem(weapon1, 1, true, true);
-						cm.gainItem(weapon2, 1, true, true);
-						cm.gainItem(weapon3, 1, true, true);
-						cm.gainItem(leaf, -1);
-						cm.sendOk("Here are your 3 random weapons!");
-						cm.logLeaf("Maple Weapons IDs: " + weapon1 + "," + weapon2 + "," + weapon3);
-					} else {
-						cm.sendOk("Please make sure you have enough space to hold these weapons!");
-					}
-                 } else {
-                    cm.sendOk("Sorry, you don't have a maple leaf!");
-				}
-                cm.dispose();
-			} else if (selection == 4) {
-                if(cm.haveItem(leaf, 1)) {
-					var cheese = 2022273;
-					var apple = 2022179;
-					if(!cm.getPlayer().getInventory(Packages.client.inventory.MapleInventoryType.EQUIP).isFull(2)){
-						cm.gainItem(apple, 3);
-						cm.gainItem(cheese, 3);
-						cm.gainItem(leaf, -1);
-						cm.sendOk("Here are your 3 cheeses and apples!");
-						cm.logLeaf("3 cheeses and apples");
-					} else {
-						cm.sendOk("Please make sure you have enough space to hold these items!");
-					}
-                 } else {
-                    cm.sendOk("Sorry, you don't have a maple leaf!");
-				}
-                cm.dispose();
-            } else if(selection == 5) {
-				if(cm.haveItem(leaf, 1)) {
-					if(!cm.haveItem(5030000, 1)) {
-						if(!cm.getPlayer().getInventory(Packages.client.inventory.MapleInventoryType.CASH).isFull(1)){
-							cm.gainItem(5030000, 1, false, true, 1000 * 60 * 60 * 24 * 10);
-							cm.gainItem(leaf, -1);
-							cm.sendOk("Here is your Hired Merchant!");
-							cm.logLeaf("10 day hired merchant");
-						} else {
-							cm.sendOk("Please make sure you have enough space to hold these items!");
-						}
-					} else {
-						cm.sendOk("I can't give you a merchant if you already have one!");
-					}
-				} else {
-					cm.sendOk("Sorry, you don't have a maple leaf!");
-				}
-				cm.dispose();
-			} else {
+            }  else {
                 cm.sendOk("Come back later!");
 				cm.dispose();
 			}
