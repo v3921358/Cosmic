@@ -55,7 +55,7 @@ function action(mode, type, selection) {
                         } else {
                                 cm.warp(193000000);
                         }*/
-                        cm.sendOk("Get lost scrub. Play the game legitimately.");
+                        cm.sendOk("You aren't part of the cool club.");
                         cm.dispose();
                 }
         }

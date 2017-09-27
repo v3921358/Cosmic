@@ -3,12 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Kevin/Desktop/DietStory_Dev/MapleSolaxiaV2/src/client/MapleClient.java</file>
-            <file>file:/C:/Users/Kevin/Desktop/DietStory_Dev/MapleSolaxiaV2/src/client/command/Commands.java</file>
-            <file>file:/C:/Users/Kevin/Desktop/DietStory_Dev/MapleSolaxiaV2/src/client/MapleCharacter.java</file>
-            <file>file:/C:/Users/Kevin/Desktop/DietStory_Dev/MapleSolaxiaV2/src/scripting/npc/NPCConversationManager.java</file>
-            <file>file:/C:/Users/Kevin/Desktop/DietStory_Dev/MapleSolaxiaV2/src/client/MapleStat.java</file>
-            <file>file:/C:/Users/Kevin/Desktop/DietStory_Dev/MapleSolaxiaV2/src/client/MapleSkinColor.java</file>
+            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/handbook/NPC.txt</file>
+            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/event/ScargaBattle.js</file>
+            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/event/OrbisPQ.js</file>
+            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/src/scripting/AbstractPlayerInteraction.java</file>
+            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/handbook/Cash.txt</file>
+            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/src/scripting/npc/NPCConversationManager.java</file>
+            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/src/net/server/channel/handlers/ChangeMapHandler.java</file>
+            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/event/LudiPQ.js</file>
+            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/event/ShowaBattle.js</file>
+            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/src/server/gachapon/Global.java</file>
+            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/npc/2040043.js</file>
+            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/src/client/MapleCharacter.java</file>
+            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/docs/mcpq/2042002.js</file>
+            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/npc/9270043.js</file>
+            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/src/net/server/channel/handlers/UseCashItemHandler.java</file>
         </group>
     </open-files>
 </project-private>
