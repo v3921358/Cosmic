@@ -101,6 +101,7 @@ public class MapleClient {
 	private int world;
 	private long lastPong;
 	private int gmlevel;
+        private boolean flyActive;
 	private Set<String> macs = new HashSet<>();
 	private Map<String, ScriptEngine> engines = new HashMap<>();
 	private ScheduledFuture<?> idleTask = null;
@@ -515,7 +516,7 @@ public class MapleClient {
 		ResultSet rs = null;
 		try {
                         con = DatabaseConnection.getConnection();
-			ps = con.prepareStatement("SELECT id, password, salt, gender, banned, gm, pin, pic, characterslots, tos FROM accounts WHERE name = ?");
+			ps = con.prepareStatement("SELECT id, password, salt, gender, banned, gm, pin, pic, characterslots, tos, fly FROM accounts WHERE name = ?");
 			ps.setString(1, login);
 			rs = ps.executeQuery();
 			if (rs.next()) {
@@ -532,6 +533,7 @@ public class MapleClient {
 				String salt = rs.getString("salt");
 				//we do not unban
 				byte tos = rs.getByte("tos");
+                                flyActive = (rs.getShort("fly") == (short)1);
 				ps.close();
 				rs.close();
 				if (getLoginState() > LOGIN_NOTLOGGEDIN) { // already loggedin
@@ -1037,6 +1039,32 @@ public class MapleClient {
 	public int getGMLevel() {
 		return gmlevel;
 	}
+        
+        public boolean getFly(){
+            return flyActive;
+        }
+        
+        public void reloadFly(){
+            PreparedStatement ps;
+            
+            try{
+                Connection con = DatabaseConnection.getConnection();
+                ps = con.prepareStatement("SELECT `fly` FROM accounts WHERE `id` = ?;");
+                ps.setInt(1, accId);
+                
+                ResultSet rs = ps.executeQuery();
+                while(rs.next()){
+                    this.flyActive = (rs.getShort("fly") == (short)1);
+                }
+                
+                ps.close();
+                rs.close();
+                con.close();
+            }
+            catch(SQLException e){
+                e.printStackTrace();
+            }
+        }
         
         public void setGMLevel(int level) {
 		gmlevel = level;

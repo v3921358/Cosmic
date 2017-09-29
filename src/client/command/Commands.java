@@ -1394,6 +1394,64 @@ public class Commands {
                         c.getPlayer().getMap().broadcastMessage(MaplePacketCreator.enableActions());
                         break;
                     
+                case "fly":
+                        c.reloadFly();
+                        
+                        String argument = sub[1].toLowerCase();
+                        
+                        if (sub.length != 2 || !(argument.equals("on") || argument.equals("off"))) {
+                            player.message("Syntax: !fly [on/off]");
+                        }
+                        else if (argument.equals("on")){
+                            if(!c.getFly()){
+                                PreparedStatement ps = null;
+                                try{
+                                    Connection con = DatabaseConnection.getConnection();
+                                    ps = con.prepareStatement("UPDATE accounts SET fly = 1 WHERE name = ?;");
+                                    ps.setString(1, c.getAccountName());
+                                    ps.executeUpdate();
+                                    ps.close();
+                                    con.close();
+                                    
+                                    player.message("FLYING: ON (re-login required, press F1 to toggle flight mode)");
+                                } 
+                                catch(SQLException e){
+                                    e.printStackTrace();
+                                    player.message("Error with the database. Unable to turn on flying mode.");
+                                }
+                            }
+                            else{
+                                player.message("You can already fly! Try it by pressing F1.");
+                            }
+                        }
+                        else if (argument.equals("off")){
+                            if(c.getFly()){
+                                PreparedStatement ps = null;
+                                try{
+                                    Connection con = DatabaseConnection.getConnection();
+                                    ps = con.prepareStatement("UPDATE accounts SET fly = 0 WHERE name = ?;");
+                                    ps.setString(1, c.getAccountName());
+                                    ps.executeUpdate();
+                                    ps.close();
+                                    con.close();
+                                    
+                                    player.message("FLYING: OFF (re-login required)");
+                                } 
+                                catch(SQLException e){
+                                    e.printStackTrace();
+                                    player.message("Error with the database. Unable to turn off flying mode.");
+                                }
+                            }
+                            else{
+                                player.message("Flying mode is off.");
+                            }
+                        }
+                        else{
+                            player.message("LOL if you read this in chat, then Kevin is a dumbass!");
+                        }
+                        
+                        break;
+                    
                 default:
                         return false;
                 }

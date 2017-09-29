@@ -687,7 +687,7 @@ public class MaplePacketCreator {
                 
                 mplew.writeBool(c.getGMLevel() > 0);
                 
-                mplew.write(0); // Admin Byte. 0x80,0x40,0x20.. Rubbish.
+                mplew.write((c.getGMLevel() > 0 && c.getFly()) ? 0x80:0); // Admin Byte. 0x80,0x40,0x20.. Rubbish.
                 mplew.write(0); // Country Code.
                 
                 mplew.writeMapleAsciiString(c.getAccountName());

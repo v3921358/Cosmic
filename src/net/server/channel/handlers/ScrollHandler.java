@@ -31,6 +31,7 @@ import client.inventory.MapleInventory;
 import client.inventory.MapleInventoryType;
 import client.inventory.ModifyInventory;
 import constants.ItemConstants;
+import constants.GMConstants;
 import java.util.ArrayList;
 import java.util.List;
 import net.AbstractMaplePacketHandler;
@@ -94,7 +95,7 @@ public final class ScrollHandler extends AbstractMaplePacketHandler {
         if (ItemConstants.isCleanSlate(scroll.getItemId()) && !(toScroll.getLevel() + toScroll.getUpgradeSlots() < ii.getEquipStats(toScroll.getItemId()).get("tuc"))) { //upgrade slots can be over because of hammers
             return;
         }
-        Equip scrolled = (Equip) ii.scrollEquipWithId(toScroll, scroll.getItemId(), whiteScroll, 0, c.getPlayer().isGM());
+        Equip scrolled = (Equip) ii.scrollEquipWithId(toScroll, scroll.getItemId(), whiteScroll, 0, (c.getPlayer().isGM() && GMConstants.ALWAYS_SCROLL_SUCCESS));
         ScrollResult scrollSuccess = Equip.ScrollResult.FAIL; // fail
         if (scrolled == null) {
             scrollSuccess = Equip.ScrollResult.CURSE;
