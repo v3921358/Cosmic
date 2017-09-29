@@ -358,5 +358,3 @@ INSERT IGNORE INTO `shopitems` (`shopitemid`, `shopid`, `itemid`, `price`, `pitc
 
 
 
-
-

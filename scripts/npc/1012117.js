@@ -26,8 +26,8 @@
 */
 
 var status = 0;
-var mhair = Array(30130, 30050, 35350, 35050, 35340, 30220);
-var fhair = Array(37030, 31610, 34420, 38420, 34270, 34540);
+var mhair = Array(30130, 35350, 35050, 35340, 30330, 32410, 32390);
+var fhair = Array(31610, 38420, 34270, 34940, 34750, 38440, 37560);
 var hairnew = Array();
 
 function start() {
