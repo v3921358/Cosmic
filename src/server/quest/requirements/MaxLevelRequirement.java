@@ -26,6 +26,7 @@ import provider.MapleData;
 import provider.MapleDataTool;
 import server.quest.MapleQuest;
 import server.quest.MapleQuestRequirementType;
+import constants.ServerConstants;
 
 /**
  *
@@ -52,6 +53,11 @@ public class MaxLevelRequirement extends MapleQuestRequirement {
 	
 	@Override
 	public boolean check(MapleCharacter chr, Integer npcid) {
-		return maxLevel >= chr.getLevel();
+            if(ServerConstants.CHECK_QUEST_MAX_LVL){
+                return maxLevel >= chr.getLevel();
+            }
+            else{
+                return true;
+            }
 	}
 }
