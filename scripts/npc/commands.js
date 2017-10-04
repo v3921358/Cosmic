@@ -145,6 +145,7 @@ function writeSolaxiaCommandsLv3() {    //GM
         addCommand("npc", "");
         addCommand("face", "");
         addCommand("hair", "");
+        addCommand("endquest", "");
 }
 
 function writeSolaxiaCommandsLv2() {    //JrGM
@@ -179,6 +180,7 @@ function writeSolaxiaCommandsLv2() {    //JrGM
         addCommand("unjail", "");
         addCommand("job", "");
         addCommand("unbug", "");
+        addCommand("fly", "");
 }
 
 function writeSolaxiaCommandsLv1() {    //Donator

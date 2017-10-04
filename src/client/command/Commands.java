@@ -2129,6 +2129,13 @@ public class Commands {
                                 }
                         } catch(Exception e) {}
 			break;
+                
+                case "endquest":
+                    if(sub.length != 1){
+                        player.yellowMessage("Syntax: !endquest");
+                    }
+                    c.getAbstractPlayerInteraction().openNpc(9010000, "endquest");
+                    break;
                     
                 default:
                         return false;

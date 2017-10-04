@@ -340,6 +340,30 @@ public class MapleQuest {
 		
 		return mreq.getRequiredMobCount(mid);
     }
+    
+    public int getEndNPC(){
+        MapleQuestRequirement req = completeReqs.get(MapleQuestRequirementType.NPC);
+        
+        if(req == null){
+            return -1;
+        }
+        else{
+            NpcRequirement nreq = (NpcRequirement) req;
+            return nreq.getNPC();
+        }
+    }
+    
+    public String getName(){
+        if(questInfo != null){
+            MapleData specificInfo = questInfo.getChildByPath(String.valueOf(this.id));
+            if(specificInfo != null)
+                return MapleDataTool.getString("name", specificInfo);
+            else
+                return "Err: Missing quest data in QuestInfo.img";
+        }
+        else
+            return "Err: QuestInfo.img corrupted!";
+    }
 
     public short getInfoNumber() {
         return infoNumber;
