@@ -899,8 +899,8 @@ public class MapleItemInformationProvider {
                             }
                             break;
                     }
-                    if (!ItemConstants.isCleanSlate(scrollId)) {
-                        if (ServerConstants.USE_PERFECT_SCROLLING == true && !isGM && !usingWhiteScroll) {
+                    if (!ItemConstants.isCleanSlate(scrollId) && !isGM && !usingWhiteScroll) {
+                        if (ServerConstants.USE_PERFECT_SCROLLING == true || ServerConstants.USE_PERFECT_SCROLLING == false) {
                             nEquip.setUpgradeSlots((byte) (nEquip.getUpgradeSlots() - 1));
                         }
                         nEquip.setLevel((byte) (nEquip.getLevel() + 1));
@@ -913,13 +913,6 @@ public class MapleItemInformationProvider {
                     if ((int)(Math.random() * 100) + 1 <= stats.get("cursed")) {
                         return null;
                     }
-                }
-                
-                if (ServerConstants.USE_PERFECT_SCROLLING == false && !ItemConstants.isCleanSlate(scrollId)) {
-                    if (!isGM && !usingWhiteScroll) {
-                        nEquip.setUpgradeSlots((byte) (nEquip.getUpgradeSlots() - 1));
-                    }
-                    //nEquip.setLevel((byte) (nEquip.getLevel() + 1));
                 }
             } 
         }

@@ -4231,7 +4231,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         } else if (level == 90) {
             yellowMessage("Hey do you like the amusement park? I heard Spooky World is the best theme park around. I heard they sell cute teddy-bears.");
         } else if (level == 95) {
-            yellowMessage("100% of people who hit level 95 in Solaxia don't live to be 95 years old.");
+            yellowMessage("100% of people who hit level 95 in Diet don't live to be 95 years old.");
         } else if (level == 100) {
             yellowMessage("Mid-journey so far... You just reached level 100! Now THAT's such a feat, however to manage the 200 you will need even more passion and determination than ever! Good hunting!");
         } else if (level == 105) {
