@@ -345,7 +345,7 @@ public class Commands {
                     
 		case "time":
 			DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-			dateFormat.setTimeZone(TimeZone.getTimeZone("GMT-5"));
+			dateFormat.setTimeZone(TimeZone.getTimeZone("GMT-4"));
 			player.yellowMessage("DietStory Server Time: " + dateFormat.format(new Date()));
 			break;
                     
