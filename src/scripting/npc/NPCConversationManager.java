@@ -205,6 +205,14 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
                         ex.printStackTrace();
 		}
 	}
+        
+	public void completeQuest(short id, int npcId) {
+		try {
+			MapleQuest.getInstance(id).forceComplete(getPlayer(), npcId);
+		} catch (NullPointerException ex) {
+                        ex.printStackTrace();
+		}
+	}
 
 	public void startQuest(int id) {
 		try {
@@ -217,6 +225,14 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
 	public void completeQuest(int id) {
 		try {
 			MapleQuest.getInstance(id).forceComplete(getPlayer(), npc);
+		} catch (NullPointerException ex) {
+                        ex.printStackTrace();
+		}
+	}
+        
+	public void completeQuest(int id, int npcId) {
+		try {
+			MapleQuest.getInstance(id).forceComplete(getPlayer(), npcId);
 		} catch (NullPointerException ex) {
                         ex.printStackTrace();
 		}

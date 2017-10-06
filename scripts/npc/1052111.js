@@ -26,25 +26,27 @@ function action(mode, type, selection){
 			status++;
 
 
-		if(cm.isQuestStarted(20710)){
-			if(!cm.hasItem(4032136)){
-				cm.sendNext("You have found a #b#t4032136##k in the trash can!   #i4032136#");
+		if(status == 0){
+			if(cm.isQuestStarted(20710)){
+				if(!cm.hasItem(4032136)){
+					if(cm.canHold(4032136)){
+						cm.gainItem(4032136, 1);
+						cm.sendNext("You have found a #b#t4032136##k in the trash can!   #i4032136#");
+					}
+					else{
+						cm.sendOk("#i4032136# Not enough space in your ETC inventory.");
 
-				if(cm.canHold(4032136)){
-					cm.gainItem(4032136, 1);
+					}
 				}
 				else{
-					cm.sendOk("#i4032136# Not enough space in your ETC inventory.");
+					cm.sendOk("Just a trash can sitting there.");
 				}
-				cm.dispose();
 			}
 			else{
 				cm.sendOk("Just a trash can sitting there.");
-				cm.dispose();
 			}
 		}
-		else{
-			cm.sendOk("Just a trash can sitting there.");
+		else if(status == 1){
 			cm.dispose();
 		}
 	}

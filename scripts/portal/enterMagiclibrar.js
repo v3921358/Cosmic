@@ -18,9 +18,19 @@
 
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    Edited by: Kevin
 */
 function enter(pi) {
-		pi.playPortalSound();
-		pi.warp(101000003, 8);
-		return true;
+    if(pi.isQuestStarted(20718)){
+        pi.playPortalSound();
+        var cml = pi.getEventManager("Cygnus_Magic_Library");
+        cml.setProperty("player", pi.getPlayer().getName());
+        cml.startInstance(pi.getPlayer());
+    }
+    else{
+        pi.playPortalSound();
+        pi.warp(101000003, 8);
+    }
+    return true;
 }
