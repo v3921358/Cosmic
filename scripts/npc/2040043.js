@@ -47,7 +47,6 @@ function start() {
     curMap = cm.getMapId();
     
     stage = Math.floor((curMap - 922010100) / 100) + 1;
-    cm.mapMessage(5, "Welcome to stage " + stage);
 
     status = -1;
     action(1, 0, 0);
@@ -112,7 +111,7 @@ function action(mode, type, selection) {
                                             var correctCombo = true;
                                             for (i = 0; i < objset.length && correctCombo; i++)
                                                 if (parseInt(combo[i]) != objset[i]) {
-                                                    cm.mapMessage(5, "Combo failed on " + (i + 1));
+                                                    //cm.mapMessage(5, "Combo failed on " + (i + 1));
                                                     correctCombo = false;
                                                 }
                                             if (correctCombo || cm.getPlayer().gmLevel() > 1) {
