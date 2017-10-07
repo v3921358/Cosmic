@@ -52,6 +52,7 @@ import server.maps.MapleMap;
 import server.maps.MapleTVEffect;
 import tools.MaplePacketCreator;
 import tools.Pair;
+import tools.Randomizer;
 import tools.data.input.SeekableLittleEndianAccessor;
 
 public final class UseCashItemHandler extends AbstractMaplePacketHandler {
@@ -59,6 +60,9 @@ public final class UseCashItemHandler extends AbstractMaplePacketHandler {
     @Override
     public final void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
         final MapleCharacter player = c.getPlayer();
+        final int jobid = player.getJob().getId();
+        MapleJob job = player.getJob();
+        
         if (System.currentTimeMillis() - player.getLastUsedCashItem() < 3000) {
             player.dropMessage(1, "You have used a cash item recently. Wait a moment and try again.");
             c.announce(MaplePacketCreator.enableActions());
@@ -101,68 +105,74 @@ public final class UseCashItemHandler extends AbstractMaplePacketHandler {
                             return;
                         }
                         player.addStat(1, -1);
+                        DistributeAPHandler.addStat(c, APTo);
                         break;
                     case 128: // dex
                         if (player.getDex() < 5) {
                             return;
                         }
                         player.addStat(2, -1);
+                        DistributeAPHandler.addStat(c, APTo);
                         break;
                     case 256: // int
                         if (player.getInt() < 5) {
                             return;
                         }
                         player.addStat(3, -1);
+                        DistributeAPHandler.addStat(c, APTo);
                         break;
                     case 512: // luk
                         if (player.getLuk() < 5) {
                             return;
                         }
                         player.addStat(4, -1);
+                        DistributeAPHandler.addStat(c, APTo);
                         break;
                     case 2048: // HP
                     	if (APTo != 8192) {
-                    		c.announce(MaplePacketCreator.enableActions());
-                    		return;
+                            c.announce(MaplePacketCreator.enableActions());
+                            return;
                     	}
+                        
                         int hplose = 0;
-                        final int jobid = player.getJob().getId();
-                        if (jobid == 0 || jobid == 1000 || jobid == 2000 || jobid >= 1200 && jobid <= 1211) { // Beginner
+                        int mpgain = 0;
+                        if (jobid == 0 || jobid == 1000 || jobid == 2000) { // Beginner
                             hplose -= 12;
-                        } else if (jobid >= 100 && jobid <= 132) { // Warrior
-                            Skill improvinghplose = SkillFactory.getSkill(1000001);
-                            int improvinghploseLevel = c.getPlayer().getSkillLevel(improvinghplose);
-                            hplose -= 24;
-                            if (improvinghploseLevel >= 1) {
-                                hplose -= improvinghplose.getEffect(improvinghploseLevel).getY();
-                            }
-                        } else if (jobid >= 200 && jobid <= 232) { // Magician
-                            hplose -= 10;
-                        } else if (jobid >= 500 && jobid <= 522) { // Pirate
-                            Skill improvinghplose = SkillFactory.getSkill(5100000);
-                            int improvinghploseLevel = c.getPlayer().getSkillLevel(improvinghplose);
-                            hplose -= 22;
-                            if (improvinghploseLevel > 0) {
-                                hplose -= improvinghplose.getEffect(improvinghploseLevel).getY();
-                            }
-                        } else if (jobid >= 1100 && jobid <= 1111) { // Soul Master
-                            Skill improvinghplose = SkillFactory.getSkill(11000000);
-                            int improvinghploseLevel = c.getPlayer().getSkillLevel(improvinghplose);
-                            hplose -= 27;
-                            if (improvinghploseLevel >= 1) {
-                                hplose -= improvinghplose.getEffect(improvinghploseLevel).getY();
-                            }
-                        } else if ((jobid >= 1300 && jobid <= 1311) || (jobid >= 1400 && jobid <= 1411)) { // Wind Breaker and Night Walker
-                            hplose -= 17;
-                        } else if (jobid >= 300 && jobid <= 322 || jobid >= 400 && jobid <= 422 || jobid >= 2000 && jobid <= 2112) { // Aran
+                            mpgain += 6;
+                        } else if (jobid >= 100 && jobid <= 132 || jobid >= 1100 && jobid <= 1112) { // Warrior && Dawn Warriors
+                            hplose -= 55;
+                            mpgain += 4;
+                        } else if (jobid >= 200 && jobid <= 232 || jobid >= 1200 && jobid <= 1212) { // Magician && Blaze Wiz
                             hplose -= 20;
+                            mpgain += 90;
+                        } else if (jobid >= 500 && jobid <= 522 ||(jobid >= 1500 && jobid <= 1512)) { // Pirate
+                            hplose -= 22;
+                            mpgain += 16;
+                            if((jobid >= 510 && jobid <= 512) || (jobid >= 1500 && jobid <= 1512)) {  //Brawler && Thunder Breaker
+                                hplose -= 18;
+                            }
+                        } else if (jobid >= 300 && jobid <= 322 || (jobid >= 1300 && jobid <= 1312)) { //Bowman && Wind Archer
+                            hplose -= 20;
+                            mpgain += 12;
+                        } else if (jobid >= 400 && jobid <= 422 || (jobid >= 1400 && jobid <= 1412)) { //Thief && Night Walker
+                            hplose -= 20;
+                            mpgain += 12;
+                        } else if (jobid >= 2100 && jobid <= 2112) { // Aran
+                            hplose -= 40;
+                            mpgain += 5;
                         } else { // GameMaster
                             hplose -= 20;
+                            mpgain += 12;
                         }
                         player.setHp(player.getHp() + hplose);
                         player.setMaxHp(player.getMaxHp() + hplose);
+                        player.setMp(player.getMp() + mpgain);
+                        player.setMaxMp(player.getMaxMp() + mpgain);
+                        
                         statupdate.add(new Pair<>(MapleStat.HP, player.getHp()));
                         statupdate.add(new Pair<>(MapleStat.MAXHP, player.getMaxHp()));
+                        statupdate.add(new Pair<>(MapleStat.MP, player.getMp()));
+                        statupdate.add(new Pair<>(MapleStat.MAXMP, player.getMaxMp()));
                         break;
                     case 8192: // MP
                     	if (APTo != 2048) {
@@ -171,42 +181,96 @@ public final class UseCashItemHandler extends AbstractMaplePacketHandler {
                     	}
                         int mp = player.getMaxMp();
                         int level = player.getLevel();
-                        MapleJob job = player.getJob();
                         boolean canWash = true;
-                        if (job.isA(MapleJob.SPEARMAN) && mp < 4 * level + 156) {
-                            canWash = false;
-                        } else if (job.isA(MapleJob.FIGHTER) && mp < 4 * level + 56) {
-                            canWash = false;
-                        } else if (job.isA(MapleJob.THIEF) && job.getId() % 100 == 0 && mp < level * 14 - 4) {
-                            canWash = false;
-                        } else if (mp < level * 14 + 148) {
-                            canWash = false;
-                        }
-                        if (canWash) {
-                            int minmp = 0;
-                            if (job.isA(MapleJob.WARRIOR) || job.isA(MapleJob.DAWNWARRIOR1) || job.isA(MapleJob.ARAN1)) {
-                                minmp += 4;
-                            } else if (job.isA(MapleJob.MAGICIAN) || job.isA(MapleJob.BLAZEWIZARD1)) {
-                                minmp += 36;
-                            } else if (job.isA(MapleJob.BOWMAN) || job.isA(MapleJob.WINDARCHER1) || job.isA(MapleJob.THIEF) || job.isA(MapleJob.NIGHTWALKER1)) {
-                                minmp += 12;
-                            } else if (job.isA(MapleJob.PIRATE) || job.isA(MapleJob.THUNDERBREAKER1)) {
-                                minmp += 16;
+                        if (jobid == 0 || jobid == 1000 || jobid == 2000) { // Beginner
+                            if(mp < 10 * level + 2) {
+                                canWash = false;
+                            }
+                        } else if (jobid >= 100 && jobid <= 132 || jobid >= 1100 && jobid <= 1112) { // Warrior && Dawn Warriors
+                            if(jobid >= 130 && jobid <= 132) { //Spearman
+                                if(mp < 4*level + 156){
+                                    canWash = false;
+                                }
                             } else {
-                                minmp += 8;
-                            }                       
-                            player.setMp(player.getMp() - minmp);
-                            player.setMaxMp(player.getMaxMp() - minmp);
+                                if(mp < 4*level + 56){
+                                    canWash = false;
+                                }
+                            }
+                        } else if (jobid >= 200 && jobid <= 232 || jobid >= 1200 && jobid <= 1212) { // Magician && Blaze Wiz
+                            if(mp < 22*level + 488){
+                                canWash = false;
+                            }
+                        } else if (jobid >= 500 && jobid <= 522 ||(jobid >= 1500 && jobid <= 1512)) { // Pirate
+                            if(mp < 18*level + 111) {
+                                canWash = false;
+                            }
+                        } else if (jobid >= 300 && jobid <= 322 || (jobid >= 1300 && jobid <= 1312)) { //Bowman && Wind Archer
+                            if(mp < 14*level + 148) {
+                                canWash = false;
+                            }
+                        } else if (jobid >= 400 && jobid <= 422 || (jobid >= 1400 && jobid <= 1412)) { //Thief && Night Walker
+                            if(mp < 14*level + 148) {
+                                canWash = false;
+                            }
+                        } else if (jobid >= 2100 && jobid <= 2112) { // Aran
+                            if(mp < 5*level + 156) {
+                                canWash = false;
+                            }
+                        } else { // GameMaster
+                            if(mp < 14*level + 148) {
+                                canWash = false;
+                            }
+                        }
+                        
+                        if (canWash) {
+                            int mpLoss = 0;
+                            int hpGain = 0;
+                            if (jobid == 0 || jobid == 1000 || jobid == 2000) { // Beginner
+                                mpLoss = 6;
+                                hpGain += Randomizer.rand(8, 12);
+                            } else if (jobid >= 100 && jobid <= 132 || jobid >= 1100 && jobid <= 1112) { // Warrior && Dawn Warriors
+                                mpLoss = 4;
+                                hpGain += Randomizer.rand(50, 55);
+                            } else if (jobid >= 200 && jobid <= 232 || jobid >= 1200 && jobid <= 1212) { // Magician && Blaze Wiz
+                                mpLoss = 90;
+                                hpGain += Randomizer.rand(10, 20);
+                            } else if (jobid >= 500 && jobid <= 522 ||(jobid >= 1500 && jobid <= 1512)) { // Pirate
+                                mpLoss = 16;
+                                hpGain += Randomizer.rand(18, 22);
+                                if((jobid >= 510 && jobid <= 512) || (jobid >= 1500 && jobid <= 1512)) {  //Brawler && Thunder Breaker
+                                    hpGain = Randomizer.rand(36, 40);
+                                }
+                            } else if (jobid >= 300 && jobid <= 322 || (jobid >= 1300 && jobid <= 1312)) { //Bowman && Wind Archer
+                                mpLoss = 12;
+                                hpGain += Randomizer.rand(16, 20);
+                            } else if (jobid >= 400 && jobid <= 422 || (jobid >= 1400 && jobid <= 1412)) { //Thief && Night Walker
+                                mpLoss = 12;
+                                hpGain += Randomizer.rand(16, 20);
+                            } else if (jobid >= 2100 && jobid <= 2112) { // Aran
+                                mpLoss = 5;
+                                hpGain += Randomizer.rand(36, 40);
+                            } else { // GameMaster
+                                mpLoss = 12;
+                                hpGain += Randomizer.rand(16, 20);
+                            }                     
+                            
+                            player.setHp(player.getHp() + hpGain);
+                            player.setMaxHp(player.getMaxHp() + hpGain);
+                            player.setMp(player.getMp() - mpLoss);
+                            player.setMaxMp(player.getMaxMp() - mpLoss);
+                            
+                            statupdate.add(new Pair<>(MapleStat.HP, player.getHp()));
+                            statupdate.add(new Pair<>(MapleStat.MAXHP, player.getMaxHp()));
                             statupdate.add(new Pair<>(MapleStat.MP, player.getMp()));
                             statupdate.add(new Pair<>(MapleStat.MAXMP, player.getMaxMp()));
+                            
+                            c.announce(MaplePacketCreator.updatePlayerStats(statupdate, true, c.getPlayer()));
                             break;
                         }
                     default:
                         c.announce(MaplePacketCreator.updatePlayerStats(MaplePacketCreator.EMPTY_STATUPDATE, true, c.getPlayer()));
                         return;
                 }
-                DistributeAPHandler.addStat(c, APTo);
-                c.announce(MaplePacketCreator.updatePlayerStats(statupdate, true, c.getPlayer()));
             }
             remove(c, itemId);
         } else if (itemType == 506) {
