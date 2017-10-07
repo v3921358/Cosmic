@@ -9,9 +9,7 @@ var starting_attr;
 var delta;
 var ending_attr;
 var is_buying;
-var job;
-var Improve_MaxHP_level;
-var Improve_MaxMP_level;
+var jobId;
 var resets_to_use;
 var resets_to_buy;
 var nx;
@@ -29,7 +27,7 @@ function start(){
 	delta = {hp: 0, mp: 0, str: 0, dex: 0, int_: 0, luk: 0};
 	ending_attr = {hp: 0, mp: 0, str: 0, dex: 0, int_: 0, luk: 0};
 	ap_reset_count = cm.getItemQuantity(AP_RESET_ID);			// int
-	job = player.getJob();										// MapleJob
+	jobId= player.getJob().getId();								// MapleJob
 	resets_to_use = 0;
 
 	starting_attr = {
@@ -59,23 +57,6 @@ function start(){
 		name: "",
 		num: 0
 	}
-
-	if(job.isA(MapleJob.WARRIOR))
-		Improve_MaxHP_level = player.getSkillLevel(1000001);
-	else if(job.isA(MapleJob.PIRATE) || job.isA(MapleJob.THUNDERBREAKER1))
-		Improve_MaxHP_level = player.getSkillLevel(5100000);
-	else if(job.isA(MapleJob.DAWNWARRIOR1))
-		Improve_MaxHP_level = player.getSkillLevel(11000000);
-	else
-		Improve_MaxHP_level = 0;
-
-	if(job.isA(MapleJob.MAGICIAN))
-		Improve_MaxMP_level = player.getSkillLevel(2000001);
-	else if(job.isA(MapleJob.BLAZEWIZARD1))
-		Improve_MaxMP_level = player.getSkillLevel(12000000);
-	else
-		Improve_MaxMP_level = 0;
-
 
 	action(1, 0, 0);
 }
@@ -175,7 +156,7 @@ function action(mode, type, selection){
 			else if(selection == 6)
 				to_attr.name = "LUK"
 
-			cm.sendSimple("So you wish to #rremove#k a point from #r" +from_attr.name +"#k and #badd#k one to #b" +to_attr.name +"#k?#b\r\n#L1#Yes.#l\r\n#L2#Yes, do it #emultiple#n times.#l");
+			cm.sendSimple("#rRemove#k a point from #r" +from_attr.name +"#k and #badd#k one to #b" +to_attr.name +"#k?#b\r\n#L1#Yes.#l\r\n#L2#Yes, do it #emultiple#n times.#l");
 		}
 		else{ 	// BUYING AP RESETS
 			if(selection == 1){ 	// BUYING USING PREPAID
@@ -345,30 +326,22 @@ function action(mode, type, selection){
 function hpLost(repetitions){
 	var hp = 0;
 
-	if(job.isA(MapleJob.BEGINNER) || job.isA(MapleJob.NOBLESSE) || job.isA(MapleJob.BLAZEWIZARD1))
+	if(jobId ==  0 || jobId ==  1000 || jobId ==  2000) 	// BEGINNER or NOBLESSE or LEGEND
 		hp += 12;
-	else if(job.isA(MapleJob.MAGICIAN))
-		hp += 10;
-	else if(job.isA(MapleJob.WINDARCHER1) || job.isA(MapleJob.NIGHTWALKER1))
-		hp += 17;
-	else if(job.isA(MapleJob.WARRIOR)){
-		hp += 24;
-
-		if(Improve_MaxHP_level > 0)
-			hp += SkillFactory.getSkill(1000001).getEffect(Improve_MaxHP_level).getY();
-	}
-	else if(job.isA(MapleJob.PIRATE) || job.isA(MapleJob.THUNDERBREAKER1)){
+	else if(200 <= jobId && jobId <= 232 || 1200 <= jobId && jobId <= 1212) 	// MAGICIANS or BLAZEWIZARDS
+		hp += 20;
+	else if(300 <= jobId && jobId <= 322 || 1300 <= jobId && jobId <= 1312) 	// ARCHERS or WINDARCHERS
+		hp += 20;
+	else if(100 <= jobId && jobId <= 132 || 1100 <= jobId && jobId <= 1112) 	// WARRIORS or DAWNWARRIORS
+		hp += 55;
+	else if(400 <= jobId && jobId <= 422 || 1400 <= jobId && jobId <= 1412) 	// THEIVES or NIGHTWALKERS
+		hp += 20;
+	else if(510 <= jobId && jobId <= 512 || 1500 <= jobId && jobId <= 1512) 	// BRAWLERS or THUNDERBREAKERS
+		hp += 40;
+	else if(500 <= jobId && jobId <= 522) 	// PIRATES
 		hp += 22;
-
-		if(Improve_MaxHP_level > 0)
-			hp += SkillFactory.getSkill(5100000).getEffect(Improve_MaxHP_level).getY();
-	}
-	else if(job.isA(MapleJob.DAWNWARRIOR1)){
-		hp += 27;
-
-		if(Improve_MaxHP_level > 0)
-			hp += SkillFactory.getSkill(11000000).getEffect(Improve_MaxHP_level).getY();
-	}
+	else if(2100 <= jobId && jobId <= 2112) 	// ARANS
+		hp += 40;
 	else
 		hp += 20;
 
@@ -379,14 +352,24 @@ function hpLost(repetitions){
 function hpGain(repetitions){
 	var	hp = 0;
 
-	if((job.isA(MapleJob.WARRIOR) && Improve_MaxHP_level > 0) || (job.isA(MapleJob.DAWNWARRIOR1) && Improve_MaxHP_level > 0))
-		hp += 20;
-	else if((job.isA(MapleJob.PIRATE) && Improve_MaxHP_level > 0) || (job.isA(MapleJob.THUNDERBREAKER1) && Improve_MaxHP_level > 0))
-		hp += 18;
-	else if(job.isA(MapleJob.MAGICIAN) || job.isA(MapleJob.BLAZEWIZARD1))
-		hp += 6;
+	if(jobId ==  0 || jobId ==  1000 || jobId ==  2000) 	// BEGINNER or NOBLESSE or LEGEND
+		hp += randomNum(8, 12);
+	else if(200 <= jobId && jobId <= 232 || 1200 <= jobId && jobId <= 1212) 	// MAGICIANS or BLAZEWIZARDS
+		hp += randomNum(10, 20);
+	else if(300 <= jobId && jobId <= 322 || 1300 <= jobId && jobId <= 1312) 	// ARCHERS or WINDARCHERS
+		hp += randomNum(16, 20);
+	else if(100 <= jobId && jobId <= 132 || 1100 <= jobId && jobId <= 1112) 	// WARRIORS or DAWNWARRIORS
+		hp += randomNum(50, 55);
+	else if(400 <= jobId && jobId <= 422 || 1400 <= jobId && jobId <= 1412) 	// THEIVES or NIGHTWALKERS
+		hp += randomNum(16, 20);
+	else if(510 <= jobId && jobId <= 512 || 1500 <= jobId && jobId <= 1512) 	// BRAWLERS or THUNDERBREAKERS
+		hp += randomNum(36, 40);
+	else if(500 <= jobId && jobId <= 522) 	// PIRATES
+		hp += randomNum(18, 22);
+	else if(2100 <= jobId && jobId <= 2112) 	// ARANS
+		hp += randomNum(36, 40);
 	else
-		hp += 8;
+		hp += 20;
 
 	hp = hp * repetitions;
 	return hp;
@@ -395,14 +378,22 @@ function hpGain(repetitions){
 function mpLost(){
 	var mp = 0;
 
-	if(job.isA(MapleJob.WARRIOR) || job.isA(MapleJob.DAWNWARRIOR1) || job.isA(MapleJob.ARAN1))
-		mp += 4;
-	else if (job.isA(MapleJob.MAGICIAN) || job.isA(MapleJob.BLAZEWIZARD1))
-		mp += 36;
-	else if (job.isA(MapleJob.BOWMAN) || job.isA(MapleJob.WINDARCHER1) || job.isA(MapleJob.THIEF) || job.isA(MapleJob.NIGHTWALKER1))
+	if(jobId ==  0 || jobId ==  1000 || jobId ==  2000) 	// BEGINNER or NOBLESSE or LEGEND
+		mp += 6;
+	else if (200 <= jobId && jobId <= 232 || 1200 <= jobId && jobId <= 1212) 	// MAGICIANS or BLAZEWIZARDS
+		mp += 90;
+	else if (300 <= jobId && jobId <= 322 || 1300 <= jobId && jobId <= 1312) 	// ARCHERS or WINDARCHERS
 		mp += 12;
-	else if (job.isA(MapleJob.PIRATE) || job.isA(MapleJob.THUNDERBREAKER1))
+	else if (100 <= jobId && jobId <= 132 || 1100 <= jobId && jobId <= 1112) 	// WARRIORS or DAWNWARRIORS
+		mp += 4;
+	else if (400 <= jobId && jobId <= 422 || 1400 <= jobId && jobId <= 1412) 	// THEIVES or NIGHTWALKERS
+		mp += 12;
+	else if (510 <= jobId && jobId <= 512 || 1500 <= jobId && jobId <= 1512) 	// BRAWLERS or THUNDERBREAKERS
 		mp += 16;
+	else if (500 <= jobId && jobId <= 522) 	// PIRATES
+		mp += 16;
+	else if (2100 <= jobId && jobId <= 2112) 	// ARANS
+		mp += 5;
 	else
 		mp += 8;
 
@@ -412,16 +403,24 @@ function mpLost(){
 function mpGain(repetitions){
 	var mp = 0;
 
-	if(job.isA(MapleJob.BEGINNER) || job.isA(MapleJob.NOBLESSE) || job.isA(MapleJob.LEGEND))
+	if(jobId ==  0 || jobId ==  1000 || jobId ==  2000) 	// BEGINNER or NOBLESSE or LEGEND
 		mp += 6;
-	else if(job.isA(MapleJob.WARRIOR) || job.isA(MapleJob.DAWNWARRIOR1) || job.isA(MapleJob.ARAN1))
-		mp += 2;
-	else if(job.isA(MapleJob.BOWMAN) || job.isA(MapleJob.THIEF))
-		mp += 10;
-	else if((job.isA(MapleJob.MAGICIAN) && Improve_MaxMP_level > 0) || (job.isA(MapleJob.BLAZEWIZARD1) && Improve_MaxMP_level > 0))
-		mp += 18;
+	else if (200 <= jobId && jobId <= 232 || 1200 <= jobId && jobId <= 1212) 	// MAGICIANS or BLAZEWIZARDS
+		mp += 90;
+	else if (300 <= jobId && jobId <= 322 || 1300 <= jobId && jobId <= 1312) 	// ARCHERS or WINDARCHERS
+		mp += 12;
+	else if (100 <= jobId && jobId <= 132 || 1100 <= jobId && jobId <= 1112) 	// WARRIORS or DAWNWARRIORS
+		mp += 4;
+	else if (400 <= jobId && jobId <= 422 || 1400 <= jobId && jobId <= 1412) 	// THEIVES or NIGHTWALKERS
+		mp += 12;
+	else if (510 <= jobId && jobId <= 512 || 1500 <= jobId && jobId <= 1512) 	// BRAWLERS or THUNDERBREAKERS
+		mp += 16;
+	else if (500 <= jobId && jobId <= 522) 	// PIRATES
+		mp += 16;
+	else if (2100 <= jobId && jobId <= 2112) 	// ARANS
+		mp += 5;
 	else
-		mp += 14;
+		mp += 8;
 
 	mp = mp * repetitions;
 	return mp;
@@ -430,13 +429,24 @@ function mpGain(repetitions){
 function canReduceMP(mp){
 	var level = player.getLevel();
 
-	if(job.isA(MapleJob.SPEARMAN) && mp < (4*level)+156)
+	if((jobId ==  0 || jobId ==  1000 || jobId ==  2000) && (mp < 10*level+2)) 	// BEGINNER or NOBLESSE or LEGEND
 		return false;
-	else if(job.isA(MapleJob.FIGHTER) && mp < (4*level)+56)
+	else if((130 <= jobId && jobId <= 132) && (mp < 4*level+156)){ 	// SPEARMAN
 		return false;
-	else if(job.isA(MapleJob.THIEF) && job.getId()%100 == 0 && mp < (level*14)-4) // 2nd JOB THEIF
+	}
+	else if(((112 <= jobId && jobId <= 122) || (1100 <= jobId && jobId <= 1112)) && (mp < 4*level+156)) 	// FIGHTER or PAGE or DAWNWARRIORS
 		return false;
-	else if(mp < (level*14)+148)
+	else if(((400 <= jobId && jobId <= 422) || (1400 <= jobId && jobId <= 1412)) && (mp < 14*level+148)) 	// THEIF or NIGHTWALKER 
+		return false;
+	else if(((300 <= jobId && jobId <= 322) || (1100 <= jobId && jobId <= 1112)) && (mp < 14*level+148)) 	// BOWMAN or WINDARCHER 
+		return false;
+	else if(((200 <= jobId && jobId <= 232) || (1200 <= jobId && jobId <= 1212)) && (mp < 22*level+488)) 	// MAGICIANS or BLAZEWIZARDS 
+		return false;
+	else if(((510 <= jobId && jobId <= 512) || (1500 <= jobId && jobId <= 1512)) && (mp < 18*level+111)) 	// BRAWLERS or THUNDERBREAKERS 
+		return false;
+	else if((500 <= jobId && jobId <= 522) && (mp < 18*level+111)) 	// PIRATES
+		return false;
+	else if((2100 <= jobId && jobId <= 2112) && (mp < 5*level+156)) 	// ARANS
 		return false;
 	else 
 		return true;
@@ -564,10 +574,10 @@ function getUnchangedString(name, end_val, spaces){
 
 function getChangedString(name, start_val, end_val, spaces){
 	if(start_val > end_val){
-		return "#r" +name +"#k:" +generateSpace(spaces) +start_val +" ---> #r" +end_val +"#k\r\n";
+		return "#r" +name +"#k:" +generateSpace(spaces) +start_val +" ---> #r" +end_val +" (-" +Math.abs(end_val - start_val) +")#k\r\n";
 	}
 	else{
-		return "#b" +name +"#k:" +generateSpace(spaces) +start_val +" ---> #b" +end_val +"#k\r\n";
+		return "#b" +name +"#k:" +generateSpace(spaces) +start_val +" ---> #b" +end_val +" (+" +Math.abs(end_val - start_val) +")#k\r\n";
 	}
 }
 
@@ -578,4 +588,8 @@ function generateSpace(num){
 		retStr += " ";
 
 	return retStr
+}
+
+function randomNum(lower, upper){
+	return Math.floor(((upper - lower) + 1) * Math.random() + lower);
 }
