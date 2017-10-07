@@ -672,6 +672,12 @@ public class Commands {
 			}
 			break;
                             
+                case "apreset":
+                    if(sub.length != 1){
+                        player.yellowMessage("Syntax: !apreset");
+                    }
+                    c.getAbstractPlayerInteraction().openNpc(9010000, "apreset");
+                    break;
                 default:
                         return false;
                 }

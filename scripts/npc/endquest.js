@@ -42,7 +42,7 @@ function action(mode, type, selection){
 
 		for(var i = 0; i < questInfos.length; i++){
 			str += "#L" +(i+1) +"#";
-			str += "#e" +questInfos[i].id +"#n\t" +questInfos[i].name;
+			str += "#e" +questInfos[i].id +"#n\t" +((questInfos[i].id < 10000)?"  ":"") +questInfos[i].name;
 			str += "#l";
 			str += "\r\n";
 		}

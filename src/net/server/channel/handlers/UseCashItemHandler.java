@@ -169,7 +169,7 @@ public final class UseCashItemHandler extends AbstractMaplePacketHandler {
                     		c.announce(MaplePacketCreator.enableActions());
                     		return;
                     	}
-                        int mp = player.getMp();
+                        int mp = player.getMaxMp();
                         int level = player.getLevel();
                         MapleJob job = player.getJob();
                         boolean canWash = true;
@@ -177,7 +177,7 @@ public final class UseCashItemHandler extends AbstractMaplePacketHandler {
                             canWash = false;
                         } else if (job.isA(MapleJob.FIGHTER) && mp < 4 * level + 56) {
                             canWash = false;
-                        } else if (job.isA(MapleJob.THIEF) && job.getId() % 100 > 0 && mp < level * 14 - 4) {
+                        } else if (job.isA(MapleJob.THIEF) && job.getId() % 100 == 0 && mp < level * 14 - 4) {
                             canWash = false;
                         } else if (mp < level * 14 + 148) {
                             canWash = false;
