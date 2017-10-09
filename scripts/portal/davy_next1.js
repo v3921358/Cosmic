@@ -1,3 +1,4 @@
+import(Packages.constants);
 function enter(pi) {
     try {
         var eim = pi.getEventInstance();

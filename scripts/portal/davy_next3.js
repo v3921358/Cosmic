@@ -1,3 +1,4 @@
+import(Packages.constants);
 function enter(pi) {
 		var eim = pi.getEventInstance();
     if (pi.getMap().getMonsters().size() == 0) {
