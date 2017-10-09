@@ -3,41 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/docs/mcpq/MCField.java</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/npc/commands.js</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/handbook/NPC.txt</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/map/onUserEnter/cannon_tuto_direction1.js</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/src/dropspider/DropEntry.java</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/src/server/maps/MapleMap.java</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/portal/Depart_goFoward1.js</file>
+            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/src/client/MapleClient.java</file>
+            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/src/net/server/handlers/login/CreateCharHandler.java</file>
             <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/src/client/MapleCharacter.java</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/npc/2091005.js</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/npc/9270043.js</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/src/net/RecvOpcode.java</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/src/net/server/channel/handlers/UseCashItemHandler.java</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/portal/aranTutorMono1.js</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/docs/mcpq/MCWZData.java</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/quest/20203.js</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/quest/29900.js</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/event/ScargaBattle.js</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/event/OrbisPQ.js</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/src/scripting/AbstractPlayerInteraction.java</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/src/client/command/Commands.java</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/handbook/Cash.txt</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/src/scripting/npc/NPCConversationManager.java</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/src/net/PacketProcessor.java</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/quest/20000.js</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/src/net/server/channel/handlers/ChangeMapHandler.java</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/event/LudiPQ.js</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/event/ShowaBattle.js</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/src/server/gachapon/Global.java</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/npc/2040043.js</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/quest/29904.js</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/npc/1052115.js</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/npc/1012002.js</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/src/tools/MaplePacketCreator.java</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/scripts/quest/20201.js</file>
-            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/docs/mcpq/2042002.js</file>
+            <file>file:/C:/projects/MaplestoryBuild/MapleSolaxiaV2/src/server/CashShop.java</file>
         </group>
     </open-files>
 </project-private>
