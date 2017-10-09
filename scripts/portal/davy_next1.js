@@ -2,6 +2,7 @@ function enter(pi) {
     try {
         var eim = pi.getEventInstance();
         if (eim != null && eim.getProperty("stage2").equals("3")) {
+            eim.giveEventPlayersStageReward(1);
             pi.warp(925100200,0); //next
             return(true);
         } else {

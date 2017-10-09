@@ -18,7 +18,7 @@ function enter(pi) {
             pi.getMap(925100500).spawnMonsterOnGroundBelow(boss, new java.awt.Point(777, 140));
             eim.setProperty("spawnedBoss", "true");
         }
-        
+        eim.giveEventPlayersStageReward(4);
         pi.warp(925100500, 0);
         return(true);
     } else {

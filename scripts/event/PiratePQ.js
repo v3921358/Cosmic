@@ -51,7 +51,7 @@ function setEventExclusives(eim) {
 function setEventRewards(eim) {
 	var itemSet, itemQty, evLevel, expStages;
 
-	evLevel = 1;    //Rewards at clear PQ
+	evLevel = 5;    //Rewards at clear PQ
 		itemSet = [2040707, 2041013, 2044101, 2044201];
         itemQty = [1, 1, 1, 1];
         eim.setEventRewards(evLevel, itemSet, itemQty);
@@ -265,6 +265,12 @@ function end(eim) {
 }
 
 function clearPQ(eim) {
+        var party = eim.getPlayers();
+        for(var i = 0; i < party.size(); i++)
+        {
+            eim.giveEventReward(party[i], 5);
+        }
+        
         eim.stopEventTimer();
         eim.setEventCleared();
         
