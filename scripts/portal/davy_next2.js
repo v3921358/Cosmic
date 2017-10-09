@@ -1,4 +1,5 @@
 function enter(pi) {
+		var eim = pi.getEventInstance();
     if (pi.getMap().getMonsters().size() == 0) {
     	eim.giveEventPlayersStageReward(2);
 			pi.warp(925100300,0); //next

@@ -1,8 +1,8 @@
 importPackage(Packages.server.life);
 
 function enter(pi) {
+    var eim = pi.getEventInstance();
     if (pi.getMap().getReactorByName("sMob1").getState() >= 1 && pi.getMap().getReactorByName("sMob2").getState() >= 1 && pi.getMap().getReactorByName("sMob3").getState() >= 1 && pi.getMap().getReactorByName("sMob4").getState() >= 1 && pi.getMap().getMonsters().size() == 0) {
-	var eim = pi.getEventInstance();
         
         if(eim.getProperty("spawnedBoss") == null) {
             var level = parseInt(eim.getProperty("level"));
