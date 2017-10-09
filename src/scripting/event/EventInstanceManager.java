@@ -178,12 +178,12 @@ public class EventInstanceManager {
             
                 if(mapId == -1) {
                         for(MapleCharacter mc: players) {
-                                mc.gainExp(gain * mc.getExpRate(), true, true);
+                                mc.gainExp((int)(gain * mc.getExpRate() * ServerConstants.PQ_EXP_MOD), true, true);
                         }
                 }
                 else {
                         for(MapleCharacter mc: players) {
-                                if(mc.getMapId() == mapId) mc.gainExp(gain * mc.getExpRate(), true, true);
+                                if(mc.getMapId() == mapId) mc.gainExp((int)(gain * mc.getExpRate() * ServerConstants.PQ_EXP_MOD), true, true);
                         }
                 }
 	}
