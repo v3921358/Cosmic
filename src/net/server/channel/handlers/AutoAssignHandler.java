@@ -364,7 +364,7 @@ public class AutoAssignHandler extends AbstractMaplePacketHandler {
         
         int newVal = 0;
         if (type.equals(MapleStat.STR)) {
-            newVal = chr.getStr() + statEqpd[0] + gain;
+            newVal = chr.getStr() + /*statEqpd[0] +*/ gain;
             if (newVal > ServerConstants.MAX_AP) {
                 statGain[0] += gain - (newVal - ServerConstants.MAX_AP);
                 chr.setStr(ServerConstants.MAX_AP - statEqpd[0]);
@@ -373,7 +373,7 @@ public class AutoAssignHandler extends AbstractMaplePacketHandler {
                 chr.setStr(newVal);
             }
         } else if (type.equals(MapleStat.INT)) {
-            newVal = chr.getInt() + statEqpd[3] + gain;
+            newVal = chr.getInt() + /*statEqpd[3] +*/ gain;
             if (newVal > ServerConstants.MAX_AP) {
                 statGain[3] += gain - (newVal - ServerConstants.MAX_AP);
                 chr.setInt(ServerConstants.MAX_AP - statEqpd[3]);
@@ -382,7 +382,7 @@ public class AutoAssignHandler extends AbstractMaplePacketHandler {
                 chr.setInt(newVal);
             }
         } else if (type.equals(MapleStat.LUK)) {
-            newVal = chr.getLuk() + statEqpd[2] + gain;
+            newVal = chr.getLuk() + /*statEqpd[2] +*/ gain;
             if (newVal > ServerConstants.MAX_AP) {
                 statGain[2] += gain - (newVal - ServerConstants.MAX_AP);
                 chr.setLuk(ServerConstants.MAX_AP - statEqpd[2]);
@@ -391,7 +391,7 @@ public class AutoAssignHandler extends AbstractMaplePacketHandler {
                 chr.setLuk(newVal);
             }
         } else if (type.equals(MapleStat.DEX)) {
-            newVal = chr.getDex() + statEqpd[1] + gain;
+            newVal = chr.getDex() + /*statEqpd[1] +*/ gain;
             if (newVal > ServerConstants.MAX_AP) {
                 statGain[1] += gain - (newVal - ServerConstants.MAX_AP);
                 chr.setDex(ServerConstants.MAX_AP - statEqpd[1]);
