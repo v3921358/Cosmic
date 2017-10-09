@@ -57,7 +57,78 @@ public final class CreateCharHandler extends AbstractMaplePacketHandler {
 		return false;
 	}         	
 
+        public final boolean CreateUltimateExplorer(MapleClient c, boolean gender, MapleJob job, String name)
+        {
+            if (!MapleCharacter.canCreateChar(name)) {
+                return false;
+            }
+            MapleCharacter newchar = MapleCharacter.getDefault(c);
+            
+            int hair;
+            int hairColor = 0;
+            int skincolor = 2;
+            int face;
+            int top;
+            int bottom;
+            int shoes = 1072001;
+            int weapon = 1302000;
+            
+            newchar.setSkinColor(MapleSkinColor.getById(skincolor));
+            if(gender)  //Male
+            {
+                newchar.setGender(0);
+                hair = 30000;
+                face = 20000;
+                top = 1062115;
+                bottom = 1040002;
+            }
+            else //female
+            {
+                newchar.setGender(1);
+                hair = 31050;
+                face = 20100;
+                top = 1062115;
+                bottom = 1042167;
+            }
+            
+            newchar.setName(name);
+            newchar.setHair(hair + hairColor);
+            newchar.setFace(face);
+            
+            int [] items = new int [] {weapon, top, bottom, shoes, hair, face};
+            for (int i = 0; i < items.length; i++){
+                    if (!isLegal(items[i])) {
+                            AutobanFactory.PACKET_EDIT.alert(newchar, name + " tried to packet edit in character creation.");
+                            FilePrinter.printError(FilePrinter.EXPLOITS  + newchar + ".txt", "Tried to packet edit in char creation.");	
+                            c.disconnect(true, false);
+                            return false;
+                    }
+            }
+            
+            MapleInventory equipped = newchar.getInventory(MapleInventoryType.EQUIPPED);
 
+            Item eq_top = MapleItemInformationProvider.getInstance().getEquipById(top);
+            eq_top.setPosition((byte) -5);
+            equipped.addFromDB(eq_top);
+            Item eq_bottom = MapleItemInformationProvider.getInstance().getEquipById(bottom);
+            eq_bottom.setPosition((byte) -6);
+            equipped.addFromDB(eq_bottom);
+            Item eq_shoes = MapleItemInformationProvider.getInstance().getEquipById(shoes);
+            eq_shoes.setPosition((byte) -7);
+            equipped.addFromDB(eq_shoes);
+            Item eq_weapon = MapleItemInformationProvider.getInstance().getEquipById(weapon);
+            eq_weapon.setPosition((byte) -11);
+            equipped.addFromDB(eq_weapon.copy());
+            
+            if (!newchar.insertNewChar()) {
+			c.announce(MaplePacketCreator.deleteCharResponse(0, 9));
+			return false;
+		}
+		c.announce(MaplePacketCreator.addNewCharEntry(newchar));
+            
+            return true;
+        }
+        
 	@Override
 	public final void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
 		String name = slea.readMapleAsciiString();

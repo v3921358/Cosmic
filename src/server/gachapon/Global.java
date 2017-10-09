@@ -43,7 +43,7 @@ public class Global extends GachaponItems {
 				/* Capes */			1102180,
 				/* Potions */		2022179, 2022273, 2022282, 2022283,
 				/* Scrolls */		2049003,
-				/* Skis */			1432018
+				/* Skis */              1432018
 		};
 	}
 
@@ -51,7 +51,7 @@ public class Global extends GachaponItems {
 	public int[] getRareItems() {
 		return new int[] {
 				/* Gloves */		1082149, 
-				/* Capes */			1102041, 1102042, /*1102084,*/ 1102085,
+				/* Capes */             /*1102041, 1102042, 1102084, 1102085,*/
 				/* Scrolls */		2049100, /*2340000,*/
 				/* Chairs */		3010046, 3010047
 		};
