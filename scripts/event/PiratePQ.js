@@ -268,7 +268,7 @@ function clearPQ(eim) {
         var party = eim.getPlayers();
         for(var i = 0; i < party.size(); i++)
         {
-            eim.giveEventReward(party.get(i), 5);
+            eim.giveEventReward(party.get(i));
         }
         
         eim.stopEventTimer();
