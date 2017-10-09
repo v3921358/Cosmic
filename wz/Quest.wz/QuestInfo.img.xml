@@ -19754,7 +19754,7 @@ Able to proceed to &apos;Merry-go-round in Kampung&apos; as next quest.
     <string name="2" value="I completed #b#p9209001##k&apos;s final task. The public seems to have enjoyed a lot the events of the Maple 7th Day Market."/>
     <int name="area" value="50"/>
   </imgdir>
-  <imgdir name="8251">
+  <!-- <imgdir name="8251">
     <string name="name" value="Assembling the toy-armada!"/>
     <string name="0" value="It seems the aliens started to plunder cows from the farms around #bHenesys#k. I will check with #bLazy Daisy#k what is going on."/>
     <string name="1" value="#bLazy Daisy#k figured out that assembling an armada to fight back the aliens would stop them from their current plundering actions. Let&apos;s help her!\n\n#i4000099# #t4000099# #c4000099# / #r100#k\n#i4000104# #t4000104# #c4000104# / #r100#k\n#i4000105# #t4000105# #c4000105# / #r100#k\n#i4000118# #t4000118# #c4000118# / #r100#k\n#i4000122# #t4000122# #c4000122# / #r100#k\n#i4000124# #t4000124# #c4000124# / #r10#k\n#i4000125# #t4000125# #c4000125# / #r10#k\n#i4000126# #t4000126# #c4000126# / #r10#k\n"/>
@@ -19768,7 +19768,7 @@ Able to proceed to &apos;Merry-go-round in Kampung&apos; as next quest.
     <string name="2" value="The administrator told me more about the Chaos Scrolls capabilities: enhancing or downgrading an equipment&apos;s stats."/>
     <int name="area" value="50"/>
     <int name="autoStart" value="1"/>
-  </imgdir>
+  </imgdir> -->
   <imgdir name="8255">
     <string name="name" value="Lost Spirits"/>
     <string name="parent" value="Lost Spirits"/>
