@@ -2,7 +2,7 @@ importPackage(Packages.constants);
 function enter(pi) {
 		var eim = pi.getEventInstance();
     if (pi.getMap().getMonsters().size() == 0) {
-    	pi.gainExp(eim.getClearStageExp(3) * pi.getPlayer().getExpRate() * ServerConstants.PQ_EXP_MOD);
+    	pi.giveCharacterExp(Math.floor(eim.getClearStageExp(3) * ServerConstants.PQ_EXP_MOD), pi.getPlayer());
 			pi.warp(925100300,0); //next
       return(true);
     } else {

@@ -3,7 +3,7 @@ function enter(pi) {
     try {
         var eim = pi.getEventInstance();
         if (eim != null && eim.getProperty("stage2").equals("3")) {
-            pi.gainExp(eim.getClearStageExp(2) * pi.getPlayer().getExpRate() * ServerConstants.PQ_EXP_MOD);
+            pi.giveCharacterExp(Math.floor(eim.getClearStageExp(2) * ServerConstants.PQ_EXP_MOD), pi.getPlayer());
             pi.warp(925100200,0); //next
             return(true);
         } else {
