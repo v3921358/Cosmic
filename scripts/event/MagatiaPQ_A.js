@@ -66,7 +66,7 @@ function getEligibleParty(party) {      //selects, from the given party, the tea
         var eligible = [];
         var hasLeader = false;
         
-        if(party.size() > 0)82
+        if(party.size() > 0)
                 var partyList = party.toArray();
 
                 for(var i = 0; i < party.size(); i++) {
