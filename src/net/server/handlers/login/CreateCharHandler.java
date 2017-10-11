@@ -57,13 +57,17 @@ public final class CreateCharHandler extends AbstractMaplePacketHandler {
 		return false;
 	}         	
 
-        public final boolean CreateUltimateExplorer(MapleClient c, boolean gender, MapleJob job, String name)
+        public final boolean CreateUltimateExplorer(MapleClient c, boolean gender, String name)
         {
+            //Create Character And Name -------------------------------------------
             if (!MapleCharacter.canCreateChar(name)) {
                 return false;
             }
             MapleCharacter newchar = MapleCharacter.getDefault(c);
+            newchar.setWorld(c.getWorld());
+            // -------------------------------------------
             
+            //Create Character Looks -------------------------------------------
             int hair;
             int hairColor = 0;
             int skincolor = 2;
@@ -94,7 +98,9 @@ public final class CreateCharHandler extends AbstractMaplePacketHandler {
             newchar.setName(name);
             newchar.setHair(hair + hairColor);
             newchar.setFace(face);
+            // -------------------------------------------
             
+            //Set Equips -------------------------------------------
             int [] items = new int [] {weapon, top, bottom, shoes, hair, face};
             for (int i = 0; i < items.length; i++){
                     if (!isLegal(items[i])) {
@@ -119,13 +125,22 @@ public final class CreateCharHandler extends AbstractMaplePacketHandler {
             Item eq_weapon = MapleItemInformationProvider.getInstance().getEquipById(weapon);
             eq_weapon.setPosition((byte) -11);
             equipped.addFromDB(eq_weapon.copy());
+            // -------------------------------------------
             
-            if (!newchar.insertNewChar()) {
+            //Set Character Job -------------------------------------------
+            newchar.setJob(MapleJob.BEGINNER);
+            newchar.setMapId(10000);
+            newchar.getInventory(MapleInventoryType.ETC).addItem(new Item(4161001, (short) 0, (short) 1));
+            // -------------------------------------------
+            
+            //Create Character with successor id
+            if (!newchar.insertNewChar(c.getPlayer().getId())) {
 			c.announce(MaplePacketCreator.deleteCharResponse(0, 9));
 			return false;
 		}
 		c.announce(MaplePacketCreator.addNewCharEntry(newchar));
-            
+            //
+                
             return true;
         }
         
@@ -197,7 +212,7 @@ public final class CreateCharHandler extends AbstractMaplePacketHandler {
 		eq_weapon.setPosition((byte) -11);
 		equipped.addFromDB(eq_weapon.copy());
 
-		if (!newchar.insertNewChar()) {
+		if (!newchar.insertNewChar(-1)) {
 			c.announce(MaplePacketCreator.deleteCharResponse(0, 9));
 			return;
 		}

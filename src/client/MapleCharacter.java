@@ -158,7 +158,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         "nigger", "homo", "suck", "cum", "shit", "shitty", "condom", "security", "official", "rape", "nigga", "sex", "tit", "boner", "orgy", "clit", "asshole", "fatass", "bitch", "support", "gamemaster", "cock", "gaay", "gm",
         "operate", "master", "sysop", "party", "GameMaster", "community", "message", "event", "test", "meso", "Scania", "renewal", "yata", "AsiaSoft", "henesys"};
     private int world;
-    private int accountid, id;
+    private int accountid, id, mentorId;
     private int rank, rankMove, jobRank, jobRankMove;
     private int level, str, dex, luk, int_, hp, maxhp, mp, maxmp;
     private int hpMpApUsed;
@@ -2999,6 +2999,10 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     public int getId() {
         return id;
     }
+    
+    public int getMentorId(){
+        return mentorId;
+    }
 
     public static int getAccountIdByName(String name) {
         try {
@@ -4812,6 +4816,20 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
                 }
                 rs.close();
                 ps.close();
+                
+                //Ultimate Adventurers
+                ps = con.prepareStatement("SELECT `cygnusId` FROM ultimate_adventurers WHERE successorId = ?");
+                ps.setInt(1, charid);
+                rs = ps.executeQuery();
+                if(rs.next())
+                {
+                    ret.mentorId = rs.getInt("cygnusId");
+                }else
+                {
+                    ret.mentorId = -1;
+                }
+                //
+                
                 ret.buddylist.loadFromDb(charid);
                 ret.storage = MapleStorage.loadOrCreateFromDB(ret.accountid, ret.world);
                 ret.recalcLocalStats();
@@ -5487,9 +5505,12 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         savedLocations[SavedLocationType.fromString(type).ordinal()] = new SavedLocation(getMapId(), closest != null ? closest.getId() : 0);
     }
 
-    public final boolean insertNewChar() {
+    public final boolean insertNewChar(int cygnusId) {
         Connection con = null;
         PreparedStatement ps = null;
+        PreparedStatement ua = null;
+        int updateRows;
+        ResultSet rs;
 
         try {
             con = DatabaseConnection.getConnection();
@@ -5514,13 +5535,13 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             ps.setString(15, name);
             ps.setInt(16, world);
 
-            int updateRows = ps.executeUpdate();
+            updateRows = ps.executeUpdate();
             if (updateRows < 1) {
                 ps.close();
                 FilePrinter.printError(FilePrinter.INSERT_CHAR, "Error trying to insert " + name);
                 return false;
             }
-            ResultSet rs = ps.getGeneratedKeys();
+            rs = ps.getGeneratedKeys();
             if (rs.next()) {
                 this.id = rs.getInt(1);
                 rs.close();
@@ -5531,7 +5552,37 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
                 FilePrinter.printError(FilePrinter.INSERT_CHAR, "Inserting char failed " + name);
                 return false;
             }
-
+            
+            //Add ultimate adventurer
+            if(cygnusId > 0)
+            {
+                ua = con.prepareStatement("INSERT INTO ultimate_adventurers (sucessorId, cygnusId) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
+                ua.setInt(1, this.id);
+                ua.setInt(2, cygnusId);
+                
+                updateRows = ua.executeUpdate();
+                if(updateRows < 1)
+                {
+                    ua.close();
+                    FilePrinter.printError(FilePrinter.INSERT_CHAR, "Error trying to insert UA " + name);
+                    return false;
+                }
+                rs = ua.getGeneratedKeys();
+                if(rs.next())
+                {
+                    this.mentorId = rs.getInt(1);
+                    rs.close();
+                    ua.close();
+                }
+                else 
+                {
+                    rs.close();
+                    ua.close();
+                    FilePrinter.printError(FilePrinter.INSERT_CHAR, "Inserting char failed " + name);
+                    return false;
+                }
+            }
+            
             // Select a keybinding method
             int[] selectedKey;
             int[] selectedType;
