@@ -438,7 +438,7 @@ function canReduceMP(mp){
 		return false;
 	else if(((400 <= jobId && jobId <= 422) || (1400 <= jobId && jobId <= 1412)) && (mp < 14*level+148)) 	// THEIF or NIGHTWALKER 
 		return false;
-	else if(((300 <= jobId && jobId <= 322) || (1100 <= jobId && jobId <= 1112)) && (mp < 14*level+148)) 	// BOWMAN or WINDARCHER 
+	else if(((300 <= jobId && jobId <= 322) || (1300 <= jobId && jobId <= 1312)) && (mp < 14*level+148)) 	// BOWMAN or WINDARCHER 
 		return false;
 	else if(((200 <= jobId && jobId <= 232) || (1200 <= jobId && jobId <= 1212)) && (mp < 22*level+488)) 	// MAGICIANS or BLAZEWIZARDS 
 		return false;
