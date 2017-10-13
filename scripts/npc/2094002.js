@@ -7,14 +7,25 @@ function start() {
 
 function action(mode, type, selection) {
     if (mode == 1) {
-	status++;
+	   status++;
+       if(type == 1 && !cm.isEventLeader())
+       {
+            cm.warp(251010404,0);
+            cm.dispose();
+            return; 
+       }
     } else {
-	status--;
+	   status--;
+       if(!cm.isEventLeader())
+       {
+            cm.dispose();
+       }
     }
+
     if (cm.getPlayer().getMapId() == 925100700) {
-	cm.warp(251010404,0);
-	cm.dispose();
-	return;
+    	cm.warp(251010404,0);
+    	cm.dispose();
+    	return;
     }
     
     if(status == 1) {   // leaders cant withdraw
@@ -23,7 +34,7 @@ function action(mode, type, selection) {
     }
     
     if (!cm.isEventLeader()) {
-	cm.sendYesNo("I wish for your leader to talk to me. Alternatively, you may be wanting to quit. Are you going to abandon this campaign?");
+	   cm.sendYesNo("I wish for your leader to talk to me. Alternatively, you may be wanting to quit. Are you going to abandon this campaign?");
     }
     else {
         var eim = cm.getEventInstance();
@@ -130,6 +141,7 @@ function action(mode, type, selection) {
                 break;
         }
     }
+
     
     
 }
