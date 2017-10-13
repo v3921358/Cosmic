@@ -6838,6 +6838,10 @@
     <imgdir name="4032248">
       <string name="name" value="Map to MV&apos;s Lair"/>
     </imgdir>
+    <imgdir name="4032861">
+      <string name="name" value="Peridot"/>
+      <string name="desc" value="An emerald-colored jewel on Empress Cygnus&apos;s helmet. This sun-powered jewel is the Empress&apos;s source of power."/>
+    </imgdir>
     <imgdir name="4000487">
       <string name="name" value="Shadow Meso"/>
     </imgdir>
