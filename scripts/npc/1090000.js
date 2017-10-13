@@ -66,7 +66,7 @@ function action(mode, type, selection) {
     if (status == -1){
         start();
         return;
-    } else if (mode != 1 || status == 7 && type != 1 || (actionx["1stJob"] && status == 4) || (cm.haveItem(4031008) && status == 2) || (actionx["3thJobI"] && status == 1)){
+    } else if (mode != 1 || status == 7 && type != 1 || (actionx["1stJob"] && status == 5) || (cm.haveItem(4031008) && status == 2) || (actionx["3thJobI"] && status == 1)){
         if (mode == 0 && status == 2 && type == 1)
             cm.sendOk("You know there is no other choice...");
         if (!(mode == 0 && type != 1)){
@@ -85,6 +85,10 @@ function action(mode, type, selection) {
 					cm.gainItem(1482000, 1);
 					cm.gainItem(2330000, 1000);
                     cm.resetStats();
+                    if(cm.getPlayer().getMentorId() > 0)
+                    {
+                        cm.getPlayer().teachSkill(15111007, 30, 30, -1);
+                    }
                 }
                 cm.sendNext("Alright, from here out, you are a part of us! You'll be living the life of a wanderer at ..., but just be patient as soon, you'll be living the high life. Alright, it ain't much, but I'll give you some of my abilities... HAAAHHH!!!");
             } else {
@@ -94,7 +98,20 @@ function action(mode, type, selection) {
         } else if (status == 2) 
             cm.sendNextPrev("You've gotten much stronger now. Plus every single one of your inventories have added slots. A whole row, to be exact. Go see for it yourself. I just gave you a little bit of #bSP#k. When you open up the #bSkill#k menu on the lower left corner of the screen, there are skills you can learn by using SP's. One warning, though: You can't raise it all together all at once. There are also skills you can acquire only after having learned a couple of skills first.");
         else if (status == 3)
+        {
+            if(cm.getPlayer().getMentorId() > 0)
+            {
+                cm.sendNextPrev("Feel the electric rush. Harness the energy as an #bUltimate Explorer#k to reach even greater heights!");    
+            }
+            else
+            {
+                cm.sendNextPrev("Good luck.");
+            }
+        }
+        else if (status == 4)
             cm.sendNextPrev("One more warning. Once you have chosen, you (Incomplete)");
+        else
+            cm.dispose();
     } else if(actionx["2ndJob"]){
         if (status == 0){
             if (cm.isQuestCompleted(2191) || cm.isQuestCompleted(2192))

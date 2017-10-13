@@ -189,6 +189,7 @@ public class SkillFactory {
                 case Beginner.NIMBLE_FEET:
                 case Beginner.MONSTER_RIDER:
                 case Beginner.ECHO_OF_HERO:
+                case Beginner.UA_SOUL_DRIVER:
                 case Swordsman.IRON_BODY:
                 case Fighter.AXE_BOOSTER:
                 case Fighter.POWER_GUARD:

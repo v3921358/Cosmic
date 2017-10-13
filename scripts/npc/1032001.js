@@ -70,7 +70,7 @@ function action(mode, type, selection) {
     if (status == -1){
         start();
         return;
-    } else if (mode != 1 || status == 7 || (actionx["1stJob"] && status == 4) || (cm.haveItem(4031008) && status == 2) || (actionx["3thJobI"] && status == 1)){
+    } else if (mode != 1 || status == 7 || (actionx["1stJob"] && status == 7) || (cm.haveItem(4031008) && status == 2) || (actionx["3thJobI"] && status == 1)){
         if (mode == 0 && status == 2 && type == 1)
             cm.sendOk("You know there is no other choice...");
         if (!(mode == 0 && type == 0)){
@@ -87,6 +87,10 @@ function action(mode, type, selection) {
                     cm.changeJobById(200);
                     cm.gainItem(1372043, 1);
                     cm.resetStats();
+                    if(cm.getPlayer().getMentorId() > 0)
+                    {
+                        cm.getPlayer().teachSkill(12111005, 30, 30, -1);
+                    }
                 }
                 cm.sendNext("Alright, from here out, you are a part of us! You'll be living the life of a wanderer at ..., but just be patient as soon, you'll be living the high life. Alright, it ain't much, but I'll give you some of my abilities... HAAAHHH!!!");
             } else {
@@ -98,9 +102,22 @@ function action(mode, type, selection) {
         else if (status == 3)
             cm.sendNextPrev("But remember, skills aren't everything. Your stats should support your skills as a Magician, also. Magicians use INT as their main stat, and LUK as their secondary stat. If raising stats is difficult, just use #bAuto-Assign#k");
         else if (status == 4)
-            cm.sendNextPrev("Now, one more word of warning to you. If you fail in battle from this point on, you will lose a portion of your total EXP. Be extra mindful of this, since you have less HP than most.");
+        {
+            if(cm.getPlayer().getMentorId() > 0)
+            {
+                cm.sendNextPrev("Ignite your passion for knowledge. Harness the energy as an #bUltimate Explorer#k to reach even greater heights!");    
+            }
+            else
+            {
+                cm.sendNextPrev("Good luck.");
+            }
+        }
         else if (status == 5)
+            cm.sendNextPrev("Now, one more word of warning to you. If you fail in battle from this point on, you will lose a portion of your total EXP. Be extra mindful of this, since you have less HP than most.");
+        else if (status == 6)
             cm.sendPrev("This is all I can teach you. Good luck on your journey, young Magician.");
+        else
+            cm.dispose();
     } else if(actionx["2ndJob"]){
         if (status == 0){
             if (cm.haveItem(4031012))

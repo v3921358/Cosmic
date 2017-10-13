@@ -87,6 +87,10 @@ function action(mode, type, selection) {
                     cm.changeJobById(100);
                     cm.gainItem(1302077, 1);
                     cm.resetStats();
+                    if(cm.getPlayer().getMentorId() > 0)
+                    {
+                        cm.teachSkill(9100, 30, 30, -1);
+                    }
                 }
                 cm.sendNext("From here on out, you are going to the (Incomplete)");
             } else {
@@ -96,6 +100,16 @@ function action(mode, type, selection) {
         } else if (status == 2) 
             cm.sendNextPrev("You've gotten much stronger now. Plus every single one of your inventories have added slots. A whole row, to be exact. Go see for it yourself. I just gave you a little bit of #bSP#k. When you open up the #bSkill#k menu on the lower left corner of the screen, there are skills you can learn by using SP's. One warning, though: You can't raise it all together all at once. There are also skills you can acquire only after having learned a couple of skills first.");
         else if (status == 3)
+        {
+            if(cm.getPlayer().getMentorId() > 0)
+            {
+                cm.sendNextPrev("Your soul shines with bravery. Harness the energy as an #bUltimate Explorer#k to reach even greater heights!");
+            }else
+            {
+                cm.sendNextPrev("Good luck.");
+            }
+        }
+        else if (status == 4)
             cm.sendNextPrev("One more warning. Once you have chosed you (Incomplete)");
     } else if(actionx["2ndJob"]){
         if (status == 0){
