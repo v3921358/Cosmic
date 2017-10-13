@@ -3814,7 +3814,6 @@
     <string name="1" value="I have received a new assignment. The assignment deals with supporting Advanced Knight #p1103000# that is chasing the Black Wings that are targeting the Empress. The last trace of #p1103000# was found in #b#m211000000##k, and he has instructed me to go to #m211000000# to find #p1103000#."/>
     <string name="2" value="I have received a new assignment. The assignment deals with supporting Advanced Knight #p1103000# that is chasing the Black Wings that are targeting the Empress. The last trace of #p1103000# was found in #m211000000#, and he has instructed me to go to #m211000000# to find #p1103000#."/>
     <int name="area" value="15"/>
-    <int name="autoStart" value="1"/>
     <string name="type" value="[Job Adv.]"/>
   </imgdir>
   <imgdir name="20401">
