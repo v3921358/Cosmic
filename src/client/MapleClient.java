@@ -921,6 +921,7 @@ public class MapleClient {
                                 if (!this.serverTransition) {
 					worlda.removePlayer(player);
                                         
+                                        player.remapUASkill(88);    //Remap UA skill if it doesnt exist in key
                                         player.saveCooldowns();
                                         player.saveToDB();
 					if (player != null) {//no idea, occur :(

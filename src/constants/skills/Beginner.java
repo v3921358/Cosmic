@@ -44,7 +44,7 @@ public class Beginner {
     public static final int BALROG_MOUNT = 1031;
     
     //Ultimate Adventurers
-    public static final int UA_SOUL_DRIVER = 9100;
+    //public static final int UA_SOUL_DRIVER = 9100;
     //public static final int UA_WIND_PIERCING = 13111006;
     //public static final int UA_FLAME_GEAR = 12111005;
     //public static final int UA_VAMPIRE = 14101006;

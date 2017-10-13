@@ -1213,6 +1213,52 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         }
     }
     
+    public void remapUASkill(int key)
+    {
+        if(mentorId > 0)
+        {
+            int skill = 1000; //Snail shells for any other jobs
+            int jobBase = getJob().getId() / 100 * 100;
+            //What job are you
+            System.out.println("My jobType: " + jobBase);
+            System.out.println("Warrior Job: " + MapleJob.WARRIOR.getId());
+            if(jobBase == MapleJob.WARRIOR.getId())
+            {
+                skill = 11111006;  //Soul Driver
+            }
+            else if(jobBase == MapleJob.MAGICIAN.getId())
+            {
+                skill = 12111005; //Flame Gear
+            }
+            else if(jobBase == MapleJob.BOWMAN.getId())
+            {
+                skill = 13111006;   //Wind Piercing
+            }
+            else if(jobBase == MapleJob.THIEF.getId())
+            {
+                skill = 14101006; //Vampire
+            }
+            else if(jobBase == MapleJob.PIRATE.getId())
+            {
+                skill = 15111007; //Shark Wave
+            }
+            
+            //Create the Keybinding
+            MapleKeyBinding uaSkill = new MapleKeyBinding(1, skill);
+            
+            //Check if already mapped
+            for(Map.Entry<Integer, MapleKeyBinding> entry : keymap.entrySet())
+            {
+                if(entry.getValue().getAction() == skill)
+                {
+                    return;
+                }
+            }
+            
+            changeKeybinding(key, uaSkill);
+        }
+    }
+    
     public MapleMap getWarpMap(int map) {
 	MapleMap target;
 	if (getEventInstance() == null) {

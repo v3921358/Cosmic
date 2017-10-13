@@ -89,7 +89,8 @@ function action(mode, type, selection) {
                     cm.resetStats();
                     if(cm.getPlayer().getMentorId() > 0)
                     {
-                        cm.teachSkill(9100, 30, 30, -1);
+                        cm.teachSkill(11111006, 30, 30, -1);
+                        cm.getPlayer().remapUASkill(88);
                     }
                 }
                 cm.sendNext("From here on out, you are going to the (Incomplete)");
@@ -103,7 +104,7 @@ function action(mode, type, selection) {
         {
             if(cm.getPlayer().getMentorId() > 0)
             {
-                cm.sendNextPrev("Your soul shines with bravery. Harness the energy as an #bUltimate Explorer#k to reach even greater heights!");
+                cm.sendNextPrev("Your soul shines with bravery. Harness the energy as an #bUltimate Explorer#k to reach even greater heights! Also make sure to re-log and check your #bF12#k key!");
             }else
             {
                 cm.sendNextPrev("Good luck.");

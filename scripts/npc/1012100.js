@@ -89,7 +89,8 @@ function action(mode, type, selection) {
 					cm.resetStats();
                     if(cm.getPlayer().getMentorId() > 0)
                     {
-                        cm.getPlayer().teachSkill(13111006, 20, 20, -1);
+                        cm.teachSkill(13101005, 20, 20, -1);
+                        cm.getPlayer().remapUASkill(88);
                     }
                 }
                 cm.sendNext("Alright, from here out, you are a part of us! You'll be living the life of a wanderer at ..., but just be patient as soon, you'll be living the high life. Alright, it ain't much, but I'll give you some of my abilities... HAAAHHH!!!");
@@ -103,7 +104,7 @@ function action(mode, type, selection) {
         {
             if(cm.getPlayer().getMentorId() > 0)
             {
-                cm.sendNextPrev("Let the wind guide you. Harness the energy as an #bUltimate Explorer#k to reach even greater heights!");    
+                cm.sendNextPrev("Let the wind guide you. Harness the energy as an #bUltimate Explorer#k to reach even greater heights! Also make sure to re-log and check your #bF12#k key!");    
             }
             else
             {
