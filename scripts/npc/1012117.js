@@ -39,7 +39,7 @@ var fhair = Array(37560, /*Bow Bleached Hair*/
                   33420, /*Full Margate Hair*/
                   31890, /*Short Twin Tails*/
                   41090, /*Prim Air Hair*/
-                  34370, /*Shaggy Bobbed Hair*/);
+                  34370 /*Shaggy Bobbed Hair*/);
 var hairnew = Array();
 
 function start() {
