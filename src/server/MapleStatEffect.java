@@ -112,6 +112,7 @@ import constants.skills.SuperGM;
 import constants.skills.ThunderBreaker;
 import constants.skills.WhiteKnight;
 import constants.skills.WindArcher;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Matze
@@ -121,6 +122,7 @@ import constants.skills.WindArcher;
 public class MapleStatEffect {
 
     private short watk, matk, wdef, mdef, acc, avoid, speed, jump;
+    private AtomicInteger exp;
     private short hp, mp;
     private double hpR, mpR;
     private short mhpRRate, mmpRRate;
@@ -176,6 +178,8 @@ public class MapleStatEffect {
         ret.mpR = MapleDataTool.getInt("mpR", source, 0) / 100.0;
         ret.mpCon = (short) MapleDataTool.getInt("mpCon", source, 0);
         ret.hpCon = (short) MapleDataTool.getInt("hpCon", source, 0);
+        AtomicInteger aExp = new AtomicInteger(MapleDataTool.getInt("exp", source, 0));
+        ret.exp = aExp;
         int iprop = MapleDataTool.getInt("prop", source, 100);
         ret.prop = iprop / 100.0;
         ret.mobCount = MapleDataTool.getInt("mobCount", source, 1);

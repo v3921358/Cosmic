@@ -25,6 +25,7 @@ import client.MapleClient;
 import client.MapleDisease;
 import client.inventory.Item;
 import client.inventory.MapleInventoryType;
+import constants.ExpTable;
 import constants.ItemConstants;
 import net.AbstractMaplePacketHandler;
 import server.MapleInventoryManipulator;
@@ -66,6 +67,15 @@ public final class UseItemHandler extends AbstractMaplePacketHandler {
                 c.getPlayer().dispelDebuff(MapleDisease.SEAL);
 		c.getPlayer().dispelDebuff(MapleDisease.CURSE);
                 remove(c, slot);
+                return;
+            }
+            else if(itemId == 2001003){
+                if(c.getPlayer().getLevel() < 50){
+                    int currentExp = c.getPlayer().getExp();
+                    int expToLevel = ExpTable.getExpNeededForLevel(c.getPlayer().getLevel());
+                    c.getPlayer().gainExp(expToLevel - currentExp);
+                    remove(c, slot);
+                }
                 return;
             }
             else if (ItemConstants.isTownScroll(itemId)) {

@@ -24,6 +24,7 @@ package provider;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import provider.wz.MapleDataType;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class MapleDataTool {
     public static String getString(MapleData data) {
