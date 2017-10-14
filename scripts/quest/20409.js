@@ -89,7 +89,8 @@ function end(mode, type, selection){
         }
         else{
             qm.gainItem(4032861, -10);
-            qm.sendOk("You were supposed to get some permanent buff, but it doesn't exist in this version. So, that's too bad LOL.");
+            qm.forceCompleteQuest();
+            qm.sendOk("You were supposed to get some permanent buff, but they don't exist in this version. So, that's too bad LOL.");
         }
     }
     else if(status == 2){
