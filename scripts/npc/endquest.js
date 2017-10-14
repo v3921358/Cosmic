@@ -27,7 +27,7 @@ function start(){
 }
 
 function action(mode, type, selection){
-	if(mode == -1 || (mode == 0 && status == 0)){
+	if(mode == -1 || (mode == 0 && type == 1)){
 		cm.dispose();
 		return;
 	}
@@ -52,7 +52,7 @@ function action(mode, type, selection){
 	}
 	else if(status == 1){
 		toEnd = questInfos[selection-1];
-		cm.sendYesNo("Are you sure you want to terminate:\r\n#b#e" +questInfos[selection-1].id +"\t#n" +questInfos[selection-1].name);
+		cm.sendYesNo("Are you sure you want to terminate:\r\n#b#e" +questInfos[selection-1].id +"\t#n  " +questInfos[selection-1].name);
 	}
 	else if(status == 2){
 		MapleQuest.getInstance(toEnd.id).forceComplete(cm.getPlayer(), toEnd.endNpc);
