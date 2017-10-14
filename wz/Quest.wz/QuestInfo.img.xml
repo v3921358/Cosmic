@@ -3882,6 +3882,20 @@
     <int name="area" value="15"/>
     <string name="type" value="[Job Adv.]"/>
   </imgdir>
+  <imgdir name="20409">
+    <string name="name" value="Empress&apos; Grace"/>
+    <string name="0" value="I should check on the young Empress."/>
+    <string name="1" value="The power of the Empress is gradually weakening because she had blessed so many knights. Empress Cygnus claims her power originates from a gem called #bPeridot#k, and I have been assigned the task of collecting #b10 Peridots#k to revitalize the young Empress."/>
+    <string name="2" value="With renewed energy, the young Empress bestowed her blessing onto me."/>
+    <int name="area" value="15"/>
+  </imgdir>
+  <imgdir name="20410">
+    <string name="name" value="Ultimate Explorer"/>
+    <string name="0" value="I can create an Ultimate Adventurer by talking to Empress Cygnus."/>
+    <string name="1" value="Ultimate Adventurers start at level 50 and has cool skills not available to normal explorers. If I #rdelete#k my Ultimate Adventurer, I can #rnot#k make another one!"/>
+    <string name="2" value="Ultimate Adventurers start at level 50 and has cool skills not available to normal explorers. If I #rdelete#k my Ultimate Adventurer, I can #rnot#k make another one!"/>
+    <int name="area" value="15"/>
+  </imgdir>
   <imgdir name="2041">
     <string name="name" value="Maya&apos;s Second Collection"/>
     <string name="parent" value="Collecting For Maya"/>

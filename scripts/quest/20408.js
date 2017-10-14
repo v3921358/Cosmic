@@ -21,14 +21,18 @@
 	QUEST: 					Chief Knight of the Empress
 	NPC: 					Cygnus (1101000)
 	MAP: 					Ereve (130000000)
-	DESC.: 					End of the Cygnus Knights level 120 Ultimate Adventurer quest chain.
+	DESC.: 					End of the Cygnus Knights level 120 Black Witch quest chain.
 
 	AUTHOR: 				Rayden (DietStory)
 	VERSION: 				MapleSolaxiaV2 (v83)
-	MODIFIED: 				2017-10-11
+	MODIFIED: 				2017-10-13
 */
 
+importPackage(Packages.client);
+
 var status = -1;
+var job;
+var player;
 
 function start(mode, type, selection){
     if(mode == -1 || (mode == 0 && type == 12)){    //Terminates conversation if player clicks 'End Chat' or 'Decline' button.
@@ -52,6 +56,11 @@ function start(mode, type, selection){
     }
     else if(status == 3){
         if(qm.canHold(1142069)){
+            player = qm.getPlayer();
+            job = player.getJob();
+
+            player.changeJob(MapleJob.getById(job.getId() + 1));
+
             qm.forceStartQuest();
             qm.forceCompleteQuest();
             qm.gainItem(1142069, 1);
