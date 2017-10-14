@@ -57,7 +57,7 @@ public final class CreateCharHandler extends AbstractMaplePacketHandler {
 		return false;
 	}         	
 
-        public final boolean CreateUltimateExplorer(MapleClient c, boolean gender, String name)
+        public static final boolean CreateUltimateExplorer(MapleClient c, boolean gender, String name)
         {
             //Create Character And Name -------------------------------------------
             if (!MapleCharacter.canCreateChar(name)) {
@@ -129,9 +129,18 @@ public final class CreateCharHandler extends AbstractMaplePacketHandler {
             
             //Set Character Job -------------------------------------------
             newchar.setJob(MapleJob.BEGINNER);
-            newchar.setMapId(10000);
-            newchar.getInventory(MapleInventoryType.ETC).addItem(new Item(4161001, (short) 0, (short) 1));
+            newchar.setMapId(100000000);    //Set to Henesys instead of Maple Island
             // -------------------------------------------
+            
+            // Give Some Items to Players -----------------------------
+            newchar.getInventory(MapleInventoryType.ETC).addItem(new Item(4161001, (short) 0, (short) 1));
+            //Cosmetics
+            newchar.getInventory(MapleInventoryType.CASH).addItem(new Item(5153000, (short) 0, (short) 1));  //Henesys Skin Coupon
+            newchar.getInventory(MapleInventoryType.CASH).addItem(new Item(5150001, (short) 0, (short) 1));  //Henesys Hair VIP Coupon
+            newchar.getInventory(MapleInventoryType.CASH).addItem(new Item(5152001, (short) 0, (short) 1));  //Henesys Face VIP Coupon
+            //Exp Potion
+            newchar.getInventory(MapleInventoryType.USE).addItem(new Item(2001003, (short) 0, (short) 49));  //Exp Potion usable till 50
+            // ------------------------------------------------------------
             
             //Create Character with successor id
             if (!newchar.insertNewChar(c.getPlayer().getId())) {

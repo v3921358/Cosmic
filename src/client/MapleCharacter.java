@@ -5602,7 +5602,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             //Add ultimate adventurer
             if(cygnusId > 0)
             {
-                ua = con.prepareStatement("INSERT INTO ultimate_adventurers (sucessorId, cygnusId) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
+                ua = con.prepareStatement("INSERT INTO ultimate_adventurers (successorId, cygnusId) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
                 ua.setInt(1, this.id);
                 ua.setInt(2, cygnusId);
                 

@@ -1477,6 +1477,7 @@
 4032061 - Cookie - A chocolate chip cookie found in the wild, now prepared to eat. Guaranteed to bring a smile to someone's face. 
 4032062 - Fruit Roll Up - A favorite in Victoria Island, this delectable snack bursts with the taste of strawberries. 
 4032063 - Notebook - A special notebook used for the 2008 Back to School Event. Can be turned into the Maple Admin. May the best server team win!
+4032861 - Peridot
 4055000 - Cassandra's Divine Coupon - Use this at #cHenesys Plastic Surgery# to #ctemporarily# change face once
 4055001 - Cassandra's Divine Coupon - Use this at #cKerning City# Hair Salon to #ctemporarily# change hairstyle once
 4055004 - Henesys Plastic Surgery Event Coupon - Use this at #cHenesys Plastic Surgery# to #ctemporarily# change face once

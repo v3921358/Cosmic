@@ -28,6 +28,8 @@
 	MODIFIED: 				2017-10-13
 */
 
+importPackage(Packages.net.server.handlers.login);
+
 var status = -1;
 var name;
 var success;
@@ -55,9 +57,9 @@ function start(mode, type, selection){
     else if(status == 3){
         name = qm.getText();
 
-        /* CREATE CHARACTER HERE!!!
-        success = ....
-        */
+        /* CREATE CHARACTER HERE!!! */
+        success = CreateCharHandler.CreateUltimateExplorer(qm.getClient(), qm.getPlayer().getGender() == 0, name);
+        
 
         if(success){
             qm.forceStartQuest();
