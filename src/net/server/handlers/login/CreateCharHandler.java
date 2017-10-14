@@ -40,8 +40,8 @@ public final class CreateCharHandler extends AbstractMaplePacketHandler {
 
 	private static int[] IDs = {
 		1302000, 1312004, 1322005, 1442079,// weapons
-		1040002, 1040006, 1040010, 1041002, 1041006, 1041010, 1041011, 1042167,// bottom
-		1060002, 1060006, 1061002, 1061008, 1062115, // top
+		1040002, 1040006, 1040010, 1041002, 1041006, 1041010, 1041011, 1042167,// top
+		1060002, 1060006, 1061002, 1061008, 1062115, // bottom
 		1072001, 1072005, 1072037, 1072038, 1072383,// shoes
 		30000, 30010,30020, 30030, 31000, 31040, 31050,// hair  
 		20000, 20001, 20002, 21000, 21001, 21002, 21201, 20401, 20402, 21700, 20100  //face
@@ -83,16 +83,16 @@ public final class CreateCharHandler extends AbstractMaplePacketHandler {
                 newchar.setGender(0);
                 hair = 30000;
                 face = 20000;
-                top = 1062115;
-                bottom = 1040002;
+                top = 1040002;
+                bottom = 1062115;
             }
             else //female
             {
                 newchar.setGender(1);
                 hair = 31050;
                 face = 20100;
-                top = 1062115;
-                bottom = 1042167;
+                top = 1041011;
+                bottom = 1061008;
             }
             
             newchar.setName(name);
