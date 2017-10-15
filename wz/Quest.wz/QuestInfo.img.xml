@@ -7183,7 +7183,7 @@ Once there, talk to #b#p1200003##k to board the ship.
     <string name="0" value="You aren&apos;t sure which scent would go best with which costume. Why don&apos;t you leave it up to #bLala#k?"/>
     <string name="1" value="Rush to #bLana#k before the scent fades and ask her which costume this rose scent would best complement."/>
     <string name="2" value="#bLana#k said the rose scent would go best with the Kid Mannequin&apos;s Bunny Suit. Time to tell #bLala#k."/>
-    <int name="timeLimit" value="40"/>
+    <int name="timeLimit" value="120"/>
     <string name="timerUI" value="default"/>
     <string name="rewardSummary" value="2,300 EXP"/>
   </imgdir>
@@ -7193,7 +7193,7 @@ Once there, talk to #b#p1200003##k to board the ship.
     <string name="0" value="Lana says the rose scent is perfect for the Kid Mannequin&apos;s Bunny Suit. Time to let #bLala#k know."/>
     <string name="1" value="Rush to #bLana#k before the scent fades and ask her which costume this freesia scent would best complement."/>
     <string name="2" value="#bLana#k said the freesia scent would go best with the Female Mannequin&apos;s Wig. Go tell #bLala#k."/>
-    <int name="timeLimit" value="40"/>
+    <int name="timeLimit" value="120"/>
     <string name="timerUI" value="default"/>
     <string name="rewardSummary" value="2,300 EXP"/>
   </imgdir>
@@ -7203,7 +7203,7 @@ Once there, talk to #b#p1200003##k to board the ship.
     <string name="0" value="Lana says the freesia scent is perfect for the Female Mannequin&apos;s Wig. Better tell #bLala#k."/>
     <string name="1" value="Rush to #bLana#k before the scent fades and ask her which costume this lavender scent would best complement."/>
     <string name="2" value="#bLana#k said the lavender scent wasn&apos;t exactly perfect for the Fedora, but that it would work. \r\nAsk #bLana#k what other tasks are left on her to-do list."/>
-    <int name="timeLimit" value="40"/>
+    <int name="timeLimit" value="120"/>
     <string name="timerUI" value="default"/>
     <string name="rewardSummary" value="2,300 EXP"/>
   </imgdir>
