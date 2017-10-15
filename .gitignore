@@ -24,3 +24,5 @@ dist/
 #Server
 *.pem
 *.ppk
+
+launch.bat
