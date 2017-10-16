@@ -678,6 +678,13 @@ public class Commands {
                     }
                     c.getAbstractPlayerInteraction().openNpc(9010000, "apreset");
                     break;
+                    
+                case "ultsp":
+                    if(sub.length != 1){
+                        player.yellowMessage("Syntax: !ultsp");
+                    }
+                    c.getAbstractPlayerInteraction().openNpc(9010000, "UA_SPDistribution");
+                    break;
                 default:
                         return false;
                 }

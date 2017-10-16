@@ -76,6 +76,7 @@ import constants.skills.WindArcher;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -400,5 +401,86 @@ public class SkillFactory {
         }
 
         return null;
+    }
+    
+    public static Map<Skill, SkillMiscInfo> getJobSkills(MapleJob job){
+        Map<Skill, SkillMiscInfo> skillMap = new LinkedHashMap<>();
+        MapleData jobSkillData = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Skill.wz")).getData(job.getId() +".img");
+        
+        String tempIcon; 
+        String tempDisabledIcon;
+        Integer reqSkill;
+        Integer reqSkillLv;
+        
+        if(jobSkillData.getChildByPath("skill") != null){
+            for(MapleData skillData : jobSkillData.getChildByPath("skill").getChildren()){
+                
+                tempIcon = ""; 
+                tempDisabledIcon = "";
+                reqSkill = null;
+                reqSkillLv = null;
+                
+                for(MapleData field : skillData.getChildren()){
+                    if(field.getName().equals("icon")){
+                        tempIcon = "Skill/" +MapleDataTool.getFullDataPath(field);
+                    }
+                    else if(field.getName().equals("iconDisabled")){
+                        tempDisabledIcon = "Skill/" +MapleDataTool.getFullDataPath(field);
+                    }
+                    else if(field.getName().equals("req")){
+                        reqSkill = Integer.valueOf(field.getChildren().get(0).getName());
+                        reqSkillLv = new Integer(MapleDataTool.getInt(field.getChildren().get(0)));
+                    }
+                }
+                
+                if(reqSkill == null){
+                    skillMap.put(getSkill(Integer.parseInt(skillData.getName())), new SkillMiscInfo(tempIcon, tempDisabledIcon));
+                }
+                else{
+                    skillMap.put(getSkill(Integer.parseInt(skillData.getName())), new SkillMiscInfo(tempIcon, tempDisabledIcon, reqSkill.intValue(), reqSkillLv.intValue()));
+                }
+            }
+            return skillMap;
+        }
+        
+        return null;
+    }
+    
+    public static class SkillMiscInfo {
+        
+        private String iconPath;
+        private String iconDisabledPath;
+        private int reqSkillId;
+        private int reqSkillLv;
+        
+        public SkillMiscInfo(String iconPath, String iconDisabledPath){
+            this.iconPath = iconPath;
+            this.iconDisabledPath = iconDisabledPath;
+            this.reqSkillId = -1;
+            this.reqSkillLv = 0;
+        }
+        
+        public SkillMiscInfo(String iconPath, String iconDisabledPath, int reqSkillId, int reqSkillLv){
+            this.iconPath = iconPath;
+            this.iconDisabledPath = iconDisabledPath;
+            this.reqSkillId = reqSkillId;
+            this.reqSkillLv = reqSkillLv;
+        }
+        
+        public String getIcon(){
+            return iconPath;
+        }
+        
+        public String getDisabledIcon(){
+            return iconDisabledPath;
+        }
+        
+        public int getReqSkillId(){
+           return reqSkillId; 
+        }
+        
+        public int getReqSkillLv(){
+           return reqSkillLv; 
+        }
     }
 }
