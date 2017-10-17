@@ -31,7 +31,7 @@
 <string name="_hash" value="3f1cdf5f6b72c4e739b6c439274953faed301a5a37d5ee6a493650367cfecddd"/>
 </canvas>
 <imgdir name="hairShade">
-<canvas name="0" width="1" height="1">
+<canvas name="0" width="33" height="19">
 <vector name="origin" x="13" y="11"/>
 <imgdir name="map">
 <vector name="brow" x="0" y="0"/>
