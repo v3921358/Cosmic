@@ -51,6 +51,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
+import java.io.File;
 
 import net.server.PlayerBuffValueHolder;
 import net.server.PlayerCoolDownValueHolder;
@@ -148,6 +149,9 @@ import constants.skills.Spearman;
 import constants.skills.SuperGM;
 import constants.skills.Swordsman;
 import constants.skills.ThunderBreaker;
+import provider.MapleData;
+import provider.MapleDataProvider;
+import provider.MapleDataProviderFactory;
 import scripting.item.ItemScriptManager;
 import server.maps.MapleMapItem;
 
@@ -3725,7 +3729,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     public Map<Skill, SkillEntry> getSkills() {
         return Collections.unmodifiableMap(skills);
     }
-    
+        
     public int getSkillLevel(int skill) {
         SkillEntry ret = skills.get(SkillFactory.getSkill(skill));
         if (ret == null) {
@@ -6654,7 +6658,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             return skillevel + ":" + masterlevel;
         }
     }
-
+    
     public boolean skillIsCooling(int skillId) {
         return coolDowns.containsKey(Integer.valueOf(skillId));
     }

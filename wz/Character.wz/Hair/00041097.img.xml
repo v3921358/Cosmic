@@ -31,7 +31,7 @@
 <string name="_hash" value="32e0c111b242c3b8a8b97fa7d4a8dfc44a35f0f58352c3042c24806ca7dcd84c"/>
 </canvas>
 <imgdir name="hairShade">
-<canvas name="0" width="1" height="1">
+<canvas name="0" width="33" height="19">
 <vector name="origin" x="13" y="11"/>
 <imgdir name="map">
 <vector name="brow" x="0" y="0"/>
@@ -39,7 +39,6 @@
 <string name="z" value="hairShade"/>
 <string name="group" value="skin"/>
 <string name="_hash" value="ac26b822f3dca98d87910b6b463e489302feb016402b0777aac71246e3cff8d0"/>
-<string name="_outlink" value="Character/Hair/00041094.img/default/hairShade/0"/>
 </canvas>
 <uol name="1" value="0"/>
 <uol name="2" value="0"/>

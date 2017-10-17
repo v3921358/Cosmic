@@ -678,6 +678,18 @@ public class Commands {
                     }
                     c.getAbstractPlayerInteraction().openNpc(9010000, "apreset");
                     break;
+                    
+                case "ultsp":
+                    if(sub.length != 1){
+                        player.yellowMessage("Syntax: !ultsp");
+                    }
+                    
+                    if((100 >= player.getJob().getId() && player.getJob().getId() >= 522) || (900 >= player.getJob().getId() && player.getJob().getId() >= 910))
+                        c.getAbstractPlayerInteraction().openNpc(9010000, "UA_SPDistribution");
+                    else
+                        player.yellowMessage("This command is intended for Explorers only.");
+                        
+                    break;
                 default:
                         return false;
                 }

@@ -216,6 +216,8 @@ function writeSolaxiaCommandsLv0() {    //Common
         addCommand("leaveevent", "");
         addCommand("bosshp", "");
         addCommand("ranks", "");
+        addCommand("apreset", "");
+        addCommand("ultsp");
 }
 
 function writeSolaxiaCommands() {
