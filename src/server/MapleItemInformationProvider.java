@@ -574,7 +574,7 @@ public class MapleItemInformationProvider {
                     prop = 90.0;
                 }
                 
-                if(isGM || rollSuccessChance(prop)) {
+                if(rollSuccessChance(prop)) {
                     short flag = nEquip.getFlag();
                     switch (scrollId) {
                         case 2040727:
@@ -899,16 +899,23 @@ public class MapleItemInformationProvider {
                             }
                             break;
                     }
-                    if (!ItemConstants.isCleanSlate(scrollId) && !isGM && !usingWhiteScroll) {
-                        if (ServerConstants.USE_PERFECT_SCROLLING == true || ServerConstants.USE_PERFECT_SCROLLING == false) {
-                            nEquip.setUpgradeSlots((byte) (nEquip.getUpgradeSlots() - 1));
-                        }
+                    if (!ItemConstants.isCleanSlate(scrollId)) {                      
+                        nEquip.setUpgradeSlots((byte) (nEquip.getUpgradeSlots() - 1));
                         nEquip.setLevel((byte) (nEquip.getLevel() + 1));
                     }
                 }
                 else {
-                    if (!usingWhiteScroll && !ItemConstants.isCleanSlate(scrollId) && !isGM) {
-                        nEquip.setUpgradeSlots((byte) (nEquip.getUpgradeSlots() - 1));
+                    if(!ItemConstants.isCleanSlate(scrollId)){
+                        if(isGM && ServerConstants.USE_PERFECT_SCROLLING == false){
+                            if(!usingWhiteScroll){
+                                nEquip.setUpgradeSlots((byte) (nEquip.getUpgradeSlots() - 1));
+                            }
+                        }
+                        else if (!isGM) {
+                            if(!usingWhiteScroll){
+                                nEquip.setUpgradeSlots((byte) (nEquip.getUpgradeSlots() - 1));  
+                            }
+                        }
                     }
                     if ((int)(Math.random() * 100) + 1 <= stats.get("cursed")) {
                         return null;
