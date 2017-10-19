@@ -10,8 +10,8 @@ var toEnd;
 function start(){
 	status = -1;
 	tempId = 0;
-	startedQuestCount = cm.getPlayer().getStartedQuestsSize(); //number of quest started
 	allStartedQuestStatuses = cm.getPlayer().getStartedQuests(); //returns List<MapleQuestStatus>
+	startedQuestCount = allStartedQuestStatuses.size(); //number of quest started
 
 	for(var i = 0; i < startedQuestCount; i++){
 		tempId = allStartedQuestStatuses.get(i).getQuestID()
