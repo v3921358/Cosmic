@@ -1163,7 +1163,7 @@ public class Commands {
                                     flag |= ItemConstants.ACCOUNT_SHARING;
                                     flag |= ItemConstants.UNTRADEABLE;
                                 }
-                                
+                        
                                 MapleInventoryManipulator.addById(c, itemId, quantity, player.getName(), petid, flag, -1);
 			} else {
 				Item toDrop;
@@ -1181,6 +1181,21 @@ public class Commands {
                                     
                                     toDrop.setFlag(b);
                                 }
+//                                int[] expCoupons = {5211000, 5211001, 5211002, 5211003, 5211004, 5211005, //EXP Coupons
+//                                               5211006, 5211007, 5211008, 5211009, 5211010, 5211011,
+//                                               5211012, 5211013, 5211014, 5211015, 5211016, 5211017,
+//                                               5211018, 5211019, 5211020, 5211021, 5211022, 5211023,
+//                                               5211024, 5211025, 5211026, 5211027, 5211028, 5211029,
+//                                               5211030, 5211031, 5211032, 5211033, 5211034, 5211035, 
+//                                               5211036, 5211037, 5211038, 5211039, 5211040, 5211041, 
+//                                               5211042, 5211043, 5211044, 5211045, 5211046, 5211047, 
+//                                               5211048, 5360009, 5360010, 5360011, 5360012, 5360013,
+//                                               5211049, 5211052, 5211060};
+//                                for(int expCoupon: expCoupons){
+//                                    if(expCoupon == itemId){
+//                                        toDrop.setExpiration(System.currentTimeMillis() + (1000 * 60 * 60 * 4));
+//                                    }
+//                                }
                                 
 				c.getPlayer().getMap().spawnItemDrop(c.getPlayer(), c.getPlayer(), toDrop, c.getPlayer().getPosition(), true, true);
 			}

@@ -104,9 +104,11 @@ public class CashShop {
 
             if (ItemConstants.EXPIRING_ITEMS) {
                     if(itemId == 5211048 || itemId == 5360042) { // 4 Hour 2X coupons, the period is 1, but we don't want them to last a day.
-                            item.setExpiration(System.currentTimeMillis() + (1000 * 60 * 60 * 4));
+                        System.out.println("exp coupons");
+                        item.setExpiration(System.currentTimeMillis() + (1000 * 60 * 60 * 4));
                     } else {
-                            item.setExpiration(System.currentTimeMillis() + (1000 * 60 * 60 * 24 * period));
+                         item.setExpiration(System.currentTimeMillis() + (1000 * 60 * 60 * 24 * period));
+                         System.out.println("Other items");
                     }
             }
             item.setSN(sn);

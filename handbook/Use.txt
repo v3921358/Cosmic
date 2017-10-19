@@ -2131,6 +2131,7 @@
 2022616 - Power Buff Lv. 1 - 100% Damage, Attack Speed +1
 2022617 - Power Buff Lv. 2 - 200% Damage, Attack Speed +2
 2022618 - Pharaoh's Treasure Chest - A treasure chest containing Pharaoh's precious items. Double-click to open.
+2022619 - Event Gift Box - A surprise gift box received after participating in a GM Event. Open it to discover what's inside!
 2031008 - Rien Teleport Ticket - A teleport ticket given by the Maple Admin. It will immediately teleport you to Rien.
 2043021 - King Pepe's 60% Scroll for One-handed Sword Attacks - Improves the Attack strength of King Pepe's Cutlass.\nSuccess Rate: 60%, Weapon Attack +2, STR +1. The success rate of this scroll can be enhanced by Vega's Spell.
 2043116 - King Pepe's 60% Scroll for One-handed Axe Attacks - Improves the Attack strength of King Pepe's Danker.\nSuccess Rate: 60%, Weapon Attack +2, STR +1. The success rate of this scroll can be enhanced by Vega's Spell.

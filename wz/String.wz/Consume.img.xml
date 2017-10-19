@@ -8536,6 +8536,10 @@
 <string name="name" value="Pharaoh&apos;s Treasure Chest"/>
 <string name="desc" value="A treasure chest containing Pharaoh&apos;s precious items. Double-click to open."/>
 </imgdir>
+<imgdir name="2022619">
+<string name="name" value="Event Gift Box"/>
+<string name="desc" value="A surprise gift box received for participating in a GM event. Open it to discover what&apos;s inside!"/>
+</imgdir>
 <imgdir name="2031008">
 <string name="name" value="Rien Teleport Ticket"/>
 <string name="desc" value="A teleport ticket given by the Maple Admin. It will immediately teleport you to Rien."/>

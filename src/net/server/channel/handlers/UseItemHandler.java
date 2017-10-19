@@ -78,6 +78,19 @@ public final class UseItemHandler extends AbstractMaplePacketHandler {
                 }
                 return;
             }
+            else if(itemId == 2022619){
+                if(c.getPlayer().getInventory(MapleInventoryType.CASH).findById(5211049) == null){
+                    short nextSlot = c.getPlayer().getInventory(MapleInventoryType.CASH).getNextFreeSlot();
+                    MapleInventoryManipulator.addById(c, 5211049, (short)1, c.getPlayer().getName(), -1, (byte)0, (long)-1);
+                    c.getPlayer().getInventory(MapleInventoryType.CASH).getItem(nextSlot).setExpiration(System.currentTimeMillis() + (1000 * 60 * 90));    
+                    //c.getPlayer().getInventory(MapleInventoryType.CASH).getItem(nextSlot).setExpiration(System.currentTimeMillis() + (1000 * 60));  
+                }
+                else{
+                    MapleInventoryManipulator.addById(c, 2022619, (short)1, c.getPlayer().getName(), -1, (byte)0, (long)-1);
+                    c.getPlayer().dropMessage(1, "You already have an exp coupon in inventory. Please try again after the exp coupon expires.");    
+                }
+                   
+            }
             else if (ItemConstants.isTownScroll(itemId)) {
                 if (ii.getItemEffect(toUse.getItemId()).applyTo(c.getPlayer())) {
                     remove(c, slot);
