@@ -164,11 +164,15 @@ function initializeMaster(){
 }
 
 function filterMaster(){
+	var nonMaxed = [];
 	for(let i = 0; i < master.length; i++){
-		if(master[i].entry.skillevel >= master[i].skill.getMaxLevel()){
-			master.splice(i, 1);
+		if(!(master[i].entry.skillevel >= master[i].skill.getMaxLevel())){
+			//master.splice(i, 1);
+			//Add to new array instead
+			nonMaxed.push(master[i]);
 		}
 	}
+	master = nonMaxed;
 }
 
 function calculateCanLevel(){
