@@ -62,7 +62,7 @@ function start(){
 }
 
 function action(mode, type, selection){
-	if(mode == -1 || (mode == 0 && status == 0) || (mode == 0 && type == 4)){
+	if(mode == -1 || (mode == 0 && type == 3) || (mode == 0 && type == 4)){
 		cm.dispose();
 		return;
 	}
@@ -242,7 +242,7 @@ function action(mode, type, selection){
 				}
 			}
 			else if(selection == 2){ 	// USE MULTIPLE AP RESETS
-				cm.sendGetNumber("You currently own #b" +ap_reset_count +" AP Resets#k. How many times would you like to reset the selected attributes?", 1, 1, ap_reset_count);
+				cm.sendGetNumber("How many times would you like to reset the selected attributes? (MAX: #b" +calculateMaxRep() +"#k)", 1, 1, ap_reset_count);
 			}
 		}
 		else{ 	// END OF BUYING SCRIPT
@@ -427,26 +427,7 @@ function mpGain(repetitions){
 }
 
 function canReduceMP(mp){
-	var level = player.getLevel();
-
-	if((jobId ==  0 || jobId ==  1000 || jobId ==  2000) && (mp < 10*level+2)) 	// BEGINNER or NOBLESSE or LEGEND
-		return false;
-	else if((130 <= jobId && jobId <= 132) && (mp < 4*level+156)){ 	// SPEARMAN
-		return false;
-	}
-	else if(((112 <= jobId && jobId <= 122) || (1100 <= jobId && jobId <= 1112)) && (mp < 4*level+156)) 	// FIGHTER or PAGE or DAWNWARRIORS
-		return false;
-	else if(((400 <= jobId && jobId <= 422) || (1400 <= jobId && jobId <= 1412)) && (mp < 14*level+148)) 	// THEIF or NIGHTWALKER 
-		return false;
-	else if(((300 <= jobId && jobId <= 322) || (1300 <= jobId && jobId <= 1312)) && (mp < 14*level+148)) 	// BOWMAN or WINDARCHER 
-		return false;
-	else if(((200 <= jobId && jobId <= 232) || (1200 <= jobId && jobId <= 1212)) && (mp < 22*level+488)) 	// MAGICIANS or BLAZEWIZARDS 
-		return false;
-	else if(((510 <= jobId && jobId <= 512) || (1500 <= jobId && jobId <= 1512)) && (mp < 18*level+111)) 	// BRAWLERS or THUNDERBREAKERS 
-		return false;
-	else if((500 <= jobId && jobId <= 522) && (mp < 18*level+111)) 	// PIRATES
-		return false;
-	else if((2100 <= jobId && jobId <= 2112) && (mp < 5*level+156)) 	// ARANS
+	if(mp < getMinMP())
 		return false;
 	else 
 		return true;
@@ -592,4 +573,40 @@ function generateSpace(num){
 
 function randomNum(lower, upper){
 	return Math.floor(((upper - lower) + 1) * Math.random() + lower);
+}
+
+function getMinMP(){
+	var level = player.getLevel();
+
+	if(jobId ==  0 || jobId ==  1000 || jobId ==  2000) 							// BEGINNER or NOBLESSE or LEGEND
+		return 10*level+2;
+	else if(130 <= jobId && jobId <= 132) 											// SPEARMAN
+		return 4*level+156;
+	else if((112 <= jobId && jobId <= 122) || (1100 <= jobId && jobId <= 1112)) 	// FIGHTER or PAGE or DAWNWARRIORS
+		return 4*level+56;
+	else if((400 <= jobId && jobId <= 422) || (1400 <= jobId && jobId <= 1412) || (300 <= jobId && jobId <= 322) || (1300 <= jobId && jobId <= 1312)) 	// THEIF or NIGHTWALKER or BOWMAN or WINDARCHER
+		return 14*level+148;
+	else if((200 <= jobId && jobId <= 232) || (1200 <= jobId && jobId <= 1212)) 	// MAGICIANS or BLAZEWIZARDS 
+		return 22*level+488;
+	else if((500 <= jobId && jobId <= 522) || (1500 <= jobId && jobId <= 1512)) 	// PIRATES or THUNDERBREAKERS 
+		return 18*level+111;
+	else if(2100 <= jobId && jobId <= 2112) 										// ARANS
+		return 5*level+156;
+	else
+		return 0;
+}
+
+function calculateMaxRep(){
+	if(from_attr.num == 1)
+		return Math.min(Math.floor(starting_attr.hp/hpLost(1)), ap_reset_count);
+	else if(from_attr.num == 2)
+		return Math.min(Math.ceil((starting_attr.mp - getMinMP())/mpLost()), ap_reset_count);
+	else if(from_attr.num == 3)
+		return Math.min(starting_attr.str-4, ap_reset_count);
+	else if(from_attr.num == 4)
+		return Math.min(starting_attr.dex-4, ap_reset_count);
+	else if(from_attr.num == 5)
+		return Math.min(starting_attr.int_-4, ap_reset_count);
+	else if(from_attr.num == 6)
+		return Math.min(starting_attr.luk-4, ap_reset_count);
 }
