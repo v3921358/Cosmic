@@ -684,7 +684,7 @@ public class Commands {
                         player.yellowMessage("Syntax: !ultsp");
                     }
                     
-                    if((100 >= player.getJob().getId() && player.getJob().getId() <= 522) || (900 >= player.getJob().getId() && player.getJob().getId() <= 910))
+                    if((100 <= player.getJob().getId() && player.getJob().getId() <= 522) || (900 <= player.getJob().getId() && player.getJob().getId() <= 910))
                         c.getAbstractPlayerInteraction().openNpc(9010000, "UA_SPDistribution");
                     else
                         player.yellowMessage("This command is intended for Explorers only.");

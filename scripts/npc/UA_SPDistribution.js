@@ -181,7 +181,7 @@ function calculateCanLevel(){
 				}
 			}
 		}
-		else if(master[i].entry.skillevel >= master[i].entry.masterlevel){
+		else if((master[i].entry.masterlevel > 0) && (master[i].entry.skillevel >= master[i].entry.masterlevel)){
 			master[i].canLevel = false;
 		}
 	}
