@@ -6,7 +6,7 @@
 importPackage(Packages.server.life);
 
 var isPq = true;
-var minPlayers = 6, maxPlayers = 30;
+var minPlayers = 1, maxPlayers = 30;
 var minLevel = 50, maxLevel = 255;
 var entryMap = 280030000;
 var exitMap = 211042400;
@@ -16,7 +16,7 @@ var clearMap = 211042400;
 var minMapId = 280030000;
 var maxMapId = 280030000;
 
-var eventTime = 60;     // 60 minutes
+//var eventTime = 60;     // 60 minutes
 
 var lobbyRange = [0, 0];
 
@@ -39,8 +39,8 @@ function setEventRequirements() {
         if(maxLevel - minLevel >= 1) reqStr += minLevel + " ~ " + maxLevel;
         else reqStr += minLevel;
         
-        reqStr += "\r\n    Time limit: ";
-        reqStr += eventTime + " minutes";
+        //reqStr += "\r\n    Time limit: ";
+        //reqStr += eventTime + " minutes";
         
         em.setProperty("party", reqStr);
 }
@@ -75,7 +75,7 @@ function setup(channel) {
     var level = 1;
     eim.getInstanceMap(280030000).resetPQ(level);
     
-    eim.startEventTimer(eventTime * 60000);
+    //eim.startEventTimer(eventTime * 60000);
     setEventRewards(eim);
     setEventExclusives(eim);
     
@@ -166,7 +166,7 @@ function giveRandomEventReward(eim, player) {
 }
 
 function clearPQ(eim) {
-    eim.stopEventTimer();
+    //eim.stopEventTimer();
     eim.setEventCleared();
 }
 
