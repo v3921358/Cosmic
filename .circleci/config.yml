@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build:
+    machine: true # Build using our custom docker build image
+    
+    steps:
+      - checkout # check out the code in the project directory
+      
+      - run: # Compile Diestory Project
+          name: Compile DietStory
+          command: |
+            docker run --rm --env BUILD_SOURCE=local -v $(pwd):/mnt benjixd/dietstory-build
+
+      - store_artifacts: # Store external jars
+          path: cores
+      - store_artifacts: # Store executable jar
+          path: dist
