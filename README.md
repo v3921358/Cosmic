@@ -91,6 +91,13 @@ java -cp "dist/*:cores/*" -Dwzpath="wz/" net.server.Server
 
 Now that you have a running server, you should be able to access the server through the Dietstory client locally. To host the server, either run hosting tools such as `WampServer` or `Hamachi`, or deploy your build on a public cloud service.
 
+### Docker
+
+Alternatively, using the docker command to spin up the server with 4 channels:
+```
+docker run --rm -it -v ${PWD}:/mnt -p 7575:7575 -p 7576:7576 -p 7577:7577 -p 8484:8484 benjixd/dietstory
+```
+
 ## Installing the Client
 
 For players looking to connect to a hosted Dietstory server, the Dietstory client must be installed.
