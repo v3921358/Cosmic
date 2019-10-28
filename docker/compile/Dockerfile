@@ -24,7 +24,7 @@ RUN wget http://archive.apache.org/dist/ant/binaries/apache-ant-${ANT_VERSION}-b
     && rm -f apache-ant-${ANT_VERSION}-bin.tar.gz 
 
 # Execute Build
-CMD if [ "${BUILD_SOURCE}" == "local" ]; then \ 
+CMD if [ "${BUILD_SOURCE}" == "local" ]; then \
     	echo "Building DietStory from mountpoint..." \
       	&& cd mnt \
       	&& ant -f ${TARGET_LOCATION} -Dplatforms.JDK_1.7.home=${JAVA_HOME} -Dnb.internal.action.name=rebuild clean jar; \
