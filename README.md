@@ -98,6 +98,23 @@ Alternatively, using the docker command to spin up the server with 4 channels:
 docker run --rm -it -v ${PWD}:/mnt -p 7575:7575 -p 7576:7576 -p 7577:7577 -p 8484:8484 benjixd/dietstory
 ```
 
+### Docker Compose
+
+To run the entire Dietstory service including a populated local database in one command, use the docker compose file with the following command:
+```
+MYSQL_ROOT_PASSWORD=<MY_DB_PASSWORD> DIETSTORY_PATH=<DIETSTORY_PATH> docker-compose -f <DIETSTORY_PATH>/docker/dev_compose/docker-compose.yml up
+```
+
+The docker compose file spins up a MySQL container and then runs a set of initial transactions for the database. The dietstory then goes live, connecting to the new MySQL container. The default ports are exposed:
+```
+- 3306:3306 # MySQL DB
+- 7575:7575 # Channel 1
+- 7576:7576 # Channel 2
+- 7577:7577 # Channel 3
+- 8484:8484 # Server Listener
+```
+> This docker-compose configuration is NOT meant to be used in a production setting. Consider using MySQL secrets to secure the database and avoid using root user. The docker compose file is meant to do quick local initialization and dev testing.
+
 ## Installing the Client
 
 For players looking to connect to a hosted Dietstory server, the Dietstory client must be installed.

@@ -1,8 +1,8 @@
 USE `dietstory`;
 
 # Scroll shop at Spindle
-INSERT INTO `shops` (`shopid`,`npcid`) VALUES
-(9201082,9201082);
+# INSERT IGNORE INTO `shops` (`shopid`,`npcid`) VALUES
+# (9201082,9201082);
 
 INSERT IGNORE INTO `shopitems` (`shopitemid`, `shopid`, `itemid`, `price`, `pitch`, `position`) VALUES
 (995032, 9201082, 2340000, 200000000, 0, 1),
