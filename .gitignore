@@ -19,7 +19,7 @@ tools/MobBookUpdate/build/
 dist/
 
 #Config
-*.ini
+configuration.ini
 
 #Server
 *.pem

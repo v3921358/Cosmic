@@ -4,6 +4,8 @@ LIMIT 0, 1000
 
 -- Date: 2017-09-21 22:22
 */
+USE `dietstory`
+
 INSERT INTO `playernpcs_equip` (`id`,`NpcId`,`equipid`,`type`,`equippos`) VALUES (6,2,1102035,0,-9);
 INSERT INTO `playernpcs_equip` (`id`,`NpcId`,`equipid`,`type`,`equippos`) VALUES (7,2,1002406,0,-1);
 INSERT INTO `playernpcs_equip` (`id`,`NpcId`,`equipid`,`type`,`equippos`) VALUES (8,2,1050107,0,-5);

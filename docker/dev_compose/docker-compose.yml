@@ -1,0 +1,53 @@
+version: "3.7"
+services:
+
+  dietstory_database:
+    image: mysql:5.6.45
+    hostname: dietstory_database
+    ports:
+      - "3306:3306"
+    networks:
+      - dietstory_db
+    volumes:
+      - "${DATA_PATH}:/var/lib/mysql"
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+
+  populate_database:
+    image: benjixd/dietstory-populate-db
+    networks:
+      - dietstory_db
+    volumes:
+      - "${DIETSTORY_PATH}:/mnt"
+    environment:
+      MYSQL_HOST_NAME: dietstory_database
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    restart: on-failure
+    depends_on:
+      - dietstory_database
+
+  dietstory_server:
+    image: benjixd/dietstory
+    ports:
+      - "7575:7575" 
+      - "7576:7576" 
+      - "7577:7577"
+      - "8484:8484"
+    networks:
+      - dietstory_traffic
+      - dietstory_db
+    volumes:
+      - "${DIETSTORY_PATH}:/mnt"
+    environment:
+      MYSQL_HOST_NAME: dietstory_database
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    restart: on-failure
+    depends_on:
+      - populate_database
+
+networks:
+  dietstory_db:
+  dietstory_traffic:
+

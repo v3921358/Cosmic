@@ -1,5 +1,7 @@
-INSERT INTO dietstory.shops (`shopid`, `npcid`) VALUES (1301000, 1301000);
-INSERT INTO dietstory.shopitems (`shopid`, `itemid`, `price`, `pitch`, `position`) VALUES
+USE `dietstory`;
+
+INSERT INTO shops (`shopid`, `npcid`) VALUES (1301000, 1301000);
+INSERT INTO shopitems (`shopid`, `itemid`, `price`, `pitch`, `position`) VALUES
 (1301000, 2330000, 600, 0, 1),
 (1301000, 2070000, 500, 0, 2),
 (1301000, 2061000, 1, 0, 3),
