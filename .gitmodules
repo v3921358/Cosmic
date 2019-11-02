@@ -1,0 +1,3 @@
+[submodule "models"]
+	path = client-launcher
+	url = https://github.com/allenaerostar/client-launcher.git
