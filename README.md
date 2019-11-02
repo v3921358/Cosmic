@@ -102,8 +102,10 @@ docker run --rm -it -v ${PWD}:/mnt -p 7575:7575 -p 7576:7576 -p 7577:7577 -p 848
 
 To run the entire Dietstory service including a populated local database in one command, use the docker compose file with the following command:
 ```
-MYSQL_ROOT_PASSWORD=<MY_DB_PASSWORD> DIETSTORY_PATH=<DIETSTORY_PATH> docker-compose -f <DIETSTORY_PATH>/docker/dev_compose/docker-compose.yml up
+MYSQL_ROOT_PASSWORD=<MY_DB_PASSWORD> DIETSTORY_PATH=<DIETSTORY_PATH> DATA_PATH=<DATABASE_MOUNT_DIR> docker-compose -f <DIETSTORY_PATH>/docker/dev_compose/docker-compose.yml up
 ```
+> Make sure that your provided ${MYSQL_ROOT_PASSWORD} is correct to the existing database at ${DATA_PATH}. If no existing database, then MySQL will build a new one with the provided root, ${MYSQL_ROOT_PASSWORD} pair.
+> Ensure the mounted directories provided are `absolute paths`
 
 The docker compose file spins up a MySQL container and then runs a set of initial transactions for the database. The dietstory then goes live, connecting to the new MySQL container. The default ports are exposed:
 ```
