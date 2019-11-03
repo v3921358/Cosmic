@@ -1,0 +1,2 @@
+ALTER TABLE `accounts`
+MODIFY email varchar(45) NOT NULL UNIQUE DEFAULT '';
