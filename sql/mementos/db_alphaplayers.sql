@@ -4,6 +4,8 @@ LIMIT 0, 1000
 
 -- Date: 2017-09-21 22:22
 */
+USE `dietstory`;
+
 INSERT INTO `playernpcs` (`id`,`name`,`hair`,`face`,`skin`,`x`,`cy`,`map`,`gender`,`dir`,`ScriptId`,`Foothold`,`rx0`,`rx1`) VALUES (2,'Simon',30057,20000,0,80,161,100000204,0,0,9901908,2,130,30);
 INSERT INTO `playernpcs` (`id`,`name`,`hair`,`face`,`skin`,`x`,`cy`,`map`,`gender`,`dir`,`ScriptId`,`Foothold`,`rx0`,`rx1`) VALUES (3,'Rayden',30412,20100,0,62,70,102000004,0,0,9901906,4,112,12);
 INSERT INTO `playernpcs` (`id`,`name`,`hair`,`face`,`skin`,`x`,`cy`,`map`,`gender`,`dir`,`ScriptId`,`Foothold`,`rx0`,`rx1`) VALUES (4,'Sarah',31157,21001,0,-58,35,102000004,0,0,9901907,5,2,-78);

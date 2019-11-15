@@ -1,3 +1,5 @@
+USE `dietstory`;
+
 CREATE TABLE `ultimate_adventurers` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `successorId` int(11) NOT NULL,

@@ -1,4 +1,6 @@
-INSERT INTO dietstory.drop_data (`dropperid`, `itemid`, `minimum_quantity`, `maximum_quantity`, `questid`, `chance`)
+USE `dietstory`;
+
+INSERT INTO drop_data (`dropperid`, `itemid`, `minimum_quantity`, `maximum_quantity`, `questid`, `chance`)
 VALUES 
 (3210100, 4001000, 1, 1, 2017, 5000), -- FireBoar | Arwen's Glass Shoe | Arwen and the Glass Shoes
 (4300013, 4000538, 1, 1, 2288, 600000), -- Spirit of Rock | Spirit of Rock's Music Score | Say "NO" to Plagiarism

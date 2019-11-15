@@ -1,3 +1,5 @@
+USE `dietstory`;
+
 # Belts and Medals
 SELECT inventoryitemid, itemid, characterid, name FROM inventoryitems AS ii
 INNER JOIN characters AS cc ON cc.id = ii.characterid
