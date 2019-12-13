@@ -285,6 +285,47 @@ public class MapleInventory implements Iterable<Item> {
         }
     }
 
+    public void setInventory(LinkedHashMap<Short, Item> newInventory) {
+        lock.lock();
+        try {
+            if(slotLimit < newInventory.size()) {
+                slotLimit = (byte) newInventory.size();    
+            }
+
+            inventory.clear();
+            for(Map.Entry<Short, Item> entry : newInventory.entrySet()) {
+                inventory.put(entry.getKey(), entry.getValue().copy());
+            }
+        }
+        finally {
+            lock.unlock();
+        }
+    }
+    public void clearInventory() {
+        lock.lock();
+        try {
+            inventory.clear();
+        }
+        finally {
+            lock.unlock();
+        }
+    }
+
+    public LinkedHashMap<Short, Item> cloneInventory() {
+        LinkedHashMap<Short, Item> clone = new LinkedHashMap<Short, Item>();
+        lock.lock();
+        try {
+            for(Map.Entry<Short, Item> entry : inventory.entrySet()) {
+                clone.put(entry.getKey(), entry.getValue().copy());
+            }
+        }
+        finally {
+            lock.unlock();
+        }
+
+        return clone;
+    }
+
     public boolean isFull() {
         lock.lock();
         try {

@@ -41,12 +41,12 @@ public final class ItemSortHandler extends AbstractMaplePacketHandler {
         chr.getAutobanManager().setTimestamp(2, slea.readInt(), 3);
         MapleInventoryType inventoryType = MapleInventoryType.getByType(slea.readByte());
                 
-	if(!ServerConstants.USE_ITEM_SORT) {
-            c.announce(MaplePacketCreator.enableActions());
-            return;
-	}
-		
-	MapleInventory inventory = c.getPlayer().getInventory(inventoryType);
+    	if(!ServerConstants.USE_ITEM_SORT) {
+                c.announce(MaplePacketCreator.enableActions());
+                return;
+    	}
+    		
+    	MapleInventory inventory = c.getPlayer().getInventory(inventoryType);
         
         //------------------- RonanLana's SLOT MERGER -----------------
         

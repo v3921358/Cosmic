@@ -6,7 +6,12 @@ import constants.ItemConstants;
  *
  * @author kevin
  */
+
 public class ModifyInventory {
+    public static final short ADD_ITEM_OP = 0;
+    public static final short UPDATE_QUANTITY_OP = 1;
+    public static final short MOVE_ITEM_OP = 2;
+    public static final short REMOVE_ITEM_OP = 3; 
 
     private int mode;
     private Item item;

@@ -23,6 +23,8 @@ package net.server.channel.handlers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import constants.ServerConstants;
 import net.AbstractMaplePacketHandler;
@@ -41,9 +43,15 @@ import server.MapleItemInformationProvider;
  *
  * @author BubblesDev
  * @author Ronan
+ * @author Benjixd
  */
 
 class PairedQuicksort {
+    public static final short SORT_CRITERIA_ITEM_ID = 0;
+    public static final short SORT_CRITERIA_QUANTITY = 1;
+    public static final short SORT_CRITERIA_NAME = 2;
+    public static final short SORT_CRITERIA_LEVEL = 3;
+
     private int i = 0;
     private int j = 0;
     private final ArrayList<Integer> intersect;
@@ -143,15 +151,15 @@ class PairedQuicksort {
 
     void MapleQuicksort(int Esq, int Dir, ArrayList<Item> A, int sort) {
         switch(sort) {
-            case 3:
+            case SORT_CRITERIA_LEVEL:
                 PartitionByLevel(Esq, Dir, A);
                 break;
             
-            case 2:
+            case SORT_CRITERIA_NAME:
                 PartitionByName(Esq, Dir, A);
                 break;
                 
-            case 1:
+            case SORT_CRITERIA_QUANTITY:
                 PartitionByQuantity(Esq, Dir, A);
                 break;
                     
@@ -195,8 +203,7 @@ public final class ItemIdSortHandler extends AbstractMaplePacketHandler {
             return;
         }
 		
-	if (inventoryType < 1 || inventoryType > 5) {
-            c.disconnect(false, false);
+        if (inventoryType < 1 || inventoryType > 5) {
             return;
         }
 		
@@ -205,27 +212,39 @@ public final class ItemIdSortHandler extends AbstractMaplePacketHandler {
         ArrayList<Item> itemarray = new ArrayList<>();
         List<ModifyInventory> mods = new ArrayList<>();
         
-        for (short i = 1; i <= inventory.getSlotLimit(); i++) {
-            Item item = inventory.getItem(i);
-            if (item != null) {
-            	itemarray.add((Item) item.copy());
+
+        LinkedHashMap<Short, Item> recovery = inventory.cloneInventory();
+        for(Map.Entry<Short, Item> entry : recovery.entrySet()) {
+            if(entry.getValue() != null) {
+	           itemarray.add(entry.getValue());
             }
         }
-        
-        for (Item item : itemarray) {
-                inventory.removeSlot(item.getPosition());
-                mods.add(new ModifyInventory(3, item));
+
+        try {
+            int invTypeCriteria = (MapleInventoryType.getByType(inventoryType) == MapleInventoryType.EQUIP) ? PairedQuicksort.SORT_CRITERIA_LEVEL : PairedQuicksort.SORT_CRITERIA_QUANTITY;
+            int sortCriteria = (ServerConstants.USE_ITEM_SORT_BY_NAME) ? PairedQuicksort.SORT_CRITERIA_NAME : PairedQuicksort.SORT_CRITERIA_ITEM_ID;
+            PairedQuicksort pq = new PairedQuicksort(itemarray, sortCriteria, invTypeCriteria);
+            inventory.clearInventory();
+            
+            // Remove all items from inventory client action
+            for(Item item : itemarray) {
+                mods.add(new ModifyInventory(ModifyInventory.REMOVE_ITEM_OP, item));
+            }
+
+            // Remove all items from inventory client action
+            for(Item item : itemarray) {
+                inventory.addItem(item);
+                mods.add(new ModifyInventory(ModifyInventory.ADD_ITEM_OP, item.copy())); //to prevent crashes
+            }
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+            inventory.setInventory(recovery);
+            c.announce(MaplePacketCreator.finishedSort2(inventoryType));
+            c.announce(MaplePacketCreator.enableActions());
+            return;
         }
         
-        int invTypeCriteria = (MapleInventoryType.getByType(inventoryType) == MapleInventoryType.EQUIP) ? 3 : 1;
-        int sortCriteria = (ServerConstants.USE_ITEM_SORT_BY_NAME == true) ? 2 : 0;
-        PairedQuicksort pq = new PairedQuicksort(itemarray, sortCriteria, invTypeCriteria);
-        
-        for (Item item : itemarray) {
-            inventory.addItem(item);
-	    mods.add(new ModifyInventory(0, item.copy()));//to prevent crashes
-        }
-        itemarray.clear();
         c.announce(MaplePacketCreator.modifyInventory(true, mods));
         c.announce(MaplePacketCreator.finishedSort2(inventoryType));
         c.announce(MaplePacketCreator.enableActions());
