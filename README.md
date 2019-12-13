@@ -97,6 +97,7 @@ Alternatively, using the docker command to spin up the server with 4 channels:
 ```
 docker run --rm -it -v ${PWD}:/mnt -p 7575:7575 -p 7576:7576 -p 7577:7577 -p 8484:8484 benjixd/dietstory
 ```
+> Environment variables: MYSQL_DB_USER, MYSQL_ROOT_PASSWORD, MYSQL_HOST_NAME, JAVA_STATIC_MEM
 
 ### Docker Compose
 

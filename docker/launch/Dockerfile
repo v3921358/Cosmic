@@ -4,6 +4,7 @@ FROM benjixd/alpine-jdk7-jce-unlimited:latest
 ENV MYSQL_DB_USER=root
 ENV MYSQL_ROOT_PASSWORD=password
 ENV MYSQL_HOST_NAME=localhost
+ENV JAVA_STATIC_MEM=2048
 
 # Install envsubst
 RUN apk add --update openssl \
@@ -15,4 +16,4 @@ ENV DIETSTORY_ROOT="/mnt"
 
 CMD cd ${DIETSTORY_ROOT} \
 	&& envsubst < configuration_template.ini > configuration.ini \
-	&& java -Xmx2048m -cp "dist/*:cores/*" -Dwzpath="wz/" net.server.Server
+	&& java -Xmx${JAVA_STATIC_MEM}m -cp "dist/*:cores/*" -Dwzpath="wz/" net.server.Server
