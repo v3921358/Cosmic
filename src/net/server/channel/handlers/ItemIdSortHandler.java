@@ -216,7 +216,7 @@ public final class ItemIdSortHandler extends AbstractMaplePacketHandler {
         LinkedHashMap<Short, Item> recovery = inventory.cloneInventory();
         for(Map.Entry<Short, Item> entry : recovery.entrySet()) {
             if(entry.getValue() != null) {
-	           itemarray.add(entry.getValue());
+                itemarray.add(entry.getValue());
             }
         }
 

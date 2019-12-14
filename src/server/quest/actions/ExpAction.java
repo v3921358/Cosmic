@@ -51,7 +51,7 @@ public class ExpAction extends MapleQuestAction {
 		if (chr.isBeginnerJob() && chr.getLevel() < 10) {
 			chr.gainExp(exp, true, true);
 		} else {
-			chr.gainExp((int)(exp * chr.getExpRate() * ServerConstants.QUEST_EXP_MOD), true, true);
+			chr.gainExp((long)(exp * ServerConstants.QUEST_EXP_MOD), true, true);
 		}
 	}
 } 

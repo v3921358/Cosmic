@@ -621,9 +621,9 @@ public class AbstractPlayerInteraction {
 		}
 	}
         
-        public void giveCharacterExp(int amount, MapleCharacter chr) {
-                chr.gainExp((amount * chr.getExpRate()), true, true);
-        }
+    public void giveCharacterExp(int amount, MapleCharacter chr) {
+        chr.gainExp(amount, true, true);
+    }
 
 	public void givePartyExp(int amount, List<MapleCharacter> party) {
 		for (MapleCharacter chr : party) {
@@ -665,9 +665,9 @@ public class AbstractPlayerInteraction {
 			}
 			int base = PartyQuest.getExp(PQ, player.getLevel());
 			int exp = base * bonus / 100;
-			player.gainExp(exp, true, true);
+			player.gainExp((long)(exp * ServerConstants.PQ_EXP_MOD), true, true);
 			if(ServerConstants.PQ_BONUS_EXP_MOD > 0 && System.currentTimeMillis() <= ServerConstants.EVENT_END_TIMESTAMP) {
-				player.gainExp((int) (exp * ServerConstants.PQ_BONUS_EXP_MOD), true, true);
+				player.gainExp((long)(exp * ServerConstants.PQ_BONUS_EXP_MOD), true, true);
 			}
 		}
 	}

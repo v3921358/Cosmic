@@ -28,6 +28,7 @@ import net.server.world.MapleParty;
 import server.MapleItemInformationProvider;
 import server.TimerManager;
 import tools.MaplePacketCreator;
+import constants.ServerConstants;
 
 /**
  *
@@ -235,7 +236,7 @@ public class Pyramid extends PartyQuest {
             exp += ((kill * 2) + (cool * 10));
         }
         chr.announce(MaplePacketCreator.pyramidScore(rank, exp));
-        chr.gainExp(exp, true, true);
+        chr.gainExp((long)(exp * ServerConstants.PQ_EXP_MOD), true, true);
     }
 }
 

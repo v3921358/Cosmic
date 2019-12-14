@@ -2479,77 +2479,96 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         updateSingleStat(MapleStat.GACHAEXP, gachaexp.addAndGet(gain));
     }
     
-    public void gainExp(int gain) {
+    public void gainExp(long gain) {
         gainExp(gain, true, true);
     }
 
-    public void gainExp(int gain, boolean show, boolean inChat) {
+    public void gainExp(long gain, boolean show, boolean inChat) {
         gainExp(gain, show, inChat, true);
     }
     
-    public void gainExp(int gain, boolean show, boolean inChat, boolean white) {
+    public void gainExp(long gain, boolean show, boolean inChat, boolean white) {
         gainExp(gain, 0, show, inChat, white);
     }
 
-    public void gainExp(int gain, int party, boolean show, boolean inChat, boolean white) {
+    public void gainExp(long gain, long party, boolean show, boolean inChat, boolean white) {
         if (hasDisease(MapleDisease.CURSE)) {
             gain *= 0.5;
             party *= 0.5;
         }
-	
-        if(gain < 0) gain = Integer.MAX_VALUE;   // integer overflow, heh.
-        if(party < 0) party = Integer.MAX_VALUE;   // integer overflow, heh.
-        int equip = (int)Math.min((long)((gain / 10) * pendantExp), Integer.MAX_VALUE);
+	   
+        if(gain < 0) gain = 0;
+        if(party < 0) party = 0;
+
+        long equip = (long)Math.exp(Math.log(gain) - Math.log(10) + Math.log(pendantExp));
         
         long total = gain + equip + party;
-        gainExpInternal(total, equip, party, show, inChat, white);
+        gainExpInternal(
+            total * getExpRate(), 
+            equip * getExpRate(), 
+            party * getExpRate(), 
+            show, 
+            inChat, 
+            white);
     }
     
-    public void loseExp(int loss, boolean show, boolean inChat) {
+    public void loseExp(long loss, boolean show, boolean inChat) {
         loseExp(loss, show, inChat, true);
     }
     
-    public void loseExp(int loss, boolean show, boolean inChat, boolean white) {
+    public void loseExp(long loss, boolean show, boolean inChat, boolean white) {
         gainExpInternal(-loss, 0, 0, show, inChat, white);
     }
     
-    private void gainExpInternal(long gain, int equip, int party, boolean show, boolean inChat, boolean white) {
-        long total = Math.max(gain, -exp.get());
-        
-        if (level < getMaxLevel()) {
-            long leftover = 0;
-            long nextExp = exp.get() + total;
-            
-            if (nextExp > (long)Integer.MAX_VALUE) {
-                total = Integer.MAX_VALUE - exp.get();
-                leftover = nextExp - Integer.MAX_VALUE;
-            }
-            updateSingleStat(MapleStat.EXP, exp.addAndGet((int)total));
-            if (show && gain != 0) {
-                client.announce(MaplePacketCreator.getShowExpGain((int)Math.min(gain, Integer.MAX_VALUE), equip, party, inChat, white));
-            }
-            while (exp.get() >= ExpTable.getExpNeededForLevel(level)) {
-                levelUp(true);
+    private void gainExpInternal(long gain, long equip, long party, boolean show, boolean inChat, boolean white) {
+        int requiredToLevel;
+        int expEarned;
+        Item apReset = new Item(5050000, (short)0, (short)1 );
 
-                Item apReset;
+        // Loop through leveling
+        while(true) {
+            if (level >= getMaxLevel() || gain == (long)0) {
+                break;
+            }
+
+            requiredToLevel = Math.max(ExpTable.getExpNeededForLevel(level) - exp.get(), 0);
+            // Update EXP
+            if(gain >= (long)requiredToLevel) {
+                expEarned = requiredToLevel;
+                gain -= (long)expEarned;
+            }
+            else if (gain >= 0) {
+                expEarned = (int)gain;
+                gain = 0;
+            }
+            else {
+                expEarned = Math.max(-exp.get(), (int)gain); //choose the lesser negative exp
+                gain = 0;
+            }
+
+            // Client Notifications
+            updateSingleStat(MapleStat.EXP, exp.addAndGet(expEarned));
+            if(show && expEarned > 0) {
+                client.announce(MaplePacketCreator.getShowExpGain(
+                    expEarned, 
+                    (int)Math.min(equip, (long)Integer.MAX_VALUE), 
+                    (int)Math.min(party, (long)Integer.MAX_VALUE), 
+                    inChat, 
+                    white));
+            }
+
+            //Handle LevelUp
+            if(exp.get() >= ExpTable.getExpNeededForLevel(level)) {
+                levelUp(true);
                 
                 // Gain one AP Reset every level
                 if(MapleInventoryManipulator.checkSpace(client, 5050000, 1, "")){
-                    apReset = new Item(5050000, (short)0, (short)1 );
-                    MapleInventoryManipulator.addFromDrop(client, apReset);
+                    MapleInventoryManipulator.addFromDrop(client, apReset.copy());
                 }
                 else{
                     client.getPlayer().dropMessage(1, "Your inventory is full. Cannot obtain AP Reset.");
                 }
-                
-                if (level == getMaxLevel()) {
-                    setExp(0);
-                    updateSingleStat(MapleStat.EXP, 0);
-                    break;
-                }
             }
-            
-            if(leftover > 0) gainExpInternal(leftover, equip, party, false, inChat, white);
         }
     }
 
@@ -4159,10 +4178,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         }
         maxmp += localint_ / 10;
         if (takeexp) {
-            exp.addAndGet(-ExpTable.getExpNeededForLevel(level));
-            if (exp.get() < 0) {
-                exp.set(0);
-            }
+            exp.set(0);
         }
         level++;
         if (level >= getMaxLevel()) {
@@ -7193,8 +7209,8 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         pendantExp = 0;
     }
 
-    public void increaseEquipExp(int expGain) {
-        if(expGain < 0) expGain = Integer.MAX_VALUE;
+    public void increaseEquipExp(long expGain) {
+        if(expGain < 0) expGain = 0;
         
         MapleItemInformationProvider mii = MapleItemInformationProvider.getInstance();
         for (Item item : getInventory(MapleInventoryType.EQUIPPED).list()) {
@@ -7205,7 +7221,17 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             }
 
             if ((nEquip.getItemLevel() < ServerConstants.USE_EQUIPMNT_LVLUP) || (itemName.contains("Reverse") && nEquip.getItemLevel() < 4) || (itemName.contains("Timeless") && nEquip.getItemLevel() < 6)) {
-                nEquip.gainItemExp(client, expGain);
+                // Apply Integer bounded increments of EXP
+                while(true) {
+                    if(expGain >= (long)Integer.MAX_VALUE) {
+                        nEquip.gainItemExp(client, Integer.MAX_VALUE);
+                        expGain -= (long)Integer.MAX_VALUE;
+                    }
+                    else {
+                        nEquip.gainItemExp(client, (int)expGain);
+                        break;
+                    }
+                }
             }
         }
     }
