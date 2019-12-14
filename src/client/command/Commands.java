@@ -712,7 +712,7 @@ public class Commands {
                         player.updateSingleStat(MapleStat.HP, player.getMaxHp());
                         player.setMp(player.getMaxMp());
                         player.updateSingleStat(MapleStat.MP, player.getMaxMp());
-                                break;
+                        break;
                         
                 case "goto":
                         if (sub.length < 2){
