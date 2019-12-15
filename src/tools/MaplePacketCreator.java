@@ -2621,9 +2621,12 @@ public class MaplePacketCreator {
                 mplew.writeShort(SendOpcode.GIVE_FOREIGN_BUFF.getValue());
                 mplew.writeInt(cid);
                 writeLongMaskD(mplew, statups);
-                for (int i = 0; i < statups.size(); i++) {
-                        mplew.writeShort(skill.getSkillId());
-                        mplew.writeShort(skill.getSkillLevel());
+                for (Pair<MapleDisease, Integer> statup : statups) {
+                    if (statup.getLeft() == MapleDisease.POISON) {
+                        mplew.writeShort(statup.getRight().shortValue());
+                    }
+                    mplew.writeShort(skill.getSkillId());
+                    mplew.writeShort(skill.getSkillLevel());
                 }
                 mplew.writeShort(0); // same as give_buff
                 mplew.writeShort(900);//Delay

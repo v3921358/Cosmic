@@ -2963,7 +2963,6 @@ public class MapleMap {
                         toggleHiddenNPC(9001108);
                     }
                     mapMonitor.cancel(true);
-                    mapMonitor = null;
                 }
             }
         }, 1000);

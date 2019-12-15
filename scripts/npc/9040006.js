@@ -9,136 +9,152 @@
 importPackage(Packages.tools);
 
 function clearStage(stage, eim) {
-        eim.setProperty("stage" + stage + "clear", "true");
-        eim.showClearEffect(true);
+    eim.setProperty("stage" + stage + "clear", "true");
+    eim.showClearEffect(true);
+    removeGroundItems();
+    
+    cm.getPlayer().getMap().getReactorByName("watergate").forceHitReactor(1);
+    cm.getGuild().gainGP(25);
 
-        eim.giveEventPlayersStageReward(stage);
+    eim.giveEventPlayersStageReward(stage);
 }
 
 function start() {
+    var eim = cm.getPlayer().getEventInstance();
+
+    // Check if already cleared
     if (cm.getPlayer().getMap().getReactorByName("watergate").getState() > 0){
         cm.sendOk("Excellent work. You may proceed to the next stage.");
         cm.dispose();
         return;
     }
     
-    var eim = cm.getPlayer().getEventInstance();
+    // Warp to exit if invalid event
     if (eim == null) {
-	cm.warp(990001100);
-    } else {
-	if (cm.isEventLeader()) {
-            var currentCombo = eim.getProperty("stage3combo");
-            if (currentCombo == null || currentCombo.equals("reset")) {
-                var newCombo = makeCombo();
-                eim.setProperty("stage3combo",newCombo);
-                //cm.playerMessage("Debug: " + newCombo);
-                eim.setProperty("stage3attempt","1");
-                cm.sendOk("This fountain guards the secret passage to the throne room. Offer items in the area to the vassals to proceed. The vassals shall tell you whether your offerings are accepted, and if not, which vassals are displeased. You have seven attempts. Good luck.");
-            } else {
-                var attempt = parseInt(eim.getProperty("stage3attempt"));
-                var combo = parseInt(currentCombo);
-                var guess = getGroundItems();
-                if (guess != null) {
-                    if (combo == guess) {
-                        cm.getPlayer().getMap().getReactorByName("watergate").forceHitReactor(1);
-                        clearStage(3, eim);
-                        cm.getGuild().gainGP(25);
-                        
-                        removeGroundItems();
-                        cm.sendOk("Excellent work. You may proceed to the next stage.");
-                    } else {
-                        if (attempt < 7) {
-                            var comboItems = [0, 0, 0, 0];
-                            var guessItems = [0, 0, 0, 0];
-                            
-                            var correct = 0, incorrect, unknown = 0;
-                            for(var i = 0; i < 4; i++) {
-                                var guessIdx = Math.floor(guess / Math.pow(10, i)) % 10;
-                                var comboIdx = Math.floor(combo / Math.pow(10, i)) % 10;
-                                
-                                if(guessIdx == comboIdx) correct++;
-                                else {
-                                    (guessItems[guessIdx])++;
-                                    (comboItems[comboIdx])++;
-                                }
-                            }
-                            
-                            for(var i = 0; i < 4; i++)  {
-                                var diff = guessItems[i] - comboItems[i];
-                                if(diff > 0) unknown += diff;
-                            }
-                            
-                            incorrect = 4 - correct - unknown;
-                            
-                            var string = "";
-                            //cm.playerMessage("Results - Correct: " + results[0] + " | Incorrect: " + results[1] + " | Unknown: " + results[2]);
-                            if (correct != 0) {
-                                if (correct == 1) {
-                                    string += "1 vassal is pleased with their offering.\r\n";
-                                } else {
-                                    string += correct + " vassals are pleased with their offerings.\r\n";
-                                }
-                            }
-                            if (incorrect != 0) {
-                                if (incorrect == 1) {
-                                    string += "1 vassal has received an incorrect offering.\r\n";
-                                } else {
-                                    string += incorrect + " vassals have received incorrect offerings.\r\n";
-                                }
-                            }
-                            if (unknown != 0) {
-                                if (unknown == 1) {
-                                    string += "1 vassal has received an unknown offering.\r\n";
-                                } else {
-                                    string += unknown + " vassals have received unknown offerings.\r\n";
-                                }
-                            }
-                            string += "This is your ";
-                            switch (attempt) {
-                                case 1:
-                                    string += "1st";
-                                    break;
-                                case 2:
-                                    string += "2nd";
-                                    break;
-                                case 3:
-                                    string += "3rd";
-                                    break;
-                                default:
-                                    string += attempt + "th";
-                                    break;
-                            }
-                            string += " attempt.";
+        cm.warp(990001100);  
+        cm.dispose();
+        return;
+    } 
 
-                            //spawn one black and one myst knight
-                            spawnMob(9300036, -350, 150, cm.getPlayer().getMap());
-                            spawnMob(9300037, 400, 150, cm.getPlayer().getMap());
+    // Return msg if not leader
+    if(!cm.isEventLeader()) {
+        cm.sendOk("Please have your leader speak to me.");
+        cm.dispose();
+        return;
+    }
 
-                            cm.sendOk(string);
-                            eim.setProperty("stage3attempt",attempt + 1);
-                        } else {
-                            //reset the combo and mass spawn monsters
-                            eim.setProperty("stage3combo","reset");
-                            cm.sendOk("You have failed the test. Please compose yourselves and try again later.");
+    // Begin Quest
+    var currentCombo = eim.getProperty("stage3combo");
 
-                            for (var i = 0; i < 6; i++) {
-                                //keep getting new monsters, lest we spawn the same monster five times o.o!
-                                spawnMob(9300036, randX(), 150, cm.getPlayer().getMap());
-                                spawnMob(9300037, randX(), 150, cm.getPlayer().getMap());
-                            }
-                        }
-                        
-                        eim.showWrongEffect();
+    // Create Combo if not existant
+    if (currentCombo == null) {
+        var newCombo = makeCombo();
+        eim.setProperty("stage3combo",newCombo);
+        //cm.playerMessage("Debug: " + newCombo);
+        eim.setProperty("stage3attempt","1");
+        cm.sendOk("This fountain guards the secret passage to the throne room. Offer items in the area to the vassals to proceed. The vassals shall tell you whether your offerings are accepted, and if not, which vassals are displeased. You have seven attempts. Good luck.");
+    }
+    // Check Attempt
+    else {
+        var attempt = parseInt(eim.getProperty("stage3attempt"));
+        var combo = parseInt(currentCombo);
+        var guess = getGroundItems();
+        if(guess == null) {
+            cm.sendOk("Please make sure your attempt is properly set in front of the vassals and talk to me again.");
+        }
+        else {
+            // Correct Order
+            if (combo == guess) {
+                clearStage(3, eim);
+                cm.sendOk("Excellent work. You may proceed to the next stage.");
+            }
+            // Incorrect Order
+            else {
+                var comboItems = [0, 0, 0, 0];
+                var guessItems = [0, 0, 0, 0];
+                
+                var correct = 0, incorrect, unknown = 0;
+                for(var i = 0; i < 4; i++) {
+                    var guessIdx = Math.floor(guess / Math.pow(10, i)) % 10;
+                    var comboIdx = Math.floor(combo / Math.pow(10, i)) % 10;
+                    
+                    if(guessIdx == comboIdx) correct++;
+                    else {
+                        (guessItems[guessIdx])++;
+                        (comboItems[comboIdx])++;
                     }
-                } else {
-                    cm.sendOk("Please make sure your attempt is properly set in front of the vassals and talk to me again.");
+                }
+                
+                for(var i = 0; i < 4; i++)  {
+                    var diff = guessItems[i] - comboItems[i];
+                    if(diff > 0) unknown += diff;
+                }
+                
+                incorrect = 4 - correct - unknown;
+                
+                var string = "";
+                //cm.playerMessage("Results - Correct: " + results[0] + " | Incorrect: " + results[1] + " | Unknown: " + results[2]);
+                if (correct != 0) {
+                    if (correct == 1) {
+                        string += "1 vassal is pleased with their offering.\r\n";
+                    } else {
+                        string += correct + " vassals are pleased with their offerings.\r\n";
+                    }
+                }
+                if (incorrect != 0) {
+                    if (incorrect == 1) {
+                        string += "1 vassal has received an incorrect offering.\r\n";
+                    } else {
+                        string += incorrect + " vassals have received incorrect offerings.\r\n";
+                    }
+                }
+                if (unknown != 0) {
+                    if (unknown == 1) {
+                        string += "1 vassal has received an unknown offering.\r\n";
+                    } else {
+                        string += unknown + " vassals have received unknown offerings.\r\n";
+                    }
+                }
+                string += "This is your ";
+                switch (attempt) {
+                    case 1:
+                        string += "1st";
+                        break;
+                    case 2:
+                        string += "2nd";
+                        break;
+                    case 3:
+                        string += "3rd";
+                        break;
+                    default:
+                        string += attempt + "th";
+                        break;
+                }
+                string += " attempt.";
+
+                //spawn one black and one myst knight
+                spawnMob(9300036, -350, 150, cm.getPlayer().getMap());
+                spawnMob(9300037, 400, 150, cm.getPlayer().getMap());
+
+                cm.sendOk(string);
+                eim.setProperty("stage3attempt",attempt + 1);
+                eim.showWrongEffect();
+
+                // Failed too many attempts, reset the combo and mass spawn monsters
+                if (attempt >= 7) {
+                    currentCombo = null;
+                    cm.sendOk("You have failed the test. Please compose yourselves and try again later.");
+
+                    for (var i = 0; i < 6; i++) {
+                        //keep getting new monsters, lest we spawn the same monster five times o.o!
+                        spawnMob(9300036, randX(), 150, cm.getPlayer().getMap());
+                        spawnMob(9300037, randX(), 150, cm.getPlayer().getMap());
+                    }
                 }
             }
-        } else {
-            cm.sendOk("Please have your leader speak to me.");
         }
     }
-    
+
     cm.dispose();
 }
 

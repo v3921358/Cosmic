@@ -13,15 +13,33 @@ public class GameConstants {
     private static final int[] EXP_RATE_GAIN = {1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 4, 4, 4, 4, 8, 8, 16, 16, 32};    //fibonacci :3
     
     public static int getPlayerBonusDropRate(int slot) {
-        return(DROP_RATE_GAIN[slot]);
+        try {
+            return(DROP_RATE_GAIN[slot]);
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+            return 1;
+        }
     }
     
     public static int getPlayerBonusMesoRate(int slot) {
-        return(MESO_RATE_GAIN[slot]);
+        try {
+            return(MESO_RATE_GAIN[slot]);    
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+            return 1;
+        }
     }
     
     public static int getPlayerBonusExpRate(int slot) {
-        return(EXP_RATE_GAIN[slot]);
+        try {
+            return(EXP_RATE_GAIN[slot]);    
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+            return 1;
+        }
     }
     
     // MapleStory default keyset

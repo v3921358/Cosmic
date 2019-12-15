@@ -44,12 +44,16 @@ public class MapMonitor {
     }
 
     private void cancelAction() {
-        monitorSchedule.cancel(false);
-        map.killAllMonsters();
-        map.clearDrops();
+        if(monitorSchedule != null) {
+            monitorSchedule.cancel(false);    
+        }
+        
         if (portal != null) {
             portal.setPortalStatus(MaplePortal.OPEN);
         }
+
+        map.killAllMonsters();
+        map.clearDrops();
         map.resetReactors();
     }
 }

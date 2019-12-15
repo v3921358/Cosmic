@@ -1,6 +1,7 @@
 FROM benjixd/alpine-jdk7-jce-unlimited:latest
 
 # Default values for server if they weren't provided
+ENV SERVER_HOST=localhost
 ENV MYSQL_DB_USER=root
 ENV MYSQL_ROOT_PASSWORD=password
 ENV MYSQL_HOST_NAME=localhost
