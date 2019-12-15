@@ -44,26 +44,15 @@ function action(mode, type, selection) {
             cm.dispose();
             return;
         }
-        if (!cm.isEventLeader()) {
-            if(cm.getPlayer().getMapId() == 920010000) {
-                cm.warp(920010000, 2);
-                cm.dispose();
-                return;
-            }
-
-            cm.sendOk("I only wish to speak to your leader!");
-            cm.dispose();
-            return;
-        }
 
         var eim = cm.getEventInstance();
 
         switch(cm.getPlayer().getMapId()) {
             case 920010000:
-                if(eim.getIntProperty("statusStg0") != 1) {
+                if(eim.getIntProperty("statusStg1") != 1) {
                     eim.warpEventTeamToMapSpawnPoint(920010000, 2);
                     eim.giveEventPlayersExp(3500);
-                    clearStage(0, eim);
+                    clearStage(1, eim);
 
                     cm.sendNext("Please save Minerva, She've been trapped in the seal by Papa Pixie, the terror of our tower! He misplaced all of our Minerva Statue's parts and we have to get it all back! Oh pardon me, I am the tower's Chamberlain, Eak. I am Minerva's royal servant.");
                 }
