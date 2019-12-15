@@ -80,6 +80,7 @@ import tools.DatabaseConnection;
 import tools.FilePrinter;
 import tools.HexTool;
 import tools.MapleAESOFB;
+import tools.MapleLogger;
 import tools.MaplePacketCreator;
 
 public class MapleClient {
@@ -1304,6 +1305,9 @@ public class MapleClient {
 	}
         
 	public synchronized void announce(final byte[] packet) {
+                if (ServerConstants.USE_DEBUG_SHOW_SEND_PACKET){
+                    MapleLogger.logSend(this, packet);
+                }
 		session.write(packet);
 	}
 

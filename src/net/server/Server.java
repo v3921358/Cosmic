@@ -751,8 +751,13 @@ public class Server implements Runnable {
                 System.out.println("Worlds + Channels are offline.");
                 acceptor.unbind();
                 acceptor = null;
-                if (!restart) {
-                    System.exit(0);
+                if (!restart) {  // shutdown hook deadlocks if System.exit() method is used within its body chores, thanks MIKE for pointing that out
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            System.exit(0);
+                        }
+                    }).start();
                 } else {
                     System.out.println("\r\nRestarting the server....\r\n");
                     try {

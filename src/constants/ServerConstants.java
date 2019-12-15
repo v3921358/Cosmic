@@ -34,8 +34,9 @@ public class ServerConstants {
     public static final boolean USE_CUSTOM_KEYSET = false;           //Enables auto-setup of the MapleSolaxiaV2's custom keybindings when creating characters.
     public static final boolean USE_MAXRANGE_ECHO_OF_HERO = true;
     public static final boolean USE_MAXRANGE = true;                //Will send and receive packets from all events of a map, rather than those of only view range.
-    public static final boolean USE_DEBUG = false;                  //Will enable some text prints on the client, oriented for debugging purposes.
-    public static final boolean USE_DEBUG_SHOW_RCVD_PACKET = false; //Prints on the cmd all received packet ids.
+    public static final boolean USE_DEBUG = false;                   //Will enable some text prints on the client, oriented for debugging purposes.
+    public static final boolean USE_DEBUG_SHOW_RCVD_PACKET = false;  //Prints on the cmd all received packets
+    public static final boolean USE_DEBUG_SHOW_SEND_PACKET = false;  //prints on console sent packets
     public static final boolean USE_DEBUG_SHOW_INFO_EQPEXP = false; //Prints on the cmd all equip exp gain info.
     public static final boolean USE_MTS = false;
     public static final boolean USE_FAMILY_SYSTEM = false;
@@ -137,7 +138,8 @@ public class ServerConstants {
             ServerConstants.DB_PASS = p.getProperty("DB_PASS");
 
             //java8 And Shutdownhook
-            ServerConstants.JAVA_8 = p.getProperty("JAVA8").equalsIgnoreCase("TRUE");
+            ServerConstants.JAVA_8 = System.getProperty("java.version").startsWith("1.8");
+            System.err.println("Using JAVA 8: " + ServerConstants.JAVA_8);
             ServerConstants.SHUTDOWNHOOK = p.getProperty("SHUTDOWNHOOK").equalsIgnoreCase("true");
 
         } catch (Exception e) {
