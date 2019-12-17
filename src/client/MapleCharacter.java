@@ -2233,7 +2233,10 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             
             final List<Pair<MapleDisease, Integer>> debuff = Collections.singletonList(new Pair<>(disease, Integer.valueOf(skill.getX())));
             client.announce(MaplePacketCreator.giveDebuff(debuff, skill));
-            map.broadcastMessage(this, MaplePacketCreator.giveForeignDebuff(id, debuff, skill), false);
+            if (disease == MapleDisease.SLOW)
+                map.broadcastMessage(this, MaplePacketCreator.giveForeignSlowDebuff(id, debuff, skill), false);
+            else
+                map.broadcastMessage(this, MaplePacketCreator.giveForeignDebuff(id, debuff, skill), false);
         }
     }
 
@@ -2241,7 +2244,10 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         if (hasDisease(debuff)) {
             long mask = debuff.getValue();
             announce(MaplePacketCreator.cancelDebuff(mask));
-            map.broadcastMessage(this, MaplePacketCreator.cancelForeignDebuff(id, mask), false);
+            if (debuff == MapleDisease.SLOW)
+                map.broadcastMessage(this, MaplePacketCreator.cancelForeignSlowDebuff(id), false);
+            else
+                map.broadcastMessage(this, MaplePacketCreator.cancelForeignDebuff(id, mask), false);
 
             chrLock.lock();
             try {

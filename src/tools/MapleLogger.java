@@ -97,6 +97,8 @@ public class MapleLogger {
             return;
         }
         SendOpcode code = getSendOpcodeFromValue(packetId);
+        if (isSendFiltered(code))
+            return;
         String packet = code.toString() + "\r\n" + HexTool.toString((byte[]) message) + "\r\n";
         FilePrinter.print(FilePrinter.PACKET_LOGS + c.getAccountName() + "-" + c.getPlayer().getName()+".txt", packet + "\r\n");
     }
@@ -107,5 +109,16 @@ public class MapleLogger {
                 return op;
         }
         return null;
+    }
+    
+    private static boolean isSendFiltered(SendOpcode code){
+        switch(code){
+            case MOVE_PLAYER:
+            case MOVE_MONSTER:
+            case NPC_ACTION:
+                return true;
+            default:
+                return false;
+        }
     }
 }

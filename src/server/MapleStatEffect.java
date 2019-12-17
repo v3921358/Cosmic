@@ -1088,6 +1088,8 @@ public class MapleStatEffect {
             } else if (isDs()) {
                 List<Pair<MapleBuffStat, Integer>> dsstat = Collections.singletonList(new Pair<>(MapleBuffStat.DARKSIGHT, 0));
                 mbuff = MaplePacketCreator.giveForeignBuff(applyto.getId(), dsstat);
+            } else if (isWKCharge()){
+                mbuff = MaplePacketCreator.giveForeignWKChargeEffect(applyto.getId(), sourceid, localstatups);
             } else if (isCombo()) {
                 mbuff = MaplePacketCreator.giveForeignBuff(applyto.getId(), statups);
             } else if (isMonsterRiding()) {
@@ -1444,11 +1446,25 @@ public class MapleStatEffect {
     private boolean isHyperBody() {
         return skill && (sourceid == Spearman.HYPER_BODY || sourceid == GM.HYPER_BODY || sourceid == SuperGM.HYPER_BODY);
     }
+    
+    private boolean isWKCharge() {
+        if (!skill) {
+            return false;
+        }
+        
+        for (Pair<MapleBuffStat, Integer> p : statups) {
+            if (p.getLeft().equals(MapleBuffStat.WK_CHARGE)) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
 
     private boolean isComboReset() {
         return sourceid == Aran.COMBO_BARRIER || sourceid == Aran.COMBO_DRAIN;
     }
-
+    
     private int getFatigue() {
         return fatigue;
     }

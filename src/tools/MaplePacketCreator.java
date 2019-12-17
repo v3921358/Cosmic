@@ -2599,6 +2599,12 @@ public class MaplePacketCreator {
                 mplew.writeLong(firstmask);
                 mplew.writeLong(secondmask);
         }
+        
+        private static void writeLongMaskSlowD(final MaplePacketLittleEndianWriter mplew) {
+                mplew.writeInt(0);
+                mplew.writeInt(2048);
+                mplew.writeLong(0);
+        }
 
         public static byte[] giveDebuff(List<Pair<MapleDisease, Integer>> statups, MobSkill skill) {
                 final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
@@ -2632,6 +2638,23 @@ public class MaplePacketCreator {
                 mplew.writeShort(900);//Delay
                 return mplew.getPacket();
         }
+        
+        public static byte[] giveForeignSlowDebuff(int cid, List<Pair<MapleDisease, Integer>> statups, MobSkill skill) {
+                final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
+                mplew.writeShort(SendOpcode.GIVE_FOREIGN_BUFF.getValue());
+                mplew.writeInt(cid);
+                writeLongMaskSlowD(mplew);
+                for (Pair<MapleDisease, Integer> statup : statups) {
+                        if (statup.getLeft() == MapleDisease.POISON) {
+                                mplew.writeShort(statup.getRight().shortValue());
+                        }
+                        mplew.writeShort(skill.getSkillId());
+                        mplew.writeShort(skill.getSkillLevel());
+                }
+                mplew.writeShort(0); // same as give_buff
+                mplew.writeShort(900);//Delay
+                return mplew.getPacket();
+        }
 
         public static byte[] cancelForeignDebuff(int cid, long mask) {
                 final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
@@ -2654,12 +2677,34 @@ public class MaplePacketCreator {
                 mplew.writeShort(0);
                 return mplew.getPacket();
         }
+        
+        // Credits to Ronan Lana of HeavenMS
+        public static byte[] giveForeignWKChargeEffect(int cid, int buffid, List<Pair<MapleBuffStat, Integer>> statups) {
+                final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter(19);
+                mplew.writeShort(SendOpcode.GIVE_FOREIGN_BUFF.getValue());
+                mplew.writeInt(cid);
+                writeLongMask(mplew, statups);
+                mplew.writeInt(buffid);
+                mplew.writeShort(600);
+                mplew.writeShort(1000);//Delay
+                mplew.write(1);
+                
+                return mplew.getPacket();
+        }
 
         public static byte[] cancelForeignBuff(int cid, List<MapleBuffStat> statups) {
                 final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
                 mplew.writeShort(SendOpcode.CANCEL_FOREIGN_BUFF.getValue());
                 mplew.writeInt(cid);
                 writeLongMaskFromList(mplew, statups);
+                return mplew.getPacket();
+        }
+        
+        public static byte[] cancelForeignSlowDebuff(int cid) {
+                final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
+                mplew.writeShort(SendOpcode.CANCEL_FOREIGN_BUFF.getValue());
+                mplew.writeInt(cid);
+                writeLongMaskSlowD(mplew);
                 return mplew.getPacket();
         }
 
