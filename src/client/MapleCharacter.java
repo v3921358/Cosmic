@@ -506,8 +506,12 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     }
 
     public void addMP(int delta) {
-        setMp(mp + delta);
-        updateSingleStat(MapleStat.MP, mp);
+        if(ServerConstants.ALLOW_HP_WASHING) {
+            setMp(mp + delta);
+            updateSingleStat(MapleStat.MP, mp);
+        } else {
+            dropMessage(6, "Adding points to MP disabled since HP Washing is disabled!");
+        }
     }
 
     public void addMPHP(int hpDiff, int mpDiff) {
@@ -2529,7 +2533,6 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     private void gainExpInternal(long gain, long equip, long party, boolean show, boolean inChat, boolean white) {
         int requiredToLevel;
         int expEarned;
-        Item apReset = new Item(5050000, (short)0, (short)1 );
 
         // Loop through leveling
         while(true) {
@@ -2566,14 +2569,6 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             //Handle LevelUp
             if(exp.get() >= ExpTable.getExpNeededForLevel(level)) {
                 levelUp(true);
-                
-                // Gain one AP Reset every level
-                if(MapleInventoryManipulator.checkSpace(client, 5050000, 1, "")){
-                    MapleInventoryManipulator.addFromDrop(client, apReset.copy());
-                }
-                else{
-                    client.getPlayer().dropMessage(1, "Your inventory is full. Cannot obtain AP Reset.");
-                }
             }
         }
     }

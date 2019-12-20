@@ -1,4 +1,5 @@
 importPackage(Packages.client);
+importPackage(Packages.constants);
 
 var status;
 var player;
@@ -204,7 +205,7 @@ function action(mode, type, selection){
 				}
 				else if(from_attr.num == 2){ 	// REDUCING MP
 					delta.mp -= mpLost();
-					failed = !canReduceMP(starting_attr.mp);
+					failed = !canReduceMP(starting_attr.mp) && !ServerConstants.ALLOW_HP_WASHING;
 				}
 				else{ 	// OTHER ATTRIBUTES
 					if(from_attr.num == 3) 

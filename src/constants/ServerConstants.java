@@ -88,7 +88,8 @@ public class ServerConstants {
     public static final boolean USE_ADD_SLOTS_BY_LEVEL = true;  //Slots are added each 20 levels.
     public static final boolean USE_ADD_RATES_BY_LEVEL = true;  //Rates are added each 20 levels.
     public static final boolean USE_STACK_COUPON_RATES = true;  //Multiple coupons effects builds up together.
-    public static final boolean USE_PERFECT_PITCH = true;	//For lvl 30 or above, each lvlup grants player 1 perfect pitch.
+    public static final boolean USE_PERFECT_PITCH = false;	//For lvl 30 or above, each lvlup grants player 1 perfect pitch.
+    public static final boolean ALLOW_HP_WASHING = false;   //Allow AP resets to deduct MP for other stats
     public static final int FAME_GAIN_BY_QUEST = 1;             //Fame gain each N quest completes, set 0 to disable.
     public static final int SCROLL_CHANCE_RATE = 0;            //Number of rolls for success on a scroll, set 0 for default.
     

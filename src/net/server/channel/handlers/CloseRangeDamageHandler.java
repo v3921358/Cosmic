@@ -62,7 +62,6 @@ public final class CloseRangeDamageHandler extends AbstractDealDamageHandler {
         AttackInfo attack = parseDamage(slea, player, false, false);
         if (player.getBuffEffect(MapleBuffStat.MORPH) != null) {
             if(player.getBuffEffect(MapleBuffStat.MORPH).isMorphWithoutAttack()) {
-                // How are they attacking when the client won't let them?
                 player.getClient().disconnect(false, false);
                 return; 
             }

@@ -34,6 +34,7 @@ import client.inventory.MapleInventoryType;
 import client.inventory.MaplePet;
 import client.inventory.ModifyInventory;
 import constants.ItemConstants;
+import constants.ServerConstants;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -181,7 +182,7 @@ public final class UseCashItemHandler extends AbstractMaplePacketHandler {
                     	}
                         int mp = player.getMaxMp();
                         int level = player.getLevel();
-                        boolean canWash = true;
+                        boolean canWash = ServerConstants.ALLOW_HP_WASHING;
                         if (jobid == 0 || jobid == 1000 || jobid == 2000) { // Beginner
                             if(mp < 10 * level + 2) {
                                 canWash = false;
