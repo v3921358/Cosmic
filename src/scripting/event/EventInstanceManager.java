@@ -178,11 +178,11 @@ public class EventInstanceManager {
 
         if (mapId == -1) {
             for (MapleCharacter mc: players) {
-                mc.gainExp((long)(gain * ServerConstants.PQ_EXP_MOD), true, true);
+                mc.gainExp(Math.round(gain * ServerConstants.PQ_EXP_MOD), true, true);
             }
         } else {
             for (MapleCharacter mc: players) {
-                if (mc.getMapId() == mapId) mc.gainExp((long)(gain * ServerConstants.PQ_EXP_MOD), true, true);
+                if (mc.getMapId() == mapId) mc.gainExp(Math.round(gain * ServerConstants.PQ_EXP_MOD), true, true);
             }
         }
     }
@@ -865,7 +865,7 @@ public class EventInstanceManager {
         if (rewardExp == null) rewardExp = 0;
 
         if (rewardsSet == null || rewardsSet.isEmpty()) {
-            if (rewardExp > 0) player.gainExp((long)(rewardExp * ServerConstants.PQ_EXP_MOD));
+            if (rewardExp > 0) player.gainExp(Math.round(rewardExp * ServerConstants.PQ_EXP_MOD));
             return true;
         }
 
@@ -875,7 +875,7 @@ public class EventInstanceManager {
         int rnd = (int) Math.floor(Math.random() * rewardsSet.size());
 
         api.gainItem(rewardsSet.get(rnd), rewardsQty.get(rnd).shortValue());
-        if (rewardExp > 0) player.gainExp((long)(rewardExp * ServerConstants.PQ_EXP_MOD));
+        if (rewardExp > 0) player.gainExp(Math.round(rewardExp * ServerConstants.PQ_EXP_MOD));
         return true;
     }
 

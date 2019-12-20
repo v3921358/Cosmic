@@ -236,7 +236,7 @@ public class Pyramid extends PartyQuest {
             exp += ((kill * 2) + (cool * 10));
         }
         chr.announce(MaplePacketCreator.pyramidScore(rank, exp));
-        chr.gainExp((long)(exp * ServerConstants.PQ_EXP_MOD), true, true);
+        chr.gainExp(Math.round(exp * ServerConstants.PQ_EXP_MOD), true, true);
     }
 }
 

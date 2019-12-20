@@ -55,7 +55,7 @@ public class QuestActionManager extends NPCConversationManager {
     
     @Override
     public void gainExp(int gain) {
-        c.getPlayer().gainExp((long)(gain * ServerConstants.QUEST_EXP_MOD), true, true);
+        c.getPlayer().gainExp(Math.round(gain * ServerConstants.QUEST_EXP_MOD), true, true);
     }
 
     public boolean forceStartQuest() {

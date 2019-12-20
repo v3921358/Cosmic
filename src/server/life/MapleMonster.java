@@ -287,24 +287,26 @@ public class MapleMonster extends AbstractLoadedMapleLife {
             int id = mc.getId();
             int level = mc.getLevel();
             if (expDist.containsKey(id) || level >= leechMinLevel) {
-                long xp = (long) Math.exp(Math.log(exp) + Math.log(0.8) + Math.log(level) - Math.log(partyLevel));
-                long bonus_xp = (mostDamageCid == id) ? (long) Math.exp(Math.log(exp) + Math.log(0.8)) : 0;
+                long xp = Math.round(Math.exp(Math.log(exp) + Math.log(0.8) + Math.log(level) - Math.log(partyLevel)));
+                long bonus_xp = (mostDamageCid == id) ? Math.round(Math.exp(Math.log(exp) + Math.log(0.2))) : 0;
                 giveExpToCharacter(mc, xp + bonus_xp, killer == id, leechCount);
             }
         }
     }
 
     public void distributeExperience(int killerId) {
-        if (isAlive()) {
+        // Check for valid distribution of Exp
+        if (isAlive() || killerId < 0) {
             return;
         }
+
         int exp = getExp();
         int totalHealth = getMaxHp();
         Map<Integer, Long> expDist = new HashMap<>();
         Map<Integer, Long> partyExp = new HashMap<>();
         // 80% of pool is split amongst all the damagers
         for (Entry<Integer, AtomicInteger> damage : takenDamage.entrySet()) {
-            long xp = (long)Math.exp(Math.log(0.8) + Math.log(exp) + Math.log(damage.getValue().get()) - Math.log(totalHealth));
+            long xp = Math.round(Math.exp(Math.log(0.8) + Math.log(exp) + Math.log(damage.getValue().get()) - Math.log(totalHealth)));
             expDist.put(damage.getKey(), xp);
         }
         
@@ -315,7 +317,7 @@ public class MapleMonster extends AbstractLoadedMapleLife {
 
                 boolean is_killer = mc.getId() == killerId;
                 long xp = expDist.get(mc.getId());
-                long bonus_xp = (is_killer) ? (long) Math.exp(Math.log(exp) - Math.log(5)) : 0;
+                long bonus_xp = (is_killer) ? Math.round(Math.exp(Math.log(exp) - Math.log(5))) : 0; // Give remaining 20% to killer/party
 
                 if (p != null) {
                     int pID = p.getId();
@@ -352,20 +354,17 @@ public class MapleMonster extends AbstractLoadedMapleLife {
         Integer holySymbol = attacker.getBuffedValue(MapleBuffStat.HOLY_SYMBOL);
         boolean holySymbolGM = attacker.getBuffSource(MapleBuffStat.HOLY_SYMBOL) == SuperGM.HOLY_SYMBOL;
         if (holySymbol != null) {
-            if (numExpSharers == 1 && !holySymbolGM) {
-                personalExp = (long)Math.exp(Math.log(exp) + Math.log(1) + Math.log(holySymbol.doubleValue()) - Math.log(500.0));
-            } else {
-                personalExp = (long)Math.exp(Math.log(exp) + Math.log(1) + Math.log(holySymbol.doubleValue()) - Math.log(100.0));
-            }
+            personalExp += Math.round(Math.exp(Math.log(exp) + Math.log(holySymbol.doubleValue()) - Math.log(100.0)));
         }
+        
         if (stati.containsKey(MonsterStatus.SHOWDOWN)) {
             double showdownModifier = stati.get(MonsterStatus.SHOWDOWN).getStati().get(MonsterStatus.SHOWDOWN).doubleValue();
-            personalExp = (long)Math.exp(Math.log(personalExp) + (Math.log(showdownModifier/100 + 1)));
+            personalExp = Math.round(Math.exp(Math.log(personalExp) + (Math.log(showdownModifier/100 + 1))));
         }
 
         // Compute Party Exp
         if (partyModifier > 0) {
-            partyExp = (long)Math.exp(Math.log(personalExp) + Math.log(ServerConstants.PARTY_EXPERIENCE_MOD) + Math.log(partyModifier) - Math.log(1000));
+            partyExp = Math.round(Math.exp(Math.log(personalExp) + Math.log(ServerConstants.PARTY_EXPERIENCE_MOD) + Math.log(partyModifier) - Math.log(1000)));
         }
         
         attacker.gainExp(personalExp, partyExp, true, false, isKiller);
@@ -374,7 +373,7 @@ public class MapleMonster extends AbstractLoadedMapleLife {
     }
 
     public MapleCharacter killBy(final MapleCharacter killer) {
-        distributeExperience(killer != null ? killer.getId() : 0);
+        distributeExperience(killer != null ? killer.getId() : -1);
 
         if (getController() != null) { // this can/should only happen when a hidden gm attacks the monster
             getController().getClient().announce(MaplePacketCreator.stopControllingMonster(this.getObjectId()));

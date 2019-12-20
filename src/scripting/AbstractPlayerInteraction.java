@@ -665,9 +665,9 @@ public class AbstractPlayerInteraction {
 			}
 			int base = PartyQuest.getExp(PQ, player.getLevel());
 			int exp = base * bonus / 100;
-			player.gainExp((long)(exp * ServerConstants.PQ_EXP_MOD), true, true);
+			player.gainExp(Math.round(exp * ServerConstants.PQ_EXP_MOD), true, true);
 			if(ServerConstants.PQ_BONUS_EXP_MOD > 0 && System.currentTimeMillis() <= ServerConstants.EVENT_END_TIMESTAMP) {
-				player.gainExp((long)(exp * ServerConstants.PQ_BONUS_EXP_MOD), true, true);
+				player.gainExp(Math.round(exp * ServerConstants.PQ_BONUS_EXP_MOD), true, true);
 			}
 		}
 	}

@@ -2510,7 +2510,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         if(gain < 0) gain = 0;
         if(party < 0) party = 0;
 
-        long equip = (long)Math.exp(Math.log(gain) - Math.log(10) + Math.log(pendantExp));
+        long equip = Math.round(Math.exp(Math.log(gain) - Math.log(10) + Math.log(pendantExp)));
         
         long total = gain + equip + party;
         gainExpInternal(
