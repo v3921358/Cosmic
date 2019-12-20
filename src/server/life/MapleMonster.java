@@ -219,15 +219,15 @@ public class MapleMonster extends AbstractLoadedMapleLife {
             takenDamage.get(from.getId()).addAndGet(trueDamage);
         }
 
-        if (hasBossHPBar()) {
+        if (hasBossHPBar() && isAlive()) {
             from.setPlayerAggro(this.hashCode());
             from.getMap().broadcastBossHpMessage(this, this.hashCode(), makeBossHPBarPacket(), getPosition());
         } else if (!isBoss()) {
-            int remainingHP = (int) Math.max(1, hp * 100f / getMaxHp());
-            byte[] packet = MaplePacketCreator.showMonsterHP(getObjectId(), remainingHP);
+            int remainingHpPercent = (int) Math.max(1, hp * 100f / getMaxHp());
+            byte[] packet = MaplePacketCreator.showMonsterHP(getObjectId(), remainingHpPercent);
             if (from.getParty() != null) {
                 for (MaplePartyCharacter mpc : from.getParty().getMembers()) {
-                    MapleCharacter member = from.getMap().getCharacterById(mpc.getId()); // god bless
+                    MapleCharacter member = mpc.getPlayer();
                     if (member != null) {
                         member.announce(packet.clone()); // clone it just in case of crypto
                     }

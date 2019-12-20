@@ -808,9 +808,10 @@ public class MapleMap {
     }
     
     public boolean damageMonster(final MapleCharacter chr, final MapleMonster monster, final int damage) {
+        // If Zakum Body 1, do not damage until all arms are defeated
         if (monster.getId() == 8800000) {
-            for (MapleMapObject object : chr.getMap().getMapObjects()) {
-                MapleMonster mons = chr.getMap().getMonsterByOid(object.getObjectId());
+            for (MapleMapObject object : getMapObjects()) {
+                MapleMonster mons = getMonsterByOid(object.getObjectId());
                 if (mons != null) {
                     if (mons.getId() >= 8800003 && mons.getId() <= 8800010) {
                         return true;
@@ -818,6 +819,7 @@ public class MapleMap {
                 }
             }
         }
+        
         if (monster.isAlive()) {
             boolean killed = false;
             monster.lockMonster();
