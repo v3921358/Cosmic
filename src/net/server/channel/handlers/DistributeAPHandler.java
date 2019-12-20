@@ -32,6 +32,7 @@ import constants.skills.Brawler;
 import constants.skills.DawnWarrior;
 import constants.skills.Magician;
 import constants.skills.Warrior;
+import constants.ServerConstants;
 import net.AbstractMaplePacketHandler;
 import tools.MaplePacketCreator;
 import tools.data.input.SeekableLittleEndianAccessor;
@@ -81,6 +82,10 @@ public final class DistributeAPHandler extends AbstractMaplePacketHandler {
                 addHP(c.getPlayer(), addHP(c));
                 break;
             case 8192: // MP
+                if(!ServerConstants.ALLOW_HP_WASHING) {
+                    c.getPlayer().dropMessage(6, "Adding points to MP disabled since HP Washing is disabled!");
+                    return false;
+                }
                 addMP(c.getPlayer(), addMP(c));
                 break;
             default:

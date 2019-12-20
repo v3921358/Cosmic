@@ -506,12 +506,8 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     }
 
     public void addMP(int delta) {
-        if(ServerConstants.ALLOW_HP_WASHING) {
-            setMp(mp + delta);
-            updateSingleStat(MapleStat.MP, mp);
-        } else {
-            dropMessage(6, "Adding points to MP disabled since HP Washing is disabled!");
-        }
+        setMp(mp + delta);
+        updateSingleStat(MapleStat.MP, mp);
     }
 
     public void addMPHP(int hpDiff, int mpDiff) {
