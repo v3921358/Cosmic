@@ -296,6 +296,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     private int banishMap = -1;
     private int banishSp = -1;
     private long banishTime = 0;
+    private Map<String, Integer> bossEntries = new HashMap<String, Integer>();
 
     private MapleCharacter() {
         useCS = false;
@@ -7398,4 +7399,27 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     public void removeJailExpirationTime() {
         jailExpiration = 0;
     }
+
+    public Boolean mayEnterBoss(Integer bossId){
+        return this.getNumBossEntries() != -1 && this.getNumBossEntries < ServerConstants.MAX_DAILY_BOSS_ENTRANCES;
+
+    }
+    private Integer getNumBossEntries(Integer bossId){
+        if (bossEntries.containsKey(bossId)){
+            return bossEntries.get(bossId);
+        }
+
+        return -1;
+    }
+
+
+    public void addBossEntry(Integer bossId){
+        if (bossEntries.containsKey(bossId)) {
+            bossEntries.put(bossId, bossEntries.get(bossId) + 1);
+        }
+        else{
+            bossEntries.put(bossId, 1);
+        }
+    }
+
 }
