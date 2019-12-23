@@ -4921,6 +4921,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
                 ret.bossEntries.put(8810018, rs.getInt("horntailEntries"));
                 ret.bossEntries.put(8820000, rs.getInt("pinkbeanEntries"));
             }
+            ps.close();
 
             con.close();
             return ret;
@@ -6033,7 +6034,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             ps.setInt(5, id);
             ps.executeUpdate();
             ps.close();
-            
+
             con.commit();
             con.setAutoCommit(true);
 			
