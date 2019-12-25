@@ -73,7 +73,7 @@ jobs:
             --application-name dietstory-game-app-dev \
             --deployment-config-name CodeDeployDefault.OneAtATime \
             --deployment-group-name dietstory-game-group-dev \
-            --s3-location s3://dietstory-api-server-assets/dev/releases/dietstory.zip 
+            --s3-location bucket=dietstory-api-server-assets,bundleType=zip,key=dev/releases/dietstory.zip 
 
 
 # Workflows
