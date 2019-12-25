@@ -3,6 +3,8 @@
 SERVER_NAME=dietstory-game-server
 SERVER_PATH=/apps/dietstory-server
 
+source ~/.bashrc
+
 # Run Server
 sudo docker run -it -d \
 	-v ${SERVER_PATH}:/mnt \
