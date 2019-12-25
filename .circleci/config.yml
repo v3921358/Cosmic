@@ -53,9 +53,6 @@ jobs:
       - attach_workspace:
           at: ~/project
       - run:
-          command: |
-            echo "Deploying to develop" && ls -lrt
-      - run:
           name: Compress Artifacts
           command: |
             zip -r dietstory.zip .

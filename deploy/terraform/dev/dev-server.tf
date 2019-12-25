@@ -32,9 +32,14 @@ data "aws_ami" "amazon-linux-2" {
   }
 }
 
+# Setup Elastic IP
+resource "aws_eip" "dietstory-dev-eip" {
+  vpc = true
+}
+
 # Create Instance
 resource "aws_instance" "dietstory-dev" {
-
+  depends_on                  = [aws_eip.dietstory-dev-eip]
   ami                         = data.aws_ami.amazon-linux-2.id
   instance_type               = "t2.micro"
   associate_public_ip_address = true
@@ -55,7 +60,7 @@ resource "aws_instance" "dietstory-dev" {
       private_key = file("~/.ssh/dietstory-dev-1.pem")
     }
     inline = [
-      "echo 'export SERVER_HOST=${self.public_ip}' >>.bashrc",
+      "echo 'export SERVER_HOST=${aws_eip.dietstory-dev-eip.public_ip}' >>.bashrc",
       "source ~/.bashrc",
       "sudo yum -y update",
       "sudo yum -y install docker",
@@ -70,6 +75,12 @@ resource "aws_instance" "dietstory-dev" {
       "sudo service docker start",
     ]
   }
+}
+
+# Associate Elastic IP with EC2
+resource "aws_eip_association" "eip_assoc-dietstory-dev" {
+  instance_id   = aws_instance.dietstory-dev.id
+  allocation_id = aws_eip.dietstory-dev-eip.id
 }
 
 # Codedeploy for Game Server App
