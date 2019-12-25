@@ -1,17 +1,91 @@
+# filter job for only develop branch
+develop-only: &develop-only
+  filters:
+    branches:
+      only: develop
+
+# filter job for only release branch
+release-only: &release-only
+  filters:
+    branches:
+      only: release
+
+# filter job for protected branches
+protected-only: &protected-only
+  filters:
+    branches:
+      only:
+        - master
+        - develop
+        - release
+        - /feature[/].*/
+        - /fix[/].*/
+        - /chore[/]./
+        - /deploy[/].*/
+
+
 version: 2
 jobs:
-  build:
-    machine: true # Build using our custom docker build image
-    
+  build-artifacts: # Build dietstory jars  
+    machine: true
     steps:
       - checkout # check out the code in the project directory
-      
       - run: # Compile Diestory Project
           name: Compile DietStory
           command: |
             docker run --rm --env BUILD_SOURCE=local -v $(pwd):/mnt benjixd/dietstory-build
+      - persist_to_workspace: # Persist required files for deployment
+          root: ~/project
+          paths:
+            - cores
+            - dist
+            - build
+            - scripts
+            - wz
+            - deploy/scripts
+            - configuration_template.ini
+            - world.ini
+            - appspec.yml
 
-      - store_artifacts: # Store external jars
-          path: cores
-      - store_artifacts: # Store executable jar
-          path: dist
+  deploy-develop: # Deploy artifacts to dev server
+    machine: true
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          command: |
+            echo "Deploying to develop" && ls -lrt
+      - run:
+          name: Compress Artifacts
+          command: |
+            zip -r dietstory.zip .
+      - run:
+          name: Push Develop Deployment
+          command: |
+            aws deploy push \
+            --application-name dietstory-game-app-dev \
+            --s3-location s3://dietstory-api-server-assets/dev/releases/dietstory.zip \
+            --ignore-hidden-files
+      - run:
+          name: Deploy
+          command: |
+            aws deploy create-deployment \
+            --application-name dietstory-game-app-dev \
+            --deployment-config-name CodeDeployDefault.OneAtATime \
+            --deployment-group-name dietstory-game-group-dev \
+            --s3-location bucket=dietstory-api-server-assets,bundleType=zip,key=dev/releases/dietstory.zip 
+
+
+# Workflows
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build-artifacts:
+          <<: *protected-only
+      - deploy-develop:
+          <<: *develop-only
+          requires:
+            - build-artifacts
+
+

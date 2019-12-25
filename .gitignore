@@ -2,6 +2,10 @@ logs/
 .idea/
 .DS_Store
 
+# Terraform config
+.terraform
+*.tfstate*
+
 # Netbeans project files
 nbproject/
 tools/MapleCouponInstaller/nbproject/
