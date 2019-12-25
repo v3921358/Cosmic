@@ -61,21 +61,19 @@ jobs:
             zip -r dietstory.zip .
       - run:
           name: Push Develop Deployment
-          command: 
-            - >
-              aws deploy push 
-              --application-name dietstory-game-app-dev 
-              --s3-location s3://dietstory-api-server-assets/dev/releases/dietstory.zip 
-              --ignore-hidden-files
+          command: |
+            aws deploy push \
+            --application-name dietstory-game-app-dev \
+            --s3-location s3://dietstory-api-server-assets/dev/releases/dietstory.zip \
+            --ignore-hidden-files
       - run:
           name: Deploy
-          command:
-            - >
-              aws deploy create-deployment 
-              --application-name dietstory-game-app-dev 
-              --deployment-config-name CodeDeployDefault.OneAtATime 
-              --deployment-group-name dietstory-game-group-dev 
-              --s3-location s3://dietstory-api-server-assets/dev/releases/dietstory.zip 
+          command: |
+            aws deploy create-deployment \
+            --application-name dietstory-game-app-dev \
+            --deployment-config-name CodeDeployDefault.OneAtATime \
+            --deployment-group-name dietstory-game-group-dev \
+            --s3-location s3://dietstory-api-server-assets/dev/releases/dietstory.zip 
 
 
 # Workflows
