@@ -45,7 +45,7 @@ jobs:
             - deploy/scripts
             - configuration_template.ini
             - world.ini
-            - AppSpec.yml
+            - appspec.yml
 
   deploy-develop: # Deploy artifacts to dev server
     machine: true
