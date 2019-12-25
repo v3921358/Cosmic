@@ -64,7 +64,10 @@ resource "aws_instance" "dietstory-prod" {
       "wget https://aws-codedeploy-${var.region}.s3.amazonaws.com/latest/install",
       "chmod +x ./install",
       "sudo ./install auto",
+      "sudo gpasswd -a $USER docker",
+      "newgrp docker",
       "sudo service codedeploy-agent start",
+      "sudo service docker start",
     ]
   }
 }
