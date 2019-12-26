@@ -380,6 +380,11 @@ public class MapleMonster extends AbstractLoadedMapleLife {
             getController().stopControllingMonster(this);
         }
 
+        // Announce 
+        if (hasBossHPBar()) {
+            killer.getMap().broadcastBossHpMessage(this, this.hashCode(), makeBossHPBarPacket(), getPosition());
+        }
+
         final List<Integer> toSpawn = this.getRevives(); // this doesn't work (?)
         if (toSpawn != null) {
             final MapleMap reviveMap = killer.getMap();
@@ -431,7 +436,7 @@ public class MapleMonster extends AbstractLoadedMapleLife {
         else {  // is this even necessary?
             System.out.println("[CRITICAL LOSS] toSpawn is null for " + this.getName());
         }
-        
+
         MapleCharacter looter = map.getCharacterById(getHighestDamagerId());
         return looter != null ? looter : killer;
     }
