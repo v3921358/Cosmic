@@ -1,0 +1,172 @@
+104000100;Right Around Lith Harbor;27;2;7.259259259;310;Medium-Dense;Easy;Basic map for those who skipped Maple Island (which you shouldn't because Relaxer) ;;0
+104000200;Thicket Around the Beach I ;34;2;10.58823529;472;Thin-Medium;Moderate;Terrible layout ;;0
+104000300;Thicket Around the Beach II;31;2;11.87096774;600;Medium-Dense;Moderate ;Pit of death concentrates 7-9 spawns, making it a good grinding spot;;0
+104000400;Thicket Around the Beach III;21;2;11.42857143;488;Medium;Easy-Moderate;Mano (240 exp) also spawns here, and isn't something a level 10 can hit. Otherwise the spawn is thin-ish.;;240
+100050000;The Field South of Ellinia;58;4;21.72;688;Thin-Medium;Decent difficulty;;;0
+100040001;Dungeon, Southern Forest I;21;6;20;680;Medium;Difficult;;;0
+100040002;Dungeon, Southern Forest II;23;6;20;660;Medium;Difficult;;;0
+100040100;The Forest of Wisdom;40;6;20;660;Thin-Medium;Extremely Difficult;;Spawn More;0
+101010000;The Field Up North of Ellinia;35;6;19.09;816;Thin-Medium;Difficult;;;0
+101010100;The Tree That Grew I;30;6;19.33;732;Thin-Medium;Decent difficulty;;;0
+101010101;The Tree That Grew II;64;6;22.75;1136;Medium;Decent difficulty;;;0
+101020000;The Forest North of Ellinia;61;6;25.51;628;Thin;Extremely difficult;;Spawn way more;0
+101020002;Tree Dungeon, Forest Up North I;26;6;20;740;Thin-Medium;Difficult;;Spawn abit more;0
+102050000;Sunset Sky;33;6;20.67;840;Medium;Moderate;Pretty good map actually. Players can almost level once per minute which is quite fast. Not a lot of platforms to disrupt training either. Decent mobbing potential as well.;This map could be used to guide other map balancing.;0
+103020000;L Forest I;32;7;25.33;888;Thin - Medium;Difficult;Very spread map with distinct packs. The best area to train is the pig area in the top left corner. Requires a difficult jump but continuous mobs keep it a good training spot.;;0
+104010000;3-Way Road-Split ;57;7;27.05263158;900;Thin-Medium;Moderate-Medium;Huge map, okay-ish spawn in some platforms;;0
+101020003;Tree Dungeon, Forest Up North II;17;10;36;936;Thin;Difficult;;Spawn abit more;0
+104010001;The Pig Beach;22;10;42.63636364;1288;Thin-Medium;Medium;One "Iron Hook" (sic) (198 exp) brings the mean exp up by a lot, otherwise this place is actually no better than 3-Way Road-Split;;0
+104010002;Beach Hunting Ground;18;10;35.55555556;1180;Medium ;Moderate-Medium;This place is actually better than Pig Beach if you factor in the "Iron Hook" (sic), though that requires you to travel between and clear 2 pits efficiently;;0
+101020004;Tree Dungeon, Forest Up North III;21;12;48;2064;Medium-Dense;Decent;;;0
+102040000;Construction Site North of Kerning;49;12;31.3;1300;Medium;Moderate - Medium;Very good training spot when fighting octopus in Henesys Hunting Ground style. Incredible exp. Great for single target.;;0
+103010000;Kerning City Construction Site;51;12;27;1400;Medium;Moderate - Medium;Good training spot in the top left corner - Henesys Hunting Ground style. Similar to 102040000 map. Slightly better cluster allows for better training.;;0
+103020100;L Forest II;49;12;33;1800;Medium;Difficult;Better version of L Forest I with Ribbon Pigs. Requires difficult jump to maximize training.;This map is lowkey really good.;0
+103020200;L Forest III;49;12;33;1140;Thin - Medium;Difficult;Not a good map. Difficult to maneuver two pits for Ribbon pigs.;;0
+103030000;Kerning City Middle Forest I;36;12;44.6;1500;Thin - Medium;Medium;Rather thin map with green mushroom spawn. Strange maneuvering required to train in this map.;;0
+100040003;Dungeon, Southern Forest III;22;15;52;1664;Medium;Difficult;;;0
+100040004;Dungeon, Southern Forest IV;19;15;52;1664;Medium;Difficult;;;0
+101010102;The Tree That Grew III;43;15;43.81;1648;Thin-Medium;Decent difficulty;;;0
+101020005;Tree Dungeon, Forest Up North IV;22;15;52;2060;Thin-Medium;Decent;;;0
+101020006;Tree Dungeon, Forest Up North V;21;15;52;1716;Medium;Decent;;;0
+103000101;Line 1 <Area 1>;64;15;50;2350;Medium - Dense;Difficult;Great map for training, however bubblings are notoriously difficult to train on for non-mages.;;0
+103030100;Kerning City Middle Forest II;33;15;50;1650;Thin - Medium;Medium;Center trapezoid makes training a little easier, but ultimately not a good training spot due to large spread.;;0
+101020007;Tree Dungeon, Forest Up North VI;12;17;60;1800;Thin;Difficult;;;0
+103010001;Caution Falling Down;10;18;48;1400;Thin - Medium;Moderate - Medium;Henesys Hunting Ground style with bubblings and octopus. Good training spot but slightly less mobs than I'd hope for. Becuase of bubblings, manages to be a more difficult map but the rewards aren't worth the upgrade in monster.;Would be good if spawn rate + density were increased.;0
+103000102;Transfer Area;38;20;64;1984;Medium;Difficult;Stirge are way to difficult to train on with anything non-mage. Low spawn rate + mediocre exp per mob makes this area terrible for training.;;0
+101020008;Tree Dungeon, Forest Up North VIII;19;22;70;2520;Medium;Difficult;;;0
+103030200;Kerning City Middle Forest III;38;22;66;2448;Thin - Medium;Medium;A bit of walking required to match spawn rate. Manuevering between two trapezoids. Difficult training spot with a lack of exp rewarded.;;0
+200080200;Orbis Tower 20th Floor;23;23;80;2400;Thin-Medium ;Medium ;Decent spawn for single target only characters. Characters with mobbing skills should consider elsewhere ;;0
+200080300;Orbis Tower 19th Floor;19;23;80;2720;Medium ;Medium ;Slightly better spawn with one platform housing 6 Jr. Sentinels, otherwise, same as 20th floor ;;0
+200080400;Orbis Tower 18th Floor;17;23;80;2640;Thin-Medium ;Moderate ;Same as 19th floor, but with noticeably fewer monsters ;;0
+200080500;Orbis Tower 17th Floor ;16;23;87;3880;Thin ;Moderate;Worse spawn in exchange for slightly better exp per kill;Middle platform can be used to concentrate spawns for better mobbing;0
+200080600;Orbis Tower 16th Floor;21;23;86.66666667;4716;Medium;Moderate;Has 2 closely placed platforms each with 5 spawns, makes for a decent mobbing space for 1 or 2 people;;0
+101020009;Tree Dungeon, Forest Up North IX;21;27;100;4000;Medium;Difficult;;;0
+106020100;Secluded Mushroom Forest;18;30;126;4166;Moderate;Medium;Not incredibly good spawn, however can be maximized by covering multiple platforms.;;0
+106020200;Isolated Mushroom Forest;12;30;126;3784;Moderate;Medium;Not good spawn. Difficult to reach platforms for mobbing.;;0
+106020400;Split Road of Destiny;14;30;130;4680;Moderate;Medium;Good spawn and ability to catch mobs in a group.;;0
+200080700;Orbis Tower 15th Floor;18;30;108;4752;Medium;Medium ;Same as 16th floor but with only Sentinels, the best platforms are farther and one platform has 1 less spawn ;;0
+200080800;Orbis Tower 14th Floor;14;30;108;3888;Thin-Medium ;Medium-Difficult;Spawns are too thin ;There's one platform that can be used to concentrate spawn;0
+200080900;Orbis Tower 13th Floor;19;30;108;3780;Thin-Medium ;Medium;Up to 4 spawns per platform. Too much moving around to get a good grind going ;Concentrate spawns on top and bottom platforms ;0
+200081000;Orbis Tower 12th Floor;19;30;108;4104;Thin-Medium ;Moderate;Top 2 platforms has 6 spawns so it's decent;;0
+200081100;Orbis Tower 11th Floor;17;30;108;4428;Thin-Medium ;Moderate;Each layer has 4 spawns.;Take one or two layers and concentrate spawns there ;0
+200081200;Orbis Tower 10th Floor;22;30;108;4212;Thin-Medium ;Medium ;The spawns are spread thin. ;Same as above ;0
+200081300;Orbis Tower 9th Floor;13;30;101.5384615;3828;Thin-Medium ;Moderate ;Top layer has 6 spawns, which is decent;;0
+200081400;Orbis Tower 8th Floor;18;30;97.11111111;3860;Medium;Moderate;There are 2 small platforms with 5 spawns each, making them decent mobbing spots;;0
+220010500;Terrace Hall;36;30;116;5996;Medium - Dense;Medium;Good spawn, lots of opportunties for mobbing. Requires some ladder use however. ;;0
+106020300;Deep Inside Mushroom Forest;13;31;128;3730;Moderate;Medium;Two platforms but difficult to move between one another.;;0
+106020401;Steep Downhill 1;10;31;133;3848;Thin;Medium;Thin spawn, one way direction makes it difficult to mob.;;0
+106020402;Steep Downhill 2;13;31;136;4080;Thin - Moderate;Medium;Better spawn than parent map, but ultimately does not solve lack of spawn problem.;;0
+220010400;Cloud Terrace <1>;37;31;121;6932;Medium - Dense;Moderate - Medium;Good spawn, lots of opportunties for mobbing. Relatively flat for easy training.;;0
+220010600;Sky Terrace <1>;36;31;121;6812;Medium - Dense;Medium;Good amount of spawn on main floor. Some difficultly reaching platforms to clear mobs while waiting for spawn.;;0
+200081500;Orbis Tower 7th Floor;19;32;116;5568;Medium;Medium;2 platforms with 5-6 Leatties each, makes for a decent mobbing spot;;0
+200081600;Orbis Tower 6th Floor;14;32;116;4524;Medium;Medium; ;;0
+200081700;Orbis Tower 5th Floor;27;32;121.7777778;5668;Dense;Medium;Dense spawn makes for good grinding spot, but accuracy checks are somewhat strict ;;0
+220010700;Sky Terrace <2>;32;32;141.33;7698;Medium;Moderate - Medium;Good spawn for flat map with shallow paltforms. ;;0
+220010900;Sky Terrace <4>;36;32;133;7042;Medium - Dense;Moderate;Flat map consisting of pink teddy and ducks. Good mobbing density and flat map which does not require clearing the single platform.;;0
+200010100;The Road To Garden Of 3 Colors ;26;33;128;4608;Medium-Dense;Moderate;6 spawns on the platforms near the top, and the rest are spread across the bottom. Exp rate is somewhat low;;0
+200010110;The Garden of Red I;22;33;128;3968;Medium;Easy-Moderate;Bottom is very wide. Top platforms has fewer spawns per platform than last map. Good if you only want only Jr. Cellions ;;0
+200010120;The Garden of Yellow I;22;33;128;4224;Medium;Easy-Moderate;Very similar to Garden of Red I, except it's Jr. Lioners.;;0
+200010130;The Garden of Green I;22;33;128;4224;Medium;Easy-Moderate;;;0
+200081800;Orbis Tower 4th Floor;17;33;128;5376;Thin-Medium ;Medium ;Worse than 5th floor;;0
+200081900;Orbis Tower 3rd Floor;26;33;128;6144;Dense;Medium;Better spawns than 5th floor, mainly due to the fact that all of them are Dark Leatties;;0
+220010300;Cloud Terrace <2>;33;33;133;6566;Medium;Medium - Difficult;Decent spawn, multiple platforms make it less accessible for training.;;0
+220010800;Sky Terrace <3>;36;33;149.33;6818;Medium;Difficult;Three level platforms that are difficult to maneuver between makes catching mobs very difficult.;;0
+103000103;Line 1 <Area 2>;91;35;140;6568;Moderate - Medium;Medium - Difficult;Spawn spread is a little too thin to be a good training spot. Bonus points for undead zone however for Cleric to train at.;;0
+103040100;1st Floor 2nd Floor Area A;20;35;156;4680;Thin - Moderate;Moderate - Medium;Good flat map design with two levels. Somewhat thin mob density makes it difficult to train.;;0
+103040101;1st Floor 2nd Floor Area B;31;35;163;7030;Moderate;Moderate - Medium;Good flat map design with two levels. Slightly better rate than Area A;;0
+103040106;1st Floor 2nd Floor Area D;31;35;163;7030;Moderate;Moderate - Medium;Good flat map design with two levels. Slightly better rate than Area A;;0
+200010000;Cloud Park I;36;35;142;6390;Dense;Moderate;Lots of spawn but exp per monster is rather low, and they're quite hard to hit;Increase exp given by Star Pixies (3230200);0
+200020000;Cloud Park II;29;35;159.3103448;7578;Medium-Dense;Moderate;Lunar Pixies are 10 levels higher than Star Pixies and are much more dodgy, thankfully they're concentrate on a single platform. A Fairy spawns every 5 minutes, is easy to kill and has good rewards.  (Exp/Min test note: 15-20 Lunar Pixies killed);;0
+200040000;Cloud Park III;33;35;182.9090909;9660;Medium-Dense;Easy-Moderate;Half of them are Lunar Pixies, makes grinding for level 30s somewhat difficult. Once level 40 hits, exp rate doubles and makes farming them decent ;;0
+200082000;Orbis Tower 2nd Floor;21;35;142.5714286;5348;Dense;Medium;Jr Pepes bolster mean exp by a lot, but they have high avoid;;0
+200082100;Orbis Tower 1st Floor;21;35;150;5256;Medium-Dense;Medium;Same as 2nd floor, but with only Jr Pepes. It helps that half of the map is empty.;;0
+211000200;Snowy Hill;47;35;128.7659574;4512;Medium;Medium;Lots of spawn but also wide af;;0
+220011000;Sky Terrace <5>;41;35;146;7264;Medium;Medium - Difficult;Difficult multiple platforms which require clearing in order to mob efficiently.;;0
+103040102;1st Floor 2nd Floor Area C;31;36;172;7916;Moderate;Moderate - Medium;Good flat map design with two levels. Slightly better rate than Area A;;0
+200082300;Orbis Tower B2;18;36;156;6240;Thin;Easy-Moderate;Spawn is thin and Aqua Road being Aqua Road, drains your HP slowly. It does help with moving around though.;;0
+220010100;Cloud Terrace <4>;27;36;141.33;7536;Medium - Dense;Medium;Good spawn, shallow platforms allow efficient maneuvering from one to another to catch all spawns.;;0
+220010200;Cloud Terrace <3>;29;36;141.33;6558;Medium;Medium;Not enough spawn for mobbing, but rather simple layout for leveling.;;0
+220020200;Toy Factory <Main Process 1> Zone 3;32;36;154;5236;Thin - Moderate;Medium - Difficult;Spawn is too thin, difficult to catch mobs on platforms.;;0
+220020300;Toy Factory <Main Process 1>;28;36;154;5544;Thin;Difficult;Terrible map. Spawns way too thin, too difficult to navigate.;;0
+220030200;Toy Factory <Main Process 2>;35;36;154;5236;Thin - Moderate;Difficult;Too many platforms which require ladder to access. Difficult catching mobs.;;0
+100040102;Tree Dungeon, Monkey Forest I;19;37;154;5390;Thin-Medium;Difficult;;;0
+100040110;Downstairs at the Forest;27;37;154;4984;Medium;Difficult;;;0
+220040100;The Path of Time <2>;46;37;164;7216;Moderate - Medium;Difficult;Bouncing between the left center platforms allows for catching a decent number of mobs.;;0
+220040200;Crossroad Of Time;57;37;165;9850;Medium;Moderate - Medium;Bottom of the map has decent clump of spawn to allow for efficient training speed. Most other platforms are enot worth training on however.;;0
+220040300;The Path of Time <3>;42;37;164;6396;Moderate - Medium;Difficult;Multiple platform manuevering can improve experience rate however requires precise jumping and focus to avoid falling into low spawn pits.;;0
+103040200;3rd Floor 4th Floor Area A;27;38;225.5;3780;Thin ;Moderate - Medium;Terrible mob which spawns mini yeti that only give 10 exp each.;;0
+220020400;Toy Factory <Main Process 1> Zone 5;35;38;176;6732;Moderate;Medium - Difficult;Two levelled map. Too difficult to manuever btween the two levels to effectively catch spawns.;;0
+220030300;Toy Factory <Main Process 2> Zone 3;31;38;176;4136;Thin;Medium - Difficult;Not enough spawns in this map. Map is too large with not enough mobs.;;0
+220030400;Toy Factory <Main Process 2> Zone 4;36;38;176;6028;Thin - Moderate;Difficult;Two sets of 3 levelled platforms with thin spawns on each platform.;;0
+103040201;3rd Floor 4th Floor Area B;27;39;240;5170;Thin;Moderate - Medium;Terrible just like its map A.;;0
+220010000;Cloud terrace <5>;22;39;180;7878;Medium - Dense;Moderate - Medium;Relatively flat map with good mobbing. Lots of Trojan Horses which give massive EXP for their level.;;0
+100040101;Monkey Forest I;46;40;168.7;8044;Dense;Difficult;;;0
+100040103;Monkey Forest II;30;40;174.8;7146;Medium;Difficult;;;0
+100040104;Tree Dungeon, Monkey Forest II;26;40;180;6120;Thin-Medium;Difficult;;Spawn More;0
+103040202;3rd Floor 4th Floor Area C;27;40;468;10172;Thin;Moderate - Medium;Terrible just like its map A.;;0
+103040203;3rd Floor 4th Floor Area D;25;40;468;9624;Thin;Moderate - Medium;Terrible just like its map A.;;0
+220020100;Toy Factory <Main Process 1> Zone 2;30;40;374.66;14728;Thin - Moderate;Medium - Difficult;Too many platforms which require ladder to access. Difficult catching mobs.;;0
+220050100;Whirlpool of Time;33;40;380;15580;Moderate - Medium;Medium - Difficult;Much less spawn than its parent map, requires a bit more use of platforming to catch mobs, but ultimately end up spending a lot of time climbing ladders.;;2600
+220020500;Toy Factory <Main Process 1> Zone 6;38;41;396;15004;Moderate;Medium - Difficult;Too many platforms which require ladder to access. Difficult catching mobs.;;0
+220020600;Toy Factory <Aparatus Room>;10;41;396;15004;Thin - Moderate;Medium;Spawn is relatively thin. Three platforms which require the use of ladder but are in the form of Henesys Hunting Ground style.;Could have potential with a higher spawn rate.;0
+220030100;Toy Factory <Main Process 2> Zone 2;30;41;396;11160;Thin;Difficult;Two sets of 3 levelled platforms with thin spawns on each platform. Incredibly difficult to get around and catch mobs.;;0
+220040000;The Path of Time <1>;34;41;396;18216;Medium;Moderate;Henesys Hunting Grounds style platforming with each platform having a respectable amount of Platoon Chronos. Good average training spot.;Has potential with a bit higher spawn rate.;0
+220050000;Lost Time 1;36;41;396;19404;Medium - Dense;Medium;Henesys Hunting Grounds style platforming with each platform having a respectable amount of Platoon Chronos. Strong training spot.;;2600
+200030000;Strolling Path;24;42;392;9800;Medium;Easy-Moderate;Nependeath is easy to hit but they have ranged attack and some of them auto aggro. ;;0
+220020000;Toy Factory <Main Process 1> Zone 1;22;42;420;13860;Thin - Moderate;Medium;Platforms are too spread out. Not worth it to travel between them to catch mobs.;;0
+220030000;Toy Factory <Main Process 2> Zone 1;29;42;420;14700;Thin - Moderate;Medium - Difficult;Too many platforms which require ladder to access. Difficult catching mobs.;;0
+103000104;Line 1 <Area 3>;105;43;378;21400;Medium - Dense;Medium - Difficult;Relaxingly dense spot to train in. Good for level 40+ and especially fruitful for Clerics.;;22400
+103000105;Line 1 <Area 4>;57;43;476;20392;Medium;Medium;Less dense than previous map, but mean exp is higher per kill. Also has a boss which gives a significant amount of exp.;This map has a lot of potential for training. With a buff in spawn rate + density, it would make for a really good training location.;0
+103040300;5th Floor 6th Floor Area A;24;43;484;20328;Moderate - Medium;Moderate - Medium;Decent map. Lower density makes training slightly less efficient. Good flat map design with two levels.;;0
+103040301;5th Floor 6th Floor Area B;28;43;500;24696;Medium;Moderate - Medium;Good map with flat two level design. Higher density than version A makes it a better place to train.;;0
+103040302;5th Floor 6th Floor Area C;28;44;504;24288;Medium;Moderate - Medium;Good map with flat two level design. Higher density than version A makes it a better place to train.;;0
+103040303;5th Floor 6th Floor Area D;28;44;496;25524;Medium;Moderate - Medium;Good map with flat two level design. Higher density than version A makes it a better place to train.;;0
+200050000;Cloud Park IV;33;45;393.8181818;16848;Medium-Dense;Easy-Moderate;Exp would become somewhat low for high-30s.;;0
+103040400;7th Floor 8th Floor Area A;23;46;520;23856;Medium - Dense;Easy - Moderate;Incredibly good spawn rate and easy map to manuever. High quality training spot. Should model other maps to this one.;;0
+220040400;The Path of Time <4>;34;46;460;23920;Medium;Medium - Difficult;Multiple platforms to manuever to get maximum experience. However expect to be very rewarding my when optimizing the path around the map.;;0
+220050200;Lost Time 2;38;46;460;20240;Medium;Difficult;Difficult to maneuver between platforms but good spawn density per platform.;;2600
+200060000;Strolling Path II ;22;47;446.3636364;13560;Medium;Easy-Moderate;Basically same as Strolling Path. The mean exp is twice that of previous maps due to exp rate doubling at level 40.;;0
+211010000;Watch Out for Icy Path I;25;50;551.2;21480;Medium-Dense;Moderate;Slippery floor makes accessing mobs easier. Can't hit the Ice Witch??? ;;-1
+211020000;Watch Out for Icy Path II;26;50;583.0769231;26280;Medium;Moderate;About the same as Icy Path I. Some Jr Yetis transform to lvl 65 Transformed Yetis (1560 Exp);;-1
+200070000;Cloud Park V;33;52;575.3939394;25552;Medium-Dense ;Easy-Moderate;It's easy to go around the top oval to grind. ;;0
+200080000;Cloud Park VI;35;52;600.5714286;28844;Medium-Dense;Easy-Moderate;Less dense than Cloud Park V, but more Luster Pixies;;0
+200010111;Garden of Red II;29;53;632;28440;Medium-Dense;Moderate;It might look less dense than Garden of Yellow II but it's not;;0
+200010121;Garden of Yellow II;30;53;632;30968;Medium-Dense;Moderate; ;;0
+200010131;Garden of Green II;28;53;632;25912;Medium-Dense;Moderate;Looks almost the same as Garden of Yellow II;;0
+200010200;Stairway to the Sky I;32;53;632;25280;Medium;Medium;Large map and ramped, harder to mob for melee characters;;0
+100040105;The Forest of Evil I;29;55;594.48;25900;Medium-Dense;Decent difficulty;;;1640
+100040106;The Forest of Evil II;30;55;666;21060;Medium-Dense;Decent difficulty;;;1640
+211030000;Cold Field I;35;55;725.7142857;33560;Medium-Dense;Moderate ;Good density. Mobbing players might be able to take advantage of platforms above as well;;0
+211040000;Cold Field II;34;55;721.1764706;28480;Medium;Moderate;A much wider map than Cold Field I with about as much spawn, the results are obvious;;0
+211040500;Wolf Territory I;20;55;864;20280;Thin;Medium-Difficult;Werewolves (level 75) spawn here at a rate of 1 per minute per spawn. Otherwise completely underwhelming due to the relatively low level mobs.;Exchange Hector and White Fang spawns for werewolves?;0
+211040600;Wolf Territory II;22;55;847.2727273;22320;Thin;Medium-Difficult;Marginally better than Wolf Territory I;;0
+211041100;Forest of Dead Trees I;26;57;760;24320;Medium;Moderate;Wide map with low-level spawns. Riche spawns here;;-1
+211041200;Forest of Dead Trees II;19;57;760;28348;Medium;Moderate;Same as Forest of Dead Trees I, with slightly better spawns on the bottom;;-1
+211041300;Forest of Dead Trees III;18;57;760;22040;Thin-Medium ;Moderate;Same as Forest of Dead Trees I, with fewer spawns.;;-1
+211041400;Forest of Dead Trees IV;16;57;760;23560;Thin-Medium ;Moderate;Same as Forest Dead Tree I, with even fewer spawns.;;-1
+211040800;Wolf Territory III;13;58;1461.538462;26040;Thin;Medium-Difficult;Same as Wolf Territory II except with only White Fangs and Lycanthropes;;0
+211040900;Wolf Territory IV;14;58;1420;32200;Thin ;Medium-Difficult;Same as Wolf Territory III;;0
+211041000;Wolf Territory V;18;58;1300;33960;Thin;Medium-Difficult ;Same as Wolf Territory IV;;0
+211050000;Icy Cold Field ;26;58;833.8461538;33000;Medium;Moderate;Spawns are distributed well on the platforms at the right, makes for a decent grinding spot ;;-1
+220060000;Warped Path of Time <1>;26;61;980;25360;Thin;Difficult;Lots of platforms, but incredibly thin spawn makes it difficult to consistently train.;;0
+211040400;Sharp Cliff II;29;64;1055.862069;33800;Medium ;Medium-Difficult;About the same as Sharp Cliff I, but with Dark Pepes.;;0
+211040100;Ice Valley I;19;65;828.4210526;25680;Medium;Medium;There is a platform that some higher-up spawns drop into, concentrating the mobs there. Some Jr Yetis transform, so mean exp is lower than what it should be.;;0
+211040200;Ice Valley II;14;65;2082.857143;49280;Thin-Medium ;Medium-Difficult;The Yeti and Pepe separate into 2 mobs when defeated. They also give way more exp than regular Yetis, probably because they're 13 levels higher.;;0
+211040300;Sharp Cliff I;33;65;1213.939394;32420;Medium;Medium-Difficult;Transforming Yetis take time to transform so they take longer to defeat.;;0
+220070000;Forgotten Path of Time <1>;40;65;1020;32320;Thin;Difficult;Lots of platforms with low spawn mobs. Difficult to consistently gain exp because of the need to climb ladders.;;0
+211040700;Dangerous Cliff;27;68;1894.814815;40580;Thin-Medium ;Medium-Difficult;Dark Yeti and Pepe are level 82 and spawn once per minute per spawn.;;0
+200010300;Stairway to the Sky II;9;73;1276;55652;Thin-Medium ;Medium;Relatively thin Lucida spawn, and Eliza spawns (Exp/Min test note: Killed Eliza once @ 11196 Exp, 3? Jr Lucidas @ 980 Exp each);Eliza spawns so no suggestions given, other than move the two Lucida spawns away from the hidden portals;11196
+200010301;Garden of Darkness I;14;73;1276;32380;Thin-Medium ;Medium;Lucida spawns are thin on all platforms ;Increase spawns;0
+200010302;Garden of Darkness II;15;73;1276;43384;Thin-Medium ;Medium;No better than Garden of Darkness I;Increase spawns;0
+220070100;Forgotten Path of Time <2>;32;73;1280;29520;Thin;Difficult;Lots of platforms with low spawn mobs. Difficult to consistently gain exp because of the need to climb ladders.;;0
+220060100;Warped Path of Time <2>;24;74;1360;29820;Thin;Difficult;Lots of platforms, but incredibly thin spawn makes it difficult to consistently train.;;0
+220060200;Warped Path of Time <3>;28;83;4400;95120;Thin - Moderate;Difficult;Requires climbing up and down ladders to reach platforms with mediocre spawn.;;0
+220070200;Forgotten Path of Time <3>;23;85;5200;119600;Thin;Difficult;Low spawn per platform, difficult to walk up the map.;;0
+220060201;Unbalanced Time;21;87;6000;144000;Thin - Moderate;Difficult;Requires climbing up and down ladders to reach platforms with mediocre spawn.;;0
+220070201;Lost Time;15;89;5600;130720;Thin;Medium - Difficult;Although relatively low spawn and difficult platforms, there's a clear training path top down.;Buffing spawn rate could make this a really good map.;0
+220060300;Warped Path of Time <4>;14;93;8400;142800;Thin;Difficult;Lots of platforms but very little spawn.;;0
+220070300;Forgotten Path of Time <4>;26;95;9200;211600;Thin - Moderate;Difficult;Long platform, large maps makes it difficult to consistently train when you have to climb up and down.;;0
+220060301;Twisted Time;26;98;10400;301600;Thin - Moderate;Difficult;Requires moving up and down ladders t reach platforms. Decent mob spawns makes this a potentially good high level training area.;;0
+220070301;Forbidden Time;14;99;11200;444800;Thin - Moderate;Difficult;Long platform, large maps makes it difficult to consistently train when you have to climb up and down.;;0
+220060400;Warped Passage;2;108;25800;129000;Thin;Easy;Gatekeeper spawning is too slow to make this a training map.;;0
+220070400;Forgotten Path;2;108;24600;98400;Thin;Easy;Thanatos slow spawning is too slow to make this a training map.;;0
