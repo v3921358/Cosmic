@@ -103,6 +103,10 @@ public class ServerConstants {
     public static final int USE_EQUIPMNT_LVLUP = 7;             //All equips lvlup at max level of N, set 1 to disable.
     public static final byte CHAIR_EXTRA_HEAL_HP = 70;          //Each chair extra heal proc increasing HP.
     public static final byte CHAIR_EXTRA_HEAL_MP = 42;          //Each chair extra heal proc increasing MP.
+    public static final double EQUIP_LVLUP_GAIN_BASE = 0.05;   //Base multiplier for bonus stats on level up
+    public static final double EQUIP_LVLUP_GAIN_BONUS = 0.05;  //Additional multiplier for bonus stats on level up
+    public static final double EQUIP_LVLUP_GAIN_ATTR_BASE = 0.20; //Bonus multiplier for attributes
+    public static final double EQUIP_LVLUP_ATTR_BONUS_MULT = 3.0;
     
     //Pet Auto-Pot Recovery Rates
     public static final double PET_AUTOHP_RATIO = 0.99;         //Will automatically consume potions until given ratio of the MaxHP/MaxMP is reached.

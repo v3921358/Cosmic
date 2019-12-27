@@ -26,6 +26,7 @@ import constants.ServerConstants;
 import constants.ExpTable;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import server.MapleItemInformationProvider;
 import tools.MaplePacketCreator;
 import tools.Pair;
@@ -66,7 +67,7 @@ public class Equip extends Item {
     private float itemExp;
     private int ringid = -1;
     private boolean wear = false;
-    private boolean isUpgradeable, isElemental = false;    // timeless or reverse
+    private boolean isUpgradeable, isElemental, perfect = false;    // timeless or reverse
 
     public Equip(int id, short position) {
         this(id, position, 0);
@@ -272,6 +273,14 @@ public class Equip extends Item {
     public void setLevel(byte level) {
         this.level = level;
     }
+    
+    public boolean isPerfect(){
+        return perfect;
+    }
+    
+    public void setPerfect(boolean perfection){
+        this.perfect = perfection;
+    }
 
     private int getStatModifier(boolean isAttribute) {
         // each set of stat points grants a chance for a bonus stat point upgrade at equip level up.
@@ -286,8 +295,9 @@ public class Equip extends Item {
         }
     }
     
-    private int randomizeStatUpgrade(int top) {
-        int limit = Math.min(top, ServerConstants.MAX_EQUIPMNT_LVLUP_STAT_GAIN);
+    private int randomizeStatUpgrade(int base, boolean isAttribute) {
+        /*
+        int limit = Math.min(base, ServerConstants.MAX_EQUIPMNT_LVLUP_STAT_GAIN);
         
         int poolCount = (limit * (limit + 1) / 2) + limit;
         int rnd = Randomizer.rand(0, poolCount);
@@ -299,14 +309,34 @@ public class Equip extends Item {
         }
         
         return stat;
+        */
+        double gainPercentage = ServerConstants.EQUIP_LVLUP_GAIN_BASE + (isAttribute ? ServerConstants.EQUIP_LVLUP_GAIN_ATTR_BASE : 0); 
+        if (isPerfect()) {
+            gainPercentage += ServerConstants.EQUIP_LVLUP_GAIN_BONUS * (isAttribute ? ServerConstants.EQUIP_LVLUP_ATTR_BONUS_MULT : 1);
+        }
+        else {
+            gainPercentage += (ServerConstants.EQUIP_LVLUP_GAIN_BONUS * Math.random()) * (isAttribute ? ServerConstants.EQUIP_LVLUP_ATTR_BONUS_MULT : 1);
+        }
+
+        int finalStatUp = (int) (base * gainPercentage);
+        if (finalStatUp == 0 && (isPerfect() || Math.random() <= base * gainPercentage)) {  // If gain is less than 1, saving roll based on fraction of statUp
+            finalStatUp = 1;
+        }
+        return finalStatUp;
     }
     
-    private void getUnitStatUpgrade(List<Pair<StatUpgrade, Integer>> stats, StatUpgrade name, int curStat, boolean isAttribute) {
+    private void getUnitStatUpgrade(List<Pair<StatUpgrade, Integer>> stats, StatUpgrade name, int baseStat, boolean isAttribute) {
         isUpgradeable = true;
         
-        int maxUpgrade = randomizeStatUpgrade((int)(1 + (curStat / getStatModifier(isAttribute))));
+        int maxUpgrade = randomizeStatUpgrade(baseStat, isAttribute);
         if(maxUpgrade == 0) return;
-            
+        
+        for (Pair<StatUpgrade, Integer> up : stats){
+            if (up.getLeft() == name){
+                up.right += maxUpgrade;
+                return;
+            }
+        }
         stats.add(new Pair<>(name, maxUpgrade));
     }
     
@@ -317,26 +347,29 @@ public class Equip extends Item {
     }
     
     private void improveDefaultStats(List<Pair<StatUpgrade, Integer>> stats) {
-        if(dex > 0) getUnitStatUpgrade(stats, StatUpgrade.incDEX, dex, true);
-        if(str > 0) getUnitStatUpgrade(stats, StatUpgrade.incSTR, str, true);
-        if(_int > 0) getUnitStatUpgrade(stats, StatUpgrade.incINT,_int, true);
-        if(luk > 0) getUnitStatUpgrade(stats, StatUpgrade.incLUK, luk, true);
-        if(hp > 0) getUnitStatUpgrade(stats, StatUpgrade.incMHP, hp, false);
-        if(mp > 0) getUnitStatUpgrade(stats, StatUpgrade.incMMP, mp, false);
-        if(watk > 0) getUnitStatUpgrade(stats, StatUpgrade.incPAD, watk, false);
-        if(matk > 0) getUnitStatUpgrade(stats, StatUpgrade.incMAD, matk, false);
-        if(wdef > 0) getUnitStatUpgrade(stats, StatUpgrade.incPDD, wdef, false);
-        if(mdef > 0) getUnitStatUpgrade(stats, StatUpgrade.incMDD, mdef, false);
-        if(avoid > 0) getUnitStatUpgrade(stats, StatUpgrade.incEVA, avoid, false);
-        if(acc > 0) getUnitStatUpgrade(stats, StatUpgrade.incACC, acc, false);
-        if(speed > 0) getUnitStatUpgrade(stats, StatUpgrade.incSpeed, speed, false);
-        if(jump > 0) getUnitStatUpgrade(stats, StatUpgrade.incJump, jump, false);
+            
+        Map<String, Integer> equipStats = MapleItemInformationProvider.getInstance().getEquipStats(getItemId());
+        
+        if(equipStats.containsKey("DEX")) getUnitStatUpgrade(stats, StatUpgrade.incDEX, equipStats.get("DEX"), true);
+        if(equipStats.containsKey("STR")) getUnitStatUpgrade(stats, StatUpgrade.incSTR, equipStats.get("STR"), true);
+        if(equipStats.containsKey("INT")) getUnitStatUpgrade(stats, StatUpgrade.incINT, equipStats.get("INT"), true);
+        if(equipStats.containsKey("LUK")) getUnitStatUpgrade(stats, StatUpgrade.incLUK, equipStats.get("LUK"), true);
+        if(equipStats.containsKey("MHP")) getUnitStatUpgrade(stats, StatUpgrade.incMHP, equipStats.get("MHP"), false);
+        if(equipStats.containsKey("MMP")) getUnitStatUpgrade(stats, StatUpgrade.incMMP, equipStats.get("MMP"), false);
+        if(equipStats.containsKey("PAD")) getUnitStatUpgrade(stats, StatUpgrade.incPAD, equipStats.get("PAD"), false);
+        if(equipStats.containsKey("MAD")) getUnitStatUpgrade(stats, StatUpgrade.incMAD, equipStats.get("MAD"), false);
+        if(equipStats.containsKey("PDD")) getUnitStatUpgrade(stats, StatUpgrade.incPDD, equipStats.get("PDD"), false);
+        if(equipStats.containsKey("MDD")) getUnitStatUpgrade(stats, StatUpgrade.incMDD, equipStats.get("MDD"), false);
+        if(equipStats.containsKey("Speed")) getUnitStatUpgrade(stats, StatUpgrade.incSpeed, equipStats.get("Speed"), true);
+        if(equipStats.containsKey("Jump")) getUnitStatUpgrade(stats, StatUpgrade.incJump, equipStats.get("Jump"), false);
+        if(equipStats.containsKey("EVA")) getUnitStatUpgrade(stats, StatUpgrade.incEVA, equipStats.get("EVA"), true);        
+        if(equipStats.containsKey("ACC")) getUnitStatUpgrade(stats, StatUpgrade.incACC, equipStats.get("ACC"), true);
     }
     
     private void gainLevel(MapleClient c) {
         List<Pair<StatUpgrade, Integer>> stats = new LinkedList<>();
                 
-        if(isElemental) {
+        if(isElemental) {   // Populate list first if Reverse/Timeless
             List<Pair<String, Integer>> elementalStats = MapleItemInformationProvider.getInstance().getItemLevelupStats(getItemId(), itemLevel);
             
             for(Pair<String, Integer> p: elementalStats) {
@@ -344,32 +377,31 @@ public class Equip extends Item {
             }
         }
         
-        if(!stats.isEmpty()) {
+        if(!stats.isEmpty()) {  // If is Reverse/Timeless and didn't fail a levelup
             if(ServerConstants.USE_EQUIPMNT_LVLUP_SLOTS) {
                 if(vicious > 0) getUnitSlotUpgrade(stats, StatUpgrade.incVicious);
                 getUnitSlotUpgrade(stats, StatUpgrade.incSlot);
-            }
-        }
-        else {
-            isUpgradeable = false;
-            
-            improveDefaultStats(stats);
-            if(ServerConstants.USE_EQUIPMNT_LVLUP_SLOTS) {
-                if(vicious > 0) getUnitSlotUpgrade(stats, StatUpgrade.incVicious);
-                getUnitSlotUpgrade(stats, StatUpgrade.incSlot);
-            }
-            
-            if(isUpgradeable) {
-                while(stats.isEmpty()) {
-                    improveDefaultStats(stats);
-                    if(ServerConstants.USE_EQUIPMNT_LVLUP_SLOTS) {
-                        if(vicious > 0) getUnitSlotUpgrade(stats, StatUpgrade.incVicious);
-                        getUnitSlotUpgrade(stats, StatUpgrade.incSlot);
-                    }
-                }
             }
         }
         
+        isUpgradeable = false;
+
+        improveDefaultStats(stats);
+        if(ServerConstants.USE_EQUIPMNT_LVLUP_SLOTS) {
+            if(vicious > 0) getUnitSlotUpgrade(stats, StatUpgrade.incVicious);
+            getUnitSlotUpgrade(stats, StatUpgrade.incSlot);
+        }
+
+        if(isUpgradeable) { // If a stat can be upgraded, keep trying until at least something is improved? idk
+            while(stats.isEmpty()) {
+                improveDefaultStats(stats);
+                if(ServerConstants.USE_EQUIPMNT_LVLUP_SLOTS) {
+                    if(vicious > 0) getUnitSlotUpgrade(stats, StatUpgrade.incVicious);
+                    getUnitSlotUpgrade(stats, StatUpgrade.incSlot);
+                }
+            }
+        }
+
         itemLevel++;
         boolean gotVicious = false, gotSlot = false;
         
