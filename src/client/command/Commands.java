@@ -350,15 +350,12 @@ public class Commands {
 			break;
                     
 		case "staff":
-			player.yellowMessage("MapleSolaxia Staff");
-			player.yellowMessage("Aria - Administrator");
-			player.yellowMessage("Twdtwd - Administrator");
-			player.yellowMessage("Exorcist - Developer");
-			player.yellowMessage("SharpAceX - Developer");
-			player.yellowMessage("Zygon - Freelance Developer");
-			player.yellowMessage("SourMjolk - Game Master");
-			player.yellowMessage("Kanade - Game Master");
-			player.yellowMessage("Kitsune - Game Master");
+			player.yellowMessage("Dietstory Staff");
+			player.yellowMessage("Alieru - Administrator");
+			player.yellowMessage("Aerosol - Developer");
+			player.yellowMessage("Buraisx - Developer");
+			player.yellowMessage("Rayden - Developer");
+			player.yellowMessage("Dispenser - Developer");
                         player.yellowMessage("MapleSolaxiaV2 Staff");
                         player.yellowMessage("Ronan - Freelance Developer");
                         player.yellowMessage("Vcoc - Freelance Developer");
@@ -404,6 +401,7 @@ public class Commands {
 			break;
                     
 		case "whatdropsfrom":
+			/*
 			if (sub.length < 2) {
 				player.dropMessage(5, "Please do @whatdropsfrom <monster name>");
                         break;
@@ -435,9 +433,11 @@ public class Commands {
 				}
 			}
 			c.announce(MaplePacketCreator.getNPCTalk(9010000, (byte) 0, output, "00 00", (byte) 0));
+			 */
 			break;
                     
 		case "whodrops":
+			/*
 			if (sub.length < 2) {
 				player.dropMessage(5, "Please do @whodrops <item name>");
                         break;
@@ -477,6 +477,8 @@ public class Commands {
                         break;
 			}
 			c.announce(MaplePacketCreator.getNPCTalk(9010000, (byte) 0, output, "00 00", (byte) 0));
+
+			 */
 			break;
                     
 		case "dispose":
@@ -1295,6 +1297,7 @@ public class Commands {
                     break;
                     
                 case "search":
+                	/*
                         if (sub.length < 3){
 				player.yellowMessage("Syntax: !search <type> <name>");
 				break;
@@ -1315,7 +1318,7 @@ public class Commands {
                                         data = dataProvider.getData("Skill.img");
                                 /*} else if (sub[1].equalsIgnoreCase("MAP")) {
                                         TODO
-                                */
+
                                 } else {
                                         sb.append("#bInvalid search.\r\nSyntax: '!search [type] [name]', where [type] is NPC, ITEM, MOB, or SKILL.");
                                 }
@@ -1347,7 +1350,8 @@ public class Commands {
                         sb.append("\r\n#kLoaded within ").append((double) (System.currentTimeMillis() - start) / 1000).append(" seconds.");//because I can, and it's free
 			
 			c.announce(MaplePacketCreator.getNPCTalk(9010000, (byte) 0, sb.toString(), "00 00", (byte) 0));
-                    break;
+                */
+			break;
                     
                 case "jail":
                         if (sub.length < 2) {
