@@ -70,9 +70,9 @@ resource "aws_instance" "dietstory-dev" {
       "chmod +x ./install",
       "sudo ./install auto",      
       "sudo gpasswd -a $USER docker",
-      "newgrp docker",
       "sudo service codedeploy-agent start",
       "sudo service docker start",
+      "sudo systemctl enable docker",
     ]
   }
 }

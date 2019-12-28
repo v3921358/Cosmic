@@ -41,7 +41,7 @@ resource "aws_eip" "dietstory-prod-eip" {
 resource "aws_instance" "dietstory-prod" {
   depends_on                  = [aws_eip.dietstory-prod-eip]
   ami                         = data.aws_ami.amazon-linux-2.id
-  instance_type               = "t2.micro"
+  instance_type               = "t3.small"
   associate_public_ip_address = true
   iam_instance_profile        = var.iam-ec2-role
   key_name                    = var.prod-key-pair
@@ -70,9 +70,9 @@ resource "aws_instance" "dietstory-prod" {
       "chmod +x ./install",
       "sudo ./install auto",
       "sudo gpasswd -a $USER docker",
-      "newgrp docker",
       "sudo service codedeploy-agent start",
       "sudo service docker start",
+      "sudo systemctl enable docker",
     ]
   }
 }
