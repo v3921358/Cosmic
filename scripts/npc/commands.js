@@ -175,7 +175,7 @@ function writeSolaxiaCommandsLv2() {    //JrGM
         addCommand("maxstat", "");
         addCommand("maxskill", "");
         addCommand("mesos", "");
-        addCommand("search", "");
+        //addCommand("search", "");
         addCommand("jail", "");
         addCommand("unjail", "");
         addCommand("job", "");
@@ -202,8 +202,8 @@ function writeSolaxiaCommandsLv0() {    //Common
         addCommand("staff", "");
         addCommand("uptime", "");
         addCommand("gacha", "");
-        addCommand("whatdropsfrom", "");
-        addCommand("whodrops", "");
+        //addCommand("whatdropsfrom", "");
+        //addCommand("whodrops", "");
         addCommand("dispose", "");
         addCommand("equiplv", "");
         addCommand("showrates", "");
