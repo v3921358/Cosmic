@@ -345,6 +345,58 @@
       <int name="rx0" value="-1051"/>
       <int name="rx1" value="-924"/>
     </imgdir>
+    <imgdir name="20">
+      <string name="type" value="m"/>
+      <string name="id" value="3400000"/>
+      <int name="x" value="172"/>
+      <int name="y" value="397"/>
+      <int name="mobTime" value="0"/>
+      <int name="f" value="0"/>
+      <int name="hide" value="0"/>
+      <int name="fh" value="11"/>
+      <int name="cy" value="416"/>
+      <int name="rx0" value="-384"/>
+      <int name="rx1" value="-91"/>
+    </imgdir>
+    <imgdir name="21">
+      <string name="type" value="m"/>
+      <string name="id" value="3400000"/>
+      <int name="x" value="112"/>
+      <int name="y" value="397"/>
+      <int name="mobTime" value="0"/>
+      <int name="f" value="0"/>
+      <int name="hide" value="0"/>
+      <int name="fh" value="11"/>
+      <int name="cy" value="416"/>
+      <int name="rx0" value="-384"/>
+      <int name="rx1" value="-91"/>
+    </imgdir>
+    <imgdir name="22">
+      <string name="type" value="m"/>
+      <string name="id" value="3400000"/>
+      <int name="x" value="372"/>
+      <int name="y" value="397"/>
+      <int name="mobTime" value="0"/>
+      <int name="f" value="0"/>
+      <int name="hide" value="0"/>
+      <int name="fh" value="11"/>
+      <int name="cy" value="416"/>
+      <int name="rx0" value="-384"/>
+      <int name="rx1" value="-91"/>
+    </imgdir>
+    <imgdir name="23">
+      <string name="type" value="m"/>
+      <string name="id" value="3400000"/>
+      <int name="x" value="-102"/>
+      <int name="y" value="397"/>
+      <int name="mobTime" value="0"/>
+      <int name="f" value="0"/>
+      <int name="hide" value="0"/>
+      <int name="fh" value="11"/>
+      <int name="cy" value="416"/>
+      <int name="rx0" value="-384"/>
+      <int name="rx1" value="-91"/>
+    </imgdir>
   </imgdir>
   <imgdir name="reactor">
   </imgdir>

@@ -51,7 +51,7 @@ function action(mode, type, selection) {
             case 920010000:
                 if(eim.getIntProperty("statusStg1") != 1) {
                     eim.warpEventTeamToMapSpawnPoint(920010000, 2);
-                    eim.giveEventPlayersExp(3500);
+                    eim.giveEventPlayersExp(10500);
                     clearStage(1, eim);
 
                     cm.sendNext("Please save Minerva, She've been trapped in the seal by Papa Pixie, the terror of our tower! He misplaced all of our Minerva Statue's parts and we have to get it all back! Oh pardon me, I am the tower's Chamberlain, Eak. I am Minerva's royal servant.");
@@ -81,7 +81,7 @@ function action(mode, type, selection) {
                     cm.sendOk("You got them all! Here, the 1st statue piece.");
                     cm.removeAll(4001050);
                     cm.gainItem(4001044,1); //first piece
-                    eim.giveEventPlayersExp(3500);
+                    eim.giveEventPlayersExp(10500);
                     clearStage(1, eim);
                 }
                 break;
@@ -91,7 +91,7 @@ function action(mode, type, selection) {
                         if(cm.canHold(4001045)) {
                             cm.sendOk("Oh, I've found the 2nd Piece of Statue. Here, take it.");
                             cm.gainItem(4001045, 1);
-                            eim.giveEventPlayersExp(3500);
+                            eim.giveEventPlayersExp(10500);
                             clearStage(2, eim);
                             eim.setProperty("statusStg2", "1");
                         } else {
@@ -111,7 +111,7 @@ function action(mode, type, selection) {
                 } else if (eim.getIntProperty("statusStg3") == 0) {
                     cm.getMap().getReactorByName("stone3").forceHitReactor(1);
                     cm.sendOk("Ooh, the music... It sounds so fitting with the ambient. Nicely done, a box has appeared on the field. Retrieve the statue part from it!");
-                    eim.giveEventPlayersExp(3500);
+                    eim.giveEventPlayersExp(10500);
                     clearStage(3, eim);
                     eim.setProperty("statusStg3", "2");
                     
@@ -152,7 +152,7 @@ function action(mode, type, selection) {
                         if (num_correct == 3) {
                             cm.sendOk("You found the right combination! A box has appeared on the top of this map, go retrieve the statue piece from it!");
                             cm.getMap().getReactorByName("stone4").forceHitReactor(1);
-                            eim.giveEventPlayersExp(3500);
+                            eim.giveEventPlayersExp(10500);
                             clearStage(4, eim);
                         } else {
                             eim.showWrongEffect();
@@ -176,7 +176,7 @@ function action(mode, type, selection) {
                         cm.sendOk("You got them all! Here, the 5th statue piece.");
                         cm.removeAll(4001052);
                         cm.gainItem(4001048,1); //fifth piece
-                        eim.giveEventPlayersExp(3500);
+                        eim.giveEventPlayersExp(10500);
                         clearStage(5, eim);
                         eim.setIntProperty("statusStg5", 1);
                     }
@@ -239,7 +239,7 @@ function action(mode, type, selection) {
                         if (num_correct == 5) {
                             cm.sendOk("You found the right combination! Retrieve the statue piece from inside it!");
                             cm.getMap().getReactorByName("stone6").forceHitReactor(1);
-                            eim.giveEventPlayersExp(3500);
+                            eim.giveEventPlayersExp(10500);
                             clearStage(6, eim);
                         } else {
                             eim.showWrongEffect();

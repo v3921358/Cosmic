@@ -194,7 +194,7 @@
       <string name="type" value="m"/>
       <string name="id" value="4230112"/>
       <int name="x" value="-550"/>
-      <int name="y" value="120"/>
+      <int name="y" value="-40"/>
       <int name="mobTime" value="0"/>
       <int name="f" value="0"/>
       <int name="fh" value="83"/>
@@ -253,8 +253,8 @@
     <imgdir name="8">
       <string name="type" value="m"/>
       <string name="id" value="4230112"/>
-      <int name="x" value="-283"/>
-      <int name="y" value="118"/>
+      <int name="x" value="0"/>
+      <int name="y" value="-158"/>
       <int name="mobTime" value="0"/>
       <int name="f" value="0"/>
       <int name="fh" value="72"/>
@@ -277,8 +277,8 @@
     <imgdir name="10">
       <string name="type" value="m"/>
       <string name="id" value="4230112"/>
-      <int name="x" value="196"/>
-      <int name="y" value="116"/>
+      <int name="x" value="57"/>
+      <int name="y" value="-158"/>
       <int name="mobTime" value="0"/>
       <int name="f" value="1"/>
       <int name="fh" value="80"/>
@@ -361,8 +361,8 @@
     <imgdir name="17">
       <string name="type" value="m"/>
       <string name="id" value="4230112"/>
-      <int name="x" value="441"/>
-      <int name="y" value="128"/>
+      <int name="x" value="427"/>
+      <int name="y" value="-98"/>
       <int name="mobTime" value="0"/>
       <int name="f" value="0"/>
       <int name="fh" value="88"/>
@@ -373,8 +373,8 @@
     <imgdir name="18">
       <string name="type" value="m"/>
       <string name="id" value="4230112"/>
-      <int name="x" value="731"/>
-      <int name="y" value="117"/>
+      <int name="x" value="451"/>
+      <int name="y" value="-98"/>
       <int name="mobTime" value="0"/>
       <int name="f" value="0"/>
       <int name="fh" value="95"/>
@@ -385,8 +385,8 @@
     <imgdir name="19">
       <string name="type" value="m"/>
       <string name="id" value="4230112"/>
-      <int name="x" value="1011"/>
-      <int name="y" value="116"/>
+      <int name="x" value="1258"/>
+      <int name="y" value="-33"/>
       <int name="mobTime" value="0"/>
       <int name="f" value="1"/>
       <int name="fh" value="94"/>
@@ -398,7 +398,7 @@
       <string name="type" value="m"/>
       <string name="id" value="4230112"/>
       <int name="x" value="1250"/>
-      <int name="y" value="115"/>
+      <int name="y" value="-221"/>
       <int name="mobTime" value="0"/>
       <int name="f" value="0"/>
       <int name="fh" value="97"/>
@@ -410,7 +410,7 @@
       <string name="type" value="m"/>
       <string name="id" value="4230112"/>
       <int name="x" value="1612"/>
-      <int name="y" value="131"/>
+      <int name="y" value="-152"/>
       <int name="mobTime" value="0"/>
       <int name="f" value="0"/>
       <int name="fh" value="108"/>

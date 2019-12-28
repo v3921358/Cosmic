@@ -297,7 +297,7 @@
       <string name="id" value="7130200"/>
       <int name="x" value="56"/>
       <int name="y" value="512"/>
-      <int name="mobTime" value="60"/>
+      <int name="mobTime" value="0"/>
       <int name="f" value="0"/>
       <int name="fh" value="17"/>
       <int name="cy" value="514"/>
@@ -309,7 +309,7 @@
       <string name="id" value="7130200"/>
       <int name="x" value="237"/>
       <int name="y" value="-25"/>
-      <int name="mobTime" value="60"/>
+      <int name="mobTime" value="0"/>
       <int name="f" value="0"/>
       <int name="fh" value="27"/>
       <int name="cy" value="-17"/>
@@ -333,7 +333,7 @@
       <string name="id" value="7130200"/>
       <int name="x" value="56"/>
       <int name="y" value="-1228"/>
-      <int name="mobTime" value="60"/>
+      <int name="mobTime" value="0"/>
       <int name="f" value="0"/>
       <int name="fh" value="57"/>
       <int name="cy" value="-1216"/>
@@ -354,7 +354,7 @@
     </imgdir>
     <imgdir name="5">
       <string name="type" value="m"/>
-      <string name="id" value="5140000"/>
+      <string name="id" value="7130200"/>
       <int name="x" value="-131"/>
       <int name="y" value="-15"/>
       <int name="mobTime" value="0"/>
@@ -366,7 +366,7 @@
     </imgdir>
     <imgdir name="6">
       <string name="type" value="m"/>
-      <string name="id" value="5140000"/>
+      <string name="id" value="7130200"/>
       <int name="x" value="276"/>
       <int name="y" value="-695"/>
       <int name="mobTime" value="0"/>
@@ -402,7 +402,7 @@
     </imgdir>
     <imgdir name="9">
       <string name="type" value="m"/>
-      <string name="id" value="5130104"/>
+      <string name="id" value="7130200"/>
       <int name="x" value="-314"/>
       <int name="y" value="-1238"/>
       <int name="mobTime" value="0"/>
@@ -426,7 +426,7 @@
     </imgdir>
     <imgdir name="11">
       <string name="type" value="m"/>
-      <string name="id" value="5130104"/>
+      <string name="id" value="7130200"/>
       <int name="x" value="417"/>
       <int name="y" value="-696"/>
       <int name="mobTime" value="0"/>
@@ -438,7 +438,7 @@
     </imgdir>
     <imgdir name="12">
       <string name="type" value="m"/>
-      <string name="id" value="5130104"/>
+      <string name="id" value="7130200"/>
       <int name="x" value="-45"/>
       <int name="y" value="-696"/>
       <int name="mobTime" value="0"/>
@@ -450,7 +450,7 @@
     </imgdir>
     <imgdir name="13">
       <string name="type" value="m"/>
-      <string name="id" value="5130104"/>
+      <string name="id" value="7130200"/>
       <int name="x" value="-242"/>
       <int name="y" value="-680"/>
       <int name="mobTime" value="0"/>
@@ -462,7 +462,7 @@
     </imgdir>
     <imgdir name="14">
       <string name="type" value="m"/>
-      <string name="id" value="5130104"/>
+      <string name="id" value="7130200"/>
       <int name="x" value="-245"/>
       <int name="y" value="-4"/>
       <int name="mobTime" value="0"/>
@@ -474,7 +474,7 @@
     </imgdir>
     <imgdir name="15">
       <string name="type" value="m"/>
-      <string name="id" value="5130104"/>
+      <string name="id" value="7130200"/>
       <int name="x" value="58"/>
       <int name="y" value="-30"/>
       <int name="mobTime" value="0"/>
@@ -486,7 +486,7 @@
     </imgdir>
     <imgdir name="16">
       <string name="type" value="m"/>
-      <string name="id" value="5130104"/>
+      <string name="id" value="7130200"/>
       <int name="x" value="392"/>
       <int name="y" value="-40"/>
       <int name="mobTime" value="0"/>
@@ -498,7 +498,7 @@
     </imgdir>
     <imgdir name="17">
       <string name="type" value="m"/>
-      <string name="id" value="5130104"/>
+      <string name="id" value="7130200"/>
       <int name="x" value="240"/>
       <int name="y" value="500"/>
       <int name="mobTime" value="0"/>
