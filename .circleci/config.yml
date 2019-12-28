@@ -70,7 +70,8 @@ jobs:
             --application-name dietstory-game-app-dev \
             --deployment-config-name CodeDeployDefault.OneAtATime \
             --deployment-group-name dietstory-game-group-dev \
-            --s3-location bucket=dietstory-api-server-assets,bundleType=zip,key=dev/releases/dietstory.zip 
+            --s3-location bucket=dietstory-api-server-assets,bundleType=zip,key=dev/releases/dietstory.zip \
+            --file-exists-behavior=OVERWRITE
 
   deploy-release: # Deploy artifacts to prod server
     machine: true
@@ -95,7 +96,8 @@ jobs:
             --application-name dietstory-game-app-prod \
             --deployment-config-name CodeDeployDefault.OneAtATime \
             --deployment-group-name dietstory-game-group-prod \
-            --s3-location bucket=dietstory-api-server-assets,bundleType=zip,key=prod/releases/dietstory.zip 
+            --s3-location bucket=dietstory-api-server-assets,bundleType=zip,key=prod/releases/dietstory.zip \
+            --file-exists-behavior=OVERWRITE
 
 
 # Workflows
