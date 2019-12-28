@@ -31,14 +31,15 @@ var mhair = Array(32410, /*Overgrown Hair*/
                   33260, /*Neinheart Hair*/
                   36920, /*Randy Hair*/
                   36910, /*Black Daredevil Hair*/
-                  43010, /*Pastel Goth*/
+                  //43010, /*Pastel Goth*/
+                  36910,
                   35650 /*Toth Hair*/);
 var fhair = Array(37560, /*Bow Bleached Hair*/
                   37640, /*Eternal Wind Hair*/
                   32650, /*Asuna Hair Hair*/
                   33420, /*Full Margate Hair*/
                   31890, /*Short Twin Tails*/
-                  41090, /*Prim Air Hair*/
+                  //41090, /*Prim Air Hair*/
                   34370 /*Shaggy Bobbed Hair*/);
 var hairnew = Array();
 
