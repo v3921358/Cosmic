@@ -49,7 +49,7 @@ resource "aws_instance" "dietstory-dev" {
 
   tags = {
     dietstory  = "server"
-    enviroment = "develop"
+    environment = "develop"
   }
 
   # Install codedeploy agent & Docker
@@ -97,12 +97,6 @@ resource "aws_codedeploy_deployment_group" "dietstory-game-app-dev-group" {
   ec2_tag_set {
     ec2_tag_filter {
       type  = "KEY_AND_VALUE"
-      key   = "dietstory"
-      value = "server"
-    }
-
-    ec2_tag_filter {
-      type  = "KEY_AND_VALUE"
       key   = "environment"
       value = "develop"
     }
@@ -121,12 +115,6 @@ resource "aws_codedeploy_deployment_group" "dietstory-django-app-dev-group" {
   service_role_arn      = var.iam-codedeploy-role
 
   ec2_tag_set {
-    ec2_tag_filter {
-      type  = "KEY_AND_VALUE"
-      key   = "dietstory"
-      value = "server"
-    }
-
     ec2_tag_filter {
       type  = "KEY_AND_VALUE"
       key   = "environment"
