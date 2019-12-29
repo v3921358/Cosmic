@@ -516,8 +516,8 @@ public class MapleClient {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
-                        con = DatabaseConnection.getConnection();
-			ps = con.prepareStatement("SELECT id, password, salt, gender, banned, gm, pin, pic, characterslots, tos, fly FROM accounts WHERE name = ?");
+            con = DatabaseConnection.getConnection();
+			ps = con.prepareStatement("SELECT id, password, salt, gender, banned, gm, pin, pic, characterslots, tos, fly, verified FROM accounts WHERE name = ?");
 			ps.setString(1, login);
 			rs = ps.executeQuery();
 			if (rs.next()) {
@@ -532,20 +532,17 @@ public class MapleClient {
 				characterSlots = rs.getByte("characterslots");
 				String passhash = rs.getString("password");
 				String salt = rs.getString("salt");
+				byte verified = rs.getByte("verified");
 				//we do not unban
 				byte tos = rs.getByte("tos");
-                                flyActive = (rs.getShort("fly") == (short)1);
+                flyActive = (rs.getShort("fly") == (short)1);
 				ps.close();
 				rs.close();
 				if (getLoginState() > LOGIN_NOTLOGGEDIN) { // already loggedin
 					loggedIn = false;
 					loginok = 7;
-				} else if (pwd.equals(passhash) || checkHash(passhash, "SHA-1", pwd) || checkHash(passhash, "SHA-512", pwd + salt)) {
-					if (tos == 0) {
-						loginok = 23;
-					} else {
-						loginok = 0;
-					}
+				} else if ((pwd.equals(passhash) || checkHash(passhash, "SHA-1", pwd) || checkHash(passhash, "SHA-512", pwd + salt)) && verified == 1) {
+					loginok = tos == 0 ? 23 : 0;
 				} else {
 					loggedIn = false;
 					loginok = 4;
