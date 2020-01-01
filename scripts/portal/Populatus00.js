@@ -21,7 +21,7 @@
  */
 function enter(pi) {
     // papulatus quest either started or completed and have ludibrium medal 4031172 and num_instances enter < 2
-    if (!(isQuestStarted(7103) || isQuestCompleted(7103)) && !pi.getPlayer().hasItem(4031172)){
+    if (!(cm.isQuestStarted(7103) || cm.isQuestCompleted(7103)) && !pi.getPlayer().hasItem(4031172)){
         pi.getPlayer().dropMessage("You do not have the required quest and quest items to face Papulatus.");
         return false;
     }

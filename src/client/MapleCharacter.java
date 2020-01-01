@@ -4912,7 +4912,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             ret.maplemount.setActive(false);
 
             //load character's boss entries
-            ps = con.prepareStatement("SELECT papEntries, zakumEntries, horntailEntries, pinkbeanEntries FROM bossEntries WHERE id = ?");
+            ps = con.prepareStatement("SELECT papEntries, zakumEntries, horntailEntries, pinkbeanEntries FROM boss_entries WHERE id = ?");
             ps.set(1, charid);
             rs = ps.executeQuery();
             if(rs.next()){
@@ -6016,16 +6016,16 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             ps.setInt(2, client.getAccID());
             ps.executeUpdate();
 
-            ps = con.prepareStatement("SELECT * FROM bossEntries WHERE id = ?");
+            ps = con.prepareStatement("SELECT * FROM boss_entries WHERE id = ?");
             ps.set(1, id);
             int updateBossEntryRows = ps.executeUpdate();
 
             if (updateBossEntryRows < 1){
-                ps = con.prepareStatement("INSERT INTO bossEntries VALUES (?,?,?,?) WHERE id = ?");
+                ps = con.prepareStatement("INSERT INTO boss_entries VALUES (?,?,?,?) WHERE id = ?");
 
             }
             else{
-                ps = con.prepareStatement("UPDATE bossEntries SET papEntries = ?, zakumEntries = ?, horntailEntries = ?, pinkbeanEntries = ? WHERE id = ?");
+                ps = con.prepareStatement("UPDATE boss_entries SET papEntries = ?, zakumEntries = ?, horntailEntries = ?, pinkbeanEntries = ? WHERE id = ?");
             }
             ps.setInt(1, bossEntries.get(8500001));
             ps.setInt(2, bossEntries.get(8800000));
@@ -7431,7 +7431,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     }
 
     public Boolean mayEnterBoss(Integer bossId){
-        return this.getNumBossEntries() != -1 && this.getNumBossEntries < ServerConstants.MAX_DAILY_BOSS_ENTRANCES;
+        return this.getNumBossEntries() > 0 && this.getNumBossEntries < ServerConstants.MAX_DAILY_BOSS_ENTRANCES;
 
     }
     private Integer getNumBossEntries(Integer bossId){
@@ -7449,6 +7449,12 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         }
         else{
             bossEntries.put(bossId, 1);
+        }
+    }
+
+    public void resetBossEntries(){
+        for(Map.Entry bossEntry: bossEntries.entrySet()){
+            bossEntries.put((String)bossEntry.getKey(), ServerConstants.MAX_DAILY_BOSS_ENTRANCES);
         }
     }
 
