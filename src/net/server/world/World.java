@@ -87,6 +87,7 @@ public class World {
     private long mountUpdate;
     
     private ScheduledFuture<?> charactersSchedule;
+    private ScheduledFuture<?> bossEntriesSchedule;
     
     public World(int world, int flag, String eventmsg, int exprate, int droprate, int mesorate, int bossdroprate) {
         this.id = world;
