@@ -38,6 +38,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.Iterator;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
@@ -296,7 +297,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     private int banishMap = -1;
     private int banishSp = -1;
     private long banishTime = 0;
-    private Map<String, Integer> bossEntries = new HashMap<String, Integer>();
+    private Map<Integer, Integer> bossEntries = new HashMap<Integer, Integer>();
 
     private MapleCharacter() {
         useCS = false;
@@ -4913,7 +4914,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
 
             //load character's boss entries
             ps = con.prepareStatement("SELECT papEntries, zakumEntries, horntailEntries, pinkbeanEntries FROM boss_entries WHERE id = ?");
-            ps.set(1, charid);
+            ps.setInt(1, charid);
             rs = ps.executeQuery();
             if(rs.next()){
                 ret.bossEntries.put(8500001, rs.getInt("papEntries"));
@@ -6017,7 +6018,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             ps.executeUpdate();
 
             ps = con.prepareStatement("SELECT * FROM boss_entries WHERE id = ?");
-            ps.set(1, id);
+            ps.setInt(1, id);
             int updateBossEntryRows = ps.executeUpdate();
 
             if (updateBossEntryRows < 1){
@@ -7430,10 +7431,6 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         jailExpiration = 0;
     }
 
-    public Boolean mayEnterBoss(Integer bossId){
-        return this.getNumBossEntries() > 0 && this.getNumBossEntries < ServerConstants.MAX_DAILY_BOSS_ENTRANCES;
-
-    }
     private Integer getNumBossEntries(Integer bossId){
         if (bossEntries.containsKey(bossId)){
             return bossEntries.get(bossId);
@@ -7442,6 +7439,10 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         return -1;
     }
 
+    public Boolean mayEnterBoss(Integer bossId){
+        return getNumBossEntries(bossId) > 0 && getNumBossEntries(bossId) < ServerConstants.MAX_DAILY_BOSS_ENTRANCES;
+
+    }
 
     public void addBossEntry(Integer bossId){
         if (bossEntries.containsKey(bossId)) {
@@ -7454,7 +7455,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
 
     public void resetBossEntries(){
         for(Map.Entry bossEntry: bossEntries.entrySet()){
-            bossEntries.put((String)bossEntry.getKey(), ServerConstants.MAX_DAILY_BOSS_ENTRANCES);
+            bossEntries.put((Integer)bossEntry.getKey(), ServerConstants.MAX_DAILY_BOSS_ENTRANCES);
         }
     }
 
