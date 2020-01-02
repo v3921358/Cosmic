@@ -296,6 +296,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     private int banishMap = -1;
     private int banishSp = -1;
     private long banishTime = 0;
+    private Map<String, Integer> bossEntries = new HashMap<String, Integer>();
 
     private MapleCharacter() {
         useCS = false;
@@ -4908,8 +4909,20 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             ret.maplemount.setExp(mountexp);
             ret.maplemount.setLevel(mountlevel);
             ret.maplemount.setTiredness(mounttiredness);
-            ret.maplemount.setActive(false);    
-            
+            ret.maplemount.setActive(false);
+
+            //load character's boss entries
+            ps = con.prepareStatement("SELECT papEntries, zakumEntries, horntailEntries, pinkbeanEntries FROM boss_entries WHERE id = ?");
+            ps.set(1, charid);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                ret.bossEntries.put(8500001, rs.getInt("papEntries"));
+                ret.bossEntries.put(8800000, rs.getInt("zakumEntries"));
+                ret.bossEntries.put(8810018, rs.getInt("horntailEntries"));
+                ret.bossEntries.put(8820000, rs.getInt("pinkbeanEntries"));
+            }
+            ps.close();
+
             con.close();
             return ret;
         } catch (SQLException | RuntimeException e) {
@@ -6002,8 +6015,26 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             ps.setInt(1, gmLevel > 1 ? 1 : 0);
             ps.setInt(2, client.getAccID());
             ps.executeUpdate();
+
+            ps = con.prepareStatement("SELECT * FROM boss_entries WHERE id = ?");
+            ps.set(1, id);
+            int updateBossEntryRows = ps.executeUpdate();
+
+            if (updateBossEntryRows < 1){
+                ps = con.prepareStatement("INSERT INTO boss_entries VALUES (?,?,?,?) WHERE id = ?");
+
+            }
+            else{
+                ps = con.prepareStatement("UPDATE boss_entries SET papEntries = ?, zakumEntries = ?, horntailEntries = ?, pinkbeanEntries = ? WHERE id = ?");
+            }
+            ps.setInt(1, bossEntries.get(8500001));
+            ps.setInt(2, bossEntries.get(8800000));
+            ps.setInt(3, bossEntries.get(8810018));
+            ps.setInt(4, bossEntries.get(8820000));
+            ps.setInt(5, id);
+            ps.executeUpdate();
             ps.close();
-			
+
             con.commit();
             con.setAutoCommit(true);
 			
@@ -7398,4 +7429,33 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     public void removeJailExpirationTime() {
         jailExpiration = 0;
     }
+
+    public Boolean mayEnterBoss(Integer bossId){
+        return this.getNumBossEntries() > 0 && this.getNumBossEntries < ServerConstants.MAX_DAILY_BOSS_ENTRANCES;
+
+    }
+    private Integer getNumBossEntries(Integer bossId){
+        if (bossEntries.containsKey(bossId)){
+            return bossEntries.get(bossId);
+        }
+
+        return -1;
+    }
+
+
+    public void addBossEntry(Integer bossId){
+        if (bossEntries.containsKey(bossId)) {
+            bossEntries.put(bossId, bossEntries.get(bossId) + 1);
+        }
+        else{
+            bossEntries.put(bossId, 1);
+        }
+    }
+
+    public void resetBossEntries(){
+        for(Map.Entry bossEntry: bossEntries.entrySet()){
+            bossEntries.put((String)bossEntry.getKey(), ServerConstants.MAX_DAILY_BOSS_ENTRANCES);
+        }
+    }
+
 }

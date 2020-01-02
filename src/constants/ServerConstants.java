@@ -127,6 +127,9 @@ public class ServerConstants {
 	
     //Event End Timestamp
     public static final long EVENT_END_TIMESTAMP = 1428897600000L;
+
+    //Maximum number of times players can enter bosses
+    public static final int MAX_DAILY_BOSS_ENTRANCES = 2;
 	
     //Properties
     static {
