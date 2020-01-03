@@ -43,8 +43,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.concurrent.ScheduledFuture;
+import java.util.Calendar;
 
 import server.TimerManager;
+import net.server.BossEntriesWorker;
 import net.server.CharacterAutosaverWorker;
 import net.server.MountTirednessWorker;
 import net.server.PetFullnessWorker;
@@ -85,6 +87,7 @@ public class World {
     private long mountUpdate;
     
     private ScheduledFuture<?> charactersSchedule;
+    private ScheduledFuture<?> bossEntriesSchedule;
     
     public World(int world, int flag, String eventmsg, int exprate, int droprate, int mesorate, int bossdroprate) {
         this.id = world;
@@ -103,6 +106,7 @@ public class World {
         petsSchedule = TimerManager.getInstance().register(new PetFullnessWorker(this), 60 * 1000, 60 * 1000);
         mountsSchedule = TimerManager.getInstance().register(new MountTirednessWorker(this), 60 * 1000, 60 * 1000);
         charactersSchedule = TimerManager.getInstance().register(new CharacterAutosaverWorker(this), 60 * 60 * 1000, 60 * 60 * 1000);
+        bossEntriesSchedule = TimerManager.getInstance().register(new BossEntriesWorker(this), 60 * 1000 * 1440, calculateDifferenceTillMidNight());
     }
 
     public List<Channel> getChannels() {
@@ -772,6 +776,37 @@ public class World {
                 activeMounts.put(dp.getKey(), dpVal);
             }
         }
+    }
+
+    //reset all characters boss_entries to world defined maximum in the database
+    public void resetBossEntries(){
+        try{
+            Connection con = DatabaseConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement("UPDATE boss_entries SET papEntries = ?, zakumEntries = ?, horntailEntries = ?, pinkbeanEntries = ?");
+            for(int i = 1; i < 5; i++){
+                ps.setInt(i, 0);
+            }
+            ps.executeUpdate();
+            ps.close();
+            con.close();
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public long calculateDifferenceTillMidNight(){
+        Calendar midnight = Calendar.getInstance();
+        midnight.set(Calendar.HOUR, 0);
+        midnight.set(Calendar.MINUTE, 0);
+        midnight.set(Calendar.SECOND, 0);
+        midnight.add(Calendar.DAY_OF_MONTH, 1);
+
+        Calendar now = Calendar.getInstance();
+
+        long timeDifference = midnight.getTime().getTime() - now.getTime().getTime(); 
+
+        return timeDifference;
     }
 
     public void setServerMessage(String msg) {

@@ -1,4 +1,4 @@
-/* 
+    /* 
  This file is part of the OdinMS Maple Story Server
  Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
  Matthias Butz <matze@odinms.de>
@@ -27,7 +27,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.Statement;      
 import java.sql.Timestamp;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -38,6 +38,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.Iterator;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
@@ -296,6 +297,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     private int banishMap = -1;
     private int banishSp = -1;
     private long banishTime = 0;
+    private Map<Integer, Integer> bossEntries = new HashMap<Integer, Integer>();
 
     private MapleCharacter() {
         useCS = false;
@@ -4908,8 +4910,26 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             ret.maplemount.setExp(mountexp);
             ret.maplemount.setLevel(mountlevel);
             ret.maplemount.setTiredness(mounttiredness);
-            ret.maplemount.setActive(false);    
-            
+            ret.maplemount.setActive(false);
+
+            //load character's boss entries
+            ps = con.prepareStatement("SELECT papEntries, zakumEntries, horntailEntries, pinkbeanEntries FROM boss_entries WHERE charid = ?");
+            ps.setInt(1, charid);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                ret.bossEntries.put(8500001, rs.getInt("papEntries"));
+                ret.bossEntries.put(8800000, rs.getInt("zakumEntries"));
+                ret.bossEntries.put(8810018, rs.getInt("horntailEntries"));
+                ret.bossEntries.put(8820000, rs.getInt("pinkbeanEntries"));
+            }
+            else {
+                ret.bossEntries.put(8500001, 0);
+                ret.bossEntries.put(8800000, 0);
+                ret.bossEntries.put(8810018, 0);
+                ret.bossEntries.put(8820000, 0);
+            }
+            ps.close();
+
             con.close();
             return ret;
         } catch (SQLException | RuntimeException e) {
@@ -6002,8 +6022,26 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             ps.setInt(1, gmLevel > 1 ? 1 : 0);
             ps.setInt(2, client.getAccID());
             ps.executeUpdate();
+
+            ps = con.prepareStatement("SELECT charid FROM boss_entries WHERE charid = ?");
+            ps.setInt(1, id);
+            ResultSet updateBossEntry = ps.executeQuery();
+
+            if (!updateBossEntry.next()){
+                ps = con.prepareStatement("INSERT INTO boss_entries (`papEntries`, `zakumEntries`, `horntailEntries`, `pinkbeanEntries`, `charid`) VALUES (?,?,?,?,?)");
+
+            }
+            else{
+                ps = con.prepareStatement("UPDATE boss_entries SET papEntries = ?, zakumEntries = ?, horntailEntries = ?, pinkbeanEntries = ? WHERE charid = ?");
+            }
+            ps.setInt(1, bossEntries.get(8500001));
+            ps.setInt(2, bossEntries.get(8800000));
+            ps.setInt(3, bossEntries.get(8810018));
+            ps.setInt(4, bossEntries.get(8820000));
+            ps.setInt(5, id);
+            ps.executeUpdate();
             ps.close();
-			
+
             con.commit();
             con.setAutoCommit(true);
 			
@@ -7398,4 +7436,33 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     public void removeJailExpirationTime() {
         jailExpiration = 0;
     }
+
+    private Integer getNumBossEntries(Integer bossId){
+        if (bossEntries.containsKey(bossId)){
+            return bossEntries.get(bossId);
+        }
+
+        return -1;
+    }
+
+    public boolean mayEnterBoss(Integer bossId){
+        return getNumBossEntries(bossId) != -1 && getNumBossEntries(bossId) < ServerConstants.MAX_DAILY_BOSS_ENTRANCES;
+
+    }
+
+    public void addBossEntry(Integer bossId){
+        if (bossEntries.containsKey(bossId)) {
+            bossEntries.put(bossId, bossEntries.get(bossId) + 1);
+        }
+        else{
+            bossEntries.put(bossId, 1);
+        }
+    }
+
+    public void resetBossEntries(){
+        for(Map.Entry bossEntry: bossEntries.entrySet()){
+            bossEntries.put((Integer)bossEntry.getKey(), ServerConstants.MAX_DAILY_BOSS_ENTRANCES);
+        }
+    }
+
 }
