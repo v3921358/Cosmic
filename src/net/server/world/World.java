@@ -106,7 +106,7 @@ public class World {
         petsSchedule = TimerManager.getInstance().register(new PetFullnessWorker(this), 60 * 1000, 60 * 1000);
         mountsSchedule = TimerManager.getInstance().register(new MountTirednessWorker(this), 60 * 1000, 60 * 1000);
         charactersSchedule = TimerManager.getInstance().register(new CharacterAutosaverWorker(this), 60 * 60 * 1000, 60 * 60 * 1000);
-        bossEntriesSchedule = TimerManager.getInstance().register(new BossEntriesWorker(this), calculateDifferenceTillMidNight(), 60 * 1000 * 1440);
+        bossEntriesSchedule = TimerManager.getInstance().register(new BossEntriesWorker(this), 60 * 1000 * 1440, calculateDifferenceTillMidNight());
     }
 
     public List<Channel> getChannels() {
@@ -784,7 +784,7 @@ public class World {
             Connection con = DatabaseConnection.getConnection();
             PreparedStatement ps = con.prepareStatement("UPDATE boss_entries SET papEntries = ?, zakumEntries = ?, horntailEntries = ?, pinkbeanEntries = ?");
             for(int i = 1; i < 5; i++){
-                ps.setInt(i, ServerConstants.MAX_DAILY_BOSS_ENTRANCES);
+                ps.setInt(i, 0);
             }
             ps.executeUpdate();
             ps.close();

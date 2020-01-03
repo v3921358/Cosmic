@@ -1,4 +1,4 @@
-/* 
+    /* 
  This file is part of the OdinMS Maple Story Server
  Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
  Matthias Butz <matze@odinms.de>
@@ -27,7 +27,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.Statement;      
 import java.sql.Timestamp;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -6023,7 +6023,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             ps.setInt(2, client.getAccID());
             ps.executeUpdate();
 
-            ps = con.prepareStatement("SELECT * FROM boss_entries WHERE charid = ?");
+            ps = con.prepareStatement("SELECT charid FROM boss_entries WHERE charid = ?");
             ps.setInt(1, id);
             ResultSet updateBossEntry = ps.executeQuery();
 
