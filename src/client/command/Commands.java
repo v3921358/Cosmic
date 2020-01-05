@@ -1152,7 +1152,9 @@ public class Commands {
                         }
                         
 			short quantity = 1;
+                        int timeLimit = -1;
                         if(sub.length >= 3) quantity = Short.parseShort(sub[2]);
+                        if(sub.length >= 4) timeLimit = Integer.parseInt(sub[3]) * 60 * 1000;
 			
 			if (sub[0].equals("item")) {
 				int petid = -1;
@@ -1166,7 +1168,7 @@ public class Commands {
                                     flag |= ItemConstants.UNTRADEABLE;
                                 }
                         
-                                MapleInventoryManipulator.addById(c, itemId, quantity, player.getName(), petid, flag, -1);
+                                MapleInventoryManipulator.addById(c, itemId, quantity, player.getName(), petid, flag, timeLimit);
 			} else {
 				Item toDrop;
 				if (MapleItemInformationProvider.getInstance().getInventoryType(itemId) == MapleInventoryType.EQUIP) {
@@ -1198,7 +1200,8 @@ public class Commands {
 //                                        toDrop.setExpiration(System.currentTimeMillis() + (1000 * 60 * 60 * 4));
 //                                    }
 //                                }
-                                
+                                if (timeLimit > 0)
+                                    toDrop.setExpiration(System.currentTimeMillis() + timeLimit);
 				c.getPlayer().getMap().spawnItemDrop(c.getPlayer(), c.getPlayer(), toDrop, c.getPlayer().getPosition(), true, true);
 			}
                     break; 
