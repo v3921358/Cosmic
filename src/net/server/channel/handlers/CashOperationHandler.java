@@ -60,7 +60,11 @@ public final class CashOperationHandler extends AbstractMaplePacketHandler {
             final int useNX = slea.readInt();
             final int snCS = slea.readInt();
             CashItem cItem = CashItemFactory.getItem(snCS);
-            if (cItem == null || !cItem.isOnSale() || cs.getCash(useNX) < cItem.getPrice()) {
+            if(cItem == null) {
+                FilePrinter.printError(FilePrinter.ITEM, "Denied to sell null cash item.");
+                return;
+            }
+            else if (!cItem.isOnSale() || cs.getCash(useNX) < cItem.getPrice()) {
                 FilePrinter.printError(FilePrinter.ITEM, "Denied to sell cash item with SN " + cItem.getSN());
                 return;
             }

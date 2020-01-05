@@ -53,19 +53,19 @@ function action(mode, type, selection) {
 			} else if (cm.haveItem(5000029,2) || cm.haveItem(5000030,2) || cm.haveItem(5000031,2) || cm.haveItem(5000032,2) || cm.haveItem(5000033,2)) {
 				cm.sendSimple("You have a dragon which isn't out, and as well as a dragon which is out. I can remove one for you. Remember that the data for the dragon I am removing will be lost.\r\n#r#L0#Remove my CASH first slot.#l#k\r\n#b#L1#Remove the first dragon in my inventory.#l#k\r\n#g#L2#No thanks.#l#k");
 			} else {
-                                var i;
-                            
-                                for(i = 0; i < 3; i++) {
-                                    if(cm.getPlayer().getPet(i) != null && cm.getPlayer().getPet(i).getItemId() == 5000029) {
-                                        pet = cm.getPlayer().getPet(i);
-                                        break;
-                                    }
-                                }
-                                if(i == 3) {
-                                    cm.sendOk("You either don't have a pet dragon ready to evolve or you lack #b#t5380000##k.");
-                                    cm.dispose();
-                                    return;
-                                }
+                var i;
+            
+                for(i = 0; i < 3; i++) {
+                    if(cm.getPlayer().getPet(i) != null && cm.getPlayer().getPet(i).getItemId() == 5000029) {
+                        pet = cm.getPlayer().getPet(i);
+                        break;
+                    }
+                }
+                if(i == 3) {
+                    cm.sendOk("You either don't have a pet dragon ready to evolve or you lack #b#t5380000##k.");
+                    cm.dispose();
+                    return;
+                }
                             
 				var id = cm.getPlayer().getPet(i).getItemId();
 				//var name = cm.getPlayer().getPet(i).getName();

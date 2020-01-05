@@ -711,23 +711,16 @@ public class World {
     }
     
     public void runPetSchedule() {
-        Map<Integer, Byte> deployedPets;
         synchronized(activePets) {
             petUpdate = System.currentTimeMillis();
-            deployedPets = Collections.unmodifiableMap(activePets);
-        }
-        
-        for(Map.Entry<Integer, Byte> dp: deployedPets.entrySet()) {
-            MapleCharacter chr = this.getPlayerStorage().getCharacterById(dp.getKey() / 4);
-            if(chr == null || !chr.isLoggedin()) continue;
-            
-            Byte dpVal = (byte)(dp.getValue() + 1);
-            if(dpVal == ServerConstants.PET_EXHAUST_COUNT) {
-                chr.runFullnessSchedule(dp.getKey() % 4);
-                dpVal = 0;
-            }
-            
-            synchronized(activePets) {
+
+            for(Map.Entry<Integer, Byte> dp: activePets.entrySet()) {
+                MapleCharacter chr = this.getPlayerStorage().getCharacterById(dp.getKey() / 4);
+                Byte dpVal = (byte)(dp.getValue() + 1);
+                if(dpVal == ServerConstants.PET_EXHAUST_COUNT) {
+                    chr.runFullnessSchedule(dp.getKey() % 4);
+                    dpVal = 0;
+                }
                 activePets.put(dp.getKey(), dpVal);
             }
         }

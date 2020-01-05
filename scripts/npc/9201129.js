@@ -32,7 +32,7 @@ function action(mode, type, selection){
 		else if (status == 1){
 			var jobId = cm.getJobId();
 
-			if ((jobId >= 200 && jobId <= 232) || (jobId >= 1100 && jobId <= 1112)){
+			if ((jobId >= 200 && jobId <= 232) || (jobId >= 1200 && jobId <= 1212)){
 				if (cm.getLevel() < 40){
 					if (cm.hasItem(4032495)){
 						cm.sendYesNo("#kAll conditions have been satisfied. Do you wish to enter?");
