@@ -86,6 +86,7 @@ function playerEntry(eim, player) {
     eim.dropMessage(5, "[Expedition] " + player.getName() + " has entered the map.");
     var map = eim.getMapInstance(entryMap);
     player.changeMap(map, map.getPortal(0));
+    player.addBossEntry(8800000);
 }
 
 function scheduledTimeout(eim) {

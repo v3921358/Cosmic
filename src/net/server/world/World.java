@@ -782,8 +782,8 @@ public class World {
     public void resetBossEntries(){
         try{
             Connection con = DatabaseConnection.getConnection();
-            PreparedStatement ps = con.prepareStatement("UPDATE boss_entries SET papEntries = ?, zakumEntries = ?, horntailEntries = ?, pinkbeanEntries = ?");
-            for(int i = 1; i < 5; i++){
+            PreparedStatement ps = con.prepareStatement("UPDATE boss_entries SET papEntries = ?, zakumEntries = ?, horntailEntries = ?, pinkbeanEntries = ?, fantasybossEntries = ?");
+            for(int i = 1; i < 6; i++){
                 ps.setInt(i, 0);
             }
             ps.executeUpdate();
