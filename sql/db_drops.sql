@@ -516,10 +516,7 @@ USE `dietstory`;
 (9400242, 4030012, 1, 1, 0, 10000), 
 (1210101, 4001343, 1, 1, 0, 7000), 
 (9300059, 4001343, 1, 1, 0, 7000), 
-(9400242, 4001343, 1, 1, 0, 7000), 
-(1210101, 4001342, 1, 1, 0, 7000), 
-(9300059, 4001342, 1, 1, 0, 7000), 
-(9400242, 4001342, 1, 1, 0, 7000), 
+(9400242, 4001343, 1, 1, 0, 7000),
 (1210101, 2000000, 1, 1, 0, 40000), 
 (9300059, 2000000, 1, 1, 0, 40000), 
 (9400242, 2000000, 1, 1, 0, 40000), 
@@ -19889,10 +19886,6 @@ USE `dietstory`;
   UPDATE drop_data SET questid=6191 WHERE itemid=4001107;
   UPDATE drop_data SET questid=28344 WHERE itemid=4032475;
 
-  UPDATE drop_data SET questid=7777 WHERE itemid=4001358;	#id 7777 for ALL "quest items" with no v83 quest.
-  UPDATE drop_data SET questid=7777 WHERE itemid=4001359;
-  UPDATE drop_data SET questid=7777 WHERE itemid=4001342;
-  UPDATE drop_data SET questid=7777 WHERE itemid=4031906;
   UPDATE drop_data SET chance=0 WHERE itemid=2050099;
   UPDATE drop_data SET chance=40000 WHERE itemid=4031991;
   UPDATE drop_data SET questid=6191 WHERE itemid=4031477;
