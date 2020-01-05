@@ -4913,7 +4913,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             ret.maplemount.setActive(false);
 
             //load character's boss entries
-            ps = con.prepareStatement("SELECT papEntries, zakumEntries, horntailEntries, pinkbeanEntries FROM boss_entries WHERE charid = ?");
+            ps = con.prepareStatement("SELECT papEntries, zakumEntries, horntailEntries, pinkbeanEntries, fantasybossEntries FROM boss_entries WHERE charid = ?");
             ps.setInt(1, charid);
             rs = ps.executeQuery();
             if(rs.next()){
@@ -4921,12 +4921,14 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
                 ret.bossEntries.put(8800000, rs.getInt("zakumEntries"));
                 ret.bossEntries.put(8810018, rs.getInt("horntailEntries"));
                 ret.bossEntries.put(8820000, rs.getInt("pinkbeanEntries"));
+                ret.bossEntries.put(9420546, rs.getInt("fantasybossEntries"));
             }
             else {
                 ret.bossEntries.put(8500001, 0);
                 ret.bossEntries.put(8800000, 0);
                 ret.bossEntries.put(8810018, 0);
                 ret.bossEntries.put(8820000, 0);
+                ret.bossEntries.put(9420546, 0);
             }
             ps.close();
 
@@ -6028,17 +6030,18 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             ResultSet updateBossEntry = ps.executeQuery();
 
             if (!updateBossEntry.next()){
-                ps = con.prepareStatement("INSERT INTO boss_entries (`papEntries`, `zakumEntries`, `horntailEntries`, `pinkbeanEntries`, `charid`) VALUES (?,?,?,?,?)");
+                ps = con.prepareStatement("INSERT INTO boss_entries (`papEntries`, `zakumEntries`, `horntailEntries`, `pinkbeanEntries`, `fantasybossEntries`, `charid`) VALUES (?,?,?,?,?,?)");
 
             }
             else{
-                ps = con.prepareStatement("UPDATE boss_entries SET papEntries = ?, zakumEntries = ?, horntailEntries = ?, pinkbeanEntries = ? WHERE charid = ?");
+                ps = con.prepareStatement("UPDATE boss_entries SET papEntries = ?, zakumEntries = ?, horntailEntries = ?, pinkbeanEntries = ?, fantasybossEntries = ? WHERE charid = ?");
             }
             ps.setInt(1, bossEntries.get(8500001));
             ps.setInt(2, bossEntries.get(8800000));
             ps.setInt(3, bossEntries.get(8810018));
             ps.setInt(4, bossEntries.get(8820000));
-            ps.setInt(5, id);
+            ps.setInt(5, bossEntries.get(9420546));
+            ps.setInt(6, id);
             ps.executeUpdate();
             ps.close();
 

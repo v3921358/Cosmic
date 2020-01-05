@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS `boss_entries`(
 `zakumEntries`int(11) NOT NULL default 0,
 `horntailEntries`int(11) NOT NULL default 0,
 `pinkbeanEntries` int(11) NOT NULL default 0,
+`fantasybossEntries` int(11) NOT NULL default 0,
 PRIMARY KEY (`charid`),
 KEY(`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
