@@ -51,6 +51,17 @@
 5010055 - UFO - A special effect that features a UFO and a number of colorful aliens accompanying the owner of the item. Designate a HotKey to turn the effect on/off.
 5010056 - Garden Trail - A special effect that features a trail of flowers and grass left behind by the owner of the item. Designate a HotKey to turn the effect on/off.
 5010057 - Flower Fairy - A special effect that shows a cute fairy sprinkling flowers. On the Key Config, configure this on a button of your choice to turn the effect on/off.
+5010059 - Trail of Darkness Effect - Blaze a trail of dark energy--no one can escape your wrath with this effect!
+5010060 - Caroler Effect - Tis' the season to be jolly fa la la la la la la la! Sing to everyone in Maple with the carolers!
+5010061 - Ace of Hearts - Show your Valentine's Day spirit with the Ace of Hearts!
+5010064 - Rock Band Effect - (no description)
+5010065 - Scoreboard Effect - (no description)
+5010066 - Disco Effect - (no description)
+5010068 - Return of Angel Wing - Who knows? Perhaps you'll flutter away with these wings on your back!
+5010069 - Seraphim's Dark Wings - Who knows? Perhaps you'll flutter away with these wings on your back!
+5010070 - Sprite Wings - A pair of wings that resembles the wings of a forest fairy.
+5010073 - Miss Popular - Well, lookie here. Someone’s certainly become popular with the guys. Turn this effect on and off by assigning it to a shortcut key from the keyboard settings menu.
+5010074 - Mr. Popular - Well, lookie here. Someone’s certainly become popular with the girls. Turn this effect on and off by assigning it to a shortcut key from the keyboard settings menu.
 5010999 - Changing to a Monster - Not sold in Cash Shop. An effect shown while changing into a monster.
 5021000 - Water Balloon - A cool blue water balloon. Thrown with a #cthrowing star# to have the water balloon effect. Item cannot be removed.
 5021001 - Paper Plane - A nicely-folded paper plane. Thrown with a #cthrowing star# to have the paper plane effect. Item cannot be removed.
@@ -69,11 +80,15 @@
 5021014 - Poo Stars - That nasty poop can be detected from afar. Thrown with a #cthrowing star# to have the nasty poop effect.\n\nItem cannot be removed.
 5021015 - Egg Throwing Star - A white egg thrown in place of the throwing star, and that explodes on contact. Thrown with a #cthrowing star# to have the Chick effect. \n\nItem cannot be removed.
 5021016 - Devilball - A mischievous ball that has gained sentience, and now lives to be thrown for massive damage. Tremendous striking power! Equips over #cThrowing Stars#!
-5021025 - Charm of the Undead - Equips over #cThrowing Stars#!
 5021017 - Dragon Disc - An explosive throwing star used by the Dragon. Thrown with a #cthrowing star# to have the explosive bomb effect.\n\nItem cannot be removed.
 5021019 - Shooting Star Medal - Beautiful shooting star. Mask over #cThrowing Star#.\n\nItem cannot be removed.
 5021020 - Throwing Boomers - Explosive throwing stars from New Leaf City. They're the Bomb!  This item equips over #cThrowing Stars#!
 5021021 - Exploding Sheep - A cute and cuddly sheep. Don't let it fool you--it's lethal. This item equips over #cThrowing Stars#!
+5021022 - Plate Throwing Star - Thrown with a #cthrowing star#.Item cannot be removed.
+5021023 - Stirge Throwing Star - Stirgeman's favorite throwing star! Guaranteed to get you out of a tight spot!
+5021024 - Throwing Eggs Weapon - Can be equipped with a #cthrowing star#.
+5021025 - Charm of the Undead - Equips over #cThrowing Stars#!
+5021026 - Gift Box Throwing Stars - A gift box that can be freely thrown around. Using the #cThrowing Star# will create an orbital effect.\n\nThis item cannot be deleted.
 5030000 - Mushroom House Elf - Set up this special store on the Free Market, and this Elf, working as the Hired Merchant, will sell the items for the owner, even if the owner does not log on to the game.
 5030001 - Mushroom House Elf - Set up this special store on the Free Market, and this Elf, working as the Hired Merchant, will sell the items for the owner, even if the owner does not log on to the game.
 5030002 - Cashier: Teddy Bear Clerk - Set up this special store on the Free Market, and this Teddy Bear, working as the Hired Merchant, will sell the items for the owner, even if the owner does not log on to the game.
@@ -100,6 +115,7 @@
 5061000 - Item Guard : 7 Days - A guard for sealing an equip item and/or throwing star to prevent #cselling, trading or dropping# of the item. Double-click on the guard, then seal the item into the window that appears. #cThis Item Guard is active for 7 days, after which the item will be automatically released from the seal.#
 5061001 - Item Guard : 30 Days - A guard for sealing an equip item and/or throwing star to prevent #cselling, trading or dropping# of the item. Double-click on the guard, then seal the item into the window that appears. #cThis Item Guard is active for 30 days, after which the item will be automatically released from the seal.# 
 5061002 - Item Guard : 90 days - A guard for sealing an equip item and/or throwing star to prevent #cselling, trading or dropping# of the item. Double-click on the guard, then seal the item into the window that appears. #cThis Item Guard is active for 90 days, after which the item will be automatically released from the seal.# 
+5061003 - Item Guard : 365 Days - A guard for sealing an equip item and/or throwing star to prevent #cselling, trading or dropping# of the item. Double-click on the guard, then seal the item into the window that appears. #cThis Item Guard is active for 365 days, after which the item will be automatically released from the seal.# 
 5070000 - Cheap Megaphone - Shout to everyone in the map your character is on with this megaphone.
 5071000 - Megaphone - Shout to everyone in the map your character is on with this megaphone. Only available for characters that are over Level 10.
 5072000 - Super Megaphone - Shout to everyone in the world your character is on with this megaphone. Only available for characters that are over Level 10. 
@@ -112,6 +128,7 @@
 5075004 - Star Megassenger - Show your message on the chatting window as well as Maple TV at the same time.  This comes with star effect on the Maple TV.
 5075005 - Heart Megassenger - Show your message on the chatting window as well as Maple TV at the same time.  This comes with heart effect on the Maple TV.
 5076000 - Item Megaphone - Use this megaphone to broadcast to everyone your World about an item that may be for sale.
+5077000 - Triple Megaphone - This allows three lines of text to be heard throughout the world your character is currently in.
 5080000 - Korean Kite - A kite that you can float around the skies at will. Enter your own message.
 5080001 - Heart Balloon - A balloon full of love you can float around.  Enter your own message.
 5080002 - Graduation Banner - A graduation banner you can float around. Enter your own message.
@@ -134,6 +151,21 @@
 5120012 - Holiday Sock - Sprinkles holiday socks on the map where your character is for 30 seconds. Enter a message of your choice.
 5120014 - Christmas Socks - Sprinkles Christmas Socks on the map where your character is for 30 seconds. Enter a message of your choice.
 5120015 - Chinese Lantern Firecrackers - Greet the Lunar New Year with the fireworks that fills up the screen.
+5120016 - ???? ???? - ???
+5120017 - ????? ???? - ????
+5120018 - ????? ???? - ???
+5120019 - ???? ???? - ??
+5120020 - ????? ???? - ??
+5120021 - ??? ???? - ???
+5120022 - ??? ???? - ???
+5120023 - ??? ???? - ??
+5120024 - ???? ???? - ??
+5120025 - ???? - ??? ????.
+5120026 - ??????? - ????
+5120027 - Spaceship - Spaceship that is used when rescuing Gaga.
+5120028 - Raining Cats & Dogs - It's raining cats and dogs!!! Enter a message of your choice.
+5120030 - Witch Tower - The Witch Tower hints of danger.
+5120034 - Cloudy Meatballs - Meatballs will drop from the sky in the map your character is in for 30 seconds.
 5121000 - Fighting Spirit - You can enter the message of your choice. 
 5121001 - Korean Soccer Chant - You can enter the message of your choice. 
 5121002 - Soccer Fever - Increases Speed +20, Jump +10 for 10 minutes to everyone in the map. Enter a message of your choice.
@@ -149,6 +181,8 @@
 5121015 - Snowy Snowman - When this weather effect is on, everyone in the map is buffed with weapon attack +20 and magic attack +30 for 15 minutes. Enter a message of your choice before spreading this holiday joy to everyone.
 5121016 - Heart-shaped Chocolate Box - You can enter the message of your choice. 
 5121017 - Water Splash - You can enter the message of your choice. 
+5121019 - Winter Knit Fest - Enter a message of your choice.
+5121020 - ?? ? ?? - ?? ?? ???? ????? +20, ????? +30 ? 15?? ??????. ??? ???? ??? ? ??.
 5122000 - Hearty Party Bear - You can enter the message of your choice. 
 5130000 - Safety Charm - It does not let the user lose EXP points after death, as long as it's in possession. 30% of your HP and MP will be recovered when you are revived.
 5140000 - Regular Store Permit - Open a regular store. Can open anywhere of choice in the free market. Can sell up to 16 items at once.
@@ -181,8 +215,11 @@
 5150027 - Ariant Hair Style Coupon (VIP) - Use it on #cAriant Hair Salon# to change your hair style of #cyour choice#. (one-time use)
 5150030 - NLC Hairstyle Coupon (EXP) - Use it at #cNLC Hair Salon# to #crandomly# change your hair style with a chance to obtain a new experimental style. (one-time use)
 5150031 - NLC Hairstyle Coupon (VIP) - Use it at #cNLC Hair Salon# to change your hair to a style of #cyour choice#. (one-time use)
+5150032 - CBD Hair Style Coupon (REG) - Use it at #cCBD Hair Salon# to change your hair style #crandomly#. (one-time use)
+5150033 - CBD Hair Style Coupon (VIP) - Use it at #cCBD Hair Salon# to change your hair style to a style of #cyour choice#. (one-time use)
 5150038 - Matinee Idol Hair Coupon - Use this coupon to change the hairstyle to a #cMatinee Idol# hairstyle. (one-time use)
 5150040 - Royal Hair Coupon - If you take this to #cBig Headward of Henesys Hair Shop#, your hair style will change to #cone of several Royal options.#
+5150044 - Special Royal Hair Coupon - Take this coupon to the #cBig Headward of Henesys Hair Salon#, and you'll be able to #ctemporarily#k change your hair.
 5151000 - Henesys Hair Color Coupon (REG) - Use it at #cHenesys Hair Salon# to change your hair color #crandomly#. (one-time use)
 5151001 - Henesys Hair Color Coupon (VIP) - Use it on #cHenesys Hair Salon# to change your hair to a color of #cyour choice#. (one-time use)
 5151002 - Kerning City Hair Color Coupon (REG) - Use it at #cKerning City Hair Salon# to change your hair color #crandomly#. (one-time use)
@@ -203,6 +240,8 @@
 5151022 - Ariant Hair Color Coupon (VIP) - Use it on #cAriant Hair Salon# to change your hair to a a color of #cyour choice# (one-time use)
 5151025 - NLC Hair Color Coupon (REG) - Use it at #cNLC Hair Salon# to change your hair color #crandomly#. (one-time use)
 5151026 - NLC Hair Color Coupon (VIP) - Use it at #cNLC Hair Salon# to change your hair to a color of #cyour choice#. (one-time use)
+5151027 - CBD Hair Color Coupon (REG) - Use it at #cCBD Hair Salon# to change your hair color #crandomly#. (one-time use)
+5151028 - CBD Hair Color Coupon (VIP) - Use it on #cCBD Hair Salon# to change your hair to a color of #cyour choice#. (one-time use)
 5152000 - Henesys Face Coupon (REG) - Use it at #cHenesys Plastic Surgery# to change your face #crandomly#. (one-time use)
 5152001 - Henesys Face Coupon (VIP) - Use it at #cHenesys Plastic Surgery# to change your face to a style of #cyour choice#. (one-time use)
 5152002 - Kerning City Face Coupon (REG) - Use it at #cKerning City Plastic Surgery# to change your face #crandomly#. (one-time use)
@@ -233,6 +272,10 @@
 5152034 - NLC Face Coupon (VIP) - Use it at #cNLC Plastic Surgery# to change your face to a style of #cyour choice#. (one-time use)
 5152035 - NLC Cosmetic Lens Coupon (REG) - Use it at #cNLC Plastic Surgery# to change your eye color #crandomly#. (one-time use)
 5152036 - NLC Cosmetic Lens Coupon (VIP) - Use it at #cNLC Plastic Surgery# to change your eye to a color of #cyour choice#. (one-time use)
+5152037 - CBD Face Coupon (REG) - Use it at #cCBD Plastic Surgery# to change your face #crandomly#. (one-time use)
+5152038 - CBD Face Coupon (VIP) - Use it at #cCBD Plastic Surgery# to change your face to a style of #cyour choice#. (one-time use)
+5152039 - CBD Cosmetic Lens Coupon (REG) - Use it at #cCBD Plastic Surgery# to change your eye color #crandomly#. (one-time use)
+5152040 - CBD Cosmetic Lens Coupon (VIP) - Use it at #cCBD Plastic Surgery# to change your eye to a color of #cyour choice#. (one-time use)
 5152041 - Mu Lung Cosmetic Lens Coupon (VIP) - Use it at #cMu Lung Plastic Surgery# to change your eye to a color of #cyour choice#. (one-time use)
 5152042 - Mu Lung Cosmetic Lens Coupon (REG) - Use it at #cMu Lung Plastic Surgery# to change your eye color #crandomly#. (one-time use)
 5152045 - Showa Cosmetic Lens Coupon (VIP) - Use it at #cShowa Plastic Surgery# to change your eye to a color of #cyour choice#. (one-time use)
@@ -254,6 +297,7 @@
 5153006 - Mu Lung Skin Care Coupon - Use it at #cMu Lung Skin-Care# to change your skin to a color of #cyour choice#. (one-time use)
 5153007 - Ariant Skin Care Coupon - Use it at #cAriant Skin Care Shop# to change your skin to a color of #cyour choice# (one-time use)
 5153009 - NLC Skin Coupon - Use it at #cNLC Skin-Care# to change your skin to a color of #cyour choice#. (one-time use)
+5153010 - CBD Skin Coupon - Use it at #cCBD Skin-Care# to change your skin to a color of #cyour choice#. (one-time use)
 5154000 - Orbis Dirty Hair Coupon - Use it at the #cOrbis Hair Salon# once for the disheveled look.
 5160000 - Queasy - On the KeyConfig, configure this expression on a button of your choice. Press the button and watch your character display the throwing up motion.
 5160001 - Panicky - On the KeyConfig, configure this expression on a button of your choice. Press the button and watch your character display panicking face.
@@ -326,11 +370,16 @@
 5211046 - 1day 2x EXP Special Coupon  - This coupon allows users to earn #c2x Exp (double experience)#. The coupon will be activated immediately after purchase, and the double experience effect will be available for 24 hours upon purchase.
 5211047 - 2x EXP 3 Hours Special Coupon  - This coupon allows users to earn #c2x Exp (double experience)#. The coupon will be activated immediately after purchase, and the double experience effect will be available for 3 hours upon purchase.
 5211048 - 4 hour 2 x EXP special coupon - This coupon allows users to earn #c2x Exp (double experience)#. The coupon will be activated immediately after purchase, and the double experience effect will be available for 4 hour upon purchase.
+5211049 - 7-Eleven 2x EXP Card - 90 Minutes - This coupon allows users to earn #c2x Exp (double experience)#. The coupon will be activated immediately after receiving it, and the double experience effect will be available for 90 minutes.
+5211052 - 3xExp - Fot Test
+5211060 - 2 hour 3 x EXP special coupon - This coupon allows users to earn #c3x Exp (triple experience)#. The coupon will be activated immediately after purchase, and the triple experience effect will be available for 2 hour upon purchase.
 5220000 - Gachapon Ticket - This ticket will enable you to use Gachapon and obtain various items.
 5220001 - Event Ticket - A ticket needed to enter the event map.
 5220010 - Gachapon for slot machines - (no description)
 5220020 - Gachapon for Net Cafe - (no description)
 5221000 - Free Ticket - This ticket allows you to shop certain items  in the cash shop regardless of  price.
+5221001 - Enchanted Scroll - A scroll that has the magic power to release the seal on the Miwok Artifact. The scroll is written in ancient tribal language, so you need NPC Toh Reliseeker's help if you wish to use it.
+5222000 - Cash Shop Surprise - Get a random Cash Shop item when you open this box. Test your luck! After purchasing this item, open the box by double-clicking it in the Cash Inventory. Please keep in mind that you'll only be able to open the box in the Cash Inventory.
 5230000 - The Owl of Minerva - #cThe Owl of Minerva#, which represents wisdom, can be used to search for items sold at the Free Market. #cDisappears right after showing the results of the item search#.
 5240000 - Monkey Banana - Tasty-looking monkey banana. Only edible for the pet Monkey. \nRecovers entire Fullness. \nIncrease 100 Closeness.
 5240001 - Micro-Chips - A fresh set of batteries. Only usable with the pet Robot.\nRecovers entire Fullness. \nIncrease 100 Closeness.
@@ -352,6 +401,10 @@
 5240018 - Sprout - A nutritious food only available for #cKino#. Restores Fullness and #cincreases 100 Closeness#..
 5240019 - Hedgehog Food           Is this supposed to be for the Porcupine? - A nutritious blend of formulas only for #cHedgehogs#. Restores Fullness and #cincreases 100 Closeness#..
 5240020 - Caviar - Only eligible for the pet Skunk. \nIncrease 100 Closeness.
+5240021 - Robo Oil - Greasy oil for the Robo
+5240023 - Bread - A slice of freshly baked bread that can only be eaten by #cWhite Duck#. Recovers "fullness" completely and #cincreases closeness by 100#.
+5240024 - Pinky DrumStick - Pink Bean's favorite Drumstick. Only available for Pink Bean.
+5240027 - Golden Drumstick - A drumstick that can be consumed only by #cBaby Tiger#. It recovers hunger and #cincreases Closeness by 100.#
 5251000 - Wedding Ticket (Cathedral) - Ticket to have a wedding at the Cathedral w/ invitations
 5251001 - Wedding Ticket (Chapel) - Ticket to have a wedding at the Vegas Chapel w/ invitations
 5251002 - Premium Wedding Ticket (Chapel) - Chapel wedding ticket that includes invitations and a special wedding event.
@@ -360,6 +413,8 @@
 5251005 - Sweet Wedding Ticket - A ticket that allows for a sweet wedding. #cThe bride and groom may each invite 15 well-wishers, take a Wedding Photo, and receive a 2 Carat Wedding Ring.#
 5251006 - Premium Wedding Ticket - A ticket that allows for a lavish, premier wedding. #cThe bride and groom may each invite 30 well-wishers, take a Wedding Photo, and receive a 3 Carat Wedding Ring.#
 5251100 - Wedding Invitation Ticket - Ticket that lets you make additional invitation cards.(one-time use)
+5252000 - Event Ticket (NX) - A ticket that's required to enter the Mini Dungeon during the event period. Without this, you won't be able to fully participate in the event.
+5252001 - Ticket to Treasure Dungeon - This ticket allows you to enter the Treasure Dungeon.
 5281000 - Passed Gas - A special effect that shows Passed Gas. Double-click to use this effect one time only!
 5281001 - Floral Scent - A special effect that shows Floral Scent. 
 5290000 - Guild Forum Emoticon - Angry - An emoticon that can be entered in Guild Forum.
@@ -396,6 +451,8 @@
 5390000 - Diablo Messenger - Shout to everyone in the world your character is on with this megaphone. Now available with your avatar on the top of everyone's screen! Comes with a burning background for your avatar.
 5390001 - Cloud 9 Messenger - Shout to everyone in the world your character is on with this megaphone. Now available with your avatar on the top of everyone's screen! Comes with a bright background for your avatar.
 5390002 - Loveholic Messenger - Shout to everyone in the world your character is on with this megaphone. Now available with your avatar on the top of everyone's screen! Comes with a heart background for your avatar.
+5390005 - Cute Tiger Messenger - Shout to everyone in the world your character is on with this megaphone. Now available with your avatar on the top of everyone's screen! Comes with a tiger background for your avatar.
+5390006 - Roaring Tiger Messenger - Shout to everyone in the world your character is on with this megaphone. Now available with your avatar on the top of everyone's screen! Comes with a screen shaked.
 5400000 - Character Name Change - This scroll will enable you to change your character name to something totally new! Please be aware that the character must be at level 10 or higher to be eligible for the name change and the new name should be an acceptable new name that has passed the name check. The name-change will occur during the following server check, and you will then be restricted from changing names for one month.
 5401000 - Character Transfer - This item is used to transfer your character from one game world server to another. Your character must be at least Level 20, and only up to 1,000,000 mesos will be transferred with the character.
 5420000 - Amoria Hair Membership Coupon - Use it at #cAmoria Hair Salon# to change your hair to a style of #cyour choice#. 
@@ -409,81 +466,22 @@
 5431000 - Maple Life (A-Type) - #c*Warning: If you do not have an empty Character slot, it cannot be used.#\r\n\r\nIf you are over #cLevel 30#, a new Level 30 character can be created in your world.You can choose one of the following classes #c(Warrior, Magician, Thief, Bowman and Pirate)# at #c1st Job status#.\r\n\r\nOnly the amount of AP needed for each respective 1st jobs have been allocated and the rest of AP and SP can be distributed to your liking.#cBasic equips and items# needed for travel are also provided.
 5432000 - Maple Life (B-Type) - #c*Warning : If all 12 character slots are full, it cannot be used.#\r\n\r\nThis package has the #cMaple Life item plus an Extra Character Slot coupon.#Using this item will automiatically create a new slot.\r\n\r\nIf you are over #cLevel 30#, a new Level 30 character can be created in your world. You can choose one of the following classes #c(Warrior, Magician, Thief, Bowman and Pirate)# at #c1st Job status.#\r\n\r\nOnly the amount of AP needed for each respective 1st jobs have been allocated and the rest of AP and SP can be distributed to your liking.#cBasic equips and items# needed for travel are also provided.
 5450000 - Miu Miu the Traveling Merchant - Use this to experience the same effect as entering a general store. Can purchase potions to recover HP & MP, throwing stars, and recharge bullets. Some maps restrict the use of this item, though.
+5451000 - Remote Gachapon Ticket - This ticket will enable you to use the Gachapon of any town without having to travel to the actual location.
 5460000 - Pet Snack - A Pet Snack is secret method of handling multiple pets at once.
 5470000 - Store Remote Controller - Can control the Hired Merchant anywhere, as long as the merchant is on the same channel.
-5990000 - MTS sale - (no description)
-5240021 - Robo Oil - Greasy oil for the Robo
-5150032 - CBD Hair Style Coupon (REG) - Use it at #cCBD Hair Salon# to change your hair style #crandomly#. (one-time use)
-5150033 - CBD Hair Style Coupon (VIP) - Use it at #cCBD Hair Salon# to change your hair style to a style of #cyour choice#. (one-time use)
-5152037 - CBD Face Coupon (REG) - Use it at #cCBD Plastic Surgery# to change your face #crandomly#. (one-time use)
-5152038 - CBD Face Coupon (VIP) - Use it at #cCBD Plastic Surgery# to change your face to a style of #cyour choice#. (one-time use)
-5152039 - CBD Cosmetic Lens Coupon (REG) - Use it at #cCBD Plastic Surgery# to change your eye color #crandomly#. (one-time use)
-5152040 - CBD Cosmetic Lens Coupon (VIP) - Use it at #cCBD Plastic Surgery# to change your eye to a color of #cyour choice#. (one-time use)
-5153010 - CBD Skin Coupon - Use it at #cCBD Skin-Care# to change your skin to a color of #cyour choice#. (one-time use)
-5151027 - CBD Hair Color Coupon (REG) - Use it at #cCBD Hair Salon# to change your hair color #crandomly#. (one-time use)
-5151028 - CBD Hair Color Coupon (VIP) - Use it on #cCBD Hair Salon# to change your hair to a color of #cyour choice#. (one-time use)
-5021023 - Stirge Throwing Star - Stirgeman's favorite throwing star! Guaranteed to get you out of a tight spot!
-5010059 - Trail of Darkness Effect - Blaze a trail of dark energy--no one can escape your wrath with this effect!
-5252000 - Event Ticket (NX) - A ticket that's required to enter the Mini Dungeon during the event period. Without this, you won't be able to fully participate in the event.
 5490000 - Gold Master Key - Take this Master Key to open the Gold Gachapon Box and earn a rare item!
-5211049 - 7-Eleven 2x EXP Card - 90 Minutes - This coupon allows users to earn #c2x Exp (double experience)#. The coupon will be activated immediately after receiving it, and the double experience effect will be available for 90 minutes.
-5010060 - Caroler Effect - Tis' the season to be jolly fa la la la la la la la! Sing to everyone in Maple with the carolers!
-5240023 - Bread - A slice of freshly baked bread that can only be eaten by #cWhite Duck#. Recovers "fullness" completely and #cincreases closeness by 100#.
-5121019 - Winter Knit Fest - Enter a message of your choice.
-5010061 - Ace of Hearts - Show your Valentine's Day spirit with the Ace of Hearts!
-5252001 - Ticket to Treasure Dungeon - This ticket allows you to enter the Treasure Dungeon.
-5077000 - Triple Megaphone - This allows three lines of text to be heard throughout the world your character is currently in.
-5120016 - ???? ???? - ???
-5120017 - ????? ???? - ????
-5120018 - ????? ???? - ???
-5120019 - ???? ???? - ??
-5120020 - ????? ???? - ??
-5120021 - ??? ???? - ???
-5120022 - ??? ???? - ???
-5120023 - ??? ???? - ??
-5120024 - ???? ???? - ??
-5120025 - ???? - ??? ????.
-5120026 - ??????? - ????
-5121020 - ?? ? ?? - ?? ?? ???? ????? +20, ????? +30 ? 15?? ??????. ??? ???? ??? ? ??.
-5500000 - ??? ???? - ?? ?? ????? ?? ??? ????? ???? ???? ????, ????? #c1?#  ???? ??. #c??????? ??? ? ???. ???? 30? ????? ?? ? ??#
-5510000 - Wheel of Destiny - This item revives characters in the same map where they have died. However, it cannot be used in some PQs, Event Maps, and Transportation (i.e. ship).
-5520000 - Scissors of Karma - This cuts the ties that bind an item to its master, allowing you to trade once. Applicable to only certain items.
-5451000 - Remote Gachapon Ticket - This ticket will enable you to use the Gachapon of any town without having to travel to the actual location.
 5490001 - Silver Master Key - Take this Master Key to open the Silver Gachapon Box and earn a rare item!
-5010064 - Rock Band Effect - (no description)
-5010065 - Scoreboard Effect - (no description)
-5010066 - Disco Effect - (no description)
-5120028 - Raining Cats & Dogs - It's raining cats and dogs!!! Enter a message of your choice.
-5021024 - Throwing Eggs Weapon - Can be equipped with a #cthrowing star#.
-5570000 - Vicious' Hammer - Temper the equipped item with Vicious' Hammer to increase available upgrade by 1. It can be used maximum 2 times per item. Warning: You cannot use it on the Horntail Necklace.
-5010068 - Return of Angel Wing - Who knows? Perhaps you'll flutter away with these wings on your back!
-5221001 - Enchanted Scroll - A scroll that has the magic power to release the seal on the Miwok Artifact. The scroll is written in ancient tribal language, so you need NPC Toh Reliseeker's help if you wish to use it.
-5010069 - Seraphim's Dark Wings - Who knows? Perhaps you'll flutter away with these wings on your back!
-5550000 - Increasing the Pendant Slots:30 Days - This item allows characters to equip 1 more Pendant than is normally allowed for 30 days. #cHowever, characters will not be able to equip more than 1 Special Equipment Item#
-5061003 - Item Guard : 365 Days - A guard for sealing an equip item and/or throwing star to prevent #cselling, trading or dropping# of the item. Double-click on the guard, then seal the item into the window that appears. #cThis Item Guard is active for 365 days, after which the item will be automatically released from the seal.# 
-5222000 - Cash Shop Surprise - Get a random Cash Shop item when you open this box. Test your luck! After purchasing this item, open the box by double-clicking it in the Cash Inventory. Please keep in mind that you'll only be able to open the box in the Cash Inventory.
-5240024 - Pinky DrumStick - Pink Bean's favorite Drumstick. Only available for Pink Bean.
-5021022 - Plate Throwing Star - Thrown with a #cthrowing star#.Item cannot be removed.
-5120027 - Spaceship - Spaceship that is used when rescuing Gaga.
-5120030 - Witch Tower - The Witch Tower hints of danger.
-5500001 - [7days]Magical Sandglass - Drag and drop this onto a piece of equipment that has a time limit to extend the time limit by #c7days#. #This cannot be used on cash items, and the time limit cannot be extended past 30 days, starting from today.#
-5500002 - [20days]Magical Sandglass - Drag and drop this onto a piece of equipment that has a time limit to extend the time limit by #c20days#. #This cannot be used on cash items, and the time limit cannot be extended past 30 days, starting from today.#
-5530000 - DS Egg Basket - Double-click on it to exchange it with DS Eggs.
 5490002 - Premium Gold Master Key - Take this Premium Master Key to open the Premium Gold Box and earn a rare item!
 5490003 - Premium Silver Master Key - Take this Premium Master Key to open the Premium Silver Box and earn a rare item!
-5150044 - Special Royal Hair Coupon - Take this coupon to the #cBig Headward of Henesys Hair Salon#, and you'll be able to #ctemporarily#k change your hair.
-5010070 - Sprite Wings - A pair of wings that resembles the wings of a forest fairy.
-5211052 - 3xExp - Fot Test
-5211060 - 2 hour 3 x EXP special coupon - This coupon allows users to earn #c3x Exp (triple experience)#. The coupon will be activated immediately after purchase, and the triple experience effect will be available for 2 hour upon purchase.
+5500000 - ??? ???? - ?? ?? ????? ?? ??? ????? ???? ???? ????, ????? #c1?#  ???? ??. #c??????? ??? ? ???. ???? 30? ????? ?? ? ??#
+5500001 - [7days]Magical Sandglass - Drag and drop this onto a piece of equipment that has a time limit to extend the time limit by #c7days#. #This cannot be used on cash items, and the time limit cannot be extended past 30 days, starting from today.#
+5500002 - [20days]Magical Sandglass - Drag and drop this onto a piece of equipment that has a time limit to extend the time limit by #c20days#. #This cannot be used on cash items, and the time limit cannot be extended past 30 days, starting from today.#
+5510000 - Wheel of Destiny - This item revives characters in the same map where they have died. However, it cannot be used in some PQs, Event Maps, and Transportation (i.e. ship).
+5520000 - Scissors of Karma - This cuts the ties that bind an item to its master, allowing you to trade once. Applicable to only certain items.
+5530000 - DS Egg Basket - Double-click on it to exchange it with DS Eggs.
+5550000 - Increasing the Pendant Slots:30 Days - This item allows characters to equip 1 more Pendant than is normally allowed for 30 days. #cHowever, characters will not be able to equip more than 1 Special Equipment Item#
+5570000 - Vicious' Hammer - Temper the equipped item with Vicious' Hammer to increase available upgrade by 1. It can be used maximum 2 times per item. Warning: You cannot use it on the Horntail Necklace.
+5590000 - High-Five Stamp - Can equip items that are 5 levels above your current level.
 5610000 - Vega's Spell(10%) - This winning spell from Vega enables a 30% success rate on a 10% scroll. Please check the scroll description to confirm that Vega's Spell is available for the scroll you choose.
 5610001 - Vega's Spell(60%) - This winning spell from Vega enables a 90% success rate on a 60% scroll. Please check the scroll description to confirm that Vega's Spell is available for the scroll you choose.
-5590000 - High-Five Stamp - Can equip items that are 5 levels above your current level.
-5021026 - Gift Box Throwing Stars - A gift box that can be freely thrown around. Using the #cThrowing Star# will create an orbital effect.\n\nThis item cannot be deleted.
-5010073 - Miss Popular - Well, lookie here. Someone’s certainly become popular with the guys. Turn this effect on and off by assigning it to a shortcut key from the keyboard settings menu.
-
-5010074 - Mr. Popular - Well, lookie here. Someone’s certainly become popular with the girls. Turn this effect on and off by assigning it to a shortcut key from the keyboard settings menu.
-
-5240027 - Golden Drumstick - A drumstick that can be consumed only by #cBaby Tiger#. It recovers hunger and #cincreases Closeness by 100.#
-5390005 - Cute Tiger Messenger - Shout to everyone in the world your character is on with this megaphone. Now available with your avatar on the top of everyone's screen! Comes with a tiger background for your avatar.
-5390006 - Roaring Tiger Messenger - Shout to everyone in the world your character is on with this megaphone. Now available with your avatar on the top of everyone's screen! Comes with a screen shaked.
-5120034 - Cloudy Meatballs - Meatballs will drop from the sky in the map your character is in for 30 seconds.
+5990000 - MTS sale - (no description)

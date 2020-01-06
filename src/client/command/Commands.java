@@ -1145,7 +1145,14 @@ public class Commands {
 				break;
 			}
                         
-			int itemId = Integer.parseInt(sub[1]);
+                        int itemId;
+                        try {
+                            itemId = Integer.parseInt(sub[1]);
+                        }
+                        catch (NumberFormatException nfe) {
+                            player.yellowMessage("Invalid item ID.");
+                            break;
+                        }
                         if(MapleItemInformationProvider.getInstance().getName(itemId) == null) {
                                 player.yellowMessage("Item id '" + sub[1] + "' does not exist.");
                                 break;
@@ -1153,8 +1160,15 @@ public class Commands {
                         
 			short quantity = 1;
                         int timeLimit = -1;
-                        if(sub.length >= 3) quantity = Short.parseShort(sub[2]);
-                        if(sub.length >= 4) timeLimit = Integer.parseInt(sub[3]) * 60 * 1000;
+                        try {
+                            if(sub.length >= 3) quantity = Short.parseShort(sub[2]);
+                            if(sub.length >= 4) timeLimit = Integer.parseInt(sub[3]) * 60 * 1000;
+                        }
+                        catch (NumberFormatException e){
+                            player.yellowMessage("Invalid quantity or time input.");
+                            break;
+                        }
+
 			
 			if (sub[0].equals("item")) {
 				int petid = -1;

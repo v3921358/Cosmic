@@ -1,71 +1,3 @@
-4001257 - Staff of First Magic - A symbolic weapon of Mage mastery.  Although it can't be equipped, its power is palpable.  This item must be placed in the Altar of Mastery to activate it.
-4001258 - Ancestral Bow - A symbolic weapon of Bowman mastery.  Although it can't be equipped, its power is palpable.  This item must be placed in the Altar of Mastery to activate it.
-4001259 - Master Sword - A symbolic weapon of Warrior mastery.  Although it can't be equipped, its power is palpable.  This item must be placed in the Altar of Mastery to activate it.
-4001260 - Forbidden Gun - A symbolic weapon of Pirate mastery.  Although it can't be equipped, its power is palpable.  This item must be placed in the Altar of Mastery to activate it.
-4000488 - MasteriaPQ Mob Summon - (no description)
-4031867 - A secret letter - A secret letter that contains information about the traitorous MV.  Needs to be delivered to Charles the Adventurer.
-4032234 - Piece of Courage - A piece that represents courage
-4032235 - Piece of Wisdom - A piece that represents wisdom 
-4032236 - Piece of Accuracy - A piece that represents accuracy
-4032237 - Piece of Dexterity - A piece that represents dexterity
-4032238 - Piece of Freedom - A piece that represents freedom 
-4001249 - Maple Necklace Gem - A beautiful gem that can be set on the Mind of Maple Necklace.
-4001250 - Maple Necklace Pendant - This can be used to create the Mind of Maple Necklace.
-4220147 - Mind of Maple Necklace - A Mind of Maple Necklace that brings luck and hope to anyone who wears it.
-4290000 - Golden Chicken Effect - Golden Chicken Effect was given as a reward for helping Lazy Daisy. You can turn it ON/OFF by double-clicking the icon or using the key configuration menu to assign a shortcut key. 
-4290001 - Bummer Effect - This effect is for people who helped Lazy Daisy but failed to hatch the egg. You can turn it ON/OFF by double-clicking the icon or using the key configuration menu to assign a shortcut key. 
-4220089 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220090 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220091 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220092 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220093 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220094 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220095 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220096 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220097 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220098 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220099 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220100 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220101 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220102 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220103 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220104 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220105 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220106 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220107 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220108 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220109 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220110 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220111 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220112 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220113 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220114 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220115 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220116 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220117 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220118 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220119 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220120 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220121 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220122 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220123 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220124 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220125 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220126 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220127 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220128 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220129 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220130 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220131 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220132 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220133 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220134 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220135 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4220136 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
-4032135 - Growth Powder - Sprinkle it on eggs or chicks to expedite their growth.
-4032093 - Alcaster's Reply - A reply letter written by Alcaster of El Nath for Snow Spirit.
-4032199 - Transparent Icon 1 - A transparent item.
-4032200 - Transparent Icon 2 - A transparent item.
 4000000 - Blue Snail Shell - A shell removed from a snail
 4000001 - Orange Mushroom Cap - A cap removed from a mushroom
 4000002 - Pig's Ribbon - Taken off from the pig with a ribbon
@@ -274,7 +206,19 @@
 4000206 - Rib - A rib from Skeleton Soldier.
 4000207 - Pelvic Bone - A pelvic bone from Skeleton Officer.
 4000208 - Horse Skull - A horse skull from the horse of Skeleton Commander.
+4000209 - Co-ke Slime’s Bell - The bell of Co-ke Slime that has been taken off.
+4000210 - Co-ke Pig’s Ribbon - A piece of Co-ke Pig’s ribbon.
+4000211 - Coca-Cola Cube - A cube with a drawing of a Coca-Cola bottle on it.
+4000212 - CokePLAY Cube - A cube with the CokePLAY symbol.
+4000213 - Coca-Cola Card - A card with a drawing of Coca-Cola.
+4000214 - Coca-Cola Gem - A red gem with a Coca-Cola logo engraved on it.
 4000215 - Axe - An axe stuck in a trunk.
+4000216 - Coca-Cola Can - An empty can that had been filled with the sweet and tangy Coca-Cola.
+4000217 - Coca-Cola Light Can - An empty can that had been filled with Coke Light, a drink with zero calories.
+4000218 - Ice Shell - A turtle shell shaped like an igloo that is made of ice.
+4000219 - Coke Ice Block - A block that had been part of the hard body of a Coke Golem. It looks like frozen Cola.
+4000220 - Ice Block - A block that had been part of the hard body of an Ice Golem.
+4000221 - Coke Bottle Lid - A bottle lid that a Coke Mushroom used to wear on its head.
 4000222 - Worn Paper Lantern - Worn paper lantern from Purple ghost.
 4000223 - Cucumber - A delicious looking cucumber that Hadong Dropped.
 4000224 - Sabots - Pair of Sabots that Red nose was wearing.
@@ -386,6 +330,25 @@
 4000364 - Wires - Coil of electric wires that was a part of Lloyd's body.
 4000365 - Plug - An outlet that powers Neo Huroid.
 4000366 - Waste Paper - A piece of trash Paper lying here and there in CBD.
+4000367 - Recycle Water Bottle - An empty unwanted bottle dropped by Biner.
+4000368 - Broken Wing - A fallen broken wing from batoo.
+4000369 - Stop Sign - A piece of metal written with a stop word. Dropped by Stopnow.
+4000370 - Metal Pole - An piece of extracted metal.  It can be found from Stopnow and Nospeed.
+4000371 - Speed Limit Sign - A piece of metal indicating speed limitation warning.
+4000372 - Fire Extinguisher - Red Fire extinguisher that Freezer stole from CBD buildings.
+4000373 - Ink - Octobunny's Ink.  So dark but not toxic.
+4000374 - Headlight - An old rusty light projector dropped by Trucker.
+4000375 - Tires - Mini set of tires.  It doesn't seem like it is usuable.
+4000376 - Batteries - Car batteries that dropped from Trucker.   It seems like it has ran out of power.
+4000377 - Small Poop - A tiny stinky poop, relatively small sized.
+4000378 - Big Poop - An enormous poop.  It is extremely smelly.
+4000379 - Green Essence - This Green Essence is extracted from Slimy. It contains a mysterious power.
+4000380 - Pink Essence - This Pink Essence is extracted from Pac Pinky.  It contains a mysterious power.
+4000381 - White Essence - This White Essence is extracted from Mr. Anchor.  It contains a mysterious power to unlock the door to secret.
+4000382 - Blue Essence - This Blue Essence is extracted from Selkie Jr.  It contains a mysterious power.
+4000383 - Red Essence - This Red Essence is extracted from Mr. Anchor.  It  contains mysterious power.
+4000384 - Black Essence - The black soul from Capt. Latanica.  It seems extremely powerful.
+4000385 - Soul Lantern - A mysterious lantern that glows in dark.  It is believed that this lantern will produce an incredible power if it is used correctly.
 4000391 - Boomer Core - The small core of a Boomer, still packs an explosive punch. Handle with caution!
 4000399 - Loaded Spring - The neckpiece of a jack-in-the-box.
 4000400 - Lock of Doll's Hair - A lock of blonde hair from one of Prendergast's dolls.
@@ -398,6 +361,7 @@
 4000417 - trans - trans
 4000418 - Useless Mechanical Heart - A useless mechanical heart because it's totally destroyed.
 4000419 - Purple Liquid - A purple liquid no one knows what it's for. Probably not for drinking.
+4000421 - Qualified Knitting Ball - Qualified Knitting Ball to make the Christmas Sock. #cPlease click and drag# this item into the Socks Frame UI to make your own socks.
 4000422 - Christmas Present box (White) - A present box from snowman.
 4000423 - Christmas Present box (Red) - A present box from snowman.
 4000424 - Christmas Present box (Blue) - A present box from snowman.
@@ -407,6 +371,110 @@
 4000438 - Tree Trunk - A strange tree trunk that's wrapped all over Lord Tree.
 4000439 - Rubble - A piece of rubble from Stone Bug.
 4000440 - Tough Leather - A tough, stiff leather from an animal.
+4000443 - Cracked Hourglass - Cracked hourglass.  It looks broken but it still functions.
+4000444 - Green Cloth - A piece of clothing from the Memory Monk.
+4000445 - Green Cone Hat - Hat worn by the Memory Monk Trainee
+4000446 - Smiley Mask - A mask made from a smiley face.
+4000447 - Green Helmet - Helmet worn by the Memory Guardian
+4000448 - Green Heart - Heart of the Chief Memory Guardian
+4000449 - Blue Cloth - A piece of clothing from the Qualm Monk
+4000450 - Blue Cone Hat - Hat worn by the Qualm Monk Trainee.
+4000451 - Neutral Mask - A mask made from an expressionless face.
+4000452 - Blue Helmet - Helmet worn by the Qualm Guardian
+4000453 - Blue Heart - Heart of the Chief Qualm Guardian
+4000454 - Red Cloth - A piece of clothing from the Oblivion Monk.
+4000455 - Red Cone Hat - Hat worn by the Oblivion Monk Trainee.
+4000456 - Frowny Mask - A mask made from a frowny face.
+4000457 - Red Helmet - It's a helmet that an Oblivion Guardian was wearing.
+4000458 - Red Heart - Heart of the Chief Oblivion Guardian.
+4000459 - Black Armor Fragment - A piece of the armor that was covering the guardian's shoulder.
+4000460 - Whale's Helmet - Helmet worn by Dodo, the Whale of Time.
+4000461 - Knight's Mask - Mask worn by Lilynouch, the Ice Knight.
+4000462 - Guardian's Horn - Guardian Lyka's horn.
+4000465 - Coconut Husk - Coconut husk that Chlorotrap had left.
+4000466 - Rebab - Traditional musical instrument of Malaysia.
+4000467 - Yellow Wig - Silky and shiny hair of Dark Fission.
+4000468 - Somebody's Tire - A tire that Oly Oly stole from someone.
+4000469 - Scarf - Must have fashion item.
+4000470 - Tall Hat - Victorian silk hat.
+4000471 - Rodeo's Master - Master of a Rodeo
+4000472 - Charmer's Flute - Deadly weapon of Charmer.
+4000473 - Dented Barrel - Dented wooden barrel soaked with oil.
+4000474 - Lucky Hat - Cute little hat that Froscola loves to wear.
+4000475 - Lucky Bus Ticket - Bus ticket that can take you to the city.
+4000476 - Toy Plane - Cute little toy plane, perfect as a gift for children.
+4000477 - Viking Helmet - Nice sturdy Viking style helmet.
+4000478 - Wooden Pony Tail - Wooden tail of Gallopera.
+4000482 - Tino's Feather - Tino's feather that is as light as a flowerseed.
+4000483 - Tiv's Feather - Tiv's Feather. So light, I was concerned it might just blow away.
+4000484 - Timu's Feather - Timu's Feather. Still very soft in texture.
+4000485 - Tiru's Feather - Tiru's Feather. A combination of numerous light Tiru's feathers.
+4000486 - Tiguru's Feather - Tiguru's Feathers that are so soft and slick, one can make a pillow out of it.
+4000487 - Shadow Meso - (no description)
+4000488 - MasteriaPQ Mob Summon - (no description)
+4000489 - Tutorial Tino's Feather - Tutorial Tino's Feather.
+4000492 - Certificate of Great Tester - A certificate that certifies one as a great tester. The more the certificate, the better the chance of being selected as a Great Tester.
+4000493 - Muru's Furball - A handful of white, cold furball of Muru's.
+4000494 - Murupa's Furball - Murupa's Furball. A small leaf is stuck in the ball.
+4000495 - Murupia's Furball - Murupia's Furball. Looks like something's growing out of it.
+4000496 - Murumuru's Furball - Murumuru's Furball. Highly resembles that of a snowman.
+4000497 - Murukun's Furball - Murukun's furball. Covers up Murukun's sharp piece of horn.
+4000499 - Mutated Spore - Comes from the Renegade Spores.
+4000500 - Poison Mushroom Cap - A cap from the Poison Mushroom. It contains potent poison.
+4000501 - Intoxicated Pig Tail - A pig tail that's been intoxicated by the mysterious herb in El Nath.
+4000502 - Destroyed Helmet - A destroyed helmet that Helmet Pepe wore.
+4000503 - Broken Spear - A spear used by Royal Guard Pepe.
+4000504 - Chief Grey Yeti Horn - A horn from Grey Yeti, one of the head security members of King Pepe.
+4000505 - Chief White Yeti Horn - A horn from White Yeti, one of the head security members of King Pepe.
+4000506 - Chief Gold Yeti Horn - A horn from Gold Yeti, one of the head security members of King Pepe.
+4000507 - Poison Spore - A powerful poisonous spore dropped by the Poison Mushroom. It can penetrate through the barrier of the magic spore once.
+4000508 - Miwok Artifact - An artifact in which the Miwok tribe has sealed their treasure. Purchase an Enchanted Scroll at the Cash Shop in order to release the seal and retrieve the treasure, and take it to NPC Toh Relicseeker. 
+4000509 - Old Tree Branch of the Wise One - The Old Tree Branch that the Wise One from the Miwok tribe used to predict the future. Kopee Relicseeker says she can make the legendary ring using the tree branch.
+4000510 - Bluejay Feather of the Wise One - The Bluejay Feather that the Wise One from the Miwok tribe used to predict the future. Kopee Relicseeker says she can make the legendary ring using the feather.
+4000511 - Red Bird Feather of the Wise One - The Red Bird Feather that the Wise One from the Miwok tribe used to predict the future. Kopee Relicseeker says she can make the legendary ring using the feather.
+4000512 - Cat Eye of the Brave One - The cat eye with which the Brave One from the Miwok tribe equipped himself in battles. Kopee Relicseeker says she can make the legendary ring using the cat eye.
+4000513 - Buffalo Horns of the Brave One - The buffalo horn with which the Brave One from the Miwok tribe equipped himself in battles. Kopee Relicseeker says she can make the legendary ring using the horn.
+4000514 - Puma Bones of the Brave One - The puma bone with which the Brave One from the Miwok tribe equipped himself in battles. Kopee Relicseeker says she can make the legendary ring using the puma bones.
+4000515 - Aramia's Book - Aramia's Book-Drive Book
+4000517 - Sophilia's Favorite Doll - Sophilia's Favorite Doll
+4000518 - Haunted Mansion Gold Key - A key that looks like it can unlock the doors inside the Haunted Mansion.
+4000519 - Haunted Mansion Silver Key - A key that looks like it can unlock the doors inside the Haunted Mansion.
+4000520 - Haunted Mansion Brass Key - A key that looks like it can unlock the doors inside the Haunted Mansion.
+4000521 - Olivia's Doll - Olivia's doll, which is obtained by defeating Olivia in the secret room. 
+4000522 - Cursed Frog Egg - A frog egg that has been cursed by Black Magic. Also, it is used as an ingredient in Witch Malady's cooking.
+4000523 - Cursed Cat Spittle - Cat saliva that has been cursed with Black Magic. Also, it is used as an ingredient in Witch Malady's cooking.
+4000524 - Dark Token - Looks like a type of currency used in a world other than Maple World.
+4000525 - Kid Mannequin's Bunny Suit - A bunny suit that the Kid Mannequin was wearing.
+4000526 - Female Mannequin's Wig - A blonde wig that the Female Mannequin was wearing.
+4000527 - Male Mannequin's Fedora - A black fedora that the Male Mannequin was wearing.
+4000528 - Latest Hits Compilation - A CD of latest hits.
+4000529 - Greatest Oldies - A CD of the greatest oldies.
+4000530 - Blue Perfume - A lavender-scented perfume. Musky and rich.
+4000532 - Yellow Perfume - A freesia-scented perfume. Fresh and smooth.
+4000534 - Pink Perfume - A rose-scented perfume. Light and airy.
+4000536 - Cheap Speakers - Low-quality speakers.
+4000537 - Fancy Amplifier Cables - Fancy cables that connect to fancy amplifiers.
+4000538 - Spirit of Rock's Music Score - A music score that Spirit of Rock treasures.
+4000539 - Cherry Bubble - Refreshing cherry-flavored bubble from a cherry bubble tea.
+4000540 - Melon Bubble - Sweet melon-flavored bubble from a melon bubble tea.
+4000541 - Mango Bubble - Sweet mango-flavored bubble from a mango bubble tea.
+4000542 - Yeti Keychain - A cute keychain with a dangling Yeti doll.
+4000543 - Jr. Pepe Keychain - A cute keychain with a dangling Jr. Pepe doll.
+4000544 - Orange Mushroom Doll - A pretty Orange Mushroom doll from the claw vending machine.
+4000545 - Red Squishy Liquid - Cherry-scented jelly from a Red Slime.
+4000546 - Silver Squishy Liquid - Jelly from a Silver Slime. It looks pretty heavy.
+4000547 - Gold Squishy Liquid - Jelly from a Gold Slime. It looks expensive.
+4000548 - Overlord A Radar Device - A radar that detects anything within a 10m radius.
+4000549 - Overlord B Radar Device - A radar that detects anything within a 30m radius.
+4000550 - Robby's Electronic Induction Device - A device that communicates using the nearest inductive material.
+4000551 - Iruvata Laser Sword - Iruvata's laser sword, which can be used as a weapon.
+4000552 - Afterlord Chained Tire - Appears durable enough to maneuver through the wilderness.
+4000553 - Prototype Lord Propulsion System - This propulsion system uses nitrogen energy as its propellant.
+4000554 - Maverick Type A Component - A component of Maverick Type A that is abrasion-resistant due to its ergonomic design.
+4000555 - Maverick Type S Laser Gun - A high-tech laser gun that consumes minimal energy yet ejects maximum power.
+4000556 - Maverick Type D Booster - A booster that provides a temporary increase in thrust for flight.
+4000557 - Imperial Guard Vacuum Tube - A vacuum tube that uses air pressure to maintain an output of at least 5 tons.
+4000558 - Royal Guard Armor - Special armor that features a special alloy for maximum durability.
 4001000 - Arwen's Glass Shoes - A shiny glass shoes for women-only.
 4001001 - VIP Mirror - A fancily decorated mirror.
 4001002 - The Girl Next Door - A book with a dangerous content.
@@ -545,7 +613,18 @@
 4001135 - Zenumist's Experiment Files - Research information on Zenumist's stolen ingredient.
 4001136 - Piece of Scroll - A piece of a scroll.  I should collect the pieces and take it to Cassandra before September 19th, 2008.
 4001141 - Snowman Branch - A tree branch used to make a Kid Snowman arm. Represents a pure innocense of the kids that made the Snowman.
+4001142 - Henesys - Henesys
+4001143 - Elinia - Elinia
+4001144 - Perion - Perion
+4001145 - Kerning City - Kerning City
+4001146 - Lith Harbor - Lith Harbor
 4001147 - Call of The Nautilus - Nautilus
+4001148 - Sleepywood - Sleepywood
+4001149 - Aquarium - Aquarium
+4001150 - Baekcho Village - Baekcho Village
+4001151 - Happy Valley - Happy Valley
+4001152 - Ariant - Ariant
+4001153 - Magatia - Magatia
 4001154 - El Nath Dead Mine - El Nath Dead Mine
 4001155 - Dragon Forest - Dragon Forest
 4001156 - Pass of Dimension - A pass earned by defeating a monster. This pass is required in order to enter the next stage.
@@ -562,6 +641,147 @@
 4001167 - Piece of Birthday Cake - A piece of the MapleStory's 4 Year Anniversary cake.  You can complete the cake by opening the cake box and placing 4 cake pieces on the plate.
 4001168 - Golden Maple Leaf - A Golden Maple Leaf that fell from a Maple Tree specially for MapleStory's 4 Year Anniversary.  Take it to the keeper of the maple tree and receive a special present.
 4001169 - Monster Marble - This marble contains a poisoned monster. The monster is being purified within it
+4001170 - ?? - (no description)
+4001171 - ?? - (no description)
+4001172 - ?? - (no description)
+4001173 - ?? - (no description)
+4001174 - Practice Shoes - The most basic form of shoes for practice.
+4001175 - Kid Shoes - Adorable cute shoes that are obviously only for dids.
+4001176 - Shovel - A small shovel with a short handle for easier shoveling.
+4001177 - White Crewneck Shirt - A plain, white cotton shirt.
+4001178 - Beach Sandals - A pair of sandals perfect for walking around the beach on a hot summer day.
+4001179 - Water Gun for Training - It looks exactly like the Laser Gun, but it's a water gun, making it an optimal weapon for training.
+4001180 - Gloves for Outside - A durable pair of gloves perfect for outside.
+4001181 - Mittens - A warm, red furry pair of mittens.
+4001182 - Clean Mop - A clean mop that hasn't been used yet.
+4001183 - Training Uniform - A white training uniform featuring a red belt. The uniform lets in air and is very light, so the students won't pass out training under the sun.
+4001184 - Durable Rake - A metal rake used to rake the farm.
+4001185 - Warm Fur Boots - A pair of warm fur boots that goes up to the ankle. 
+4001186 - King's Turban - A special turban ordered by Abdullah VIII. Very fancy, to say the least.
+4001187 - Beltin - A mysterious fish that allows one to sing well and in tune after eating it.
+4001188 - Breakin - A mysterious fish that allows one to rock the dance floor after eating it.
+4001189 - Poppin - A mysterious fish that allows one to sing well and in rhythm after eaten it.
+4001190 - Blackhole Marble - Inside a clear marble, there is a black hole like figure swirling around.
+4001191 - Excellent Agent Badge - A badge that is given to an agent who accomplishes their mission with excellence. 
+4001192 - Intelligence Document - Intelligence document that contains investigations regarding Master M and party quest monsters.
+4001193 - Transparent Item for Lightning - A transparent item for lightning expressions.
+4001197 - Bluish Mineral - A mineral featuring bluish color
+4001198 - Altaire Fragment - This is given to those who save Altaire Camp from Forest of Poison Haze.
+4001199 - Straw - A warm set of straws used to make a bird's nest. Gather them all up, and bring them together and show them to Gaga.
+4001201 - Funny Travel Stories - A tape that contained all the fun adventure stories recorded while on the road.
+4001202 - Top 10 Pop Star Hits - A tape that only contained the lastest from radio and tv.
+4001203 - Manji's Ragged Diary - An old, ragged diary that includes the war stories of Manji in Perion. Let's return it to the Maple Admin.
+4001204 - Gwin's Travel Stories - A collection of travel storries that Gwin wrote. Need to hand it back to the Maple Admin.
+4001205 - Ericsson's Travel Stories - A handwritten, gripping account of Ericsson's days as an explorer. 
+4001207 - Black Scale - A scale that's slightly dyed in black. Something doesn't seem right with this.
+4001213 - Strange Mark - A mysterious-looking mark.
+4001214 - Richie Gold - Golden Key - A key that leads to Richie Gold's treasure storage. Entering this storage alone requires 3 keys. \n#cRelated Quest:Richie Gold's Maze
+4001215 - Whatever Charm - A charm that lets one skip a mission.
+4001216 - Diamond Mark - It's a diamond mark.
+4001217 - Heart Mark - It's a diamond mark.
+4001218 - Space Mark - It's a space mark.
+4001219 - Clover Mark - It's a clover mark.
+4001231 - Candy Cane - A Chrismas Candy Cane for Jump Event
+4001232 - White Gift Box - A white gift box that can be found inside the New Year's Lucky Pouch. Bring it to the Game Administrator to receive a gift from the box.
+4001233 - Red Gift Box - A red gift box that can be found inside the New Year's Lucky Pouch. Bring it to the Game Administrator to receive a gift from the box.
+4001234 - Blue Gift Box - A blue gift box that can be found inside the New Year's Lucky Pouch. Bring it to the Game Administrator to receive a gift from the box.
+4001235 - Purple Gift Box - A purple gift box that can be found inside the New Year's Lucky Pouch. Bring it to the Game Administrator to receive a gift from the box.
+4001237 - Slightly Polluted Rock - This rock has a slight hint of that unmistakable force of darkness.
+4001238 - Polluted Rock - This rock really has the force of Black Mage stored in it.
+4001239 - Heavily Polluted Rock - This rock contains a powerful force of Black Mage stored in it.
+4001240 - Polluted Item - A piece of rock that has been irreparable damaged because of the force of the Black Mage.
+4001241 - Targa's Foot - Targa's magical foot.
+4001242 - Scarlion Boss's Foot - Scarlion Boss's magical foot.
+4001245 - Pigmy's Golden Egg   - Pigmy's Golden Egg. It can only be hatched by a fairy from a fairytale. 
+4001246 - Warm Sunlight   - Drop the Warm Sunlight in front of the Bean Stalk to make it grow.  
+4001247 - Story Treasure Box   - A Treasure Box hidden in the Dungeon. 
+4001249 - Maple Necklace Gem - A beautiful gem that can be set on the Mind of Maple Necklace.
+4001250 - Maple Necklace Pendant - This can be used to create the Mind of Maple Necklace.
+4001254 - Shiny Maple Coin - An octagonal gold coin with a maple mark. The Shiny Maple Coins can be traded for items from Spiegelmann.
+4001255 - Golden Pig's Hard Egg - It's too hard to open. It may be a good idea to bring it to Goldrich. 
+4001256 - Primal Claw - A symbolic weapon of Thief mastery.  Although it can't be equipped, its power is palpable.  This item must be placed in the Altar of Mastery to activate it.
+4001257 - Staff of First Magic - A symbolic weapon of Mage mastery.  Although it can't be equipped, its power is palpable.  This item must be placed in the Altar of Mastery to activate it.
+4001258 - Ancestral Bow - A symbolic weapon of Bowman mastery.  Although it can't be equipped, its power is palpable.  This item must be placed in the Altar of Mastery to activate it.
+4001259 - Master Sword - A symbolic weapon of Warrior mastery.  Although it can't be equipped, its power is palpable.  This item must be placed in the Altar of Mastery to activate it.
+4001260 - Forbidden Gun - A symbolic weapon of Pirate mastery.  Although it can't be equipped, its power is palpable.  This item must be placed in the Altar of Mastery to activate it.
+4001261 - Piece of Balrog Leather  - A piece of leather from a Balrog's rough hide.  
+4001263 - Fine Wool  - This wool is fine.  
+4001264 - Shepherd Boy's Lunch.  - This is a Shepherd Boy's Lunch. Collect and deliver them to the Lamb. You can get a reward when you win. 
+4001268 - Brown Krypto Crystal   - A Brown Krypto Crystal containing the mysterious energies of space.  
+4001269 - Emerald Krypto Crystal   - An Emerald Krypto Crystal containing the mysterious energies of space.  
+4001270 - Warm-hearted Child's Note  - An item that is falsely rumored to be only visible to warm-hearted children. Take it to Cassandra.  
+4001271 - Lost Child  - A child that is lost.
+4001272 - Giant Nependeath Seed   - A seed from a Giant Nependeath. It's very big.  
+4001300 - Granada   - A captivating single rose loved by the Witch.  
+4001301 - Gaga's Excavation Permit - A permit that allows one to dig up relics. Talk to Gaga to receive another permit.
+4001302 - Valuable Artifact - A relic that looks very rare.
+4001303 - Petrified Mouse - The first of 8 treasures mentioned by Shuang.
+4001304 - Gaga's Glasses - The second of 8 treasures mentioned by Shuang.
+4001305 - Cassandra's Crystal Ball - The third of 8 treasures mentioned by Shuang.
+4001306 - The Shiny Watch - The fourth of 8 treasures mentioned by Shuang.
+4001307 - A Soccer Cleat - The fifth of 8 treasures mentioned by Shuang.
+4001308 - The Quest Completion Book - The sixth of 8 treasures mentioned by Shuang.
+4001309 - A Pretty Hair-Tie - The seventh of 8 treasures mentioned by Shuang.
+4001310 - An Old Shoe - The last of 8 treasures mentioned by Shuang.
+4001311 - Ancient Relic - A relic that appears to be very old.
+4001316 - Cassandra's Album - A photo album filled with Cassandra's baby pictures.
+4001317 - Helmet Pepe's Helmet - A helmet worn by Helmet Pepe. Put it on to disguise yourself as a Helmet Pepe.
+4001318 - The Royal Seal of the Mushking Empire - The Royal Seal that represents the power of the Mushking Empire.
+4001320 - Flower Tube Coupon - Take this to Cassandra, and exchange it for a pretty Pink Flower Tube.
+4001321 - Train 999 Boarding Pass - Allows one to board Train 999 through Mr. Lim.
+4001322 - Pharaoh Yeti's Sapphire - A sapphire mounted on Pharaoh Yeti's necklace. Give it to Duarte, and he'll take you to Pharaoh Yeti's tomb.
+4001323 - Pharaoh Yeti's Ruby - A ruby mounted on Pharaoh Yeti's necklace. Give it to Duarte, and he'll take you to Pharaoh Yeti's tomb.
+4001324 - Pharaoh Yeti's Emerald - An emerald mounted on Pharaoh Yeti's necklace. Give it to Duarte, and he'll take you to Pharaoh Yeti's tomb.
+4001325 - Pharaoh Yeti's Topaz - A topaz mounted on Pharaoh Yeti's necklace. Give it to Duarte, and he'll take you to Pharaoh Yeti's tomb.
+4001326 - ??? ???? - ??? ?????. ??? ??? ??? ? ????.
+4001327 - ??? ???? - ??? ?????. ??? ??? ??? ? ????.
+4001328 - ??? ???? - ??? ?????. ??? ??? ??? ? ????.
+4001329 - ??? ???? - ??? ?????. ??? ??? ??? ? ????.
+4001330 - ??? ???? - ??? ?????. ??? ??? ??? ? ????.
+4001331 - ?? ???? - ?? ?????. ??? ??? ??? ? ????.
+4001332 - ??? ???? - ??? ?????. ??? ??? ??? ? ????.
+4001333 - Pot - A small pot with a flower bud in it. Watch it for 30 minutes to see a flower bloom.
+4001334 - Yellow Flower Pot - A small pot that contains a yellow flower. Take it to Gaga to trade it for a crayon.
+4001339 - Treacherous Fox Tail - The tail of a Treacherous Fox. It seems pretty useless, especially since it is covered in coarse fur.
+4001340 - Foreign Object - A green-colored foreign object that was blocking the pipes. Looks very dirty.
+4001341 - Broken Iron Fragment - Looks like a fragment that broke off of something...?
+4001342 - Pig Shaped Bottle - Wine would taste great in this bottle.
+4001343 - Pig Vein - Very durable looking pig vein.
+4001344 - Dark Wooden Board - Straight wooden board.
+4001345 - Sunglasses - Looks like it belongs to a rock star.
+4001346 - Antique - An old antique from Leafre.
+4001347 - Ellinia Tree Barrel - A tree stump from Ellinia with a brown tint.
+4001348 - Memory Fragment - Contains the memory of Solomon's bow.
+4001349 - Octopus Leg Stick - An Octopus Leg that has been dried to resemble a stick.
+4001350 - Pumpkin Head - Wearing this item compels you to listen to some Rock'n Roll.
+4001351 - Devil Hunting Scroll - Scroll that contains the Devil's weakness...
+4001352 - Lost Book - Jay's lost book.
+4001353 - Lost Statue - A statue from Leafre that was lost in Nautilus.
+4001354 - Young Soul - The soul of an innocent child.
+4001355 - Golden Feather - Strange to think that it comes from an animal.
+4001356 - Flint - Can this really be used to start a fire?
+4001357 - Pork - Goes great with wine.
+4001358 - Long Strong Stick - A long stick made of wood.
+4001359 - Small Snail Shell - A curious shell that amplifies sound and reverberates when you scream.
+4001360 - Piece of White Pants - A partial sheet of fabric taken from someone's pants.
+4001361 - Ink - Black ink from an Octopus.
+4001362 - Old Worn-out Paper - This is the treasure that was so hard to get?! But it does have some strange markings on it.
+4001363 - Old Key - Is this the key to the Treasure Box? Not sure where this is supposed to be used.
+4001364 - Orange Mushroom Sample - An extracted portion of the Orange Mushroom.
+4001365 - Octopus Sample - An extracted portion of the Octopus.
+4001366 - Paper with Strange Markings - There appears to be strange markings drawn on it.
+4001367 - Ripped Paper-1 - Clue found near the Dark Portal where Andras is located.
+4001368 - Ripped Paper-2 - Clue found near the Dark Portal where Valefor is located.
+4001369 - Ripped Paper-3 - Clue found near the Dark Portal where Amdusias is located.
+4001370 - Ripped Paper-4 - Clue found near the Dark Portal where Crocell is located.
+4001371 - Ripped Paper-5 - Clue found near the Dark Portal where Marbas is located.
+4001372 - Wild Boar Leather - Smelly leather from a Wild Boar. It's very pungent.
+4001373 - Evil Eye Eyeball - Eek, so disgusting...could you really see with that thing?
+4001393 - Time Traveler's Pocket Watch - An object that signifies authorized use of the Time Gate in Tera Forest. It looks like an average pocket watch but has something engraved on the back. It reads, 'Time is Golden.'
+4001394 - Time Traveler's Free Pass - An object that signifies authorized use of the Time Gate in Tera Forest for a limited time.
+4001428 - Cupid's Lost Arrow - One of Cupid's Lost Arrows.
+4001429 - Mardi Gras Bead Necklace - A necklace that Gaga wants.
+4001434 - Gachapon Food Coupon - Use this coupon on a Gachapon machine to het a veriety of food. 
 4002000 - Snail Stamp - A stamp with a snail drawn in.
 4002001 - Blue Snail Stamp - A stamp with a blue snail drawn in.
 4002002 - Stump Stamp - A stamp with a stump drawn in.
@@ -584,6 +804,14 @@
 4005004 - Dark Crystal - A mysterious crystal with the source of dark power in it. An incredible power lay asleep in it.
 4006000 - The Magic Rock - A mythical rock with the power of magic in it. Used with high-leveled skills.
 4006001 - The Summoning Rock - A mythical rock with the power of summoning in it. Used with high-leveled skills.
+4007000 - Magic Powder (Brown) - A brown Magic Powder used to create armors.
+4007001 - Magic Powder (White) - A white Magic Powder used to create armors.
+4007002 - Magic Powder (Blue) - A blue Magic Powder used to create armors.
+4007003 - Magic Powder (Green) - A green Magic Powder used to create armors.
+4007004 - Magic Powder (Yellow) - A yellow Magic Powder used to create armors.
+4007005 - Magic Powder (Purple) - A purple Magic Powder used to create armors.
+4007006 - Magic Powder (Red) - A red Magic Powder used to create armors.
+4007007 - Magic Powder (Black) - A black Magic Powder used to create armors.
 4010000 - Bronze Ore - The ore of a light and weak bronze.
 4010001 - Steel Ore - The ore of a tough steel
 4010002 - Mithril Ore - The ore of a light, solid Mithril.
@@ -610,6 +838,7 @@
 4020006 - Topaz Ore - The ore of a yellow jewel
 4020007 - Diamond Ore - The ore of a jewel that's transparent
 4020008 - Black Crystal Ore - An ore of a crystal that has dark powers stored in it
+4020009 - Piece of Time - A raw ore of a gem that contains the power of time.
 4021000 - Garnet - A red jewel.
 4021001 - Amethyst - A purple jewel.
 4021002 - AquaMarine - A blue jewel.
@@ -620,6 +849,7 @@
 4021007 - Diamond - A transparent jewel.
 4021008 - Black Crystal - A very rare crystal with a dark power that lay asleep in it.
 4021009 - Star Rock - A glittering jewel that possesses a mysterious power of a star.
+4021010 - Rock of Time - A fascinating gem that contains the power of time.
 4030000 - Omok Piece : Slime - A slime-shaped Omok piece to play Omok.
 4030001 - Omok Piece : Mushroom - A mushroom-shaped Omok piece to play Omok.
 4030002 - Tetris Piece - Funny-looking piece.
@@ -1016,6 +1246,7 @@
 4031405 - Glass Shoes - A beautiful, sparkling glass shoes apparently made by the fairies.
 4031406 - Invitation - Chapel - A Wedding Invitation. Only the people invited can enter the Special Wedding. For detailed information, please Double-Click this invitation. Also, if the Wedding for this invitation is started, #cDouble-Click# the item as well to instantly enter the Wedding.
 4031407 - Invitation - Cathedral - A Wedding Invitation. Only the people invited can enter the Special Wedding. For detailed information, please Double-Click this invitation. Also, if the Wedding for this invitation is started, #cDouble-Click# the item as well to instantly enter the Wedding.
+4031408 - Gachapon Stamp - Can be traded for an awesome gift depending on the number of stamps collected.
 4031409 - Amoria Heart Key - This key is used to unlock the treasure chest in the Amoria hunting ground.
 4031410 - Grendel the Really Old's Message - A letter written by Grendel the Really Old that answers Tatamo's questions.
 4031411 - Tatamo's Letter - A letter written by Tatamo to Grendel the Really Old regardint a strange set of events that have taken place at Minar Forest.
@@ -1350,6 +1581,13 @@
 4031829 - Black Phoenix Shield Forging Manual - Professor Foxwit's blueprint for creating a Black Phoenix Shield.
 4031830 - Ghost Sack - A strange sack that contains ghosts. If I mistakenly open this, I feel like a million ghosts might try and possess me.
 4031831 - Mirror Piece - A piece of a mirror. If I have this with me, I'll be able to see ghosts with my own eyes.
+4031832 - Sophelia’s Portrait - A portrait of Sophelia.
+4031833 - Pumpkin Juice - A juice made with pumpkin. It is very fragrant.
+4031834 - Perfect Tool - The most perfect tool for making dolls.
+4031835 - Lyudmilla’s Earring - The earrings that Lyudmilla lost. They shine with brilliance.
+4031836 - Score - The score that Lyudmilla asked for. No one knows what kind of music is in it.
+4031837 - Dumped Doll - A doll that Sophelia used to cherish a long time ago. She threw it away when she got a new doll.
+4031838 - Piece of Cloth - A small piece of cloth. If you drag and drop it onto the rag doll, the doll will be completed bit by bit.
 4031839 - Crumpled Letter - An old, crumpled letter. It is extremely damaged and therefore not very legible.  
 4031840 - Old Orgel - A beautiful, yet old orgel that shows the traces of time. Written on the inside of the orgel are the words, "For Dear Miss Helena". 
 4031841 - Magic Flask (Empty) - An empty bottle that can be filled with magic. 
@@ -1378,6 +1616,7 @@
 4031864 - Allowance - Money from Mom and Dad. Can be used to purchase a Nexon Game Card.
 4031865 - Nexon Game Card - 100 points - A Nexon Game Card worth 100 points. Will be redeemed into Maple Points!
 4031866 - Nexon Game Card - 250 points - A Nexon Game Card worth 250 points. Will be redeemed into Maple Points!
+4031867 - A secret letter - A secret letter that contains information about the traitorous MV.  Needs to be delivered to Charles the Adventurer.
 4031868 - Spirit Jewel - A fossilized jewel which contains the pure essence of a monster in crystallized form. It gives off a potent aura of evil.  
 4031869 - Papulatus' Key - A mysterious key held by Papulatus. Wonder where the key might fit?
 4031870 - Papulatus' Key - A mysterious key that enables separation from different dimensions. What did Papulatus use this key for? 
@@ -1391,6 +1630,12 @@
 4031878 - Star of Maplemas Spirit - The spirit of Maplemas, the holiday celebrated annually in the Maple World! 
 4031879 - Orb of Versalmas Cheer - The spirit of Versalmas, the holiday celebrating the 99 days of sunshine in Versal.
 4031880 - Stock Certificate for Grubber Industries - A stock certificate good for one share in Mr. Grubber's company.  It may be worth a lot of money someday!
+4031881 - Picture of Rudolph - Someone took a picture of Rudolph flying in the night sky of Happy ville. Rudolph seems happy in this picture.
+4031882 - Chimney Broom - This will enable you to sweep inside the Chimney eventhough it is long and wide.
+4031883 - Flashlight - This will enable you to light up the dark chimney.
+4031884 - Warm Milk - This warm milk will help Icarus to go to bed.
+4031885 - Mapler Recommendation - Recommendation written by Happyville people.
+4031886 - Completed Socks - Happyville Trend Socks made with skill from Mrs. Santa Claus
 4031887 - Tamed Rudolph - A lost Rudolph that has been tamed through spells.
 4031890 - Warp Card - A special card needed to travel to the Command Center in Omega Sector.  Can only be used inside the Nautilus' Warp Machine.
 4031891 - Gold Pouch - A cloth pouch full of gold.
@@ -1440,6 +1685,32 @@
 4031939 - 99% Dark Chocolate - A 99% Cacao dark chocolate that tastes like crayon. It's so bitter, some call it a tearjerker.
 4031940 - 99% Dark Chocolate - A 99% Cacao dark chocolate that tastes like crayon. It's so bitter, some call it a tearjerker.
 4031945 - Mysterious Cloth - A mysterious cloth created by Arwen using Snow Silk. It's transparent and sparkly, but also very tightly woven.
+4031963 - Eel's Half Pendant - A pendant that Eels carries with, with a broken jewel on the pendant.
+4031964 - Piece of Pendant - The other half of Eels's necklace. A perfect tft it with Eels's pendant.
+4031965 - Eel's Pendant - Eels's pendant that is finally seeing its original night of day. It looks like it might have some mysterious power in it.
+4031966 - Practice Shoes Order Form - Order : Keol\nItem : Practice Shoes\nUnits : 1\nUsage : For Test
+4031967 - Kids' Shoes Order Form - Order : Keol\nItem : Kids' Shoes\nUnits : 1\nUsage : Gift
+4031968 - Work Shovel Order Form - Order : Manager Karl\nItem : Shovel for work\nUnits : 10\nUsage : Restoring Eos Tower
+4031969 - White Cotton Shirt Order Form - Order : Maple Admin\nItem : White Cotton Shirt\nUnits : 100\nUsage : For Beginners
+4031970 - Beach Sandals Order Form - Order : Valen\nItem : Beach Sandals\nUnits : 5\nUsage : Store
+4031971 - Training Gun Order Form - Order : General Maester\nItem : Training Gun\nUnits : 7\nUsage : For soldier trainees
+4031972 - Outdoor Gloves Order Form - Order : Keol\nItem : Outdoor Gloves\nUnits : 1\nUsage : Personal
+4031973 - Mittens Order Form - Order : Cliff\nItem : Mittens\nUnits : 1\nUsage : Personal
+4031974 - Clean Mop Order Form - Order : Kyrin\nItem : Clean Mop\nUnits : 6\nUsage : To clean the deck
+4031975 - Training Uniform Order Form - Order : No Gong\nItem : Training Uniform\nUnits : 30\nUsage : Worn during training
+4031976 - Strong Rake Order Form - Order : Chil Sung, Chil Name\nItem : Solid, Strong Rake\nUnits : 2\nUsage : Farming, raking
+4031977 - Fur Boots Order Form - Order : Nanuke\nItem : Warm Fur Boots\nUnits : 1\nUsage : Personal
+4031978 - King's Turban Order Form - Order : Abdullah VIII\nItem : King's Turban\nUnits : 1\nUsage : Personal
+4031979 - Doodly Paper - A piece of paper with illegible doodling on it.\n#Mix gold and iron in the ratio of 6:2, then cover it with wisdom and courage stored in Lithium.# Then...
+4031980 - Gold Anvil - An anvil that glows in gold.
+4031988 - Special Agent Badge - Item Agent O asked me to retrieve.  I should take it back to Agent O.
+4031991 - Timer's Egg - This is Timer's egg. It's too hard to crack. Ghosthunter Bob must know what to do with this.
+4031992 - Springy Worm - This little worm lives in Ludirium. It's so small it's not at all threatening.
+4031993 - Bartos' Favorite Juice - A savory juice that Bartos really likes to drink.
+4031999 - Master M's Direction Scroll - Directions believed be written by Master M.
+4032000 - Master M's Order Scroll - An order believed to be written by Master M.
+4032001 - Master M's Command Scroll - A command believed to be written by Master M.
+4032002 - Marble of Chaos - This marble was created by Temple Keeper. It can break the barrier with the chaotic power within.
 4032003 - Phantom Seed - A seed dropped by the possessed trees of Phantom Forest.
 4032004 - Crimson Wood  - Resilient wood from the Crimson Tree.
 4032005 - Typhon Feather - A feather from the mythical Typhon.  These are thought to contain the essence of their wind nature.
@@ -1455,7 +1726,6 @@
 4032015 - Tao of Shadows - A ancient Shadowknight artifact.  Its use is known only to the Raven Ninjas.
 4032016 - Tao of Sight - A ancient Shadowknight artifact.  Its use is known only to the Raven Ninjas.
 4032017 - Tao of Harmony - A ancient Shadowknight artifact.  Its use is known only to the Raven Ninjas.
-4032032 - Coded Communique - (no description)
 4032018 - Translated Communique - (no description)
 4032021 - Triferium Fuel Cell - A futuristic, super-efficient power unit designed for everything from cybernetic protectors to microwaves.
 4032022 - Diferium Fuel Cell - A futuristic power unit suitable for powering everything from toasters to toy robot dogs.
@@ -1468,6 +1738,17 @@
 4032029 - Duct Tape - A roll of silver duct tape.  Never know when this may come in handy!
 4032030 - Stretchy Material - A piece of highly stretchy, elastic cloth.
 4032031 - Lucky Charm - A small silver lucky charm.  Hopefully, it'll bring you more luck than it did the leprechaun.
+4032032 - Coded Communique - (no description)
+4032035 - A Lost Snipe - A Snipe that has lost her way. Take her and move up to a high point, where she can use the launch pad-like area to try to fly her way back home.
+4032036 - Special Ticket to the Moon - As long as you have this with you, the Moon Bunny will give you the Sweet Rice Cake 5 times a day.
+4032037 - Beef Slice - A single slice of beef. Marinate it, then grill it to try to make the Fire Grill Skewer.
+4032038 - Dry Mushroom - A single slice of dried mushroom. Mix it with some seasoning to make a Fire Grill Skewer.
+4032039 - Whole Bellflower - A whole bellflower that can be used as part of the Fire Grill Skewer if soaked in salt water
+4032040 - Fire Grill Skewer Dish - Simply a Fire Grill Skewer placed on a pretty dish. Nothing says Thank You quite like a nice dish of Fire Grill Skewer.
+4032041 - Moon Flower - A beautiful flower that apparently only grows on the moon. Constantly glitters, thanks to all that moonlight it's been soaking up.
+4032042 - 1st Moon Photo Piece - The first piece of photo of the moon. Collect the other two, and it'll turn into a photo of a beautiful full moon. Place the pictures inside the envelope to make sure they don't rip.
+4032043 - 2nd Moon Photo Piece - The second piece of photo of the moon. Collect the other two, and it'll turn into a photo of a beautiful full moon. Place the pictures inside the envelope to make sure they don't rip.
+4032044 - 3rd Moon Photo Piece - The third piece of photo of the moon. Collect the other two, and it'll turn into a photo of a beautiful full moon. Place the pictures inside the envelope to make sure they don't rip.
 4032055 - Event Ticket (Regular) - A ticket that's required to enter the Mini Dungeon during the event period. Without this, you won't be able to fully participate in the event.
 4032056 - Magic Crystal - A beautiful crystal with a red maple leaf inside. Hand this in to the Event Personnel, and she'll exchange this with a prize.
 4032057 - Attendance Sheet - An attendance sheet that checks your daily attendance to MapleStory.
@@ -1477,6 +1758,289 @@
 4032061 - Cookie - A chocolate chip cookie found in the wild, now prepared to eat. Guaranteed to bring a smile to someone's face. 
 4032062 - Fruit Roll Up - A favorite in Victoria Island, this delectable snack bursts with the taste of strawberries. 
 4032063 - Notebook - A special notebook used for the 2008 Back to School Event. Can be turned into the Maple Admin. May the best server team win!
+4032066 - Baby Bird Feather - A soft feather presumably from a baby bird. Gaga will definitely like this.
+4032083 - Ludmilla's Photo Albm - Ludmilla's Family Photo Albm
+4032084 - Sophilia's Perfect Doll - A perfect Sophilia Doll made by Jonas
+4032085 - Peto Doll - A doll that has the ability to transform into Peto.
+4032086 - Mysterious Small Egg - A Fairy with a luscious purple hair said something that's hard to understand, then left a mysterious, small egg in the pocket. Can't figure out what this egg really is, but the Fairy may help identify the egg.
+4032087 - Lucky White Monkey Doll - A white monkey doll that is considered a lucky charm. Whether it really brings good luck remains to be seen.
+4032088 - Ludmilla's Photo Albm - Ludmilla's Family Photo Albm
+4032091 - A Secret Note - A secret note writen by Snow Spirit of Happyville for Alcaster.
+4032092 - Force of the Spirit - A magical item that contains the magic force of the Snow Spirit. Apparently it contains mystical magic...
+4032093 - Alcaster's Reply - A reply letter written by Alcaster of El Nath for Snow Spirit.
+4032094 - Snow Vigor - A magical vigor of snow that provides much-needed support to the snowman. Drop this item on the snowman and magical things may happen.
+4032095 - Fake Snow Vigor - A magical vigor of snow that provides much-needed support to the snowman. Drop this item on the snowman and magical things may happen.
+4032096 - Proof of Exam - The Proof of Exam used for the Knighthood Exam. Take it over to Mihile, and you will be acknowledged as a legitimate knight.
+4032097 - Proof of Exam - The Proof of Exam used for the Knighthood Exam. Take it over to Oz, and you will be acknowledged as a legitimate knight.
+4032098 - Proof of Exam - The Proof of Exam used for the Knighthood Exam. Take it over to Irena, and you will be acknowledged as a legitimate knight.
+4032099 - Proof of Exam - The Proof of Exam used for the Knighthood Exam. Take it over to Eckhart, and you will be acknowledged as a legitimate knight.
+4032100 - Proof of Exam - The Proof of Exam used for the Knighthood Exam. Take it over to Hawkeye, and you will be acknowledged as a legitimate knight.
+4032101 - The Lost Treasure - The lost treasure that was stolen by the Master of Disguise who brazenly entered Ereve. Let's take it back to Mihile.
+4032102 - The Lost Treasure - The lost treasure that was stolen by the Master of Disguise who brazenly entered Ereve. Let's take it back to Oz.
+4032103 - The Lost Treasure - The lost treasure that was stolen by the Master of Disguise who brazenly entered Ereve. Let's take it back to Irena.
+4032104 - The Lost Treasure - The lost treasure that was stolen by the Master of Disguise who brazenly entered Ereve. Let's take it back to Eckhart.
+4032105 - The Lost Treasure - The lost treasure that was stolen by the Master of Disguise who brazenly entered Ereve. Let's take it back to Hawkeye.
+4032115 - Neinheart's Letter - A letter of introduction from Neinheart. Hand this to Kiridu the Mount Trainer, and you'll learn to ride a Mount available exclusively to the knights.
+4032116 - Kiridu's Letter - A letter of introduction from Kiridu. Hand this to Kenta of Aquarium, and you'll receive a saddle for your Mount.
+4032117 - Kenta's Special Supplements - A special form of supplements concocted by Kenta.
+4032118 - A secret letter - A secret letter that contains information about the traitorous MV.  Needs to be delivered to Charles the Adventurer.
+4032119 - MV's Sabre - A shining sabre of MV, hidden deep in the treasure dungeon.
+4032120 - Proof of Qualification - The Proof of Qualification that is required to learn a new skill. This proof signifies that you are ready to learn a new skill.
+4032121 - Proof of Qualification - The Proof of Qualification that is required to learn a new skill. This proof signifies that you are ready to learn a new skill.
+4032122 - Proof of Qualification - The Proof of Qualification that is required to learn a new skill. This proof signifies that you are ready to learn a new skill.
+4032123 - Proof of Qualification - The Proof of Qualification that is required to learn a new skill. This proof signifies that you are ready to learn a new skill.
+4032124 - Proof of Qualification - The Proof of Qualification that is required to learn a new skill. This proof signifies that you are ready to learn a new skill.
+4032125 - Proof of Ability - The Proof of Ability that is required to learn a new skill. This proof signifies that you are ready to learn a new skill.
+4032126 - Proof of Ability - The Proof of Ability that is required to learn a new skill. This proof signifies that you are ready to learn a new skill.
+4032127 - Proof of Ability - The Proof of Ability that is required to learn a new skill. This proof signifies that you are ready to learn a new skill.
+4032128 - Proof of Ability - The Proof of Ability that is required to learn a new skill. This proof signifies that you are ready to learn a new skill.
+4032129 - Proof of Ability - The Proof of Ability that is required to learn a new skill. This proof signifies that you are ready to learn a new skill.
+4032130 - Pig Doll - An adorable doll that resembles a pig. However, something doesn't seem right…
+4032131 - Pig Doll - An adorable doll that resembles a pig. However, something doesn't seem right…
+4032132 - Roca's Mission Report - A mission report written by Roca, the Agent for Henesys. This compiles a list of events that have taken place recently.
+4032133 - Zakum Diamond - (no description)
+4032134 - Stone Denari - (no description)
+4032135 - Growth Powder - Sprinkle it on eggs or chicks to expedite their growth.
+4032136 - Bubbling Doll - An adorable doll that was designed based on Bubbling, but something doesn't seem right. The way it smiles just seems a bit off, as if it has hidden agenda.
+4032137 - Bubbling Doll - An adorable doll that was designed based on Bubbling, but something doesn't seem right. The way it smiles just seems a bit off, as if it has hidden agenda.
+4032138 - Bubbling Doll - An adorable doll that was designed based on Bubbling, but something doesn't seem right. It's in…tears.
+4032139 - Old Key - An old, rusty key that Mr. Pickall has been looking for.
+4032140 - Bubbling Doll - An adorable doll that was designed based on Bubbling, but something doesn't seem right. It's in…tears.
+4032141 - Mattias' Mission Report - A mission report written by Roca, the Agent for Kerning City. This compiles a list of events that have taken place recently.
+4032142 - Clear Tree Sap - A clear tree sap that can only be found at the very top of the skyscraping trees. Accompanied by the freshest green scent.
+4032143 - Fruit - A fruit picked from plants near Henesys.
+4032144 - Hersha's Mission Report - A mission report written by Hersha, the Agent for Ellinia. This compiles a list of events that have taken place recently.
+4032145 - Detector - A detector made to detect any forces of darkness. Take this to the 10 Boogies.
+4032146 - Wooden Mask Doll - An adorable doll modeled after the Wooden Mask, but something doesn't seem right…
+4032147 - Rocky Mask Doll - An adorable doll modeled after the Stone Mask, but something doesn't seem right…
+4032148 - Detector - A detector created with the sole purpose of detecting the Puppeteer's movements. We put it to good use, so let's return it to Neinheart.
+4032149 - 10 Boogies' Mission Report - A mission report written by 10 Boogies, the Agents for Perion. This compiles a list of events that have taken place recently.
+4032176 - Rascal Snowpiece - A snowpiece dropped by those that are only too eager to spoil Maplemas for everyone.
+4032178 - Hack Attempt - A record that shows that Chief Grays tried to hack into the system.
+4032179 - Ereve Investigation Permit - A permitt that allows one to investigate every part of Ereve. When the Red Alert is on, this permit is the only way you can roam freely around Ereve.
+4032185 - 1st Place Medal - A medal acquired from the Christmas High Jump map.
+4032186 - 2nd Place Medal - A medal acquired from the Christmas High Jump map.
+4032187 - 3rd Place Medal - A medal acquired from the Christmas High Jump map.
+4032190 - Orange Mushroom Doll - An adorable doll modeled after the Orange Mushroom, but something doesn't seem right…
+4032196 - Concentrated Formula: Step 1 - A formula concentrated with effective and potent ingredients. The first formula used to raise Mimiana and Mimio
+4032197 - Concentrated Formula: Step 2 - A formula concentrated with effective and potent ingredients. The second formula used to raise Mimiana and Mimio.
+4032198 - Concentrated Formula: Step 3 - A formula concentrated with effective and potent ingredients. The third formula used to raise Mimiana and Mimio.
+4032199 - Transparent Icon 1 - A transparent item.
+4032200 - Transparent Icon 2 - A transparent item.
+4032206 - Ellinia Alpine Plants - Plants that only grow in Ellinia. They closely resemble fernbrakes.
+4032208 - Neinheart's Letter - A letter of introduction from Neinheart. Give this to Kiridu the Mount Trainer, and you'll learn to ride a Mount available exclusively to the knights.
+4032233 - Maple Necklace Chain - This can be used to create the Mind of Maple Necklace.
+4032234 - Piece of Courage - A piece that represents courage
+4032235 - Piece of Wisdom - A piece that represents wisdom 
+4032236 - Piece of Accuracy - A piece that represents accuracy
+4032237 - Piece of Dexterity - A piece that represents dexterity
+4032238 - Piece of Freedom - A piece that represents freedom 
+4032239 - Piece of Mind of Maple - A piece of Mind of Maple given by Chief Stan
+4032246 - Spirit of Fantasy Theme Park - Very important key item to save Fantasy Theme Park from monsters' threat.
+4032247 - Richard's Letter - A love letter written by Richard. Needs to be delivered to Angelique of Amoria...
+4032248 - Map to MV's Lair - (no description)
+4032250 - Mysterious Piece of Paper   - A piece of paper filled with mysterious scribbles. It looks like an item lost by Mu Young, Manji's apprentice. Take it to Mu Young.  
+4032262 - Mu Young's Message   - A letter that Mu Young asked you to deliver to Manji, his teacher. You must deliver it to Manji in Perion.  
+4032263 - Shaman Charm   - A Charm given to you by Chrishrama to be placed on a Shaman Rock. It is said that it contains energies that can chase away evil.
+4032264 - Spring Flower Seed   - A seed that grows into a Spring Flower. 
+4032265 - Spring Flower Petal   - The petals that make up the Spring Flower.  
+4032266 - Dazzling Sunlight  - Dazzling sunlight filled with the feeling of spring.  
+4032267 - Building Stone - A hard building stone that came out of a box. Looks suitable for making a chair.  
+4032268 - Drape - A drape that came out of a box. Looks suitable for making a chair.  
+4032269 - Noblesse Certificate - A certificate proving that you've learned the basic controls for the game. You must show it to Empress Cygnus.  
+4032270 - Glistening Sunlight  - Glistening sunlight filled with the feeling of spring.  
+4032271 - Pure Small Sprout   - A fragrant new sprout filled with the energies of spring. Used as an ingredient for Pure Perfume.  
+4032272 - Stationery of Longing  - Pink stationary that's rumored to return a favorable response if used to send a letter to a secret crush.  
+4032273 - Pencil of Courage X 10   - A pencil that's used to write things you don’t have the courage to say. 
+4032275 - Pure Normal Sprout   - A fragrant new sprout filled with the energies of spring. Used as an ingredient for Pure Perfume. 
+4032276 - Pure Sprout   - A fragrant new sprout filled with the energies of spring. Used as an ingredient for Pure Perfume. 
+4032277 - Pure Large Sprout - A fragrant new sprout filled with the energies of spring. Used as an ingredient for Pure Perfume. 
+4032278 - Stationery of Deep Longing   - Pink stationary that's rumored to return a favorable response if used to send a letter to a secret crush.  
+4032279 - Stationary of Hope and Longing   - Pink stationary that's rumored to return a favorable response if used to send a letter to a secret crush.  
+4032280 - Letter of Love and Longing   - Pink stationary that's rumored to return a favorable response if used to send a letter to a secret crush.  
+4032281 - Pencil of Courage X 100   - A pencil that's used to write things you don’t have the courage to say. 
+4032282 - Pencil of Courage X 1000   - AA pencil that's used to write things you don’t have the courage to say. 
+4032283 - Pencil of Courage X 10000   - A pencil that's used to write things you don’t have the courage to say. 
+4032284 - Child's Broken Toy   - A toy stolen from a child by a monster. It's broken and cannot be used.  
+4032285 - Child's Broken Toy   - A toy stolen from a child by a monster. It's broken and cannot be used.  
+4032286 - Child's Broken Toy   - A toy stolen from a child by a monster. It's broken and cannot be used.  
+4032287 - Child's Broken Toy   - A toy stolen from a child by a monster. It's broken and cannot be used.  
+4032288 - Neinheart's Taxi Coupon - A Taxi coupon given to you by Neinheart. If you're in Ellinia, a taxi will take you to Henesys for free 1 time. 
+4032298 - Party Balloon   - A MapleStory 6th Anniversary Party Item. 
+4032299 - Party Firecracker  - A MapleStory 6th Anniversary Party Item. 
+4032300 - Party Candle   - A MapleStory 6th Anniversary Party Item. 
+4032301 - Party Conehat   - A MapleStory 6th Anniversary Party Item. 
+4032302 - Amazing Watercolor Paint   - These amazing watercolor paints can be used to draw portraits of the Orange Mushroom, Octopus, and Yeti.  
+4032303 - Mystical Watercolor Paint   - These mystical watercolor paints can be used to draw portraits of the Orange Mushroom, Octopus, and Yeti. 
+4032304 - Magical Watercolor Paint   - These magical watercolor paints can be used to draw portraits of the Orange Mushroom, Octopus, and Yeti. 
+4032306 - Yellow Birthday Candle - A candle Cody was looking for.
+4032307 - Blue Birthday Candle - A candle Cody was looking for.
+4032308 - Pink Birthday Candle - A candle Cody was looking for.
+4032309 - Piece of Bamboo - A piece of bamboo snapped from Rien. A prime material for building a chair.
+4032310 - Wood - A wood carved out of a tree from Rien. A prime material for building a chair.
+4032311 - Sign of Acceptance - A sign of acceptance the Scarred Bear was carrying with. Take it to Sir Blacksmith to get accepted.
+4032312 - Red Jade - A red jade that decorated Maha. A portion of Maha's powers is instilled in it.
+4032313 - Tru Taxi Coupon - A taxi coupon from Tru. Use the coupon at the cab in Lith Harbor to get one free ride to Henesys.
+4032314 - Orange Mushroom Horn - A horn from Orange Mushroom that's on the verge of evolving into a Horny Mushroom.
+4032315 - Cynical Orange Mushroom Puppet - A cute puppet based on Orange Mushroom, but something about its facial expression seems odd.
+4032316 - Dejected Green Mushroom Puppet - A cute puppet based on Green Mushroom, but something about its facial expression seems odd.
+4032317 - Dejected Green Mushroom Puppet - A cute puppet based on Green Mushroom, but something about its facial expression seems odd.
+4032318 - Dejected Green Mushroom Puppet - A cute puppet based on Green Mushroom, but something about its facial expression seems odd.
+4032319 - Smirking Ghost Stump Puppet - A cute puppet based on Ghost Stump, but something about its facial expression seems odd.
+4032320 - Report from 10 Boogies - A report written by 10 Boogies. Better take this to Nineheart.
+4032321 - Annoyed Zombie Mushroom Doll - A cute doll based on Zombie Mushroom, but something about its facial expression seems odd.
+4032322 - Puppeteer Document - A document written by the puppeteer. It looks it like contains the sinister plans of Black Wing.
+4032323 - Seal Stone of Victoria Island - The seal stone of Victoria Island that Black Wing had been desperately looking for. No one knows exactly what the stone is for.
+4032324 - Rapid Growth Stimulator - A stimulator that promotes rapid growth. Probably came as a result of the appearance of Giant Nependeath.
+4032325 - Storage Key - A key that opens the storage. Better take it to Helena.
+4032326 - Wooden Key - A key made out of wood.
+4032327 - Clean Letter - A letter that Helena held on to for a long time. Wonder what's written on it.
+4032328 - Old Letter - A letter that Helena held on to for a long time. The condition of the letter shows its age.
+4032329 - Old Letter - A letter that Helena held on to for a long time. It's impossible to see what's written on it.
+4032330 - Lilin's Envelope - An Envelope from Lilin. Contains documents related to Black Wing.
+4032331 - Wolf Cub Vitamins - Vitamins that contain nutrients required for Wolf Cub.
+4032332 - Wolf Cub Meal - A delicious meal meant for Wolf Cub.
+4032333 - Puberty Wolf Vitamins - Vitamins that contain nutrients essential for wolf in puberty.
+4032334 - Life Water for Wolf - A special type of water the wolf drinks in order to become an adult.
+4032335 - Wolf Tooth - An important ingredient for wolf's Life Water.
+4032338 - Lilin's Letter - A letter handwritten by Lilin. Hand the letter to Tru, the Info Merchant at Lith Harbor, and just follow his directions.
+4032339 - Red Jade - A red jade Tititi accidentally lost. Better hand it back to Tititi.
+4032340 - Pig Tail - A pig tail that is rarely available through pigs. There's not much value in it.
+4032341 - Puppeteer Document - A document written by the puppeteer. It looks it like contains the sinister plans of Black Wing. Lilin may be able to decipher this letter.
+4032342 - Special Ink - A special form of ink made by the artist of Mu Lung, Jin Jin.
+4032343 - Picture Scroll - A warning shot fired by the shadow warrior of Black Wing.
+4032348 - Secure Bundle of Straw  - A secure bundle of straw that can be used to make the Witch's Broomstick.  
+4032349 - Solid  Bundle of Straw  - A solid bundle of straw that can be used to make the Witch's Broomstick.  
+4032350 - Strong  Bundle of Straw  - A strong bundle of straw that can be used to make the Witch's Broomstick. 
+4032366 - Vague Aran Memory - A vague memory of the Aran.
+4032367 - Dim Aran Memory - A dim memory of the Aran.
+4032368 - Faint Aran Memory - A faint memory of the Aran.
+4032369 - Cloudy Aran Memory - A cloudy memory of the Aran.
+4032370 - Lingering Aran Memory - A lingering memory of the Aran.
+4032371 - Flickering Aran Memory - A flickering memory of the Aran.
+4032372 - Giant Polearm Image - (no description)
+4032373 - Tutorial Muru's Furball - A white, cold furball from Tutorial Muru.
+4032374 - Letter of Commendation - Warrior Adventurer - The letter of commendation Power B. Fore lost.
+4032375 - Recommendation Letter - Job Instructor - A recommendation letter from the job instructor. Take this and show it to the Head Security Officer at the Mushking Empire.
+4032376 - Letter of Commendation - Magician Adventurer - The letter of commendation Power B. Fore lost.
+4032377 - Letter of Commendation - Bowman Adventurer - The letter of commendation Power B. Fore lost.
+4032378 - Letter of Commendation - Thief Adventurer - The letter of commendation Power B. Fore lost.
+4032379 - Letter of Commendation - Pirate Adventurer - The letter of commendation Power B. Fore lost.
+4032386 - King Pepe's Crown - A crown that King Pepe sported.
+4032387 - Prime Minister Emblem - An emblem worn by the Prime Minister of the Mushking Empire.
+4032388 - Wedding Hall Key - The key that opens the wedding hall, where Princess Violetta will be married.
+4032389 - Killer Mushroom Spore Sample - A completed sample of Killer Mushroom Spores.
+4032390 - Tainted Horny Mushroom Cap - A tainted Horny Mushroom cap that was discovered by The Rememberer.
+4032399 - Recording Charm - A charm that stores the final scream of Zombie Mushroom before its death.
+4032400 - Recommendation Letter - The Rememberer - Hand this letter to Karacas at Nihal Desert.
+4032401 - Gold Poison Sting - A special gold sting that the Scorpion carries.
+4032402 - Sand Mole Hat - Sand Mole Hat
+4032404 - Miwok Artifact Piece - A piece that appears to be a fragment of the Miwok Artifact. 
+4032405 - Secret Key - A key to the secret place where Prime Minster's remaining army is hiding.
+4032418 - Bingo Necklace - The necklace of a puppy named Bingo
+4032419 - Bingo Necklace - The necklace of a puppy named Bingo
+4032420 - Bingo Necklace - The necklace of a puppy named Bingo
+4032421 - Bingo Necklace - The necklace of a puppy named Bingo
+4032422 - Bingo Necklace - The necklace of a puppy named Bingo
+4032423 - Arthritis Medicine - Medicine that alleviates arthritis.
+4032424 - Missed Mark - A mark that warns one of Missed Monsters.
+4032430 - Photo of the Moon - A photo of the moon that hasn't developed yet. The image should become more vivid in 30 minutes. The photo will disappear if you log out!
+4032431 - Photo of the Moon - A faint photo of the moon that hasn't been fully developed yet. The image should become more vivid in 30 minutes. The photo will disappear if you log out!
+4032432 - Photo of the Moon - A blurry photo of the moon that hasn't been fully developed yet. The image should become more vivid in 30 minutes. The photo will disappear if you log out!
+4032433 - Photo of the Moon - A clear photo of the moon. This will certainly make the Baby Moon Bunny happy.
+4032434 - Yellow Butterfly - A cute little yellow butterfly. It might fly away if you don't keep your eye on it.
+4032435 - Tombstone -  I wonder who this tombstone belongs to?
+4032436 - Tombstone -  I wonder who this tombstone belongs to?
+4032437 - Tombstone -  I wonder who this tombstone belongs to?
+4032438 - Haunted Mansion Brass Key - A key that looks like it can unlock the doors inside the Haunted Mansion.
+4032439 - Haunted Mansion Silver Key - A key that looks like it can unlock the doors inside the Haunted Mansion.
+4032440 - Haunted Mansion Gold Key - A key that looks like it can unlock the doors inside the Haunted Mansion.
+4032441 - Olivia's Letter - Olivia's Letter
+4032442 - Olivia's Letter - Olivia's Letter
+4032443 - Olivia's Letter - Olivia's Letter
+4032444 - Green Halloween Stick Candy - A green-colored Halloween Candy that Cassandra likes.
+4032445 - Blue Halloween Stick Candy - A blue-colored Halloween Candy that Cassandra likes.
+4032446 - Red Halloween Stick Candy - A red-colored Halloween Candy that Cassandra likes.
+4032447 - Dog Food - A small bag of dog food. Bulldogs go crazy for this stuff.
+4032448 - Lunch Made with Love - A special lunch Anna made for Gustav. It's packed with tender loving care.
+4032449 - Piglet - A piglet that escaped from the farm. Return it to the farm.
+4032450 - Empty Lunch Box - Someone has devoured everything that was inside the lunch box.
+4032451 - Egg - Eggs from the hen house in the back yard.
+4032452 - Bundle of Hay - A bundle of hay used to feed livestock. Baby dragons might like it too.
+4032453 - Pork - Juicy pork. Baby dragons might like it.
+4032454 - Milk for Baby Dragon - Cow milk. Baby dragons might like it.
+4032455 - Letter from Gustav - A letter Gustav wrote to Chief Stan in Henesys. The letter mentions something about pork delivery.
+4032456 - Recommendation Letter - Chief Stan - A recommendation letter from Stan. Take it to Power B. Fore and he might let you use the training center.
+4032457 - Power B. Fore's Certificate of Training - A certificate that states the recipient has completed Power B. Fore's training. It also appears to be a free pass to use Power B. Fore's training center.
+4032458 - Rina's Blue Mushroom Porridge - Some Blue Mushroom porridge Rina made. It's packed nicely and ready for delivery.
+4032459 - Blue Mushroom Doll - A cute doll that resembles a Blue Mushroom.
+4032460 - Refreshing Stump Sap - Tree sap from a Stump. It is surprisingly refreshing.
+4032461 - Zombie Mushroom Doll - A doll that resembles a Zombie Mushroom, though something isn't quite right with the face.
+4032462 - Wild Boar Doll - A cute doll that resembles a Wild Boar.
+4032463 - Document with Clue - A document that has a clue about the thief that stole Sabitrama's herb written on it. It looks like an ordinary letter, though.
+4032464 - Sabitrama's Herb - A pouch with a pleasant herbal scent that obviously contains Sabitrama's herb.
+4032465 - Nella's Letter of Introduction - A letter of introduction from Nella. It states that the recipient is a capable adventurer.
+4032466 - Golem Doll - A cute doll that resembles a Golem.
+4032467 - Dragon Scales - A few scales from dragon.
+4032468 - Rapid Growth Accelerant - A rapid growth accelerant that was created by a secret organization. It appears to accelerate the growth of plants.
+4032469 - John's Map - John's map, which contains information about some island. That island is said to be the place where the dragon lies asleep.
+4032470 - Tropical Fruit Punch - Specially ordered tropical fruit punch that can only be made in Florina Beach.
+4032471 - Black Key - A key you received from Shammos on a mission for a secret organization. What is this key used for?
+4032472 - Map of Turtle Island - The map of Turtle Island you received from Captain Hwang. It has the location of an island but not much else is known.
+4032473 - Gruesome Bone - Bone that exudes a gruesome energy.
+4032474 - Seruf Pearl - A shiny pearl acquired from Seruf. Based on its shade, it appears to be of the highest quality.
+4032475 - Lycanthrope Leather - A tough piece of Lycanthrope leather.
+4032476 - Captain Alpha's Buckle - Captain Alpha's buckle, which was discovered deep inside the ocean in a treasure chest near the shipwreck. It looks extremely fancy.
+4032477 - Unbreakable Porcelain - Unbreakable Porcelain that Herb Town is known for.
+4032478 - V.I. Orange Mushroom Wine - An expensive wine made with Orange Mushroom Caps from Victoria Islands. 
+4032479 - Training Instructor's Badge - Token indicating the Perion Training Instructor.
+4032480 - Stanlica's Guitar - Music can expose the most painful roots of the heart, but it will always reveal the truth.\r\n#c- Chief Stan -#
+4032481 - Unseemly Ocarina - It's missing some holes, as though it were constructed hastily. But the sound seems to be fine.
+4032482 - Darkween's Monster Drum - You must live life with passion, so that the rest of the world might learn how to live.\r\n#c- Dark Lord -#
+4032483 - Solomon's Sealed Bow - Looks quite ordinary for a supposedly legendary bow.
+4032484 - Kyrinvana's Guitar - Blast this song until the rhythm pumps your blood and the chorus echoes through your bones...\r\n#c- Kyrin -#
+4032485 - Large Model of a Coin - A large replica of a coin made by Shumi. Looks very desirable. 
+4032486 - Green Slime Eraser - An eraser made by collecting slime liquids. Use it on the dirty Treasure Map.
+4032487 - Improved Flint - Its heat is strong enough to evaporate water from afar. Use it on the Slightly Cleaned Treasure Map.
+4032488 - Ayan Mercury's Microphone - I will love my life just as I love the melody of this song.(Use it on the dirty Treasure Map.)\r\n#c- Ayan -#
+4032489 - Ink Sack - A Sack containing Ink. Use it on the dirty Treasure Map.
+4032490 - Cold Medicine - Effective Cold Medicine from Henesys.
+4032491 - Andras' Emblem - Emblem of the demon Andras who was sealed up in Perion. It allows you to enter the location in which Andras resides.
+4032492 - Amdusias' Emblem - Emblem of the demon Amdusias who was sealed up in Henesys. It allows you to enter the location in which Amdusias resides.
+4032493 - Valefor's Emblem - Emblem of the demon Valefor who was sealed up in Kerning City. It allows you to enter the location in which Valefor resides.
+4032494 - Crocell's Emblem - Emblem of the demon Crocell who was sealed up in Nautilus. It allows you to enter the location in which Crocell resides.
+4032495 - Marbas' Emblem - Emblem of the demon Marbas who was sealed up in Ellinia. It allows you to enter the location in which Marbas resides.
+4032496 - Devil Hunter's Necklace - Necklace shows that you defeat a Demon.
+4032497 - Potter - A master craftsman in Herb Town. He is as light as a feather.
+4032498 - Thick Branch - A tree branch from a Stump. You can use it to repair the fence.
+4032502 - Dragon Scale - Scale left behind after the Onyx Dragon's ecdysis. It stores the force of the dragon. Something remarkable could be created using the Maker skill.
+4032503 - Shiny Dragon Scale - Scale left behind after the Onyx Dragon's ecdysis. The force of the dragon is stored inside the golden emblem. Something remarkable could be created using the Maker skill.
+4032504 - Lycanthrope Leather - A tough piece of Lycanthrope leather.
+4032505 - Captain Alpha's Buckle - Captain Alpha's buckle, which was discovered deep inside the ocean in a treasure chest near the shipwreck. It looks extremely fancy.
+4032506 - Locker Key - Key to a locker at the Kerning Square Station.
+4032507 - Composition Notes - Lost composition notes that belong to Maestro Rho, a genius composer.
+4032508 - Secret Recipe - The seven star chef Robby Fray's secret recipe.
+4032509 - Latest Model MP3 - Latest model MP3 with a sophisticated design and increased memory capacity.
+4032510 - Legendary Scissors - Marshall the hair stylist's legendary scissors.
+4032511 - Andy's Pocket Watch - An item that activates the Time Gate. It has Andy the Time Traveler's name engraved on it, so only he can use it.
+4032512 - Primary Clue to the Case - A piece of paper that contains a clue to the case Andy is working on. It's hard to read what it says. The paper has been severely damaged.
+4032513 - Wrinkled Sketchbook Loose-Leaf - A sheet of paper that appears to be from a sketchbook.
+4032514 - Shelter Key - A key to the shelter at the harbor.
+4032515 - Bergamot's Time Sand - Time Sand that belonged to Bergamot.
+4032516 - Dunas's Time Sand - Time Sand that belonged to Dunas.
+4032517 - Aufheben's Time Sand - Time Sand that belonged to Aufheben.
+4032518 - Oberon's Time Sand - Time Sand that belonged to Oberon.
+4032519 - Nibelung's Time Sand - Time Sand that belonged to Nibelung.
+4032520 - Maid Apron - An apron Bao is giving May as a present. An apron? That's a strange gift, but take it over to May anyway.
+4032521 - VIP Invitation - An invitation that grants admission to the VIP Zone. 
+4032522 - Yellow Turkey Egg - An oversized Yellow Turkey Egg. You can turn this in to Cody.
+4032523 - Green Turkey Egg - An oversized Green Turkey Egg. You can turn this in to Cody. 
+4032524 - Blue Turkey Egg - An oversized Blue Turkey Egg. You can turn this in to Cody. 
+4032525 - Turkey Commando's Eye - A pair of futuristic eyeglasses previously worn by Turkey Commando.
+4032526 - John's Map - John's map that contains information on some island. That island is said to be the place where the dragon lies asleep.
+4032576 - Green Mardi Gras Feather - (no description)
+4032577 - Purple Mardi Gras Feather - (no description)
+4032578 - Red Mardi Gras Feather - (no description)
 4032861 - Peridot
 4055000 - Cassandra's Divine Coupon - Use this at #cHenesys Plastic Surgery# to #ctemporarily# change face once
 4055001 - Cassandra's Divine Coupon - Use this at #cKerning City# Hair Salon to #ctemporarily# change hairstyle once
@@ -1513,6 +2077,11 @@
 4130015 - Claw Production Stimulator - Item option changes when you make claw with this stimulator. However, creating item may result in failure by 10%.
 4130016 - Knuckler Production Stimulator - Item option changes when you make the Knuckler with this stimulator. However, there's a 10% chance of failure.
 4130017 - Gun Production Stimulator - Item option changes when you make the gun with this stimulator. However, there's a 10% chance of failure.
+4130018 - Armor Production Stimulator - Use this when making a headgear to change the item option. Beware that this also carries a 10% risk of ruining the item production.
+4130019 - Topwear Production Stimulator - Use this when making a topwear to change the item option. Beware that this also carries a 10% risk of ruining the item production.
+4130020 - Bottomwear Production Stimulator - Use this when making a bottomwear to change the item option. Beware that this also carries a 10% risk of ruining the item production.
+4130021 - Overall Production Stimulator - Use this when making an overall to change the item option. Beware that this also carries a 10% risk of ruining the item production.
+4130022 - Shield Production Stimulator - Use this when making a shield to change the item option. Beware that this also carries a 10% risk of ruining the item production.
 4131000 - One-Handed Sword Forging Manual - Worn-out one-handed sword forging manual.
 4131001 - One-Handed Axe Forging Manual - Worn-out one-handed axe forging manual.
 4131002 - One-Handed Blunt Weapon Forging Manual - Worn-out one-handed blunt weapon forging manual.
@@ -1573,6 +2142,14 @@
 4160031 - Pet Command Guide : Hedgehog - A guide that has all the commands for the pet hedgehog.n#cDouble-click on the item to open the guide.#
 4160032 - Pet Command Guide : Skunk - A guide that has all the commands for the Skunk.\n#cDouble-click on the item to open the guide.#
 4160033 - Pet Command Guide : Kino - A guide that has all the commands for the pet Kino.n#cDouble-click on the item to open the guide.#
+4160034 - Pet Command Guide : Baby Robo - A guide that has all the commands for the Baby Robo.\n#cDouble-click on the item to open the guide.#
+4160035 - Pet Command Guide : Blue/Red/Green/Gold Robo - A guide that has all the commands for the Blue/Red/Green/Gold Robo.\n#cDouble-click on the item to open the guide.#
+4160036 - Pet Command Guide : Gorilla Robo - A guide that has all the commands for the Gorilla Robo.\n#cDouble-click on the item to open the guide.#
+4160037 - Pet Command Guide : Crystal Rudolph - A guide that has all the commands for the Crystal Rudolph.\n#cDouble-click on the item to open the guide.#
+4160039 - Pet Command Guide : White Duck - A guide that has all the commands for the pet white duck.\n#cDouble-click on the item to open the guide.#
+4160040 - Pet Guide : Pink Bean - A guide that has all the commands for the Pink Bean.\n#cDouble-click on the item to open the guide.#
+4160041 - Pet Command Guide : Gold Pig - A guide that has all the commands for the Gold Pig.\n#cDouble-click on the item to open the guide.#
+4160044 - Pet Command Guide : Baby Tiger - A guide that contains commands for Baby Tiger. \n#cYou can open the book by double-clicking on it.#
 4161000 - Gwin's Diary - A diary that was inside what appears to be Gwin's bag. Can we findout his whereabouts?\n#cDouble-click on the item to open the diary.#
 4161001 - Beginner's Guide - A thorough guide for the beginners.\n#cDouble-click on the item to open the book.#
 4161002 - Attendance Book - An attendance book that proves you are an honest traveler.\n#cYou can open the book by double clicking the item.#
@@ -1610,6 +2187,18 @@
 4161034 - Dran's Note - A book written by the missing alchemist, Dran, on his studies. Looking into the book, it doesn't resemble study notes as much as a diary.
 4161035 - The Legend of Snail - A book chronicling the history of snails, the creature with the longest life span in Maple World.
 4161036 - Song : Twinkle Twinkle Little Star - A book that contains the notes to play beautiful music. This book has the notes of Twinkle Twinkle Little Star.
+4161037 - A Guide to Using the Maker Skill - [Maker] This is a guide to help you use the Maker Skill.  
+4161038 - Santa Encyclopedia No.2 - Santa Encyclopedia that contains the history of Santa's Family.\n#cDouble click on the item to open the book.
+4161039 - Santa Encyclopedia No.3 - Santa Encyclopedia that contains method about how to make the Christmas Socks.\n#cDouble click on the item to open the book.
+4161040 - Santa Encyclopedia No.4 - Santa Encyclopedia that contains characteristics of Santa.\n#cDouble click on the item to open the book.
+4161041 - Santa Encyclopedia No.5 - Santa Encyclopedia that contains how to do a good thing for Christmas.\n#cDouble click on the item to open the book.
+4161042 - Santa Encyclopedia No.6 - Santa Encyclopedia that explains about the Santa village of Finland.\n#cDouble click on the item to open the book.
+4161043 - Santa Encyclopedia No.1 - Santa Encyclopedia that contains the history of Santa.\n#cDouble click on the item to open the book.
+4161044 - Cygnus Knight's Book Volume 1 - A recording of the conversation I had with the book containing Cygnus' thoughts.
+4161045 - Cygnus Knight's Book Volume 2 - A recording of the conversation I had with the book containing Cygnus' thoughts.
+4161046 - Cygnus Knight's Book Volume 3 - A recording of the conversation I had with the book containing Cygnus' thoughts.
+4161047 - Noblesse Guide - A guide for Noblesses.\n#cThe book can be opened by double-clicking on it.#  
+4161048 - Legend's Guide - A guide strictly for the Legends. \n#cDouble-click the item to open.#
 4170000 - Pigmy Egg - Pigmy of Henesys laid this egg. The egg is so hard and dense that it will simply not break unless using a special tool.
 4170001 - Pigmy Egg - Pigmy of Ellinia laid this egg. The egg is so hard and dense that it will simply not break unless using a special tool.
 4170002 - Pigmy Egg - Pigmy of Kerning City laid this egg. The egg is so hard and dense that it will simply not break unless using a special tool.
@@ -1619,6 +2208,7 @@
 4170006 - Pigmy Egg - Pigmy of Orbis laid this egg. The egg is so hard and dense that it will simply not break unless using a special tool.
 4170007 - Pigmy Egg - Pigmy of Aquarium laid this egg. The egg is so hard and dense that it will simply not break unless using a special tool.
 4170009 - Pigmy Egg - An egg laid by Pigmy in Notilus. The egg is so steely strong, that unless a special device is used, this doesn't crack. #cDouble-click it to put it on the incubator.#
+4170012 - DS Egg   - A small egg taken out of the DS egg basket. The egg is hard as steel and cannot be opened without a special device. #cWill be placed in an incubator when you double-click it.#   
 4210000 - Moon stone ring - This is a seal of love that you promised to marry someone you love. If you discard it, you break off the engagement.
 4210001 - Moon stone ring 2 karat - This is a seal of love that you promised to marry someone you love. If you discard it, you break off the engagement.
 4210002 - Moon stone ring 3 karat - This is a seal of love that you promised to marry someone you love. If you discard it, you break off the engagement..
@@ -1664,272 +2254,72 @@
 4220019 - Flowerpot - Double click on the item to open the UI and it will grow faster with the help of sun.
 4220020 - Stumpy's Seedling - A baby seedling from a dead Stumpy.
 4220021 - Rag Doll - A doll made out of rag. Double-click it to make a doll out of the skeletal figure. If there comes a time where the doll is not needed, this needs to be returned to Jonas.
+4220022 - Socks Frame - Double click on the item to open the UI to add knitting balls to make the Christmas socks.
 4220023 - Fortune Sheet - A sheet that details this year's fortunes on horoscope.
-4031993 - Bartos' Favorite Juice - A savory juice that Bartos really likes to drink.
 4220045 - Birthday Cake Box - A box that contains the cake commemorating the 5th anniversary of MapleStory. Double-click to see the cake.
-4000367 - Recycle Water Bottle - An empty unwanted bottle dropped by Biner.
-4000368 - Broken Wing - A fallen broken wing from batoo.
-4000369 - Stop Sign - A piece of metal written with a stop word. Dropped by Stopnow.
-4000370 - Metal Pole - An piece of extracted metal.  It can be found from Stopnow and Nospeed.
-4000371 - Speed Limit Sign - A piece of metal indicating speed limitation warning.
-4000372 - Fire Extinguisher - Red Fire extinguisher that Freezer stole from CBD buildings.
-4000373 - Ink - Octobunny's Ink.  So dark but not toxic.
-4000374 - Headlight - An old rusty light projector dropped by Trucker.
-4000375 - Tires - Mini set of tires.  It doesn't seem like it is usuable.
-4000376 - Batteries - Car batteries that dropped from Trucker.   It seems like it has ran out of power.
-4000377 - Small Poop - A tiny stinky poop, relatively small sized.
-4000378 - Big Poop - An enormous poop.  It is extremely smelly.
-4000379 - Green Essence - This Green Essence is extracted from Slimy. It contains a mysterious power.
-4000380 - Pink Essence - This Pink Essence is extracted from Pac Pinky.  It contains a mysterious power.
-4000381 - White Essence - This White Essence is extracted from Mr. Anchor.  It contains a mysterious power to unlock the door to secret.
-4000382 - Blue Essence - This Blue Essence is extracted from Selkie Jr.  It contains a mysterious power.
-4000383 - Red Essence - This Red Essence is extracted from Mr. Anchor.  It  contains mysterious power.
-4000384 - Black Essence - The black soul from Capt. Latanica.  It seems extremely powerful.
-4000385 - Soul Lantern - A mysterious lantern that glows in dark.  It is believed that this lantern will produce an incredible power if it is used correctly.
-4032133 - Zakum Diamond - (no description)
-4032134 - Stone Denari - (no description)
-4160034 - Pet Command Guide : Baby Robo - A guide that has all the commands for the Baby Robo.\n#cDouble-click on the item to open the guide.#
-4160035 - Pet Command Guide : Blue/Red/Green/Gold Robo - A guide that has all the commands for the Blue/Red/Green/Gold Robo.\n#cDouble-click on the item to open the guide.#
-4160036 - Pet Command Guide : Gorilla Robo - A guide that has all the commands for the Gorilla Robo.\n#cDouble-click on the item to open the guide.#
-4001232 - White Gift Box - A white gift box that can be found inside the New Year's Lucky Pouch. Bring it to the Game Administrator to receive a gift from the box.
-4001233 - Red Gift Box - A red gift box that can be found inside the New Year's Lucky Pouch. Bring it to the Game Administrator to receive a gift from the box.
-4001234 - Blue Gift Box - A blue gift box that can be found inside the New Year's Lucky Pouch. Bring it to the Game Administrator to receive a gift from the box.
-4001235 - Purple Gift Box - A purple gift box that can be found inside the New Year's Lucky Pouch. Bring it to the Game Administrator to receive a gift from the box.
-4032176 - Rascal Snowpiece - A snowpiece dropped by those that are only too eager to spoil Maplemas for everyone.
-4300000 - New Year's Card (Send) - A beautiful card with season's greetings.
-4301000 - New Year's Card (Receive) - A beautiful card with season's greetings. Double click on it to read!
-4032092 - Force of the Spirit - A magical item that contains the magic force of the Snow Spirit. Apparently it contains mystical magic...
-4032094 - Snow Vigor - A magical vigor of snow that provides much-needed support to the snowman. Drop this item on the snowman and magical things may happen.
-4032095 - Fake Snow Vigor - A magical vigor of snow that provides much-needed support to the snowman. Drop this item on the snowman and magical things may happen.
-4032091 - A Secret Note - A secret note writen by Snow Spirit of Happyville for Alcaster.
-4160037 - Pet Command Guide : Crystal Rudolph - A guide that has all the commands for the Crystal Rudolph.\n#cDouble-click on the item to open the guide.#
-4032233 - Maple Necklace Chain - This can be used to create the Mind of Maple Necklace.
-4032239 - Piece of Mind of Maple - A piece of Mind of Maple given by Chief Stan
-4032247 - Richard's Letter - A love letter written by Richard. Needs to be delivered to Angelique of Amoria...
-4160039 - Pet Command Guide : White Duck - A guide that has all the commands for the pet white duck.\n#cDouble-click on the item to open the guide.#
-4032119 - MV's Sabre - A shining sabre of MV, hidden deep in the treasure dungeon.
-4032118 - A secret letter - A secret letter that contains information about the traitorous MV.  Needs to be delivered to Charles the Adventurer.
-4032248 - Map to MV's Lair - (no description)
-4000487 - Shadow Meso - (no description)
-4001256 - Primal Claw - A symbolic weapon of Thief mastery.  Although it can't be equipped, its power is palpable.  This item must be placed in the Altar of Mastery to activate it.
-4000443 - Cracked Hourglass - Cracked hourglass.  It looks broken but it still functions.
-4000444 - Green Cloth - A piece of clothing from the Memory Monk.
-4000445 - Green Cone Hat - Hat worn by the Memory Monk Trainee
-4000446 - Smiley Mask - A mask made from a smiley face.
-4000447 - Green Helmet - Helmet worn by the Memory Guardian
-4000448 - Green Heart - Heart of the Chief Memory Guardian
-4000449 - Blue Cloth - A piece of clothing from the Qualm Monk
-4000450 - Blue Cone Hat - Hat worn by the Qualm Monk Trainee.
-4000451 - Neutral Mask - A mask made from an expressionless face.
-4000452 - Blue Helmet - Helmet worn by the Qualm Guardian
-4000453 - Blue Heart - Heart of the Chief Qualm Guardian
-4000454 - Red Cloth - A piece of clothing from the Oblivion Monk.
-4000455 - Red Cone Hat - Hat worn by the Oblivion Monk Trainee.
-4000456 - Frowny Mask - A mask made from a frowny face.
-4000457 - Red Helmet - It's a helmet that an Oblivion Guardian was wearing.
-4000458 - Red Heart - Heart of the Chief Oblivion Guardian.
-4000459 - Black Armor Fragment - A piece of the armor that was covering the guardian's shoulder.
-4000460 - Whale's Helmet - Helmet worn by Dodo, the Whale of Time.
-4000461 - Knight's Mask - Mask worn by Lilynouch, the Ice Knight.
-4000462 - Guardian's Horn - Guardian Lyka's horn.
-4001176 - Shovel - A small shovel with a short handle for easier shoveling.
-4001177 - White Crewneck Shirt - A plain, white cotton shirt.
-4001178 - Beach Sandals - A pair of sandals perfect for walking around the beach on a hot summer day.
-4001179 - Water Gun for Training - It looks exactly like the Laser Gun, but it's a water gun, making it an optimal weapon for training.
-4001180 - Gloves for Outside - A durable pair of gloves perfect for outside.
-4001181 - Mittens - A warm, red furry pair of mittens.
-4001182 - Clean Mop - A clean mop that hasn't been used yet.
-4001183 - Training Uniform - A white training uniform featuring a red belt. The uniform lets in air and is very light, so the students won't pass out training under the sun.
-4001184 - Durable Rake - A metal rake used to rake the farm.
-4001185 - Warm Fur Boots - A pair of warm fur boots that goes up to the ankle. 
-4001186 - King's Turban - A special turban ordered by Abdullah VIII. Very fancy, to say the least.
-4001190 - Blackhole Marble - Inside a clear marble, there is a black hole like figure swirling around.
-4001191 - Excellent Agent Badge - A badge that is given to an agent who accomplishes their mission with excellence. 
-4001192 - Intelligence Document - Intelligence document that contains investigations regarding Master M and party quest monsters.
-4001193 - Transparent Item for Lightning - A transparent item for lightning expressions.
-4001198 - Altaire Fragment - This is given to those who save Altaire Camp from Forest of Poison Haze.
-4020009 - Piece of Time - A raw ore of a gem that contains the power of time.
-4021010 - Rock of Time - A fascinating gem that contains the power of time.
-4031988 - Special Agent Badge - Item Agent O asked me to retrieve.  I should take it back to Agent O.
-4031991 - Timer's Egg - This is Timer's egg. It's too hard to crack. Ghosthunter Bob must know what to do with this.
-4031992 - Springy Worm - This little worm lives in Ludirium. It's so small it's not at all threatening.
-4031999 - Master M's Direction Scroll - Directions believed be written by Master M.
-4032000 - Master M's Order Scroll - An order believed to be written by Master M.
-4032001 - Master M's Command Scroll - A command believed to be written by Master M.
-4032002 - Marble of Chaos - This marble was created by Temple Keeper. It can break the barrier with the chaotic power within.
-4032086 - Mysterious Small Egg - A Fairy with a luscious purple hair said something that's hard to understand, then left a mysterious, small egg in the pocket. Can't figure out what this egg really is, but the Fairy may help identify the egg.
-4161037 - A Guide to Using the Maker Skill - [Maker] This is a guide to help you use the Maker Skill.  
-4161042 - Santa Encyclopedia No.6 - Santa Encyclopedia that explains about the Santa village of Finland.\n#cDouble click on the item to open the book.
-4161044 - Cygnus Knight's Book Volume 1 - A recording of the conversation I had with the book containing Cygnus' thoughts.
-4161045 - Cygnus Knight's Book Volume 2 - A recording of the conversation I had with the book containing Cygnus' thoughts.
-4161046 - Cygnus Knight's Book Volume 3 - A recording of the conversation I had with the book containing Cygnus' thoughts.
 4220046 - Timer's Egg - This is Timer's egg. If you look closely in the half cracked shell, you'll see a baby Timer with wet feathers.
-4280000 - Gold Box - A gold treasure chest dropped by a monster. This can be opened with the Gold Master Key available at the Cash Shop. If you already have the Master Key, just double-click the box to open it.
-4280001 - Silver Box - A silver treasure chest dropped by a monster. This can be opened with the Silver Master Key available at the Cash Shop. If you already have the Master Key, just double-click the box to open it.
-4220074 - Birthday Cake Box - A box that contains the cake commemorating the 4th anniversary of MapleStory. Double-click to see the cake.
-4032306 - Yellow Birthday Candle - A candle Cody was looking for.
-4032307 - Blue Birthday Candle - A candle Cody was looking for.
-4032308 - Pink Birthday Candle - A candle Cody was looking for.
-4032096 - Proof of Exam - The Proof of Exam used for the Knighthood Exam. Take it over to Mihile, and you will be acknowledged as a legitimate knight.
-4032097 - Proof of Exam - The Proof of Exam used for the Knighthood Exam. Take it over to Oz, and you will be acknowledged as a legitimate knight.
-4032098 - Proof of Exam - The Proof of Exam used for the Knighthood Exam. Take it over to Irena, and you will be acknowledged as a legitimate knight.
-4032099 - Proof of Exam - The Proof of Exam used for the Knighthood Exam. Take it over to Eckhart, and you will be acknowledged as a legitimate knight.
-4032100 - Proof of Exam - The Proof of Exam used for the Knighthood Exam. Take it over to Hawkeye, and you will be acknowledged as a legitimate knight.
-4032101 - The Lost Treasure - The lost treasure that was stolen by the Master of Disguise who brazenly entered Ereve. Let's take it back to Mihile.
-4032102 - The Lost Treasure - The lost treasure that was stolen by the Master of Disguise who brazenly entered Ereve. Let's take it back to Oz.
-4032103 - The Lost Treasure - The lost treasure that was stolen by the Master of Disguise who brazenly entered Ereve. Let's take it back to Irena.
-4032104 - The Lost Treasure - The lost treasure that was stolen by the Master of Disguise who brazenly entered Ereve. Let's take it back to Eckhart.
-4032105 - The Lost Treasure - The lost treasure that was stolen by the Master of Disguise who brazenly entered Ereve. Let's take it back to Hawkeye.
-4000209 - Co-ke Slime’s Bell - The bell of Co-ke Slime that has been taken off.
-4000210 - Co-ke Pig’s Ribbon - A piece of Co-ke Pig’s ribbon.
-4000211 - Coca-Cola Cube - A cube with a drawing of a Coca-Cola bottle on it.
-4000212 - CokePLAY Cube - A cube with the CokePLAY symbol.
-4000213 - Coca-Cola Card - A card with a drawing of Coca-Cola.
-4000214 - Coca-Cola Gem - A red gem with a Coca-Cola logo engraved on it.
-4000216 - Coca-Cola Can - An empty can that had been filled with the sweet and tangy Coca-Cola.
-4000217 - Coca-Cola Light Can - An empty can that had been filled with Coke Light, a drink with zero calories.
-4000218 - Ice Shell - A turtle shell shaped like an igloo that is made of ice.
-4000219 - Coke Ice Block - A block that had been part of the hard body of a Coke Golem. It looks like frozen Cola.
-4000220 - Ice Block - A block that had been part of the hard body of an Ice Golem.
-4000221 - Coke Bottle Lid - A bottle lid that a Coke Mushroom used to wear on its head.
-4001142 - Henesys - Henesys
-4001143 - Elinia - Elinia
-4001144 - Perion - Perion
-4001145 - Kerning City - Kerning City
-4001146 - Lith Harbor - Lith Harbor
-4001148 - Sleepywood - Sleepywood
-4001149 - Aquarium - Aquarium
-4001150 - Baekcho Village - Baekcho Village
-4001151 - Happy Valley - Happy Valley
-4001152 - Ariant - Ariant
-4001153 - Magatia - Magatia
-4031832 - Sophelia’s Portrait - A portrait of Sophelia.
-4031833 - Pumpkin Juice - A juice made with pumpkin. It is very fragrant.
-4031834 - Perfect Tool - The most perfect tool for making dolls.
-4031835 - Lyudmilla’s Earring - The earrings that Lyudmilla lost. They shine with brilliance.
-4031836 - Score - The score that Lyudmilla asked for. No one knows what kind of music is in it.
-4031837 - Dumped Doll - A doll that Sophelia used to cherish a long time ago. She threw it away when she got a new doll.
-4031838 - Piece of Cloth - A small piece of cloth. If you drag and drop it onto the rag doll, the doll will be completed bit by bit.
-4000482 - Tino's Feather - Tino's feather that is as light as a flowerseed.
-4000483 - Tiv's Feather - Tiv's Feather. So light, I was concerned it might just blow away.
-4000484 - Timu's Feather - Timu's Feather. Still very soft in texture.
-4000485 - Tiru's Feather - Tiru's Feather. A combination of numerous light Tiru's feathers.
-4000486 - Tiguru's Feather - Tiguru's Feathers that are so soft and slick, one can make a pillow out of it.
-4001174 - Practice Shoes - The most basic form of shoes for practice.
-4001175 - Kid Shoes - Adorable cute shoes that are obviously only for dids.
-4001187 - Beltin - A mysterious fish that allows one to sing well and in tune after eating it.
-4001188 - Breakin - A mysterious fish that allows one to rock the dance floor after eating it.
-4001189 - Poppin - A mysterious fish that allows one to sing well and in rhythm after eaten it.
-4001197 - Bluish Mineral - A mineral featuring bluish color
-4001199 - Straw - A warm set of straws used to make a bird's nest. Gather them all up, and bring them together and show them to Gaga.
-4001201 - Funny Travel Stories - A tape that contained all the fun adventure stories recorded while on the road.
-4001202 - Top 10 Pop Star Hits - A tape that only contained the lastest from radio and tv.
-4001203 - Manji's Ragged Diary - An old, ragged diary that includes the war stories of Manji in Perion. Let's return it to the Maple Admin.
-4001204 - Gwin's Travel Stories - A collection of travel storries that Gwin wrote. Need to hand it back to the Maple Admin.
-4001205 - Ericsson's Travel Stories - A handwritten, gripping account of Ericsson's days as an explorer. 
-4001207 - Black Scale - A scale that's slightly dyed in black. Something doesn't seem right with this.
-4001213 - Strange Mark - A mysterious-looking mark.
-4001214 - Richie Gold - Golden Key - A key that leads to Richie Gold's treasure storage. Entering this storage alone requires 3 keys. \n#cRelated Quest:Richie Gold's Maze
-4001215 - Whatever Charm - A charm that lets one skip a mission.
-4001216 - Diamond Mark - It's a diamond mark.
-4001217 - Heart Mark - It's a diamond mark.
-4001218 - Space Mark - It's a space mark.
-4001219 - Clover Mark - It's a clover mark.
-4001237 - Slightly Polluted Rock - This rock has a slight hint of that unmistakable force of darkness.
-4001238 - Polluted Rock - This rock really has the force of Black Mage stored in it.
-4001239 - Heavily Polluted Rock - This rock contains a powerful force of Black Mage stored in it.
-4001240 - Polluted Item - A piece of rock that has been irreparable damaged because of the force of the Black Mage.
-4007000 - Magic Powder (Brown) - A brown Magic Powder used to create armors.
-4007001 - Magic Powder (White) - A white Magic Powder used to create armors.
-4007002 - Magic Powder (Blue) - A blue Magic Powder used to create armors.
-4007003 - Magic Powder (Green) - A green Magic Powder used to create armors.
-4007004 - Magic Powder (Yellow) - A yellow Magic Powder used to create armors.
-4007005 - Magic Powder (Purple) - A purple Magic Powder used to create armors.
-4007006 - Magic Powder (Red) - A red Magic Powder used to create armors.
-4007007 - Magic Powder (Black) - A black Magic Powder used to create armors.
-4031963 - Eel's Half Pendant - A pendant that Eels carries with, with a broken jewel on the pendant.
-4031964 - Piece of Pendant - The other half of Eels's necklace. A perfect tft it with Eels's pendant.
-4031965 - Eel's Pendant - Eels's pendant that is finally seeing its original night of day. It looks like it might have some mysterious power in it.
-4031966 - Practice Shoes Order Form - Order : Keol\nItem : Practice Shoes\nUnits : 1\nUsage : For Test
-4031967 - Kids' Shoes Order Form - Order : Keol\nItem : Kids' Shoes\nUnits : 1\nUsage : Gift
-4031968 - Work Shovel Order Form - Order : Manager Karl\nItem : Shovel for work\nUnits : 10\nUsage : Restoring Eos Tower
-4031969 - White Cotton Shirt Order Form - Order : Maple Admin\nItem : White Cotton Shirt\nUnits : 100\nUsage : For Beginners
-4031970 - Beach Sandals Order Form - Order : Valen\nItem : Beach Sandals\nUnits : 5\nUsage : Store
-4031971 - Training Gun Order Form - Order : General Maester\nItem : Training Gun\nUnits : 7\nUsage : For soldier trainees
-4031972 - Outdoor Gloves Order Form - Order : Keol\nItem : Outdoor Gloves\nUnits : 1\nUsage : Personal
-4031973 - Mittens Order Form - Order : Cliff\nItem : Mittens\nUnits : 1\nUsage : Personal
-4031974 - Clean Mop Order Form - Order : Kyrin\nItem : Clean Mop\nUnits : 6\nUsage : To clean the deck
-4031975 - Training Uniform Order Form - Order : No Gong\nItem : Training Uniform\nUnits : 30\nUsage : Worn during training
-4031976 - Strong Rake Order Form - Order : Chil Sung, Chil Name\nItem : Solid, Strong Rake\nUnits : 2\nUsage : Farming, raking
-4031977 - Fur Boots Order Form - Order : Nanuke\nItem : Warm Fur Boots\nUnits : 1\nUsage : Personal
-4031978 - King's Turban Order Form - Order : Abdullah VIII\nItem : King's Turban\nUnits : 1\nUsage : Personal
-4031979 - Doodly Paper - A piece of paper with illegible doodling on it.\n#Mix gold and iron in the ratio of 6:2, then cover it with wisdom and courage stored in Lithium.# Then...
-4031980 - Gold Anvil - An anvil that glows in gold.
-4032035 - A Lost Snipe - A Snipe that has lost her way. Take her and move up to a high point, where she can use the launch pad-like area to try to fly her way back home.
-4032036 - Special Ticket to the Moon - As long as you have this with you, the Moon Bunny will give you the Sweet Rice Cake 5 times a day.
-4032037 - Beef Slice - A single slice of beef. Marinate it, then grill it to try to make the Fire Grill Skewer.
-4032038 - Dry Mushroom - A single slice of dried mushroom. Mix it with some seasoning to make a Fire Grill Skewer.
-4032039 - Whole Bellflower - A whole bellflower that can be used as part of the Fire Grill Skewer if soaked in salt water
-4032040 - Fire Grill Skewer Dish - Simply a Fire Grill Skewer placed on a pretty dish. Nothing says Thank You quite like a nice dish of Fire Grill Skewer.
-4032041 - Moon Flower - A beautiful flower that apparently only grows on the moon. Constantly glitters, thanks to all that moonlight it's been soaking up.
-4032042 - 1st Moon Photo Piece - The first piece of photo of the moon. Collect the other two, and it'll turn into a photo of a beautiful full moon. Place the pictures inside the envelope to make sure they don't rip.
-4032043 - 2nd Moon Photo Piece - The second piece of photo of the moon. Collect the other two, and it'll turn into a photo of a beautiful full moon. Place the pictures inside the envelope to make sure they don't rip.
-4032044 - 3rd Moon Photo Piece - The third piece of photo of the moon. Collect the other two, and it'll turn into a photo of a beautiful full moon. Place the pictures inside the envelope to make sure they don't rip.
-4032066 - Baby Bird Feather - A soft feather presumably from a baby bird. Gaga will definitely like this.
-4032083 - Ludmilla's Photo Albm - Ludmilla's Family Photo Albm
-4032084 - Sophilia's Perfect Doll - A perfect Sophilia Doll made by Jonas
-4032085 - Peto Doll - A doll that has the ability to transform into Peto.
-4032087 - Lucky White Monkey Doll - A white monkey doll that is considered a lucky charm. Whether it really brings good luck remains to be seen.
-4032088 - Ludmilla's Photo Albm - Ludmilla's Family Photo Albm
-4032115 - Neinheart's Letter - A letter of introduction from Neinheart. Hand this to Kiridu the Mount Trainer, and you'll learn to ride a Mount available exclusively to the knights.
-4032116 - Kiridu's Letter - A letter of introduction from Kiridu. Hand this to Kenta of Aquarium, and you'll receive a saddle for your Mount.
-4032117 - Kenta's Special Supplements - A special form of supplements concocted by Kenta.
-4032120 - Proof of Qualification - The Proof of Qualification that is required to learn a new skill. This proof signifies that you are ready to learn a new skill.
-4032121 - Proof of Qualification - The Proof of Qualification that is required to learn a new skill. This proof signifies that you are ready to learn a new skill.
-4032122 - Proof of Qualification - The Proof of Qualification that is required to learn a new skill. This proof signifies that you are ready to learn a new skill.
-4032123 - Proof of Qualification - The Proof of Qualification that is required to learn a new skill. This proof signifies that you are ready to learn a new skill.
-4032124 - Proof of Qualification - The Proof of Qualification that is required to learn a new skill. This proof signifies that you are ready to learn a new skill.
-4032125 - Proof of Ability - The Proof of Ability that is required to learn a new skill. This proof signifies that you are ready to learn a new skill.
-4032126 - Proof of Ability - The Proof of Ability that is required to learn a new skill. This proof signifies that you are ready to learn a new skill.
-4032127 - Proof of Ability - The Proof of Ability that is required to learn a new skill. This proof signifies that you are ready to learn a new skill.
-4032128 - Proof of Ability - The Proof of Ability that is required to learn a new skill. This proof signifies that you are ready to learn a new skill.
-4032129 - Proof of Ability - The Proof of Ability that is required to learn a new skill. This proof signifies that you are ready to learn a new skill.
-4032130 - Pig Doll - An adorable doll that resembles a pig. However, something doesn't seem right…
-4032131 - Pig Doll - An adorable doll that resembles a pig. However, something doesn't seem right…
-4032132 - Roca's Mission Report - A mission report written by Roca, the Agent for Henesys. This compiles a list of events that have taken place recently.
-4032136 - Bubbling Doll - An adorable doll that was designed based on Bubbling, but something doesn't seem right. The way it smiles just seems a bit off, as if it has hidden agenda.
-4032137 - Bubbling Doll - An adorable doll that was designed based on Bubbling, but something doesn't seem right. The way it smiles just seems a bit off, as if it has hidden agenda.
-4032138 - Bubbling Doll - An adorable doll that was designed based on Bubbling, but something doesn't seem right. It's in…tears.
-4032139 - Old Key - An old, rusty key that Mr. Pickall has been looking for.
-4032140 - Bubbling Doll - An adorable doll that was designed based on Bubbling, but something doesn't seem right. It's in…tears.
-4032141 - Mattias' Mission Report - A mission report written by Roca, the Agent for Kerning City. This compiles a list of events that have taken place recently.
-4032142 - Clear Tree Sap - A clear tree sap that can only be found at the very top of the skyscraping trees. Accompanied by the freshest green scent.
-4032143 - Fruit - A fruit picked from plants near Henesys.
-4032144 - Hersha's Mission Report - A mission report written by Hersha, the Agent for Ellinia. This compiles a list of events that have taken place recently.
-4032145 - Detector - A detector made to detect any forces of darkness. Take this to the 10 Boogies.
-4032146 - Wooden Mask Doll - An adorable doll modeled after the Wooden Mask, but something doesn't seem right…
-4032147 - Rocky Mask Doll - An adorable doll modeled after the Stone Mask, but something doesn't seem right…
-4032148 - Detector - A detector created with the sole purpose of detecting the Puppeteer's movements. We put it to good use, so let's return it to Neinheart.
-4032149 - 10 Boogies' Mission Report - A mission report written by 10 Boogies, the Agents for Perion. This compiles a list of events that have taken place recently.
-4032178 - Hack Attempt - A record that shows that Chief Grays tried to hack into the system.
-4032179 - Ereve Investigation Permit - A permitt that allows one to investigate every part of Ereve. When the Red Alert is on, this permit is the only way you can roam freely around Ereve.
-4032190 - Orange Mushroom Doll - An adorable doll modeled after the Orange Mushroom, but something doesn't seem right…
-4032196 - Concentrated Formula: Step 1 - A formula concentrated with effective and potent ingredients. The first formula used to raise Mimiana and Mimio
-4032197 - Concentrated Formula: Step 2 - A formula concentrated with effective and potent ingredients. The second formula used to raise Mimiana and Mimio.
-4032198 - Concentrated Formula: Step 3 - A formula concentrated with effective and potent ingredients. The third formula used to raise Mimiana and Mimio.
-4032206 - Ellinia Alpine Plants - Plants that only grow in Ellinia. They closely resemble fernbrakes.
-4032208 - Neinheart's Letter - A letter of introduction from Neinheart. Give this to Kiridu the Mount Trainer, and you'll learn to ride a Mount available exclusively to the knights.
-4130018 - Armor Production Stimulator - Use this when making a headgear to change the item option. Beware that this also carries a 10% risk of ruining the item production.
-4130019 - Topwear Production Stimulator - Use this when making a topwear to change the item option. Beware that this also carries a 10% risk of ruining the item production.
-4130020 - Bottomwear Production Stimulator - Use this when making a bottomwear to change the item option. Beware that this also carries a 10% risk of ruining the item production.
-4130021 - Overall Production Stimulator - Use this when making an overall to change the item option. Beware that this also carries a 10% risk of ruining the item production.
-4130022 - Shield Production Stimulator - Use this when making a shield to change the item option. Beware that this also carries a 10% risk of ruining the item production.
 4220067 - Moon  - An envelope used to contain a picture of the moon. Made out of durable paper that will not rip as a result of shock caused by jumping. Once you acquire a piece of the moon photo, double-click on it to open the envelope, then drag the piece of photo into it. 
+4220074 - Birthday Cake Box - A box that contains the cake commemorating the 4th anniversary of MapleStory. Double-click to see the cake.
+4220089 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220090 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220091 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220092 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220093 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220094 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220095 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220096 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220097 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220098 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220099 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220100 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220101 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220102 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220103 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220104 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220105 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220106 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220107 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220108 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220109 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220110 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220111 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220112 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220113 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220114 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220115 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220116 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220117 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220118 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220119 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220120 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220121 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220122 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220123 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220124 - Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220125 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220126 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220127 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220128 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220129 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220130 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220131 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220132 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220133 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220134 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220135 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
+4220136 - Golden Egg - This is Lazy Daisy's egg she has left in your care. If you double-click and leave the UI open, it will grow faster. 
 4220137 - Mimiana Egg - An egg of Mimiana, the Mount for knights. Watch the egg grow into a full-grown Mimiana by sharing your experiences with it. Once it matures into a full-grown creature, take it to Kiridu the Mount Trainer.
 4220138 - Glass Incubator - A glass incubator where Mimiana is stored. Drag the food into the incubator to feed Mimiana. Once it matures, take it back to Kiridu the Mount Trainer.
 4220139 - Mimiana Egg - An egg of Mimiana, the Mount for knights. Watch the egg grow into a full-grown Mimiana by sharing your experiences with it. Once it matures into a full-grown creature, take it to Kiridu the Mount Trainer.
 4220145 - Mimiana Egg - An egg of Mimiana, the Mount for knights. Watch the egg grow into a full-grown Mimiana by sharing your experiences with it. Once it matures into a full-grown creature, take it to Kiridu the Mount Trainer.
 4220146 - Mimiana Egg - An egg of Mimiana, the Mount for knights. Watch the egg grow into a full-grown Mimiana by sharing your experiences with it. Once it matures into a full-grown creature, take it to Kiridu the Mount Trainer.
+4220147 - Mind of Maple Necklace - A Mind of Maple Necklace that brings luck and hope to anyone who wears it.
+4220148 - Portrait of an Orange Mushroom   - Drawing paper on which you can draw a portrait of an Orange Mushroom. The portrait of an Orange Mushroom can be completed by using the Amazing, Mystical, or Magical watercolor paint on it. \r\n#cCan be opened by double-clicking on it with the mouse.#  
+4220149 - Portrait of an Octopus   - Drawing paper on which you can draw a portrait of an Octopus. The portrait of an Octupus can be completed by using the Amazing, Mystical, or Magical watercolor paint on it. \r\n#cCan be opened by double-clicking on it with the mouse.# 
+4220150 - Portrait of a Yeti   - Drawing paper on which you can draw a portrait of a Yeti. The portrait of a Yeti can be completed by using the Amazing, Mystical, or Magical watercolor paint on it. \r\n#cCan be opened by double-clicking on it with the mouse.#   
+4220151 - Hanging Scroll   - A Hanging Scroll given to you by the Black Wing Shadow Warrior. The erased content can be restored by using special ink.\r\n#cCan be opened by double-clicking on it with a mouse.#
+4220152 - Rainbow Drawing - A sheet of sketch paper that has a rainbow drawing.  \r\n#cYou can open it with your mouse by double-clicking.#
+4220153 - Dirty Treasure Map - A treasure map given by Kyrin. There are three sections--red, green, and white--that are invisible. The green section should be cleaned first. \r\n\r\n*If you don't need the item anymore, just go to Jack in the Top Floor - Hallway to discard it.#
 4250000 - Basic Diamond - A jewel used primarily for item-production.\nWeapon ATT+1
 4250001 - Intermediate Diamond - A jewel used primarily for item-production.\nWeapon ATT+2
 4250002 - Advanced Diamond - A jewel used primarily for item-production.\nWeapon ATT+3
@@ -1984,403 +2374,12 @@
 4260006 - Advanced Monster Crystal 1 - A Monster Crystal that was formed by combining the droppings of monsters on level 101 ~ 110.
 4260007 - Advanced Monster Crystal 2 - A Monster Crystal that was formed by combining the droppings of monsters on level 111 ~ 120.
 4260008 - Advanced Monster Crystal 3 - A Monster Crystal that was formed by combining the droppings of monsters on level 121 ~ 130.
-4000508 - Miwok Artifact - An artifact in which the Miwok tribe has sealed their treasure. Purchase an Enchanted Scroll at the Cash Shop in order to release the seal and retrieve the treasure, and take it to NPC Toh Relicseeker. 
-4000509 - Old Tree Branch of the Wise One - The Old Tree Branch that the Wise One from the Miwok tribe used to predict the future. Kopee Relicseeker says she can make the legendary ring using the tree branch.
-4000510 - Bluejay Feather of the Wise One - The Bluejay Feather that the Wise One from the Miwok tribe used to predict the future. Kopee Relicseeker says she can make the legendary ring using the feather.
-4000511 - Red Bird Feather of the Wise One - The Red Bird Feather that the Wise One from the Miwok tribe used to predict the future. Kopee Relicseeker says she can make the legendary ring using the feather.
-4000512 - Cat Eye of the Brave One - The cat eye with which the Brave One from the Miwok tribe equipped himself in battles. Kopee Relicseeker says she can make the legendary ring using the cat eye.
-4000513 - Buffalo Horns of the Brave One - The buffalo horn with which the Brave One from the Miwok tribe equipped himself in battles. Kopee Relicseeker says she can make the legendary ring using the horn.
-4000514 - Puma Bones of the Brave One - The puma bone with which the Brave One from the Miwok tribe equipped himself in battles. Kopee Relicseeker says she can make the legendary ring using the puma bones.
-4032404 - Miwok Artifact Piece - A piece that appears to be a fragment of the Miwok Artifact. 
-4001254 - Shiny Maple Coin - An octagonal gold coin with a maple mark. The Shiny Maple Coins can be traded for items from Spiegelmann.
-4000515 - Aramia's Book - Aramia's Book-Drive Book
-4160040 - Pet Guide : Pink Bean - A guide that has all the commands for the Pink Bean.\n#cDouble-click on the item to open the guide.#
-4032246 - Spirit of Fantasy Theme Park - Very important key item to save Fantasy Theme Park from monsters' threat.
-4000469 - Scarf - Must have fashion item.
-4000470 - Tall Hat - Victorian silk hat.
-4000471 - Rodeo's Master - Master of a Rodeo
-4000472 - Charmer's Flute - Deadly weapon of Charmer.
-4000473 - Dented Barrel - Dented wooden barrel soaked with oil.
-4000474 - Lucky Hat - Cute little hat that Froscola loves to wear.
-4000475 - Lucky Bus Ticket - Bus ticket that can take you to the city.
-4000476 - Toy Plane - Cute little toy plane, perfect as a gift for children.
-4000477 - Viking Helmet - Nice sturdy Viking style helmet.
-4000478 - Wooden Pony Tail - Wooden tail of Gallopera.
-4001242 - Scarlion Boss's Foot - Scarlion Boss's magical foot.
-4001241 - Targa's Foot - Targa's magical foot.
-4000465 - Coconut Husk - Coconut husk that Chlorotrap had left.
-4000466 - Rebab - Traditional musical instrument of Malaysia.
-4000467 - Yellow Wig - Silky and shiny hair of Dark Fission.
-4000468 - Somebody's Tire - A tire that Oly Oly stole from someone.
-4001245 - Pigmy's Golden Egg   - Pigmy's Golden Egg. It can only be hatched by a fairy from a fairytale. 
-4001246 - Warm Sunlight   - Drop the Warm Sunlight in front of the Bean Stalk to make it grow.  
-4001247 - Story Treasure Box   - A Treasure Box hidden in the Dungeon. 
-4001255 - Golden Pig's Hard Egg - It's too hard to open. It may be a good idea to bring it to Goldrich. 
-4001261 - Piece of Balrog Leather  - A piece of leather from a Balrog's rough hide.  
-4001263 - Fine Wool  - This wool is fine.  
-4001264 - Shepherd Boy's Lunch.  - This is a Shepherd Boy's Lunch. Collect and deliver them to the Lamb. You can get a reward when you win. 
-4001268 - Brown Krypto Crystal   - A Brown Krypto Crystal containing the mysterious energies of space.  
-4001269 - Emerald Krypto Crystal   - An Emerald Krypto Crystal containing the mysterious energies of space.  
-4001270 - Warm-hearted Child's Note  - An item that is falsely rumored to be only visible to warm-hearted children. Take it to Cassandra.  
-4001271 - Lost Child  - A child that is lost.
-4001272 - Giant Nependeath Seed   - A seed from a Giant Nependeath. It's very big.  
-4001300 - Granada   - A captivating single rose loved by the Witch.  
-4001301 - Gaga's Excavation Permit - A permit that allows one to dig up relics. Talk to Gaga to receive another permit.
-4001302 - Valuable Artifact - A relic that looks very rare.
-4001303 - Petrified Mouse - The first of 8 treasures mentioned by Shuang.
-4001304 - Gaga's Glasses - The second of 8 treasures mentioned by Shuang.
-4001305 - Cassandra's Crystal Ball - The third of 8 treasures mentioned by Shuang.
-4001306 - The Shiny Watch - The fourth of 8 treasures mentioned by Shuang.
-4001307 - A Soccer Cleat - The fifth of 8 treasures mentioned by Shuang.
-4001308 - The Quest Completion Book - The sixth of 8 treasures mentioned by Shuang.
-4001309 - A Pretty Hair-Tie - The seventh of 8 treasures mentioned by Shuang.
-4001310 - An Old Shoe - The last of 8 treasures mentioned by Shuang.
-4001311 - Ancient Relic - A relic that appears to be very old.
-4001316 - Cassandra's Album - A photo album filled with Cassandra's baby pictures.
-4032250 - Mysterious Piece of Paper   - A piece of paper filled with mysterious scribbles. It looks like an item lost by Mu Young, Manji's apprentice. Take it to Mu Young.  
-4032262 - Mu Young's Message   - A letter that Mu Young asked you to deliver to Manji, his teacher. You must deliver it to Manji in Perion.  
-4032263 - Shaman Charm   - A Charm given to you by Chrishrama to be placed on a Shaman Rock. It is said that it contains energies that can chase away evil.
-4032264 - Spring Flower Seed   - A seed that grows into a Spring Flower. 
-4032265 - Spring Flower Petal   - The petals that make up the Spring Flower.  
-4032266 - Dazzling Sunlight  - Dazzling sunlight filled with the feeling of spring.  
-4032267 - Building Stone - A hard building stone that came out of a box. Looks suitable for making a chair.  
-4032268 - Drape - A drape that came out of a box. Looks suitable for making a chair.  
-4032269 - Noblesse Certificate - A certificate proving that you've learned the basic controls for the game. You must show it to Empress Cygnus.  
-4032270 - Glistening Sunlight  - Glistening sunlight filled with the feeling of spring.  
-4032271 - Pure Small Sprout   - A fragrant new sprout filled with the energies of spring. Used as an ingredient for Pure Perfume.  
-4032272 - Stationery of Longing  - Pink stationary that's rumored to return a favorable response if used to send a letter to a secret crush.  
-4032273 - Pencil of Courage X 10   - A pencil that's used to write things you don’t have the courage to say. 
-4032275 - Pure Normal Sprout   - A fragrant new sprout filled with the energies of spring. Used as an ingredient for Pure Perfume. 
-4032276 - Pure Sprout   - A fragrant new sprout filled with the energies of spring. Used as an ingredient for Pure Perfume. 
-4032277 - Pure Large Sprout - A fragrant new sprout filled with the energies of spring. Used as an ingredient for Pure Perfume. 
-4032278 - Stationery of Deep Longing   - Pink stationary that's rumored to return a favorable response if used to send a letter to a secret crush.  
-4032279 - Stationary of Hope and Longing   - Pink stationary that's rumored to return a favorable response if used to send a letter to a secret crush.  
-4032280 - Letter of Love and Longing   - Pink stationary that's rumored to return a favorable response if used to send a letter to a secret crush.  
-4032281 - Pencil of Courage X 100   - A pencil that's used to write things you don’t have the courage to say. 
-4032282 - Pencil of Courage X 1000   - AA pencil that's used to write things you don’t have the courage to say. 
-4032283 - Pencil of Courage X 10000   - A pencil that's used to write things you don’t have the courage to say. 
-4032284 - Child's Broken Toy   - A toy stolen from a child by a monster. It's broken and cannot be used.  
-4032285 - Child's Broken Toy   - A toy stolen from a child by a monster. It's broken and cannot be used.  
-4032286 - Child's Broken Toy   - A toy stolen from a child by a monster. It's broken and cannot be used.  
-4032287 - Child's Broken Toy   - A toy stolen from a child by a monster. It's broken and cannot be used.  
-4032288 - Neinheart's Taxi Coupon - A Taxi coupon given to you by Neinheart. If you're in Ellinia, a taxi will take you to Henesys for free 1 time. 
-4032298 - Party Balloon   - A MapleStory 6th Anniversary Party Item. 
-4032299 - Party Firecracker  - A MapleStory 6th Anniversary Party Item. 
-4032300 - Party Candle   - A MapleStory 6th Anniversary Party Item. 
-4032301 - Party Conehat   - A MapleStory 6th Anniversary Party Item. 
-4032302 - Amazing Watercolor Paint   - These amazing watercolor paints can be used to draw portraits of the Orange Mushroom, Octopus, and Yeti.  
-4032303 - Mystical Watercolor Paint   - These mystical watercolor paints can be used to draw portraits of the Orange Mushroom, Octopus, and Yeti. 
-4032304 - Magical Watercolor Paint   - These magical watercolor paints can be used to draw portraits of the Orange Mushroom, Octopus, and Yeti. 
-4032348 - Secure Bundle of Straw  - A secure bundle of straw that can be used to make the Witch's Broomstick.  
-4032349 - Solid  Bundle of Straw  - A solid bundle of straw that can be used to make the Witch's Broomstick.  
-4032350 - Strong  Bundle of Straw  - A strong bundle of straw that can be used to make the Witch's Broomstick. 
-4161047 - Noblesse Guide - A guide for Noblesses.\n#cThe book can be opened by double-clicking on it.#  
-4170012 - DS Egg   - A small egg taken out of the DS egg basket. The egg is hard as steel and cannot be opened without a special device. #cWill be placed in an incubator when you double-click it.#   
-4220148 - Portrait of an Orange Mushroom   - Drawing paper on which you can draw a portrait of an Orange Mushroom. The portrait of an Orange Mushroom can be completed by using the Amazing, Mystical, or Magical watercolor paint on it. \r\n#cCan be opened by double-clicking on it with the mouse.#  
-4220149 - Portrait of an Octopus   - Drawing paper on which you can draw a portrait of an Octopus. The portrait of an Octupus can be completed by using the Amazing, Mystical, or Magical watercolor paint on it. \r\n#cCan be opened by double-clicking on it with the mouse.# 
-4220150 - Portrait of a Yeti   - Drawing paper on which you can draw a portrait of a Yeti. The portrait of a Yeti can be completed by using the Amazing, Mystical, or Magical watercolor paint on it. \r\n#cCan be opened by double-clicking on it with the mouse.#   
-4220151 - Hanging Scroll   - A Hanging Scroll given to you by the Black Wing Shadow Warrior. The erased content can be restored by using special ink.\r\n#cCan be opened by double-clicking on it with a mouse.#
-4032366 - Vague Aran Memory - A vague memory of the Aran.
-4032367 - Dim Aran Memory - A dim memory of the Aran.
-4032368 - Faint Aran Memory - A faint memory of the Aran.
-4032369 - Cloudy Aran Memory - A cloudy memory of the Aran.
-4032370 - Lingering Aran Memory - A lingering memory of the Aran.
-4032371 - Flickering Aran Memory - A flickering memory of the Aran.
-4001340 - Foreign Object - A green-colored foreign object that was blocking the pipes. Looks very dirty.
-4001341 - Broken Iron Fragment - Looks like a fragment that broke off of something...?
-4001342 - Pig Shaped Bottle - Wine would taste great in this bottle.
-4001343 - Pig Vein - Very durable looking pig vein.
-4001344 - Dark Wooden Board - Straight wooden board.
-4001345 - Sunglasses - Looks like it belongs to a rock star.
-4001346 - Antique - An old antique from Leafre.
-4001347 - Ellinia Tree Barrel - A tree stump from Ellinia with a brown tint.
-4001348 - Memory Fragment - Contains the memory of Solomon's bow.
-4001349 - Octopus Leg Stick - An Octopus Leg that has been dried to resemble a stick.
-4001350 - Pumpkin Head - Wearing this item compels you to listen to some Rock'n Roll.
-4001351 - Devil Hunting Scroll - Scroll that contains the Devil's weakness...
-4001352 - Lost Book - Jay's lost book.
-4001353 - Lost Statue - A statue from Leafre that was lost in Nautilus.
-4001354 - Young Soul - The soul of an innocent child.
-4001355 - Golden Feather - Strange to think that it comes from an animal.
-4001356 - Flint - Can this really be used to start a fire?
-4001357 - Pork - Goes great with wine.
-4001358 - Long Strong Stick - A long stick made of wood.
-4001359 - Small Snail Shell - A curious shell that amplifies sound and reverberates when you scream.
-4001360 - Piece of White Pants - A partial sheet of fabric taken from someone's pants.
-4001361 - Ink - Black ink from an Octopus.
-4001362 - Old Worn-out Paper - This is the treasure that was so hard to get?! But it does have some strange markings on it.
-4001363 - Old Key - Is this the key to the Treasure Box? Not sure where this is supposed to be used.
-4001364 - Orange Mushroom Sample - An extracted portion of the Orange Mushroom.
-4001365 - Octopus Sample - An extracted portion of the Octopus.
-4001366 - Paper with Strange Markings - There appears to be strange markings drawn on it.
-4001367 - Ripped Paper-1 - Clue found near the Dark Portal where Andras is located.
-4001368 - Ripped Paper-2 - Clue found near the Dark Portal where Valefor is located.
-4001369 - Ripped Paper-3 - Clue found near the Dark Portal where Amdusias is located.
-4001370 - Ripped Paper-4 - Clue found near the Dark Portal where Crocell is located.
-4001371 - Ripped Paper-5 - Clue found near the Dark Portal where Marbas is located.
-4001372 - Wild Boar Leather - Smelly leather from a Wild Boar. It's very pungent.
-4001373 - Evil Eye Eyeball - Eek, so disgusting...could you really see with that thing?
-4032478 - V.I. Orange Mushroom Wine - An expensive wine made with Orange Mushroom Caps from Victoria Islands. 
-4032479 - Training Instructor's Badge - Token indicating the Perion Training Instructor.
-4032480 - Stanlica's Guitar - Music can expose the most painful roots of the heart, but it will always reveal the truth.\r\n#c- Chief Stan -#
-4032481 - Unseemly Ocarina - It's missing some holes, as though it were constructed hastily. But the sound seems to be fine.
-4032482 - Darkween's Monster Drum - You must live life with passion, so that the rest of the world might learn how to live.\r\n#c- Dark Lord -#
-4032483 - Solomon's Sealed Bow - Looks quite ordinary for a supposedly legendary bow.
-4032484 - Kyrinvana's Guitar - Blast this song until the rhythm pumps your blood and the chorus echoes through your bones...\r\n#c- Kyrin -#
-4032485 - Large Model of a Coin - A large replica of a coin made by Shumi. Looks very desirable. 
-4032486 - Green Slime Eraser - An eraser made by collecting slime liquids. Use it on the dirty Treasure Map.
-4032487 - Improved Flint - Its heat is strong enough to evaporate water from afar. Use it on the Slightly Cleaned Treasure Map.
-4032488 - Ayan Mercury's Microphone - I will love my life just as I love the melody of this song.(Use it on the dirty Treasure Map.)\r\n#c- Ayan -#
-4032489 - Ink Sack - A Sack containing Ink. Use it on the dirty Treasure Map.
-4032490 - Cold Medicine - Effective Cold Medicine from Henesys.
-4032491 - Andras' Emblem - Emblem of the demon Andras who was sealed up in Perion. It allows you to enter the location in which Andras resides.
-4032492 - Amdusias' Emblem - Emblem of the demon Amdusias who was sealed up in Henesys. It allows you to enter the location in which Amdusias resides.
-4032493 - Valefor's Emblem - Emblem of the demon Valefor who was sealed up in Kerning City. It allows you to enter the location in which Valefor resides.
-4032494 - Crocell's Emblem - Emblem of the demon Crocell who was sealed up in Nautilus. It allows you to enter the location in which Crocell resides.
-4032495 - Marbas' Emblem - Emblem of the demon Marbas who was sealed up in Ellinia. It allows you to enter the location in which Marbas resides.
-4032496 - Devil Hunter's Necklace - Necklace shows that you defeat a Demon.
-4220153 - Dirty Treasure Map - A treasure map given by Kyrin. There are three sections--red, green, and white--that are invisible. The green section should be cleaned first. \r\n\r\n*If you don't need the item anymore, just go to Jack in the Top Floor - Hallway to discard it.#
-4032435 - Tombstone -  I wonder who this tombstone belongs to?
-4032436 - Tombstone -  I wonder who this tombstone belongs to?
-4032437 - Tombstone -  I wonder who this tombstone belongs to?
-4032438 - Haunted Mansion Brass Key - A key that looks like it can unlock the doors inside the Haunted Mansion.
-4032439 - Haunted Mansion Silver Key - A key that looks like it can unlock the doors inside the Haunted Mansion.
-4032440 - Haunted Mansion Gold Key - A key that looks like it can unlock the doors inside the Haunted Mansion.
-4032441 - Olivia's Letter - Olivia's Letter
-4032442 - Olivia's Letter - Olivia's Letter
-4032443 - Olivia's Letter - Olivia's Letter
-4032444 - Green Halloween Stick Candy - A green-colored Halloween Candy that Cassandra likes.
-4032445 - Blue Halloween Stick Candy - A blue-colored Halloween Candy that Cassandra likes.
-4032446 - Red Halloween Stick Candy - A red-colored Halloween Candy that Cassandra likes.
-4000517 - Sophilia's Favorite Doll - Sophilia's Favorite Doll
-4000518 - Haunted Mansion Gold Key - A key that looks like it can unlock the doors inside the Haunted Mansion.
-4000519 - Haunted Mansion Silver Key - A key that looks like it can unlock the doors inside the Haunted Mansion.
-4000520 - Haunted Mansion Brass Key - A key that looks like it can unlock the doors inside the Haunted Mansion.
-4000521 - Olivia's Doll - Olivia's doll, which is obtained by defeating Olivia in the secret room. 
-4000522 - Cursed Frog Egg - A frog egg that has been cursed by Black Magic. Also, it is used as an ingredient in Witch Malady's cooking.
-4000523 - Cursed Cat Spittle - Cat saliva that has been cursed with Black Magic. Also, it is used as an ingredient in Witch Malady's cooking.
-4000524 - Dark Token - Looks like a type of currency used in a world other than Maple World.
-4000489 - Tutorial Tino's Feather - Tutorial Tino's Feather.
+4280000 - Gold Box - A gold treasure chest dropped by a monster. This can be opened with the Gold Master Key available at the Cash Shop. If you already have the Master Key, just double-click the box to open it.
+4280001 - Silver Box - A silver treasure chest dropped by a monster. This can be opened with the Silver Master Key available at the Cash Shop. If you already have the Master Key, just double-click the box to open it.
 4280002 - Premium Gold Box - A gold treasure chest dropped by a monster. This can be opened with the Premium Gold Master Key available at the Cash Shop. If you already have the Premium Gold Master Key, just double-click the box to open it.
 4280003 - Premium Silver Box - A silver treasure chest dropped by a monster. This can be opened with the Premium Silver Master Key available at the Cash Shop. If you already have the Premium Silver Master Key, just double-click the box to open it.
-4032522 - Yellow Turkey Egg - An oversized Yellow Turkey Egg. You can turn this in to Cody.
-4032523 - Green Turkey Egg - An oversized Green Turkey Egg. You can turn this in to Cody. 
-4032524 - Blue Turkey Egg - An oversized Blue Turkey Egg. You can turn this in to Cody. 
-4032525 - Turkey Commando's Eye - A pair of futuristic eyeglasses previously worn by Turkey Commando.
-4000499 - Mutated Spore - Comes from the Renegade Spores.
-4000500 - Poison Mushroom Cap - A cap from the Poison Mushroom. It contains potent poison.
-4000501 - Intoxicated Pig Tail - A pig tail that's been intoxicated by the mysterious herb in El Nath.
-4000502 - Destroyed Helmet - A destroyed helmet that Helmet Pepe wore.
-4000503 - Broken Spear - A spear used by Royal Guard Pepe.
-4000504 - Chief Grey Yeti Horn - A horn from Grey Yeti, one of the head security members of King Pepe.
-4000505 - Chief White Yeti Horn - A horn from White Yeti, one of the head security members of King Pepe.
-4000506 - Chief Gold Yeti Horn - A horn from Gold Yeti, one of the head security members of King Pepe.
-4000507 - Poison Spore - A powerful poisonous spore dropped by the Poison Mushroom. It can penetrate through the barrier of the magic spore once.
-4001317 - Helmet Pepe's Helmet - A helmet worn by Helmet Pepe. Put it on to disguise yourself as a Helmet Pepe.
-4001318 - The Royal Seal of the Mushking Empire - The Royal Seal that represents the power of the Mushking Empire.
-4001320 - Flower Tube Coupon - Take this to Cassandra, and exchange it for a pretty Pink Flower Tube.
-4001321 - Train 999 Boarding Pass - Allows one to board Train 999 through Mr. Lim.
-4001322 - Pharaoh Yeti's Sapphire - A sapphire mounted on Pharaoh Yeti's necklace. Give it to Duarte, and he'll take you to Pharaoh Yeti's tomb.
-4001323 - Pharaoh Yeti's Ruby - A ruby mounted on Pharaoh Yeti's necklace. Give it to Duarte, and he'll take you to Pharaoh Yeti's tomb.
-4001324 - Pharaoh Yeti's Emerald - An emerald mounted on Pharaoh Yeti's necklace. Give it to Duarte, and he'll take you to Pharaoh Yeti's tomb.
-4001325 - Pharaoh Yeti's Topaz - A topaz mounted on Pharaoh Yeti's necklace. Give it to Duarte, and he'll take you to Pharaoh Yeti's tomb.
-4032372 - Giant Polearm Image - (no description)
-4032373 - Tutorial Muru's Furball - A white, cold furball from Tutorial Muru.
-4032374 - Letter of Commendation - Warrior Adventurer - The letter of commendation Power B. Fore lost.
-4032375 - Recommendation Letter - Job Instructor - A recommendation letter from the job instructor. Take this and show it to the Head Security Officer at the Mushking Empire.
-4032376 - Letter of Commendation - Magician Adventurer - The letter of commendation Power B. Fore lost.
-4032377 - Letter of Commendation - Bowman Adventurer - The letter of commendation Power B. Fore lost.
-4032378 - Letter of Commendation - Thief Adventurer - The letter of commendation Power B. Fore lost.
-4032379 - Letter of Commendation - Pirate Adventurer - The letter of commendation Power B. Fore lost.
-4032386 - King Pepe's Crown - A crown that King Pepe sported.
-4032387 - Prime Minister Emblem - An emblem worn by the Prime Minister of the Mushking Empire.
-4032389 - Killer Mushroom Spore Sample - A completed sample of Killer Mushroom Spores.
-4032388 - Wedding Hall Key - The key that opens the wedding hall, where Princess Violetta will be married.
-4032390 - Tainted Horny Mushroom Cap - A tainted Horny Mushroom cap that was discovered by The Rememberer.
-4032399 - Recording Charm - A charm that stores the final scream of Zombie Mushroom before its death.
-4032400 - Recommendation Letter - The Rememberer - Hand this letter to Karacas at Nihal Desert.
-4032401 - Gold Poison Sting - A special gold sting that the Scorpion carries.
-4032402 - Sand Mole Hat - Sand Mole Hat
-4032405 - Secret Key - A key to the secret place where Prime Minster's remaining army is hiding.
-4032418 - Bingo Necklace - The necklace of a puppy named Bingo
-4032419 - Bingo Necklace - The necklace of a puppy named Bingo
-4032420 - Bingo Necklace - The necklace of a puppy named Bingo
-4032421 - Bingo Necklace - The necklace of a puppy named Bingo
-4032422 - Bingo Necklace - The necklace of a puppy named Bingo
-4032423 - Arthritis Medicine - Medicine that alleviates arthritis.
-4032424 - Missed Mark - A mark that warns one of Missed Monsters.
-4161048 - Legend's Guide - A guide strictly for the Legends. \n#cDouble-click the item to open.#
-4000497 - Murukun's Furball - Murukun's furball. Covers up Murukun's sharp piece of horn.
-4000496 - Murumuru's Furball - Murumuru's Furball. Highly resembles that of a snowman.
-4000495 - Murupia's Furball - Murupia's Furball. Looks like something's growing out of it.
-4000494 - Murupa's Furball - Murupa's Furball. A small leaf is stuck in the ball.
-4000493 - Muru's Furball - A handful of white, cold furball of Muru's.
-4000492 - Certificate of Great Tester - A certificate that certifies one as a great tester. The more the certificate, the better the chance of being selected as a Great Tester.
-4032309 - Piece of Bamboo - A piece of bamboo snapped from Rien. A prime material for building a chair.
-4032310 - Wood - A wood carved out of a tree from Rien. A prime material for building a chair.
-4032311 - Sign of Acceptance - A sign of acceptance the Scarred Bear was carrying with. Take it to Sir Blacksmith to get accepted.
-4032312 - Red Jade - A red jade that decorated Maha. A portion of Maha's powers is instilled in it.
-4032313 - Tru Taxi Coupon - A taxi coupon from Tru. Use the coupon at the cab in Lith Harbor to get one free ride to Henesys.
-4032314 - Orange Mushroom Horn - A horn from Orange Mushroom that's on the verge of evolving into a Horny Mushroom.
-4032315 - Cynical Orange Mushroom Puppet - A cute puppet based on Orange Mushroom, but something about its facial expression seems odd.
-4032316 - Dejected Green Mushroom Puppet - A cute puppet based on Green Mushroom, but something about its facial expression seems odd.
-4032317 - Dejected Green Mushroom Puppet - A cute puppet based on Green Mushroom, but something about its facial expression seems odd.
-4032318 - Dejected Green Mushroom Puppet - A cute puppet based on Green Mushroom, but something about its facial expression seems odd.
-4032319 - Smirking Ghost Stump Puppet - A cute puppet based on Ghost Stump, but something about its facial expression seems odd.
-4032320 - Report from 10 Boogies - A report written by 10 Boogies. Better take this to Nineheart.
-4032321 - Annoyed Zombie Mushroom Doll - A cute doll based on Zombie Mushroom, but something about its facial expression seems odd.
-4032322 - Puppeteer Document - A document written by the puppeteer. It looks it like contains the sinister plans of Black Wing.
-4032323 - Seal Stone of Victoria Island - The seal stone of Victoria Island that Black Wing had been desperately looking for. No one knows exactly what the stone is for.
-4032324 - Rapid Growth Stimulator - A stimulator that promotes rapid growth. Probably came as a result of the appearance of Giant Nependeath.
-4032325 - Storage Key - A key that opens the storage. Better take it to Helena.
-4032326 - Wooden Key - A key made out of wood.
-4032327 - Clean Letter - A letter that Helena held on to for a long time. Wonder what's written on it.
-4032328 - Old Letter - A letter that Helena held on to for a long time. The condition of the letter shows its age.
-4032329 - Old Letter - A letter that Helena held on to for a long time. It's impossible to see what's written on it.
-4032330 - Lilin's Envelope - An Envelope from Lilin. Contains documents related to Black Wing.
-4032331 - Wolf Cub Vitamins - Vitamins that contain nutrients required for Wolf Cub.
-4032332 - Wolf Cub Meal - A delicious meal meant for Wolf Cub.
-4032333 - Puberty Wolf Vitamins - Vitamins that contain nutrients essential for wolf in puberty.
-4032334 - Life Water for Wolf - A special type of water the wolf drinks in order to become an adult.
-4032335 - Wolf Tooth - An important ingredient for wolf's Life Water.
-4032338 - Lilin's Letter - A letter handwritten by Lilin. Hand the letter to Tru, the Info Merchant at Lith Harbor, and just follow his directions.
-4032339 - Red Jade - A red jade Tititi accidentally lost. Better hand it back to Tititi.
-4032340 - Pig Tail - A pig tail that is rarely available through pigs. There's not much value in it.
-4032341 - Puppeteer Document - A document written by the puppeteer. It looks it like contains the sinister plans of Black Wing. Lilin may be able to decipher this letter.
-4032342 - Special Ink - A special form of ink made by the artist of Mu Lung, Jin Jin.
-4001231 - Candy Cane - A Chrismas Candy Cane for Jump Event
-4032185 - 1st Place Medal - A medal acquired from the Christmas High Jump map.
-4032186 - 2nd Place Medal - A medal acquired from the Christmas High Jump map.
-4032187 - 3rd Place Medal - A medal acquired from the Christmas High Jump map.
-4032343 - Picture Scroll - A warning shot fired by the shadow warrior of Black Wing.
-4000421 - Qualified Knitting Ball - Qualified Knitting Ball to make the Christmas Sock. #cPlease click and drag# this item into the Socks Frame UI to make your own socks.
-4031881 - Picture of Rudolph - Someone took a picture of Rudolph flying in the night sky of Happy ville. Rudolph seems happy in this picture.
-4031882 - Chimney Broom - This will enable you to sweep inside the Chimney eventhough it is long and wide.
-4031883 - Flashlight - This will enable you to light up the dark chimney.
-4031884 - Warm Milk - This warm milk will help Icarus to go to bed.
-4031885 - Mapler Recommendation - Recommendation written by Happyville people.
-4031886 - Completed Socks - Happyville Trend Socks made with skill from Mrs. Santa Claus
-4161038 - Santa Encyclopedia No.2 - Santa Encyclopedia that contains the history of Santa's Family.\n#cDouble click on the item to open the book.
-4161039 - Santa Encyclopedia No.3 - Santa Encyclopedia that contains method about how to make the Christmas Socks.\n#cDouble click on the item to open the book.
-4161040 - Santa Encyclopedia No.4 - Santa Encyclopedia that contains characteristics of Santa.\n#cDouble click on the item to open the book.
-4161041 - Santa Encyclopedia No.5 - Santa Encyclopedia that contains how to do a good thing for Christmas.\n#cDouble click on the item to open the book.
-4220022 - Socks Frame - Double click on the item to open the UI to add knitting balls to make the Christmas socks.
-4161043 - Santa Encyclopedia No.1 - Santa Encyclopedia that contains the history of Santa.\n#cDouble click on the item to open the book.
-4031408 - Gachapon Stamp - Can be traded for an awesome gift depending on the number of stamps collected.
-
-4001428 - Cupid's Lost Arrow - One of Cupid's Lost Arrows.
-4001429 - Mardi Gras Bead Necklace - A necklace that Gaga wants.
-4032576 - Green Mardi Gras Feather - (no description)
-4032577 - Purple Mardi Gras Feather - (no description)
-4032578 - Red Mardi Gras Feather - (no description)
-4000525 - Kid Mannequin's Bunny Suit - A bunny suit that the Kid Mannequin was wearing.
-4000526 - Female Mannequin's Wig - A blonde wig that the Female Mannequin was wearing.
-4000527 - Male Mannequin's Fedora - A black fedora that the Male Mannequin was wearing.
-4000528 - Latest Hits Compilation - A CD of latest hits.
-4000529 - Greatest Oldies - A CD of the greatest oldies.
-4000530 - Blue Perfume - A lavender-scented perfume. Musky and rich.
-4000532 - Yellow Perfume - A freesia-scented perfume. Fresh and smooth.
-4000534 - Pink Perfume - A rose-scented perfume. Light and airy.
-4000536 - Cheap Speakers - Low-quality speakers.
-4000537 - Fancy Amplifier Cables - Fancy cables that connect to fancy amplifiers.
-4000538 - Spirit of Rock's Music Score - A music score that Spirit of Rock treasures.
-4000539 - Cherry Bubble - Refreshing cherry-flavored bubble from a cherry bubble tea.
-4000540 - Melon Bubble - Sweet melon-flavored bubble from a melon bubble tea.
-4000541 - Mango Bubble - Sweet mango-flavored bubble from a mango bubble tea.
-4000542 - Yeti Keychain - A cute keychain with a dangling Yeti doll.
-4000543 - Jr. Pepe Keychain - A cute keychain with a dangling Jr. Pepe doll.
-4000544 - Orange Mushroom Doll - A pretty Orange Mushroom doll from the claw vending machine.
-4000545 - Red Squishy Liquid - Cherry-scented jelly from a Red Slime.
-4000546 - Silver Squishy Liquid - Jelly from a Silver Slime. It looks pretty heavy.
-4000547 - Gold Squishy Liquid - Jelly from a Gold Slime. It looks expensive.
-4000548 - Overlord A Radar Device - A radar that detects anything within a 10m radius.
-4000549 - Overlord B Radar Device - A radar that detects anything within a 30m radius.
-4000550 - Robby's Electronic Induction Device - A device that communicates using the nearest inductive material.
-4000551 - Iruvata Laser Sword - Iruvata's laser sword, which can be used as a weapon.
-4000552 - Afterlord Chained Tire - Appears durable enough to maneuver through the wilderness.
-4000553 - Prototype Lord Propulsion System - This propulsion system uses nitrogen energy as its propellant.
-4000554 - Maverick Type A Component - A component of Maverick Type A that is abrasion-resistant due to its ergonomic design.
-4000555 - Maverick Type S Laser Gun - A high-tech laser gun that consumes minimal energy yet ejects maximum power.
-4000556 - Maverick Type D Booster - A booster that provides a temporary increase in thrust for flight.
-4000557 - Imperial Guard Vacuum Tube - A vacuum tube that uses air pressure to maintain an output of at least 5 tons.
-4000558 - Royal Guard Armor - Special armor that features a special alloy for maximum durability.
-4001170 - ?? - (no description)
-4001171 - ?? - (no description)
-4001172 - ?? - (no description)
-4001173 - ?? - (no description)
-4001326 - ??? ???? - ??? ?????. ??? ??? ??? ? ????.
-4001327 - ??? ???? - ??? ?????. ??? ??? ??? ? ????.
-4001328 - ??? ???? - ??? ?????. ??? ??? ??? ? ????.
-4001329 - ??? ???? - ??? ?????. ??? ??? ??? ? ????.
-4001330 - ??? ???? - ??? ?????. ??? ??? ??? ? ????.
-4001331 - ?? ???? - ?? ?????. ??? ??? ??? ? ????.
-4001332 - ??? ???? - ??? ?????. ??? ??? ??? ? ????.
-4001333 - Pot - A small pot with a flower bud in it. Watch it for 30 minutes to see a flower bloom.
-4001334 - Yellow Flower Pot - A small pot that contains a yellow flower. Take it to Gaga to trade it for a crayon.
-4001339 - Treacherous Fox Tail - The tail of a Treacherous Fox. It seems pretty useless, especially since it is covered in coarse fur.
-4001393 - Time Traveler's Pocket Watch - An object that signifies authorized use of the Time Gate in Tera Forest. It looks like an average pocket watch but has something engraved on the back. It reads, 'Time is Golden.'
-4001394 - Time Traveler's Free Pass - An object that signifies authorized use of the Time Gate in Tera Forest for a limited time.
-4032430 - Photo of the Moon - A photo of the moon that hasn't developed yet. The image should become more vivid in 30 minutes. The photo will disappear if you log out!
-4032431 - Photo of the Moon - A faint photo of the moon that hasn't been fully developed yet. The image should become more vivid in 30 minutes. The photo will disappear if you log out!
-4032432 - Photo of the Moon - A blurry photo of the moon that hasn't been fully developed yet. The image should become more vivid in 30 minutes. The photo will disappear if you log out!
-4032433 - Photo of the Moon - A clear photo of the moon. This will certainly make the Baby Moon Bunny happy.
-4032434 - Yellow Butterfly - A cute little yellow butterfly. It might fly away if you don't keep your eye on it.
-4032447 - Dog Food - A small bag of dog food. Bulldogs go crazy for this stuff.
-4032448 - Lunch Made with Love - A special lunch Anna made for Gustav. It's packed with tender loving care.
-4032449 - Piglet - A piglet that escaped from the farm. Return it to the farm.
-4032450 - Empty Lunch Box - Someone has devoured everything that was inside the lunch box.
-4032451 - Egg - Eggs from the hen house in the back yard.
-4032452 - Bundle of Hay - A bundle of hay used to feed livestock. Baby dragons might like it too.
-4032453 - Pork - Juicy pork. Baby dragons might like it.
-4032454 - Milk for Baby Dragon - Cow milk. Baby dragons might like it.
-4032455 - Letter from Gustav - A letter Gustav wrote to Chief Stan in Henesys. The letter mentions something about pork delivery.
-4032456 - Recommendation Letter - Chief Stan - A recommendation letter from Stan. Take it to Power B. Fore and he might let you use the training center.
-4032457 - Power B. Fore's Certificate of Training - A certificate that states the recipient has completed Power B. Fore's training. It also appears to be a free pass to use Power B. Fore's training center.
-4032458 - Rina's Blue Mushroom Porridge - Some Blue Mushroom porridge Rina made. It's packed nicely and ready for delivery.
-4032459 - Blue Mushroom Doll - A cute doll that resembles a Blue Mushroom.
-4032460 - Refreshing Stump Sap - Tree sap from a Stump. It is surprisingly refreshing.
-4032461 - Zombie Mushroom Doll - A doll that resembles a Zombie Mushroom, though something isn't quite right with the face.
-4032462 - Wild Boar Doll - A cute doll that resembles a Wild Boar.
-4032463 - Document with Clue - A document that has a clue about the thief that stole Sabitrama's herb written on it. It looks like an ordinary letter, though.
-4032464 - Sabitrama's Herb - A pouch with a pleasant herbal scent that obviously contains Sabitrama's herb.
-4032465 - Nella's Letter of Introduction - A letter of introduction from Nella. It states that the recipient is a capable adventurer.
-4032466 - Golem Doll - A cute doll that resembles a Golem.
-4032467 - Dragon Scales - A few scales from dragon.
-4032468 - Rapid Growth Accelerant - A rapid growth accelerant that was created by a secret organization. It appears to accelerate the growth of plants.
-4032469 - John's Map - John's map, which contains information about some island. That island is said to be the place where the dragon lies asleep.
-4032470 - Tropical Fruit Punch - Specially ordered tropical fruit punch that can only be made in Florina Beach.
-4032471 - Black Key - A key you received from Shammos on a mission for a secret organization. What is this key used for?
-4032472 - Map of Turtle Island - The map of Turtle Island you received from Captain Hwang. It has the location of an island but not much else is known.
-4032473 - Gruesome Bone - Bone that exudes a gruesome energy.
-4032474 - Seruf Pearl - A shiny pearl acquired from Seruf. Based on its shade, it appears to be of the highest quality.
-4032475 - Lycanthrope Leather - A tough piece of Lycanthrope leather.
-4032476 - Captain Alpha's Buckle - Captain Alpha's buckle, which was discovered deep inside the ocean in a treasure chest near the shipwreck. It looks extremely fancy.
-4032477 - Unbreakable Porcelain - Unbreakable Porcelain that Herb Town is known for.
-4032497 - Potter - A master craftsman in Herb Town. He is as light as a feather.
-4032498 - Thick Branch - A tree branch from a Stump. You can use it to repair the fence.
-4032502 - Dragon Scale - Scale left behind after the Onyx Dragon's ecdysis. It stores the force of the dragon. Something remarkable could be created using the Maker skill.
-4032503 - Shiny Dragon Scale - Scale left behind after the Onyx Dragon's ecdysis. The force of the dragon is stored inside the golden emblem. Something remarkable could be created using the Maker skill.
-4032504 - Lycanthrope Leather - A tough piece of Lycanthrope leather.
-4032505 - Captain Alpha's Buckle - Captain Alpha's buckle, which was discovered deep inside the ocean in a treasure chest near the shipwreck. It looks extremely fancy.
-4032506 - Locker Key - Key to a locker at the Kerning Square Station.
-4032507 - Composition Notes - Lost composition notes that belong to Maestro Rho, a genius composer.
-4032508 - Secret Recipe - The seven star chef Robby Fray's secret recipe.
-4032509 - Latest Model MP3 - Latest model MP3 with a sophisticated design and increased memory capacity.
-4032510 - Legendary Scissors - Marshall the hair stylist's legendary scissors.
-4032511 - Andy's Pocket Watch - An item that activates the Time Gate. It has Andy the Time Traveler's name engraved on it, so only he can use it.
-4032512 - Primary Clue to the Case - A piece of paper that contains a clue to the case Andy is working on. It's hard to read what it says. The paper has been severely damaged.
-4032513 - Wrinkled Sketchbook Loose-Leaf - A sheet of paper that appears to be from a sketchbook.
-4032514 - Shelter Key - A key to the shelter at the harbor.
-4032515 - Bergamot's Time Sand - Time Sand that belonged to Bergamot.
-4032516 - Dunas's Time Sand - Time Sand that belonged to Dunas.
-4032517 - Aufheben's Time Sand - Time Sand that belonged to Aufheben.
-4032518 - Oberon's Time Sand - Time Sand that belonged to Oberon.
-4032519 - Nibelung's Time Sand - Time Sand that belonged to Nibelung.
-4032520 - Maid Apron - An apron Bao is giving May as a present. An apron? That's a strange gift, but take it over to May anyway.
-4032521 - VIP Invitation - An invitation that grants admission to the VIP Zone. 
-4032526 - John's Map - John's map that contains information on some island. That island is said to be the place where the dragon lies asleep.
-4160041 - Pet Command Guide : Gold Pig - A guide that has all the commands for the Gold Pig.\n#cDouble-click on the item to open the guide.#
-4220152 - Rainbow Drawing - A sheet of sketch paper that has a rainbow drawing.  \r\n#cYou can open it with your mouse by double-clicking.#
+4290000 - Golden Chicken Effect - Golden Chicken Effect was given as a reward for helping Lazy Daisy. You can turn it ON/OFF by double-clicking the icon or using the key configuration menu to assign a shortcut key. 
+4290001 - Bummer Effect - This effect is for people who helped Lazy Daisy but failed to hatch the egg. You can turn it ON/OFF by double-clicking the icon or using the key configuration menu to assign a shortcut key. 
+4300000 - New Year's Card (Send) - A beautiful card with season's greetings.
+4301000 - New Year's Card (Receive) - A beautiful card with season's greetings. Double click on it to read!
 4310000 - Perfect Pitch - This Music Note gives Inkwell the perfect pitch he's been dying to find. You can trade it for a rare item if you go to the Free Market Entrance or talk to Inkwell in Henesys before March 30th.
-4160044 - Pet Command Guide : Baby Tiger - A guide that contains commands for Baby Tiger. \n#cYou can open the book by double-clicking on it.#
-4001434 - Gachapon Food Coupon - Use this coupon on a Gachapon machine to het a veriety of food. 

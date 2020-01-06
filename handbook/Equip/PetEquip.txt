@@ -49,6 +49,11 @@
 1802053 - Snowman Gear - A cozy set of gear to keep #cSnowman# warm. 
 1802054 - Kino's Green Mushroom Hat - An adorable Green Mushroom Hat that can only be adorned by #cKino#.
 1802055 - Gas Mask - A gas Mask specially made for Skunk.
+1802059 - Jail Bird Pet Costume - Disloyal or obnoxious pet? Sentence it to hard time with this outfit! Can only be equipped by a #cMonkey#.
+1802060 - Crystal Rudolph Wings - A set of wings only available for #cCrystal Rudolph#
+1802061 - Scuba Mask - A scuba mask #cWhite Duck# likes to wear when diving down under.
+1802062 - Starry Stereo Headset - A Stereo Headset to keep your #cPink Bean# entertained at all times.
+1802063 - Baby Tiger Wings - A wing accessory exclusively for #cBaby Tiger#.
 1802100 - Pet Collar - (no description)
 1812000 - Meso Magnet - With this item, your pet will collect mesos dropped by a monster as it passes by them. Applies only to your monster spoils.
 1812001 - Item Pouch - With this item, your pet will collect items dropped by a monster as it passes by them. Applies only to your monster spoils.
@@ -60,8 +65,3 @@
 1812007 - Item Ignore Pendant - This allows the pet to be selective in picking up dropped items by avoiding selected items. Once the owner has learned the Trainer's Command, the Lead Pet needs to have the skill in order for it to be activated.\n#cAvailable to a pet that can pick up mesos and items.#
 1822000 - Pet Label Ring - By equipping this ring, your pet will get its own name tag. Only works with #cPanda, Dino Boy, Dino Girl, Monkey, Tiger, Rudolph, Robot, Mini Yeti, Penguin, Jr.Balrog, Dragon, Jr. Reaper, Porcupine, Snowman, Skunk, Pink Bean.#
 1832000 - Pet Quote Ring - By equipping this ring, your pet will get its own decorated quote box. Only works with #cPanda, Dino Boy, Dino Girl, Monkey, Tiger, Rudolph, Robot, Mini Yeti, Penguin, Jr.Balrog, Dragon, Jr. Reaper, Porcupine, Snowman, Skunk, Pink Bean#
-1802059 - Jail Bird Pet Costume - Disloyal or obnoxious pet? Sentence it to hard time with this outfit! Can only be equipped by a #cMonkey#.
-1802060 - Crystal Rudolph Wings - A set of wings only available for #cCrystal Rudolph#
-1802061 - Scuba Mask - A scuba mask #cWhite Duck# likes to wear when diving down under.
-1802062 - Starry Stereo Headset - A Stereo Headset to keep your #cPink Bean# entertained at all times.
-1802063 - Baby Tiger Wings - A wing accessory exclusively for #cBaby Tiger#.
