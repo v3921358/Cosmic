@@ -144,10 +144,10 @@ public class CashShop {
         private static final Map<Integer, List<Integer>> packages = new HashMap<>();
         private static final List<SpecialCashItem> specialcashitems = new ArrayList<>();
         
-        //Remove Cash Items gacha, 2x exp, 3x exp, teleport rock
+        //Remove Cash Items
         private static final int[] toRemove = {5211000, 5211052, 5211060, 5451000, 5040000, 5041000, //Original
                                                5210000, 5210001, 5210002, 5210003, 5210004, 5210005, //Pro-Adult Ticket
-                                               5211000, 5211001, 5211002, 5211003, 5211004, 5211005, //EXP Coupons
+                                               5211001, 5211002, 5211003, 5211004, 5211005,          //EXP Coupons
                                                5211006, 5211007, 5211008, 5211009, 5211010, 5211011,
                                                5211012, 5211013, 5211014, 5211015, 5211016, 5211017,
                                                5211018, 5211019, 5211020, 5211021, 5211022, 5211023,
@@ -156,7 +156,11 @@ public class CashShop {
                                                5211036, 5211037, 5211038, 5211039, 5211040, 5211041, 
                                                5211042, 5211043, 5211044, 5211045, 5211046, 5211047, 
                                                5211048, 5360009, 5360010, 5360011, 5360012, 5360013,
-                                               5211049, 5211052, 5211060};
+                                               5211049, 5211060, 5360003, 5360004, 5360005, 5360006, //DROP Coupons
+                                               5360007, 5360008, 5360009, 5360010, 5360011, 5360012,
+                                               5360013, 5360014, 5360042, 
+                                               1112908                                               //Aura Ring
+                                    };
         
         static {
             MapleDataProvider etc = MapleDataProviderFactory.getDataProvider(new File("wz/Etc.wz"));
