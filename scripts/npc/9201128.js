@@ -34,8 +34,8 @@ function action(mode, type, selection){
 		}
 		else {
 			cm.sendOk("\tPlease check if you fulfill all the requirements!")
+			cm.dispose();
 		}
-		cm.dispose();
 	}
 	else if (status == 2) {
 		cm.warp(677000004, 2);

@@ -33,9 +33,9 @@ function action(mode, type, selection){
 			cm.sendOk("#kAll conditions have been satisfied. Do you wish to enter?");
 		}
 		else {
-			cm.sendOk("\tPlease check if you fulfill all the requirements!")
+			cm.sendOk("\tPlease check if you fulfill all the requirements!");
+			cm.dispose();
 		}
-		cm.dispose();
 	}
 	else if (status == 2) {
 		cm.warp(677000006, 2);
