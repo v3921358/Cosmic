@@ -105,8 +105,11 @@ public class ServerConstants {
     public static final byte CHAIR_EXTRA_HEAL_MP = 42;          //Each chair extra heal proc increasing MP.
     public static final double EQUIP_LVLUP_GAIN_BASE = 0.05;   //Base multiplier for bonus stats on level up
     public static final double EQUIP_LVLUP_GAIN_BONUS = 0.05;  //Additional multiplier for bonus stats on level up
-    public static final double EQUIP_LVLUP_GAIN_ATTR_BASE = 0.20; //Bonus multiplier for attributes
-    public static final double EQUIP_LVLUP_ATTR_BONUS_MULT = 3.0;
+    public static final double EQUIP_LVLUP_GAIN_ATTR_BASE = 0.20; //Bonus multipliers for attributes
+    public static final double EQUIP_LVLUP_ATTR_BONUS_MULT = 3.0; 
+    public static final double EQUIP_LVLUP_GAIN_BONUS_LONGCOAT = 1.10; //Bonus multiplier applied to level up bonus stats for overalls
+    public static final double EQUIP_LVLUP_GAIN_BONUS_CLAW_PAD = 1.1; //Bonus multiplier applied to level up bonus attack for claws
+    public static final double EQUIP_LVLUP_GAIN_BONUS_GUN_PAD = 1.2;  //Bonus multiplier applied to level up bonus attack for guns
     
     //Pet Auto-Pot Recovery Rates
     public static final double PET_AUTOHP_RATIO = 0.99;         //Will automatically consume potions until given ratio of the MaxHP/MaxMP is reached.

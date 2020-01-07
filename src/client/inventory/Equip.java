@@ -48,6 +48,21 @@ public class Equip extends Item {
         }
     }
     
+    private static enum EquipType {
+        Cap(0), FaceAcc(1), EyeAcc(2), Earring(3), Coat(4), Longcoat(5), 
+        Pants(6), Shoes(7), Glove(8), Shield(9), Cape(10), Ring(11),
+        Pendant(12), Belt(13), Medal(14), OneHSword(30), OneHAxe(31), 
+        OneHMace(32), Dagger(33), Wand(37), Staff(38), TwoHSword(40),
+        TwoHAxe(41), TwoHMace(42), Spear(43), Polearm(44), Bow(45), 
+        Crossbow(46), Claw(47), Knuckle(48), Gun(49), PetEquip(80), Taming(90),
+        Unknown(99);
+        private int value = -1;
+        
+        private EquipType(int value){
+            this.value = value;
+        }
+    }
+    
     private static enum StatUpgrade {
 
         incDEX(0), incSTR(1), incINT(2), incLUK(3),
@@ -68,6 +83,7 @@ public class Equip extends Item {
     private int ringid = -1;
     private boolean wear = false;
     private boolean isUpgradeable, isElemental, perfect = false;    // timeless or reverse
+    private EquipType type = EquipType.Unknown;
 
     public Equip(int id, short position) {
         this(id, position, 0);
@@ -78,6 +94,7 @@ public class Equip extends Item {
         this.upgradeSlots = (byte) slots;
         this.itemExp = 0;
         this.itemLevel = 1;
+        this.type = getEquipType(id);
         
         String itemName = MapleItemInformationProvider.getInstance().getName(id);
         if(itemName != null) this.isElemental = (itemName.contains("Timeless") || itemName.contains("Reverse"));
@@ -317,7 +334,9 @@ public class Equip extends Item {
         else {
             gainPercentage += (ServerConstants.EQUIP_LVLUP_GAIN_BONUS * Math.random()) * (isAttribute ? ServerConstants.EQUIP_LVLUP_ATTR_BONUS_MULT : 1);
         }
-
+        if (type == EquipType.Longcoat){
+            gainPercentage *= ServerConstants.EQUIP_LVLUP_GAIN_BONUS_LONGCOAT;
+        }
         int finalStatUp = (int) (base * gainPercentage);
         if (finalStatUp == 0 && (isPerfect() || Math.random() <= base * gainPercentage)) {  // If gain is less than 1, saving roll based on fraction of statUp
             finalStatUp = 1;
@@ -630,5 +649,81 @@ public class Equip extends Item {
 
     public byte getItemLevel() {
         return itemLevel;
+    }
+    
+    private EquipType getEquipType(int itemid){
+        switch(itemid / 10000){
+            case 100:
+                return EquipType.Cap;
+            case 101:
+                return EquipType.FaceAcc;
+            case 102:
+                return EquipType.EyeAcc;
+            case 103:
+                return EquipType.Earring;
+            case 104:
+                return EquipType.Coat;
+            case 105:
+                return EquipType.Longcoat;
+            case 106: 
+                return EquipType.Pants;
+            case 107:
+                return EquipType.Shoes;
+            case 108:
+                return EquipType.Glove;
+            case 109:
+                return EquipType.Shield;
+            case 110:
+                return EquipType.Cape;
+            case 111:
+                return EquipType.Ring;
+            case 112:
+                return EquipType.Pendant;
+            case 113:
+                return EquipType.Belt;
+            case 114:
+                return EquipType.Medal;
+            case 130:
+                return EquipType.OneHSword;
+            case 131:
+                return EquipType.OneHAxe;
+            case 132: 
+                return EquipType.OneHMace;
+            case 133:
+                return EquipType.Dagger;
+            case 137:
+                return EquipType.Wand;
+            case 138:
+                return EquipType.Staff;
+            case 140:
+                return EquipType.TwoHSword;
+            case 141: 
+                return EquipType.TwoHAxe;
+            case 142:
+                return EquipType.TwoHMace;
+            case 143:
+                return EquipType.Spear;
+            case 144:
+                return EquipType.Polearm;
+            case 145:
+                return EquipType.Bow;
+            case 146:
+                return EquipType.Crossbow;
+            case 147:
+                return EquipType.Claw;
+            case 148:
+                return EquipType.Knuckle;
+            case 149:
+                return EquipType.Gun;
+            case 180:
+            case 181:
+            case 182:
+                return EquipType.PetEquip;
+            case 190:
+            case 191:
+                return EquipType.Taming;
+            default:
+                return EquipType.Unknown;
+        }
     }
 }

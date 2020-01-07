@@ -274,7 +274,7 @@ public class Commands {
 	static {
 		gotomaps.put("gmmap", 180000000);
 		gotomaps.put("southperry", 60000);
-		gotomaps.put("amherst", 1010000);
+		gotomaps.put("amherst", 1000000);
 		gotomaps.put("henesys", 100000000);
 		gotomaps.put("ellinia", 101000000);
 		gotomaps.put("perion", 102000000);
@@ -282,6 +282,7 @@ public class Commands {
 		gotomaps.put("lith", 104000000);
 		gotomaps.put("sleepywood", 105040300);
 		gotomaps.put("florina", 110000000);
+                gotomaps.put("nautilus", 120000000);
 		gotomaps.put("orbis", 200000000);
 		gotomaps.put("happy", 209000000);
 		gotomaps.put("elnath", 211000000);
@@ -290,8 +291,12 @@ public class Commands {
 		gotomaps.put("leafre", 240000000);
 		gotomaps.put("mulung", 250000000);
 		gotomaps.put("herb", 251000000);
+                gotomaps.put("ariant", 260000000);
+                gotomaps.put("magatia", 261000000);
 		gotomaps.put("omega", 221000000);
 		gotomaps.put("korean", 222000000);
+                gotomaps.put("singapore", 540000000);
+                gotomaps.put("themepark", 551000200);
 		gotomaps.put("nlc", 600000000);
 		gotomaps.put("excavation", 990000000);
 		gotomaps.put("pianus", 230040420);
@@ -303,6 +308,7 @@ public class Commands {
 		gotomaps.put("balrog", 105090900);
 		gotomaps.put("zakum", 211042300);
 		gotomaps.put("papu", 220080001);
+                gotomaps.put("shrine", 800000000);
 		gotomaps.put("showa", 801000000);
 		gotomaps.put("guild", 200000301);
 		gotomaps.put("shrine", 800000000);
@@ -1144,8 +1150,8 @@ public class Commands {
 				player.yellowMessage("Syntax: !item <itemid> <quantity>");
 				break;
 			}
-                        
-                        int itemId;
+
+                        int itemId = -1;
                         try {
                             itemId = Integer.parseInt(sub[1]);
                         }
@@ -1168,7 +1174,6 @@ public class Commands {
                             player.yellowMessage("Invalid quantity or time input.");
                             break;
                         }
-
 			
 			if (sub[0].equals("item")) {
 				int petid = -1;

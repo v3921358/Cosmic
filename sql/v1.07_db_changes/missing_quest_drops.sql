@@ -1,7 +1,7 @@
 -- King Sage Cat | Antidote Marble | Eliminating King Sage Cat
-INSERT INTO drop_data VALUES (7220002, 4031789, 1, 1, 3844, 40000);
+INSERT INTO drop_data (`dropperid`, `itemid`, `minimum_quantity`, `maximum_quantity`, `questid`, `chance`) VALUES (7220002, 4031789, 1, 1, 3844, 40000);
 -- Monsters in Minar Forest circle | Andy's Pocket Watch | Andy the Time Traveller
-INSERT INTO drop_data 
+INSERT INTO drop_data (`dropperid`, `itemid`, `minimum_quantity`, `maximum_quantity`, `questid`, `chance`)
 VALUES 
 (7130002, 4032511, 1, 1, 3718, 7000), -- Beetle
 (7130003, 4032511, 1, 1, 3718, 7000), -- Dual Beetle
