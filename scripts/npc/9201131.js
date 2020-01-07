@@ -27,7 +27,7 @@ function action(mode, type, selection){
 	}
 	else if (status == 1) {
 		var jobId = cm.getJobId();
-		if((jobId >= 300 && jobId <= 322) || (jobId >= 1300 && jobId <= 1312) && 
+		if(((jobId >= 300 && jobId <= 322) || (jobId >= 1300 && jobId <= 1312)) && 
 			cm.getLevel() < 40 &&
 			cm.hasItem(4032492)) {
 			cm.sendOk("#kAll conditions have been satisfied. Do you wish to enter?");
