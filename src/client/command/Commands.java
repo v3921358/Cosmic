@@ -1147,7 +1147,7 @@ public class Commands {
                 case "item":
                 case "drop":
                         if (sub.length < 2){
-				player.yellowMessage("Syntax: !item <itemid> <quantity>");
+				player.yellowMessage("Syntax: !item <itemid> <quantity> <timelimit (minutes)>");
 				break;
 			}
 
