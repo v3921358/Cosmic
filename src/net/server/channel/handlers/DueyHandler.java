@@ -48,18 +48,30 @@ import tools.MaplePacketCreator;
 import tools.data.input.SeekableLittleEndianAccessor;
 
 public final class DueyHandler extends AbstractMaplePacketHandler {
-    private enum Actions {
+    // Credits Ronan; part of a greater packages refactor
+    public enum Actions {
+        TOSERVER_RECV_ITEM(0x00),
         TOSERVER_SEND_ITEM(0x02),
         TOSERVER_CLAIM_PACKAGE(0x04),
         TOSERVER_REMOVE_PACKAGE(0x05),
         TOSERVER_CLOSE_DUEY(0x07),
         TOCLIENT_OPEN_DUEY(0x08),
-        TOCLIENT_NOT_ENOUGH_MESOS(0x0A),
-        TOCLIENT_NAME_DOES_NOT_EXIST(0x0C),
-        TOCLIENT_SAMEACC_ERROR(0x0D),
-        TOCLIENT_SUCCESSFULLY_SENT(0x12),
-        TOCLIENT_SUCCESSFUL_MSG(0x17),
-        TOCLIENT_PACKAGE_MSG(0x1B); // Ending byte; 4 if received. 3 if delete.
+        TOCLIENT_SEND_ENABLE_ACTIONS(0x09),
+        TOCLIENT_SEND_NOT_ENOUGH_MESOS(0x0A),
+        TOCLIENT_SEND_INCORRECT_REQUEST(0x0B),
+        TOCLIENT_SEND_NAME_DOES_NOT_EXIST(0x0C),
+        TOCLIENT_SEND_SAMEACC_ERROR(0x0D),
+        TOCLIENT_SEND_RECEIVER_STORAGE_FULL(0x0E),
+        TOCLIENT_SEND_RECEIVER_UNABLE_TO_RECV(0x0F),
+        TOCLIENT_SEND_RECEIVER_STORAGE_WITH_UNIQUE(0x10),
+        TOCLIENT_SEND_MESO_LIMIT(0x11),
+        TOCLIENT_SEND_SUCCESSFULLY_SENT(0x12),
+        TOCLIENT_RECV_UNKNOWN_ERROR(0x13),
+        TOCLIENT_RECV_ENABLE_ACTIONS(0x14),
+        TOCLIENT_RECV_NO_FREE_SLOTS(0x15),
+        TOCLIENT_RECV_RECEIVER_WITH_UNIQUE(0x16),
+        TOCLIENT_RECV_SUCCESSFUL_MSG(0x17),
+        TOCLIENT_RECV_PACKAGE_MSG(0x1B);
         final byte code;
 
         private Actions(int code) {
@@ -130,16 +142,16 @@ public final class DueyHandler extends AbstractMaplePacketHandler {
                 if (accid != -1) {
                     if (accid != c.getAccID()) {
                         c.getPlayer().gainMeso(-finalcost, false);
-                        c.announce(MaplePacketCreator.sendDueyMSG(Actions.TOCLIENT_SUCCESSFULLY_SENT.getCode()));
+                        c.announce(MaplePacketCreator.sendDueyMSG(Actions.TOCLIENT_SEND_SUCCESSFULLY_SENT.getCode()));
                         send = true;
                     } else {
-                        c.announce(MaplePacketCreator.sendDueyMSG(Actions.TOCLIENT_SAMEACC_ERROR.getCode()));
+                        c.announce(MaplePacketCreator.sendDueyMSG(Actions.TOCLIENT_SEND_SAMEACC_ERROR.getCode()));
                     }
                 } else {
-                    c.announce(MaplePacketCreator.sendDueyMSG(Actions.TOCLIENT_NAME_DOES_NOT_EXIST.getCode()));
+                    c.announce(MaplePacketCreator.sendDueyMSG(Actions.TOCLIENT_SEND_NAME_DOES_NOT_EXIST.getCode()));
                 }
             } else {
-                c.announce(MaplePacketCreator.sendDueyMSG(Actions.TOCLIENT_NOT_ENOUGH_MESOS.getCode()));
+                c.announce(MaplePacketCreator.sendDueyMSG(Actions.TOCLIENT_SEND_NOT_ENOUGH_MESOS.getCode()));
             }
             boolean recipientOn = false;
             MapleClient rClient = null;
@@ -168,7 +180,7 @@ public final class DueyHandler extends AbstractMaplePacketHandler {
                     addMesoToDB(mesos, c.getPlayer().getName(), getAccIdFromCNAME(recipient, false));
                 }
                 if (recipientOn && rClient != null) {
-                    rClient.announce(MaplePacketCreator.sendDueyMSG(Actions.TOCLIENT_PACKAGE_MSG.getCode()));
+                    rClient.announce(MaplePacketCreator.sendDueyMSG(Actions.TOCLIENT_RECV_PACKAGE_MSG.getCode()));
                 }
             }
         } else if (operation == Actions.TOSERVER_REMOVE_PACKAGE.getCode()) {
@@ -206,8 +218,7 @@ public final class DueyHandler extends AbstractMaplePacketHandler {
                 
                 if (dp.getItem() != null) {
                     if (!MapleInventoryManipulator.checkSpace(c, dp.getItem().getItemId(), dp.getItem().getQuantity(), dp.getItem().getOwner())) {
-                        c.getPlayer().dropMessage(1, "Your inventory is full");
-                        c.announce(MaplePacketCreator.enableActions());
+                        c.announce(MaplePacketCreator.sendDueyMSG(Actions.TOCLIENT_RECV_NO_FREE_SLOTS.getCode()));
                         return;
                     } else {
                         MapleInventoryManipulator.addFromDrop(c, dp.getItem(), false);
@@ -329,11 +340,11 @@ public final class DueyHandler extends AbstractMaplePacketHandler {
     private String getCurrentDate() {
         String date = "";
         Calendar cal = Calendar.getInstance();
-        int day = cal.get(Calendar.DATE) - 1; // instant duey ?
+        int day = cal.get(Calendar.DATE) + (ServerConstants.USE_DUEY_INSTANT_DELIVERY ? -1 : 0); // instant duey ?
         int month = cal.get(Calendar.MONTH) + 1; // its an array of months.
         int year = cal.get(Calendar.YEAR);
-        date += day < 9 ? "0" + day + "-" : "" + day + "-";
-        date += month < 9 ? "0" + month + "-" : "" + month + "-";
+        date += day <= 9 ? "0" + day + "-" : "" + day + "-";
+        date += month <= 9 ? "0" + month + "-" : "" + month + "-";
         date += year;
         
         return date;

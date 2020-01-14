@@ -41,6 +41,7 @@ public class ServerConstants {
     public static final boolean USE_MTS = false;
     public static final boolean USE_FAMILY_SYSTEM = false;
     public static final boolean USE_DUEY = true;
+    public static final boolean USE_DUEY_INSTANT_DELIVERY = true;   //Allows packages to be received instantly after being sent
     public static final boolean USE_ITEM_SORT = true;
     public static final boolean USE_ITEM_SORT_BY_NAME = false;      //Item sorting based on name rather than id.
     public static final boolean USE_PARTY_SEARCH = false;
