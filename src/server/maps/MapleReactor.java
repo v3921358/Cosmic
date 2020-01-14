@@ -261,10 +261,11 @@ public class MapleReactor extends AbstractMapleMapObject {
                                     map.broadcastMessage(MaplePacketCreator.triggerReactor(this, stance));
                                 }
 
-                                ReactorScriptManager.getInstance().act(c, this);
+                                ReactorScriptManager.getInstance().act(c, this);                                
                             } else { //reactor not broken yet
                                 map.broadcastMessage(MaplePacketCreator.triggerReactor(this, stance));
-                                if (state == stats.getNextState(state, b)) {//current state = next state, looping reactor
+                                if (state == stats.getNextState(state, b) || //current state = next state, looping reactor
+                                        (state == 4 && stats.getType(state) == 101)) { //next state = 0 is also a looping reactor
                                     ReactorScriptManager.getInstance().act(c, this);
                                 }
 

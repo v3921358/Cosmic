@@ -20,10 +20,10 @@
     <int name="incMDD" value="120"/>
     <int name="incMHP" value="120"/>
     <int name="incMMP" value="120"/>
-    <int name="incSTR" value="5"/>
-    <int name="incINT" value="5"/>
-    <int name="incDEX" value="5"/>
-    <int name="incLUK" value="5"/>
+    <int name="incSTR" value="10"/>
+    <int name="incINT" value="10"/>
+    <int name="incDEX" value="10"/>
+    <int name="incLUK" value="10"/>
     <int name="tuc" value="7"/>
     <int name="price" value="0"/>
     <int name="tradeBlock" value="1"/>

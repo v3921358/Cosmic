@@ -820,7 +820,7 @@
       <string name="type" value="m"/>
       <string name="id" value="6300100"/>
       <int name="x" value="-700"/>
-      <int name="y" value="3000">
+      <int name="y" value="3000"/>
       <int name="mobTime" value="0"/>
       <int name="f" value="0"/>
       <int name="hide" value="0"/>

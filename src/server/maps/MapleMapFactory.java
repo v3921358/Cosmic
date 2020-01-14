@@ -95,10 +95,11 @@ public class MapleMapFactory {
                 String mapName = getMapName(mapid);
                 MapleData mapData = source.getData(mapName);
                 MapleData infoData = mapData.getChildByPath("info");
-                
+                int emapid = omapid;    // Effective map ID for links
                 String link = MapleDataTool.getString(infoData.getChildByPath("link"), "");
                 if (!link.equals("")) { //nexon made hundreds of dojo maps so to reduce the size they added links.
-                    mapName = getMapName(Integer.parseInt(link));
+                    emapid = Integer.parseInt(link);
+                    mapName = getMapName(emapid);
                     mapData = source.getData(mapName);
                 }
                 float monsterRate = 0;
@@ -241,8 +242,12 @@ public class MapleMapFactory {
                     }
                 }
                 try {
-                    map.setMapName(MapleDataTool.getString("mapName", nameData.getChildByPath(getMapStringName(omapid)), ""));
-                    map.setStreetName(MapleDataTool.getString("streetName", nameData.getChildByPath(getMapStringName(omapid)), ""));
+                    MapleData eMapName = nameData.getChildByPath(getMapStringName(omapid));
+                    if (eMapName == null) {
+                        eMapName = nameData.getChildByPath(getMapStringName(emapid));
+                    }
+                    map.setMapName(MapleDataTool.getString("mapName", eMapName, ""));
+                    map.setStreetName(MapleDataTool.getString("streetName", eMapName, ""));
                 } catch (Exception e) {
                     e.printStackTrace();
                     System.err.println("Not found mapid " + omapid);
