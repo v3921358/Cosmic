@@ -23,11 +23,11 @@ function action(mode, type, selection){
 		status--;
 
 	if(status == 0) {
-		cm.sendNext("#r\t[Requirements to Enter]\r\n\r\n\t\t1.#k Job must be a Warrior or Dawn Warrior.\r\n\t\t#r2.#k Must be under level 40.\r\n\t\t#r3.#k Must have #b#t4032491##k.");
+		cm.sendNext("#r\t[Requirements to Enter]\r\n\r\n\t\t1.#k Job must be a Warrior, Dawn Warrior, or Aran.\r\n\t\t#r2.#k Must be under level 40.\r\n\t\t#r3.#k Must have #b#t4032491##k.");
 	}
 	else if (status == 1) {
 		var jobId = cm.getJobId();
-		if(((jobId >= 100 && jobId <= 132) || (jobId >= 1100 && jobId <= 1112)) && 
+		if(((jobId >= 100 && jobId <= 132) || (jobId >= 1100 && jobId <= 1112) || (jobId >= 2110 && jobId <= 2112)) && 
 			cm.getLevel() < 40 &&
 			cm.hasItem(4032491)) {
 			cm.sendOk("#kAll conditions have been satisfied. Do you wish to enter?");

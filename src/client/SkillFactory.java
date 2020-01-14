@@ -21,6 +21,7 @@
 */
 package client;
 
+import constants.GameConstants;
 import constants.skills.Aran;
 import constants.skills.Archer;
 import constants.skills.Assassin;
@@ -94,10 +95,11 @@ public class SkillFactory {
     private static MapleDataProvider datasource = MapleDataProviderFactory.getDataProvider(MapleDataProviderFactory.fileInWZPath("Skill.wz"));
 
     public static Skill getSkill(int id) {
-        if (!skills.isEmpty()) {
-            return skills.get(Integer.valueOf(id));
+        Skill lookup = skills.get(Integer.valueOf(id));
+        if (lookup == null) {
+            lookup = skills.get(GameConstants.getHiddenSkill(id));
         }
-        return null;
+        return lookup;
     }
 
     public static void loadAllSkills() {

@@ -102,7 +102,8 @@ public final class RangedAttackHandler extends AbstractDealDamageHandler {
             byte bulletCount = 1;
             MapleStatEffect effect = null;
             if (attack.skill != 0) {
-                effect = attack.getAttackEffect(player, null);
+                Skill skill = SkillFactory.getSkill(attack.skill);
+                effect = attack.getAttackEffect(player, skill);
                 bulletCount = effect.getBulletCount();
                 if (effect.getCooldown() > 0) {
                     c.announce(MaplePacketCreator.skillCooldown(attack.skill, effect.getCooldown()));
@@ -172,8 +173,9 @@ public final class RangedAttackHandler extends AbstractDealDamageHandler {
                             }
                         }
                     }
-                } else //bow, crossbow
-                if (soulArrow || attack.skill == 3111004 || attack.skill == 3211004 || attack.skill == 11101004 || attack.skill == 15111007 || attack.skill == 14101006) {
+                }
+                //bow, crossbow
+                else if (soulArrow || attack.skill == 3111004 || attack.skill == 3211004 || attack.skill == 11101004 || attack.skill == 15111007 || attack.skill == 14101006) {
                     visProjectile = 0;
                 }
                 byte[] packet;

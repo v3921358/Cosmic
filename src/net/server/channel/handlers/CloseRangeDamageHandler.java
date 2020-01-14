@@ -132,7 +132,8 @@ public final class CloseRangeDamageHandler extends AbstractDealDamageHandler {
             if (dmgIt.hasNext()) {
                 totDamageToOneMonster = dmgIt.next().get(0).intValue();
             }
-            int remainingHP = player.getHp() - totDamageToOneMonster * attack.getAttackEffect(player, null).getX() / 100;
+            Skill skill = SkillFactory.getSkill(attack.skill);
+            int remainingHP = player.getHp() - totDamageToOneMonster * attack.getAttackEffect(player, skill).getX() / 100;
             if (remainingHP > 1) {
                 player.setHp(remainingHP);
             } else {
@@ -153,7 +154,8 @@ public final class CloseRangeDamageHandler extends AbstractDealDamageHandler {
         }
         int attackCount = 1;
         if (attack.skill != 0) {
-            attackCount = attack.getAttackEffect(player, null).getAttackCount();
+            Skill skill = SkillFactory.getSkill(attack.skill);
+            attackCount = attack.getAttackEffect(player, skill).getAttackCount();
         }
         if (numFinisherOrbs == 0 && GameConstants.isFinisherSkill(attack.skill)) {
             return;

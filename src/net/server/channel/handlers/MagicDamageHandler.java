@@ -41,7 +41,7 @@ public final class MagicDamageHandler extends AbstractDealDamageHandler {
 	@Override
 	public final void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
 		MapleCharacter player = c.getPlayer();
-                player.setPetLootCd(System.currentTimeMillis());
+        player.setPetLootCd(System.currentTimeMillis());
 
 		/*long timeElapsed = System.currentTimeMillis() - player.getAutobanManager().getLastSpam(8);
 		if(timeElapsed < 300) {
@@ -68,8 +68,8 @@ public final class MagicDamageHandler extends AbstractDealDamageHandler {
                 byte[] packet = MaplePacketCreator.magicAttack(player, attack.skill, attack.skilllevel, attack.stance, attack.numAttackedAndDamage, attack.allDamage, charge, attack.speed, attack.direction, attack.display);
 		
 		player.getMap().broadcastMessage(player, packet, false, true);
-		MapleStatEffect effect = attack.getAttackEffect(player, null);
 		Skill skill = SkillFactory.getSkill(attack.skill);
+		MapleStatEffect effect = attack.getAttackEffect(player, skill);
 		MapleStatEffect effect_ = skill.getEffect(player.getSkillLevel(skill));
 		if (effect_.getCooldown() > 0) {
 			if (player.skillIsCooling(attack.skill)) {

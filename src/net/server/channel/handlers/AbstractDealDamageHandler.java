@@ -117,28 +117,27 @@ public abstract class AbstractDealDamageHandler extends AbstractMaplePacketHandl
         public int speed = 4;
         public Point position = new Point();
         public MapleStatEffect getAttackEffect(MapleCharacter chr, Skill theSkill) {
-            Skill mySkill = theSkill;
-            if (mySkill == null) {
-                mySkill = SkillFactory.getSkill(GameConstants.getHiddenSkill(skill));
+            int skillLevel = chr.getSkillLevel(theSkill);
+            
+            if (skillLevel == 0) {
+                return null;
             }
-            int skillLevel = chr.getSkillLevel(mySkill);
-            if (mySkill.getId() % 10000000 == 1020) {
+
+            if (theSkill.getId() % 10000000 == 1020) {
                 if (chr.getPartyQuest() instanceof Pyramid) {
                     if (((Pyramid) chr.getPartyQuest()).useSkill()) {
                         skillLevel = 1;
                     }
                 }
             }
-            if (skillLevel == 0) {
-                return null;
-            }
+            
             if (display > 80) { //Hmm
                 if (!theSkill.getAction()) {
                     AutobanFactory.FAST_ATTACK.autoban(chr, "WZ Edit; adding action to a skill: " + display);
                     return null;
                 }
             }
-            return mySkill.getEffect(skillLevel);
+            return theSkill.getEffect(skillLevel);
         }
     }
 
@@ -151,7 +150,7 @@ public abstract class AbstractDealDamageHandler extends AbstractMaplePacketHandl
                 return;
             }
             if (attack.skill != 0) {
-                theSkill = SkillFactory.getSkill(GameConstants.getHiddenSkill(attack.skill)); //returns back the skill id if its not a hidden skill so we are gucci
+                theSkill = SkillFactory.getSkill(attack.skill);
                 attackEffect = attack.getAttackEffect(player, theSkill);
                 if (attackEffect == null) {
                     player.getClient().announce(MaplePacketCreator.enableActions());
