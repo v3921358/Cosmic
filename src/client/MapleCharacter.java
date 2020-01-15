@@ -7464,7 +7464,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
 
     public void resetBossEntries(){
         for(Map.Entry bossEntry: bossEntries.entrySet()){
-            bossEntries.put((Integer)bossEntry.getKey(), ServerConstants.MAX_DAILY_BOSS_ENTRANCES);
+            bossEntries.put((Integer)bossEntry.getKey(), 0);
         }
     }
 
