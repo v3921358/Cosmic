@@ -195,7 +195,7 @@ public final class DueyHandler extends AbstractMaplePacketHandler {
             try {
                 con = DatabaseConnection.getConnection();
                 DueyPackages dueypack;
-                try (PreparedStatement ps = con.prepareStatement("SELECT * FROM dueypackages LEFT JOIN dueyitems USING (PackageId) WHERE PackageId = ?")) {
+                try (PreparedStatement ps = con.prepareStatement("SELECT SenderName, Mesos, TimeStamp, Type, dueyitems.* FROM dueypackages LEFT JOIN dueyitems USING (PackageId) WHERE PackageId = ?")) {
                     ps.setInt(1, packageid);
                     try (ResultSet rs = ps.executeQuery()) {
                         dueypack = null;
@@ -253,7 +253,7 @@ public final class DueyHandler extends AbstractMaplePacketHandler {
         Connection con = null;
         try {
             con = DatabaseConnection.getConnection();
-            try (PreparedStatement ps = con.prepareStatement("INSERT INTO dueypackages (RecieverId, SenderName, Mesos, TimeStamp, Checked, Type) VALUES (?, ?, ?, ?, ?, ?)")) {
+            try (PreparedStatement ps = con.prepareStatement("INSERT INTO dueypackages (ReceiverId, SenderName, Mesos, TimeStamp, Checked, Type) VALUES (?, ?, ?, ?, ?, ?)")) {
                 ps.setInt(1, recipientID);
                 ps.setString(2, sName);
                 ps.setInt(3, mesos);
@@ -316,8 +316,9 @@ public final class DueyHandler extends AbstractMaplePacketHandler {
         Connection con = null;
         try {
             con = DatabaseConnection.getConnection();
-            try (PreparedStatement ps = con.prepareStatement("SELECT * FROM dueypackages dp LEFT JOIN dueyitems di ON dp.PackageId=di.PackageId WHERE RecieverId = ?")) {
+            try (PreparedStatement ps = con.prepareStatement("SELECT SenderName, Mesos, TimeStamp, Type, dueyitems.* FROM dueypackages LEFT JOIN dueyitems USING (PackageId) WHERE ReceiverId = ? OR ReceiverAccountId = ?")) {
                 ps.setInt(1, chr.getId());
+                ps.setInt(2, chr.getAccountID());
                 try (ResultSet rs = ps.executeQuery()) {
                     while (rs.next()) {
                         DueyPackages dueypack = getItemByPID(rs);
