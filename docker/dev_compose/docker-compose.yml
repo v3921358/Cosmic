@@ -16,7 +16,7 @@ services:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
 
   populate_database:
-    image: benjixd/dietstory-populate-db
+    image: dietstory-populate-db
     networks:
       - dietstory_db
     volumes:

@@ -101,7 +101,16 @@ docker run --rm -it -v ${PWD}:/mnt -p 7575:7575 -p 7576:7576 -p 7577:7577 -p 848
 
 ### Docker Compose
 
-To run the entire Dietstory service including a populated local database in one command, use the docker compose file with the following command:
+Use docker-compose to run the entire Dietstory service including a populated local database.
+
+First build the `dietstory-populate-db` image locally.
+
+```
+docker build -build-arg MYSQL_HOST_NAME=dietstory_database MYSQL_ROOT_PASSWORD=<MY_DB_PASSWORD> -t dietstory-populate-db -f docker/populate_database/Dockerfile .
+```
+
+Then run the following command to spin up the entire Dietstory stack.
+
 ```
 MYSQL_ROOT_PASSWORD=<MY_DB_PASSWORD> DIETSTORY_PATH=<DIETSTORY_PATH> DATA_PATH=<DATABASE_MOUNT_DIR> docker-compose -f <DIETSTORY_PATH>/docker/dev_compose/docker-compose.yml up
 ```
