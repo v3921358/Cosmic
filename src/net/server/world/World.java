@@ -717,11 +717,16 @@ public class World {
             for(Map.Entry<Integer, Byte> dp: activePets.entrySet()) {
                 MapleCharacter chr = this.getPlayerStorage().getCharacterById(dp.getKey() / 4);
                 Byte dpVal = (byte)(dp.getValue() + 1);
-                if(dpVal == ServerConstants.PET_EXHAUST_COUNT) {
-                    chr.runFullnessSchedule(dp.getKey() % 4);
-                    dpVal = 0;
+                if(chr == null) {
+                    activePets.remove(dp.getKey());
                 }
-                activePets.put(dp.getKey(), dpVal);
+                else {
+                    if(dpVal == ServerConstants.PET_EXHAUST_COUNT) {
+                        chr.runFullnessSchedule(dp.getKey() % 4);
+                        dpVal = 0;
+                    }
+                    activePets.put(dp.getKey(), dpVal);    
+                }
             }
         }
     }
