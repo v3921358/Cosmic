@@ -1165,7 +1165,7 @@ public class Commands {
                         }
                         
 			short quantity = 1;
-                        int timeLimit = -1;
+                        long timeLimit = -1;
                         try {
                             if(sub.length >= 3) quantity = Short.parseShort(sub[2]);
                             if(sub.length >= 4) timeLimit = Integer.parseInt(sub[3]) * 60 * 1000;
@@ -1187,7 +1187,7 @@ public class Commands {
                                     flag |= ItemConstants.UNTRADEABLE;
                                 }
                         
-                                MapleInventoryManipulator.addById(c, itemId, quantity, player.getName(), petid, flag, timeLimit);
+                                MapleInventoryManipulator.addById(c, itemId, quantity, player.getName(), petid, flag, System.currentTimeMillis() + timeLimit);
 			} else {
 				Item toDrop;
 				if (MapleItemInformationProvider.getInstance().getInventoryType(itemId) == MapleInventoryType.EQUIP) {
