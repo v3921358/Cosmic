@@ -23,25 +23,29 @@ function action(mode, type, selection){
 	else
 		status++;
 
-
-	if(status == 0){
-		cm.sendOk("A mysterious black figure appeared and summoned a lot of angry monsters!");
-	}
-	else if(status == 1){
-		var player = cm.getPlayer();
-		var map = player.getMap();
-
-		for(var i = 0; i < 10; i++)
-			map.spawnMonsterOnGroundBelow(MapleLifeFactory.getMonster(mobId), new java.awt.Point(117, 183));
-		for(var i = 0; i < 10; i++)
-			map.spawnMonsterOnGroundBelow(MapleLifeFactory.getMonster(mobId), new java.awt.Point(4, 183));
-		for(var i = 0; i < 10; i++)
-			map.spawnMonsterOnGroundBelow(MapleLifeFactory.getMonster(mobId), new java.awt.Point(-109, 183));
-
-		cm.completeQuest(20718, 1103003);
-		cm.gainExp(4000 * cm.getPlayer().getExpRate());
-
+	if(cm.isQuestCompleted(20718)) {
+		cm.sendOk("The mysterious figure is no longer there!");
 		cm.dispose();
-		return;
+	}
+	else {
+		if(status == 0){
+			cm.sendOk("A mysterious black figure appeared and summoned a lot of angry monsters!");
+		}
+		else if(status == 1){
+			var player = cm.getPlayer();
+			var map = player.getMap();
+
+			for(var i = 0; i < 10; i++)
+				map.spawnMonsterOnGroundBelow(MapleLifeFactory.getMonster(mobId), new java.awt.Point(117, 183));
+			for(var i = 0; i < 10; i++)
+				map.spawnMonsterOnGroundBelow(MapleLifeFactory.getMonster(mobId), new java.awt.Point(4, 183));
+			for(var i = 0; i < 10; i++)
+				map.spawnMonsterOnGroundBelow(MapleLifeFactory.getMonster(mobId), new java.awt.Point(-109, 183));
+
+			cm.completeQuest(20718, 1103003);
+			cm.gainExp(4000 * cm.getPlayer().getExpRate());
+
+			cm.dispose();
+		}
 	}
 }
