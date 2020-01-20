@@ -10,3 +10,8 @@ ALTER TABLE dueypackages ADD COLUMN ReceiverAccountID INT UNSIGNED DEFAULT 0;
 ALTER TABLE dueyitems 
 ADD COLUMN TimeLimit BIGINT DEFAULT -1,
 ADD COLUMN IsTimeLimitActive BOOLEAN DEFAULT 0;
+
+-- Add column for item flags
+
+ALTER TABLE dueyitems
+ADD COLUMN Flags TINYINT DEFAULT 0 AFTER jump;

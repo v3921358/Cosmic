@@ -23,6 +23,7 @@ import java.util.List;
 import net.server.channel.Channel;
 import server.DueyPackages;
 import server.MapleInventoryManipulator;
+import server.MapleItemInformationProvider;
 
 import tools.DatabaseConnection;
 import tools.FilePrinter;
@@ -152,7 +153,7 @@ public class DueyProcessor {
                 return;
             }
         } else {
-            addMesoToDB(mesos, c.getPlayer().getName(), getAccIdFromCNAME(recipient, false));
+            addMesoToDB(mesos, c.getPlayer().getName(), getAccIdFromCNAME(recipient, false), 0);
         }
         if (recipientOn && rClient != null) {
             rClient.announce(MaplePacketCreator.sendDueyMSG(Actions.TOCLIENT_RECV_PACKAGE_MSG.getCode()));
@@ -223,32 +224,98 @@ public class DueyProcessor {
         c.announce(MaplePacketCreator.removeItemFromDuey(true, packageId));
     }
     
-     private static void addMesoToDB(int mesos, String sName, int recipientID) {
-        addItemToDB(null, 1, mesos, sName, recipientID);
+    // \/\/\/\/\/\/\/ METHODS FOR API \/\/\/\/\/\/\/\/
+    
+    // Sends a non-equipment item to an account
+    public static void sendItem(int itemId, int quantity, int mesos, String sender, int recvAcctId){
+        sendItem(itemId, quantity, mesos, -1, sender, 0, recvAcctId);
+    }
+    
+    // Sends a time-limited item to an account
+    public static void sendItem(int itemId, int quantity, int mesos, long timeLimit, String sender, int recvAcctId){
+        sendItem(itemId, quantity, mesos, timeLimit, sender, 0, recvAcctId);
+    }
+    
+    // Sends a time-limited item
+    public static void sendItem(int itemId, int quantity, int mesos, long timeLimit, String sender, int recipientId, int recvAcctId){
+        if (itemId < 2000000){
+            sendEquip(itemId, mesos, timeLimit, sender, recipientId, recvAcctId);
+            return;
+        }
+        Item item = new Item(itemId, (short) 0, (short) quantity);
+        addItemToDB(item, quantity, mesos, sender, recipientId, recvAcctId, timeLimit);
+    }
+    
+    // Sends an equipment with standard stats
+    public static void sendEquip(int itemId, int mesos, String sender, int recvAcctId){
+        sendEquip(itemId, mesos, -1, sender, 0, recvAcctId);
+    }
+    
+    // Sends a time-limited equipment item with standard stats
+    public static void sendEquip(int itemId, int mesos, long timeLimit, String sender, int recipientId, int recvAcctId){
+        MapleItemInformationProvider infopro = MapleItemInformationProvider.getInstance();
+        Equip eq = (Equip)infopro.getEquipById(itemId);
+        addItemToDB(eq, 1, mesos, sender, recipientId, recvAcctId, timeLimit);
+    }
+    
+    public static void sendEquip(int itemId, short upgradeSlots, byte level, 
+            short str, short dex, short _int, short luk, short hp, short mp, 
+            short watk, short matk, short wdef, short mdef, short acc, 
+            short avoid, short hands, short speed, short jump, byte flag, String owner, 
+            int mesos, long timeLimit, String senderName, int recipientId, int recvAcctId) {
+        Equip eq = new Equip(itemId, (short) 0, upgradeSlots);
+        eq.setLevel(level);
+        eq.setStr(str);
+        eq.setDex(dex);
+        eq.setInt(_int);
+        eq.setLuk(luk);
+        eq.setHp(hp);
+        eq.setMp(mp);
+        eq.setWatk(watk);
+        eq.setMatk(matk);
+        eq.setWdef(wdef);
+        eq.setMdef(mdef);
+        eq.setAcc(acc);
+        eq.setAvoid(avoid);
+        eq.setHands(hands);
+        eq.setSpeed(speed);
+        eq.setJump(jump);
+        eq.setFlag(flag);
+        eq.setOwner(owner);
+        addItemToDB(eq, 1, mesos, senderName, recipientId, recvAcctId, timeLimit);
     }
 
-    private static void addItemToDB(Item item, int quantity, int mesos, String sName, int recipientID) {
+    private static void addMesoToDB(int mesos, String sName, int recipientID, int recvAcctId){
+        addItemToDB(null, 1, mesos, sName, recipientID, recvAcctId, -1);
+    }
+    
+    private static void addItemToDB(Item item, int quantity, int mesos, String sName, int recipientID){
+        addItemToDB(item, quantity, mesos, sName, recipientID, 0, -1);
+    }
+
+    private static void addItemToDB(Item item, int quantity, int mesos, String sName, int recipientID, int recvAcctId, long timeLimit) {
         Connection con = null;
         try {
             con = DatabaseConnection.getConnection();
-            try (PreparedStatement ps = con.prepareStatement("INSERT INTO dueypackages (ReceiverId, SenderName, Mesos, TimeStamp, Checked, Type) VALUES (?, ?, ?, ?, ?, ?)")) {
+            try (PreparedStatement ps = con.prepareStatement("INSERT INTO dueypackages (ReceiverId, ReceiverAccountId, SenderName, Mesos, TimeStamp, Checked, Type) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
                 ps.setInt(1, recipientID);
-                ps.setString(2, sName);
-                ps.setInt(3, mesos);
-                ps.setString(4, getCurrentDate());
-                ps.setInt(5, 1);
+                ps.setInt(2, recvAcctId);
+                ps.setString(3, sName);
+                ps.setInt(4, mesos);
+                ps.setString(5, getCurrentDate());
+                ps.setInt(6, 1);
                 if (item == null) {
-                    ps.setInt(6, 3);
+                    ps.setInt(7, 3);
                     ps.executeUpdate();
                 } else {
-                    ps.setInt(6, item.getType());
+                    ps.setInt(7, item.getType());
                     
                     ps.executeUpdate();
                     try (ResultSet rs = ps.getGeneratedKeys()) {
                         rs.next();
                         PreparedStatement ps2;
                         if (item.getType() == 1) { // equips
-                            ps2 = con.prepareStatement("INSERT INTO dueyitems (PackageId, itemid, quantity, upgradeslots, level, str, dex, `int`, luk, hp, mp, watk, matk, wdef, mdef, acc, avoid, hands, speed, jump, owner, TimeLimit, IsTimeLimitActive) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                            ps2 = con.prepareStatement("INSERT INTO dueyitems (PackageId, itemid, quantity, upgradeslots, level, str, dex, `int`, luk, hp, mp, watk, matk, wdef, mdef, acc, avoid, hands, speed, jump, flags, owner, TimeLimit, IsTimeLimitActive) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                             Equip eq = (Equip) item;
                             ps2.setInt(2, eq.getItemId());
                             ps2.setInt(3, 1);
@@ -269,16 +336,30 @@ public class DueyProcessor {
                             ps2.setInt(18, eq.getHands());
                             ps2.setInt(19, eq.getSpeed());
                             ps2.setInt(20, eq.getJump());
-                            ps2.setString(21, eq.getOwner());
-                            ps2.setLong(22, eq.getExpiration());
-                            ps2.setBoolean(23, true);
+                            ps2.setByte(21, eq.getFlag());
+                            ps2.setString(22, eq.getOwner());
+                            if (timeLimit < 0) {
+                                ps2.setLong(23, eq.getExpiration());
+                                ps2.setBoolean(24, true);
+                            }
+                            else {
+                                ps2.setLong(23, timeLimit);
+                                ps2.setBoolean(24, false);
+                            }
                         } else {
-                            ps2 = con.prepareStatement("INSERT INTO dueyitems (PackageId, itemid, quantity, owner, TimeLimit, IsTimeLimitActive) VALUES (?, ?, ?, ?, ?, ?)");
+                            ps2 = con.prepareStatement("INSERT INTO dueyitems (PackageId, itemid, quantity, flags, owner, TimeLimit, IsTimeLimitActive) VALUES (?, ?, ?, ?, ?, ?, ?)");
                             ps2.setInt(2, item.getItemId());
                             ps2.setInt(3, quantity);
-                            ps2.setString(4, item.getOwner());
-                            ps2.setLong(5, item.getExpiration());
-                            ps2.setBoolean(6, true);
+                            ps2.setInt(4, item.getFlag());
+                            ps2.setString(5, item.getOwner());                            
+                            if (timeLimit < 0) {
+                                ps2.setLong(6, item.getExpiration());
+                                ps2.setBoolean(7, true);
+                            }
+                            else {
+                                ps2.setLong(6, timeLimit);
+                                ps2.setBoolean(7, false);
+                            }
                         }
                         ps2.setInt(1, rs.getInt(1));
                         ps2.executeUpdate();
@@ -298,7 +379,7 @@ public class DueyProcessor {
         Connection con = null;
         try {
             con = DatabaseConnection.getConnection();
-            try (PreparedStatement ps = con.prepareStatement("SELECT dueypackages.packageId, SenderName, Mesos, TimeStamp, Type, itemid, quantity, upgradeslots, level, str, dex, `int`, luk, hp, mp, watk, matk, wdef, mdef, acc, avoid, hands, speed, jump, owner, TimeLimit, IsTimeLimitActive FROM dueypackages LEFT JOIN dueyitems USING (PackageId) WHERE ReceiverId = ? OR ReceiverAccountId = ?")) {
+            try (PreparedStatement ps = con.prepareStatement("SELECT dueypackages.packageId, SenderName, Mesos, TimeStamp, Type, itemid, quantity, upgradeslots, level, str, dex, `int`, luk, hp, mp, watk, matk, wdef, mdef, acc, avoid, hands, speed, jump, flags, owner, TimeLimit, IsTimeLimitActive FROM dueypackages LEFT JOIN dueyitems USING (PackageId) WHERE ReceiverId = ? OR ReceiverAccountId = ?")) {
                 ps.setInt(1, chr.getId());
                 ps.setInt(2, chr.getAccountID());
                 try (ResultSet rs = ps.executeQuery()) {
@@ -307,7 +388,11 @@ public class DueyProcessor {
                         dueypack.setSender(rs.getString("SenderName"));
                         dueypack.setMesos(rs.getInt("Mesos"));
                         dueypack.setSentTime(rs.getString("TimeStamp"));
-                        packages.add(dueypack);
+                        if (dueypack.sentTimeInMilliseconds() <= System.currentTimeMillis() - ((long) 30 * 24 * 60 * 60 * 1000)){
+                            removeItemFromDB(dueypack.getPackageId());
+                        }
+                        else
+                            packages.add(dueypack);
                     }
                 }
             }
@@ -390,6 +475,7 @@ public class DueyProcessor {
                 eq.setHands((short) rs.getInt("hands"));
                 eq.setSpeed((short) rs.getInt("speed"));
                 eq.setJump((short) rs.getInt("jump"));
+                eq.setFlag(rs.getByte("Flags"));
                 eq.setOwner(rs.getString("owner"));
                 long timeLimit = rs.getLong("TimeLimit");
                 if (timeLimit > 0){
