@@ -22,6 +22,7 @@
 package net.server.channel.handlers;
 
 import client.MapleClient;
+import client.processor.npc.DueyProcessor;
 import constants.ServerConstants;
 import net.AbstractMaplePacketHandler;
 import scripting.npc.NPCScriptManager;
@@ -52,7 +53,7 @@ public final class NPCTalkHandler extends AbstractMaplePacketHandler {
             
             if (npc.getId() == 9010009) {   //is duey
                 c.getPlayer().setNpcCooldown(System.currentTimeMillis());
-                c.announce(MaplePacketCreator.sendDuey((byte) 8, DueyHandler.loadItems(c.getPlayer())));
+                c.announce(MaplePacketCreator.sendDuey((byte) 8, DueyProcessor.loadItems(c.getPlayer())));
             } else {
                 if (c.getCM() != null || c.getQM() != null) {
                     c.announce(MaplePacketCreator.enableActions());

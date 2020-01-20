@@ -124,7 +124,7 @@ class PairedQuicksort {
     }
     
     private void PartitionByLevel(int Esq, int Dir, ArrayList<Item> A) {
-        Equip x, w, eqpI, eqpJ;
+        Equip x, w;
 
         i = Esq;
         j = Dir;
@@ -132,11 +132,8 @@ class PairedQuicksort {
         x = (Equip)(A.get((i + j) / 2));
         
         do {
-            eqpI = (Equip)A.get(i);
-            eqpJ = (Equip)A.get(j);
-            
-            while (x.getLevel() > eqpI.getLevel()) i++;
-            while (x.getLevel() < eqpJ.getLevel()) j--;
+            while (x.getLevel() > ((Equip)A.get(i)).getLevel()) i++;
+            while (x.getLevel() < ((Equip)A.get(j)).getLevel()) j--;
             
             if (i <= j) {
                 w = (Equip)A.get(i);
@@ -231,7 +228,7 @@ public final class ItemIdSortHandler extends AbstractMaplePacketHandler {
                 mods.add(new ModifyInventory(ModifyInventory.REMOVE_ITEM_OP, item));
             }
 
-            // Remove all items from inventory client action
+            // add all items from inventory client action
             for(Item item : itemarray) {
                 inventory.addItem(item);
                 mods.add(new ModifyInventory(ModifyInventory.ADD_ITEM_OP, item.copy())); //to prevent crashes
