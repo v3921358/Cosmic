@@ -2968,338 +2968,6 @@
         <int name="z" value="0" />
       </canvas>
       <string name="elemAttr" value="i" />
-      <imgdir name="level">
-        <imgdir name="1">
-          <string name="hs" value="h1" />
-          <int name="mpCon" value="210" />
-          <int name="mad" value="330" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="1" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="2">
-          <string name="hs" value="h2" />
-          <int name="mpCon" value="220" />
-          <int name="mad" value="340" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="1" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="3">
-          <string name="hs" value="h3" />
-          <int name="mpCon" value="230" />
-          <int name="mad" value="350" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="1" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="4">
-          <string name="hs" value="h4" />
-          <int name="mpCon" value="240" />
-          <int name="mad" value="360" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="1" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="5">
-          <string name="hs" value="h5" />
-          <int name="mpCon" value="250" />
-          <int name="mad" value="370" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="1" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="6">
-          <string name="hs" value="h6" />
-          <int name="mpCon" value="260" />
-          <int name="mad" value="380" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="1" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="7">
-          <string name="hs" value="h7" />
-          <int name="mpCon" value="270" />
-          <int name="mad" value="390" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="1" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="8">
-          <string name="hs" value="h8" />
-          <int name="mpCon" value="280" />
-          <int name="mad" value="400" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="1" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="9">
-          <string name="hs" value="h9" />
-          <int name="mpCon" value="290" />
-          <int name="mad" value="410" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="1" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="10">
-          <string name="hs" value="h10" />
-          <int name="mpCon" value="300" />
-          <int name="mad" value="420" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="1" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="11">
-          <string name="hs" value="h11" />
-          <int name="mpCon" value="310" />
-          <int name="mad" value="430" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="2" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="12">
-          <string name="hs" value="h12" />
-          <int name="mpCon" value="320" />
-          <int name="mad" value="440" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="2" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="13">
-          <string name="hs" value="h13" />
-          <int name="mpCon" value="330" />
-          <int name="mad" value="450" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="2" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="14">
-          <string name="hs" value="h14" />
-          <int name="mpCon" value="340" />
-          <int name="mad" value="460" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="2" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="15">
-          <string name="hs" value="h15" />
-          <int name="mpCon" value="350" />
-          <int name="mad" value="470" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="2" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="16">
-          <string name="hs" value="h16" />
-          <int name="mpCon" value="360" />
-          <int name="mad" value="480" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="2" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="17">
-          <string name="hs" value="h17" />
-          <int name="mpCon" value="370" />
-          <int name="mad" value="490" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="2" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="18">
-          <string name="hs" value="h18" />
-          <int name="mpCon" value="380" />
-          <int name="mad" value="500" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="2" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="19">
-          <string name="hs" value="h19" />
-          <int name="mpCon" value="390" />
-          <int name="mad" value="510" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="2" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="20">
-          <string name="hs" value="h20" />
-          <int name="mpCon" value="400" />
-          <int name="mad" value="520" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="2" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="21">
-          <string name="hs" value="h21" />
-          <int name="mpCon" value="395" />
-          <int name="mad" value="525" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="3" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="22">
-          <string name="hs" value="h22" />
-          <int name="mpCon" value="390" />
-          <int name="mad" value="530" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="3" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="23">
-          <string name="hs" value="h23" />
-          <int name="mpCon" value="385" />
-          <int name="mad" value="535" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="3" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="24">
-          <string name="hs" value="h24" />
-          <int name="mpCon" value="380" />
-          <int name="mad" value="540" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="3" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="25">
-          <string name="hs" value="h25" />
-          <int name="mpCon" value="375" />
-          <int name="mad" value="545" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="3" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="26">
-          <string name="hs" value="h26" />
-          <int name="mpCon" value="370" />
-          <int name="mad" value="550" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="3" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="27">
-          <string name="hs" value="h27" />
-          <int name="mpCon" value="365" />
-          <int name="mad" value="555" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="3" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="28">
-          <string name="hs" value="h28" />
-          <int name="mpCon" value="360" />
-          <int name="mad" value="560" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="3" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="29">
-          <string name="hs" value="h29" />
-          <int name="mpCon" value="355" />
-          <int name="mad" value="565" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="3" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-        <imgdir name="30">
-          <string name="hs" value="h30" />
-          <int name="mpCon" value="350" />
-          <int name="mad" value="570" />
-          <vector name="lt" x="-400" y="-350" />
-          <vector name="rb" x="400" y="250" />
-          <int name="mobCount" value="15" />
-          <int name="mastery" value="10" />
-          <int name="time" value="3" />
-          <int name="cooltime" value="45" />
-        </imgdir>
-      </imgdir>
       <imgdir name="effect">
         <canvas name="0" width="86" height="91">
           <vector name="origin" x="44" y="94" />
@@ -4329,6 +3997,338 @@
         <string name="0" value="blizzard" />
       </imgdir>
       <int name="invisible" value="1" />
+      <imgdir name="level">
+        <imgdir name="1">
+          <string name="hs" value="h1" />
+          <int name="mpCon" value="210" />
+          <int name="mad" value="330" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="1" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="2">
+          <string name="hs" value="h2" />
+          <int name="mpCon" value="220" />
+          <int name="mad" value="340" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="1" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="3">
+          <string name="hs" value="h3" />
+          <int name="mpCon" value="230" />
+          <int name="mad" value="350" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="1" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="4">
+          <string name="hs" value="h4" />
+          <int name="mpCon" value="240" />
+          <int name="mad" value="360" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="1" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="5">
+          <string name="hs" value="h5" />
+          <int name="mpCon" value="250" />
+          <int name="mad" value="370" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="1" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="6">
+          <string name="hs" value="h6" />
+          <int name="mpCon" value="260" />
+          <int name="mad" value="380" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="1" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="7">
+          <string name="hs" value="h7" />
+          <int name="mpCon" value="270" />
+          <int name="mad" value="390" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="1" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="8">
+          <string name="hs" value="h8" />
+          <int name="mpCon" value="280" />
+          <int name="mad" value="400" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="1" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="9">
+          <string name="hs" value="h9" />
+          <int name="mpCon" value="290" />
+          <int name="mad" value="410" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="1" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="10">
+          <string name="hs" value="h10" />
+          <int name="mpCon" value="300" />
+          <int name="mad" value="420" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="1" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="11">
+          <string name="hs" value="h11" />
+          <int name="mpCon" value="310" />
+          <int name="mad" value="430" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="2" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="12">
+          <string name="hs" value="h12" />
+          <int name="mpCon" value="320" />
+          <int name="mad" value="440" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="2" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="13">
+          <string name="hs" value="h13" />
+          <int name="mpCon" value="330" />
+          <int name="mad" value="450" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="2" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="14">
+          <string name="hs" value="h14" />
+          <int name="mpCon" value="340" />
+          <int name="mad" value="460" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="2" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="15">
+          <string name="hs" value="h15" />
+          <int name="mpCon" value="350" />
+          <int name="mad" value="470" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="2" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="16">
+          <string name="hs" value="h16" />
+          <int name="mpCon" value="360" />
+          <int name="mad" value="480" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="2" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="17">
+          <string name="hs" value="h17" />
+          <int name="mpCon" value="370" />
+          <int name="mad" value="490" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="2" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="18">
+          <string name="hs" value="h18" />
+          <int name="mpCon" value="380" />
+          <int name="mad" value="500" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="2" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="19">
+          <string name="hs" value="h19" />
+          <int name="mpCon" value="390" />
+          <int name="mad" value="510" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="2" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="20">
+          <string name="hs" value="h20" />
+          <int name="mpCon" value="400" />
+          <int name="mad" value="520" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="2" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="21">
+          <string name="hs" value="h21" />
+          <int name="mpCon" value="395" />
+          <int name="mad" value="525" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="3" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="22">
+          <string name="hs" value="h22" />
+          <int name="mpCon" value="390" />
+          <int name="mad" value="530" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="3" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="23">
+          <string name="hs" value="h23" />
+          <int name="mpCon" value="385" />
+          <int name="mad" value="535" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="3" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="24">
+          <string name="hs" value="h24" />
+          <int name="mpCon" value="380" />
+          <int name="mad" value="540" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="3" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="25">
+          <string name="hs" value="h25" />
+          <int name="mpCon" value="375" />
+          <int name="mad" value="545" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="3" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="26">
+          <string name="hs" value="h26" />
+          <int name="mpCon" value="370" />
+          <int name="mad" value="550" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="3" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="27">
+          <string name="hs" value="h27" />
+          <int name="mpCon" value="365" />
+          <int name="mad" value="555" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="3" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="28">
+          <string name="hs" value="h28" />
+          <int name="mpCon" value="360" />
+          <int name="mad" value="560" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="3" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="29">
+          <string name="hs" value="h29" />
+          <int name="mpCon" value="355" />
+          <int name="mad" value="565" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="3" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+        <imgdir name="30">
+          <string name="hs" value="h30" />
+          <int name="mpCon" value="350" />
+          <int name="mad" value="570" />
+          <vector name="lt" x="-400" y="-350" />
+          <vector name="rb" x="400" y="250" />
+          <int name="mobCount" value="15" />
+          <int name="mastery" value="10" />
+          <int name="time" value="3" />
+          <int name="cooltime" value="45" />
+        </imgdir>
+      </imgdir>
     </imgdir>
     <imgdir name="2221008">
       <canvas name="icon" width="32" height="32">
