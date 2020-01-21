@@ -141,400 +141,400 @@
           <int name="time" value="31" />
           <int name="eva" value="1" />
           <int name="acc" value="1" />
-          <int name="x" value="75" />
+          <int name="x" value="150" />
           <int name="pad" value="0" />
           <int name="damage" value="5" />
-          <int name="prop" value="11" />
+          <int name="prop" value="31" />
         </imgdir>
         <imgdir name="2">
           <string name="hs" value="h2" />
           <int name="time" value="31" />
           <int name="eva" value="1" />
           <int name="acc" value="1" />
-          <int name="x" value="78" />
+          <int name="x" value="160" />
           <int name="pad" value="0" />
           <int name="damage" value="10" />
-          <int name="prop" value="12" />
+          <int name="prop" value="32" />
         </imgdir>
         <imgdir name="3">
           <string name="hs" value="h3" />
           <int name="time" value="32" />
           <int name="eva" value="2" />
           <int name="acc" value="2" />
-          <int name="x" value="81" />
+          <int name="x" value="170" />
           <int name="pad" value="0" />
           <int name="damage" value="15" />
-          <int name="prop" value="13" />
+          <int name="prop" value="33" />
         </imgdir>
         <imgdir name="4">
           <string name="hs" value="h4" />
           <int name="time" value="32" />
           <int name="eva" value="2" />
           <int name="acc" value="2" />
-          <int name="x" value="84" />
+          <int name="x" value="180" />
           <int name="pad" value="11" />
           <int name="damage" value="20" />
-          <int name="prop" value="14" />
+          <int name="prop" value="34" />
         </imgdir>
         <imgdir name="5">
           <string name="hs" value="h5" />
           <int name="time" value="33" />
           <int name="eva" value="3" />
           <int name="acc" value="3" />
-          <int name="x" value="87" />
+          <int name="x" value="190" />
           <int name="pad" value="11" />
           <int name="damage" value="25" />
-          <int name="prop" value="15" />
+          <int name="prop" value="35" />
         </imgdir>
         <imgdir name="6">
           <string name="hs" value="h6" />
           <int name="time" value="33" />
           <int name="eva" value="3" />
           <int name="acc" value="3" />
-          <int name="x" value="90" />
+          <int name="x" value="200" />
           <int name="pad" value="11" />
           <int name="damage" value="30" />
-          <int name="prop" value="16" />
+          <int name="prop" value="36" />
         </imgdir>
         <imgdir name="7">
           <string name="hs" value="h7" />
           <int name="time" value="34" />
           <int name="eva" value="4" />
           <int name="acc" value="4" />
-          <int name="x" value="93" />
+          <int name="x" value="210" />
           <int name="pad" value="11" />
           <int name="damage" value="35" />
-          <int name="prop" value="17" />
+          <int name="prop" value="37" />
         </imgdir>
         <imgdir name="8">
           <string name="hs" value="h8" />
           <int name="time" value="34" />
           <int name="eva" value="4" />
           <int name="acc" value="4" />
-          <int name="x" value="96" />
+          <int name="x" value="220" />
           <int name="pad" value="12" />
           <int name="damage" value="40" />
-          <int name="prop" value="18" />
+          <int name="prop" value="38" />
         </imgdir>
         <imgdir name="9">
           <string name="hs" value="h9" />
           <int name="time" value="35" />
           <int name="eva" value="5" />
           <int name="acc" value="5" />
-          <int name="x" value="99" />
+          <int name="x" value="230" />
           <int name="pad" value="12" />
           <int name="damage" value="45" />
-          <int name="prop" value="19" />
+          <int name="prop" value="39" />
         </imgdir>
         <imgdir name="10">
           <string name="hs" value="h10" />
           <int name="time" value="35" />
           <int name="eva" value="5" />
           <int name="acc" value="5" />
-          <int name="x" value="102" />
+          <int name="x" value="240" />
           <int name="pad" value="12" />
           <int name="damage" value="50" />
-          <int name="prop" value="20" />
+          <int name="prop" value="40" />
         </imgdir>
         <imgdir name="11">
           <string name="hs" value="h11" />
           <int name="time" value="36" />
           <int name="eva" value="6" />
           <int name="acc" value="6" />
-          <int name="x" value="105" />
+          <int name="x" value="250" />
           <int name="pad" value="12" />
           <int name="damage" value="55" />
-          <int name="prop" value="21" />
+          <int name="prop" value="41" />
         </imgdir>
         <imgdir name="12">
           <string name="hs" value="h12" />
           <int name="time" value="36" />
           <int name="eva" value="6" />
           <int name="acc" value="6" />
-          <int name="x" value="108" />
+          <int name="x" value="261" />
           <int name="pad" value="13" />
           <int name="damage" value="60" />
-          <int name="prop" value="22" />
+          <int name="prop" value="42" />
         </imgdir>
         <imgdir name="13">
           <string name="hs" value="h13" />
           <int name="time" value="37" />
           <int name="eva" value="7" />
           <int name="acc" value="7" />
-          <int name="x" value="111" />
+          <int name="x" value="273" />
           <int name="pad" value="13" />
           <int name="damage" value="65" />
-          <int name="prop" value="23" />
+          <int name="prop" value="43" />
         </imgdir>
         <imgdir name="14">
           <string name="hs" value="h14" />
           <int name="time" value="37" />
           <int name="eva" value="7" />
           <int name="acc" value="7" />
-          <int name="x" value="114" />
+          <int name="x" value="284" />
           <int name="pad" value="13" />
           <int name="damage" value="70" />
-          <int name="prop" value="24" />
+          <int name="prop" value="44" />
         </imgdir>
         <imgdir name="15">
           <string name="hs" value="h15" />
           <int name="time" value="38" />
           <int name="eva" value="8" />
           <int name="acc" value="8" />
-          <int name="x" value="117" />
+          <int name="x" value="295" />
           <int name="pad" value="13" />
           <int name="damage" value="75" />
-          <int name="prop" value="25" />
+          <int name="prop" value="45" />
         </imgdir>
         <imgdir name="16">
           <string name="hs" value="h16" />
           <int name="time" value="38" />
           <int name="eva" value="8" />
           <int name="acc" value="8" />
-          <int name="x" value="120" />
+          <int name="x" value="306" />
           <int name="pad" value="14" />
           <int name="damage" value="80" />
-          <int name="prop" value="26" />
+          <int name="prop" value="46" />
         </imgdir>
         <imgdir name="17">
           <string name="hs" value="h17" />
           <int name="time" value="39" />
           <int name="eva" value="9" />
           <int name="acc" value="9" />
-          <int name="x" value="123" />
+          <int name="x" value="317" />
           <int name="pad" value="14" />
           <int name="damage" value="85" />
-          <int name="prop" value="27" />
+          <int name="prop" value="47" />
         </imgdir>
         <imgdir name="18">
           <string name="hs" value="h18" />
           <int name="time" value="39" />
           <int name="eva" value="9" />
           <int name="acc" value="9" />
-          <int name="x" value="126" />
+          <int name="x" value="328" />
           <int name="pad" value="14" />
           <int name="damage" value="90" />
-          <int name="prop" value="28" />
+          <int name="prop" value="48" />
         </imgdir>
         <imgdir name="19">
           <string name="hs" value="h19" />
           <int name="time" value="40" />
           <int name="eva" value="10" />
           <int name="acc" value="10" />
-          <int name="x" value="129" />
+          <int name="x" value="339" />
           <int name="pad" value="14" />
           <int name="damage" value="95" />
-          <int name="prop" value="29" />
+          <int name="prop" value="49" />
         </imgdir>
         <imgdir name="20">
           <string name="hs" value="h20" />
           <int name="time" value="40" />
           <int name="eva" value="10" />
           <int name="acc" value="10" />
-          <int name="x" value="132" />
+          <int name="x" value="350" />
           <int name="pad" value="15" />
           <int name="damage" value="100" />
-          <int name="prop" value="30" />
+          <int name="prop" value="50" />
         </imgdir>
         <imgdir name="21">
           <string name="hs" value="h21" />
           <int name="time" value="41" />
           <int name="eva" value="11" />
           <int name="acc" value="11" />
-          <int name="x" value="135" />
+          <int name="x" value="360" />
           <int name="pad" value="15" />
           <int name="damage" value="105" />
-          <int name="prop" value="31" />
+          <int name="prop" value="51" />
         </imgdir>
         <imgdir name="22">
           <string name="hs" value="h22" />
           <int name="time" value="41" />
           <int name="eva" value="11" />
           <int name="acc" value="11" />
-          <int name="x" value="138" />
+          <int name="x" value="370" />
           <int name="pad" value="15" />
           <int name="damage" value="110" />
-          <int name="prop" value="32" />
+          <int name="prop" value="52" />
         </imgdir>
         <imgdir name="23">
           <string name="hs" value="h23" />
           <int name="time" value="42" />
           <int name="eva" value="12" />
           <int name="acc" value="12" />
-          <int name="x" value="141" />
+          <int name="x" value="380" />
           <int name="pad" value="15" />
           <int name="damage" value="115" />
-          <int name="prop" value="33" />
+          <int name="prop" value="53" />
         </imgdir>
         <imgdir name="24">
           <string name="hs" value="h24" />
           <int name="time" value="42" />
           <int name="eva" value="12" />
           <int name="acc" value="12" />
-          <int name="x" value="144" />
+          <int name="x" value="390" />
           <int name="pad" value="16" />
           <int name="damage" value="120" />
-          <int name="prop" value="34" />
+          <int name="prop" value="54" />
         </imgdir>
         <imgdir name="25">
           <string name="hs" value="h25" />
           <int name="time" value="43" />
           <int name="eva" value="13" />
           <int name="acc" value="13" />
-          <int name="x" value="147" />
+          <int name="x" value="400" />
           <int name="pad" value="16" />
           <int name="damage" value="125" />
-          <int name="prop" value="35" />
+          <int name="prop" value="55" />
         </imgdir>
         <imgdir name="26">
           <string name="hs" value="h26" />
           <int name="time" value="43" />
           <int name="eva" value="13" />
           <int name="acc" value="13" />
-          <int name="x" value="150" />
+          <int name="x" value="400" />
           <int name="pad" value="16" />
           <int name="damage" value="130" />
-          <int name="prop" value="36" />
+          <int name="prop" value="56" />
         </imgdir>
         <imgdir name="27">
           <string name="hs" value="h27" />
           <int name="time" value="44" />
           <int name="eva" value="14" />
           <int name="acc" value="14" />
-          <int name="x" value="153" />
+          <int name="x" value="400" />
           <int name="pad" value="16" />
           <int name="damage" value="135" />
-          <int name="prop" value="37" />
+          <int name="prop" value="57" />
         </imgdir>
         <imgdir name="28">
           <string name="hs" value="h28" />
           <int name="time" value="44" />
           <int name="eva" value="14" />
           <int name="acc" value="14" />
-          <int name="x" value="156" />
+          <int name="x" value="400" />
           <int name="pad" value="17" />
           <int name="damage" value="140" />
-          <int name="prop" value="38" />
+          <int name="prop" value="58" />
         </imgdir>
         <imgdir name="29">
           <string name="hs" value="h29" />
           <int name="time" value="45" />
           <int name="eva" value="15" />
           <int name="acc" value="15" />
-          <int name="x" value="159" />
+          <int name="x" value="400" />
           <int name="pad" value="17" />
           <int name="damage" value="145" />
-          <int name="prop" value="39" />
+          <int name="prop" value="59" />
         </imgdir>
         <imgdir name="30">
           <string name="hs" value="h30" />
           <int name="time" value="45" />
           <int name="eva" value="15" />
           <int name="acc" value="15" />
-          <int name="x" value="162" />
+          <int name="x" value="400" />
           <int name="pad" value="17" />
           <int name="damage" value="150" />
-          <int name="prop" value="40" />
+          <int name="prop" value="60" />
         </imgdir>
         <imgdir name="31">
           <string name="hs" value="h31" />
           <int name="time" value="46" />
           <int name="eva" value="16" />
           <int name="acc" value="16" />
-          <int name="x" value="165" />
+          <int name="x" value="400" />
           <int name="pad" value="17" />
           <int name="damage" value="155" />
-          <int name="prop" value="41" />
+          <int name="prop" value="61" />
         </imgdir>
         <imgdir name="32">
           <string name="hs" value="h32" />
           <int name="time" value="46" />
           <int name="eva" value="16" />
           <int name="acc" value="16" />
-          <int name="x" value="168" />
+          <int name="x" value="400" />
           <int name="pad" value="18" />
           <int name="damage" value="160" />
-          <int name="prop" value="42" />
+          <int name="prop" value="62" />
         </imgdir>
         <imgdir name="33">
           <string name="hs" value="h33" />
           <int name="time" value="47" />
           <int name="eva" value="17" />
           <int name="acc" value="17" />
-          <int name="x" value="171" />
+          <int name="x" value="400" />
           <int name="pad" value="18" />
           <int name="damage" value="165" />
-          <int name="prop" value="43" />
+          <int name="prop" value="63" />
         </imgdir>
         <imgdir name="34">
           <string name="hs" value="h34" />
           <int name="time" value="47" />
           <int name="eva" value="17" />
           <int name="acc" value="17" />
-          <int name="x" value="174" />
+          <int name="x" value="400" />
           <int name="pad" value="18" />
           <int name="damage" value="170" />
-          <int name="prop" value="44" />
+          <int name="prop" value="64" />
         </imgdir>
         <imgdir name="35">
           <string name="hs" value="h35" />
           <int name="time" value="48" />
           <int name="eva" value="18" />
           <int name="acc" value="18" />
-          <int name="x" value="177" />
+          <int name="x" value="400" />
           <int name="pad" value="18" />
           <int name="damage" value="175" />
-          <int name="prop" value="45" />
+          <int name="prop" value="65" />
         </imgdir>
         <imgdir name="36">
           <string name="hs" value="h36" />
           <int name="time" value="48" />
           <int name="eva" value="18" />
           <int name="acc" value="18" />
-          <int name="x" value="180" />
+          <int name="x" value="400" />
           <int name="pad" value="19" />
           <int name="damage" value="180" />
-          <int name="prop" value="46" />
+          <int name="prop" value="66" />
         </imgdir>
         <imgdir name="37">
           <string name="hs" value="h37" />
           <int name="time" value="49" />
           <int name="eva" value="19" />
           <int name="acc" value="19" />
-          <int name="x" value="183" />
+          <int name="x" value="400" />
           <int name="pad" value="19" />
           <int name="damage" value="185" />
-          <int name="prop" value="47" />
+          <int name="prop" value="67" />
         </imgdir>
         <imgdir name="38">
           <string name="hs" value="h38" />
           <int name="time" value="49" />
           <int name="eva" value="19" />
           <int name="acc" value="19" />
-          <int name="x" value="186" />
+          <int name="x" value="400" />
           <int name="pad" value="19" />
           <int name="damage" value="190" />
-          <int name="prop" value="48" />
+          <int name="prop" value="68" />
         </imgdir>
         <imgdir name="39">
           <string name="hs" value="h39" />
           <int name="time" value="50" />
           <int name="eva" value="20" />
           <int name="acc" value="20" />
-          <int name="x" value="189" />
+          <int name="x" value="400" />
           <int name="pad" value="19" />
           <int name="damage" value="195" />
-          <int name="prop" value="49" />
+          <int name="prop" value="69" />
         </imgdir>
         <imgdir name="40">
           <string name="hs" value="h40" />
           <int name="time" value="50" />
           <int name="eva" value="20" />
           <int name="acc" value="20" />
-          <int name="x" value="192" />
+          <int name="x" value="400" />
           <int name="pad" value="20" />
           <int name="damage" value="200" />
-          <int name="prop" value="50" />
+          <int name="prop" value="70" />
         </imgdir>
       </imgdir>
       <imgdir name="effect">
