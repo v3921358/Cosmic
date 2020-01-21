@@ -1,0 +1,83 @@
+/*
+    This file is part of the HeavenMS MapleStory Server
+    Copyleft (L) 2016 - 2018 RonanLana
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation version 3 as published by
+    the Free Software Foundation. You may not use, modify or distribute
+    this program under any other version of the GNU Affero General Public
+    License.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+var status = -1;
+
+function start(mode, type, selection) {
+    if (mode == -1) {
+        qm.dispose();
+    } else {
+        if(mode == 0 && type > 0) {
+            qm.dispose();
+            return;
+        }
+        
+        if (mode == 1)
+            status++;
+        else
+            status--;
+        
+        if (status == 0) {
+            qm.sendNext("Aran, ever since the Puppeteer's ambush on me, I've been thinking it is dangerous to have the #b#t4032323##k around here by myself. So, I need you to deliver the gem to #r#p1201000##k, in Rien, she will know what to do with it.");
+        } else if (status == 1) {
+            if(!qm.canHold(4032323, 1)) {
+                qm.sendNext("Please free a slot on your ETC inventory before receiving the item.");
+                qm.dispose();
+                return;
+            }
+            
+            if(!qm.haveItem(4032323, 1)) qm.gainItem(4032323, 1);
+            qm.forceStartQuest();
+            qm.dispose();
+        }
+    }
+}
+
+function end(mode, type, selection) {
+    if (mode == -1) {
+        qm.dispose();
+    } else {
+        if(mode == 0 && type > 0) {
+            qm.dispose();
+            return;
+        }
+        
+        if (mode == 1)
+            status++;
+        else
+            status--;
+        
+        if (status == 0) {
+            if(qm.haveItem(4032323, 1)) {
+                qm.sendNext("#r#p1002104##k sent the #b#t4032323##k here for safety? Thank goodness, indeed here the gem will be safer than anywhere on Victoria Island. Thank you, #b#h0##k.");
+            } else {
+                qm.dispose();
+            }
+        } else if (status == 1) {            
+            qm.sendNext("We recently found an ancient scroll that holds the secrets to the Hero's everlasting endurance, and I think it's a fitting reward for your endeavours. Behold, the #rCombo Drain#k Skill: that let's you heal back a portion of damage dealt to the monsters.");
+            qm.gainItem(4032323, -1);
+            qm.gainExp(6037);
+            qm.teachSkill(21100005, 0, 20, -1); // combo drain
+            qm.forceCompleteQuest();
+            
+            qm.dispose();
+        }
+    }
+}

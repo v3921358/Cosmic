@@ -307,11 +307,13 @@ public class AbstractPlayerInteraction {
         public void setQuestProgress(int qid, int progress) {
                 MapleQuestStatus status = c.getPlayer().getQuest(MapleQuest.getInstance(qid));
                 status.setProgress(status.getAnyProgressKey(), String.valueOf(progress));
+                c.getPlayer().announce(MaplePacketCreator.updateQuest(status, false));
         }
         
         public void setQuestProgress(int qid, int pid, int progress) {
                 MapleQuestStatus status = c.getPlayer().getQuest(MapleQuest.getInstance(qid));
                 status.setProgress(pid, String.valueOf(progress));
+                c.getPlayer().announce(MaplePacketCreator.updateQuest(status, true));
 	}
         
         public int getQuestProgress(int qid) {

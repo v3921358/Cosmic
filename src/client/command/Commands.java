@@ -1187,7 +1187,7 @@ public class Commands {
                                     flag |= ItemConstants.UNTRADEABLE;
                                 }
                         
-                                MapleInventoryManipulator.addById(c, itemId, quantity, player.getName(), petid, flag, System.currentTimeMillis() + timeLimit);
+                                MapleInventoryManipulator.addById(c, itemId, quantity, player.getName(), petid, flag, timeLimit == -1 ? -1 : System.currentTimeMillis() + timeLimit);
 			} else {
 				Item toDrop;
 				if (MapleItemInformationProvider.getInstance().getInventoryType(itemId) == MapleInventoryType.EQUIP) {

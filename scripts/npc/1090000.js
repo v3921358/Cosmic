@@ -29,33 +29,59 @@ status = -1;
 actionx = {"1stJob" : false, "2ndjob" : false, "2ndjobT" : false, "3thJobI" : false, "3thJobC" : false};
 job = 510;
 
+var advQuest = 0;
 function start() {
-    if (cm.getJobId() == 0) {
-        actionx["1stJob"] = true;
-        if (cm.getLevel() >= 10)
-            cm.sendNext("Want to be a pirate? There are some standards to meet. because we can't just accept EVERYONE in... #bYour level should be at least 10#k. Let's see.");
-        else {
-            cm.sendOk("Train a bit more and I can show you the way of the #rPirate#k.");
+    if (cm.isQuestStarted(6330)) {
+        if (cm.getEventInstance() != null) {    // missing script for skill test found thanks to Jade™
+            advQuest = 5;                       // string visibility thanks to iPunchEm & Glvelturall
+            cm.sendNext("Not bad at all. Let's discuss this outside!");
+        } else if (cm.getQuestProgress(6330, 6331) == 0) {
+            advQuest = 1;
+            cm.sendNext("You're ready, right? Now try to withstand my attacks for 2 minutes. I won't go easy on you. Good luck, because you will need it.");
+        } else {
+            advQuest = 3;
+            cm.teachSkill(5121003, 0, 10, -1);
+            cm.completeQuest(6330);
+            
+            cm.sendNext("Congratulations. You have managed to pass my test. I'll teach you a new skill called \"Super Transformation\".\r\n\r\n  #s5121003#    #b#q5121003##k");
+        }
+    } else if (cm.isQuestStarted(6370)) {
+        if (cm.getEventInstance() != null) {
+            advQuest = 6;
+            cm.sendNext("Not bad at all. Let's discuss this outside!");
+        } else if (cm.getQuestProgress(6370, 6371) == 0) {
+            advQuest = 2;
+            cm.sendNext("You're ready, right? Now try to withstand my attacks for 2 minutes. I won't go easy on you. Good luck, because you will need it.");
+        } else {
+            advQuest = 4;
+            cm.teachSkill(5221006, 0, 10, -1);
+            cm.completeQuest(6370);
+            
+            cm.sendNext("Congratulations. You have managed to pass my test. I'll teach you a new skill called \"Battleship\".\r\n\r\n  #s5221006#    #b#q5221006##k");
+        }
+    } else {
+        if (cm.getJobId() == 0) {
+            actionx["1stJob"] = true;
+            cm.sendNext("Want to be a #rpirate#k? There are some standards to meet. because we can't just accept EVERYONE in... #bYour level should be at least 10, with " + cm.getFirstJobStatRequirement(jobType) + " minimum#k. Let's see.");   // thanks Vcoc for noticing a need to state and check requirements on first job adv starting message
+        } else if (cm.getLevel() >= 30 && cm.getJobId() == 500) {
+            actionx["2ndJob"] = true;
+            if (cm.isQuestCompleted(2191) || cm.isQuestCompleted(2192))
+                cm.sendNext("I see you have done well. I will allow you to take the next step on your long road.");
+            else
+                cm.sendNext("The progress you have made is astonishing.");
+        } else if (actionx["3thJobI"] || (cm.getPlayer().gotPartyQuestItem("JB3") && cm.getLevel() >= 70 && cm.getJobId() % 10 == 0 && parseInt(cm.getJobId() / 100) == 5 && !cm.getPlayer().gotPartyQuestItem("JBP"))){
+            actionx["3thJobI"] = true;
+            cm.sendNext("There you are. A few days ago, #b#p2020013##k of Ossyria talked to me about you. I see that you are interested in making the leap to the world of the third job advancement for pirates. To achieve that goal, I will have to test your strength in order to see whether you are worthy of the advancement. There is an opening in the middle of a cave on Victoria Island, where it'll lead you to a secret passage. Once inside, you'll face a clone of myself. Your task is to defeat him and bring #b#t4031059##k back with you.");
+        } else if (cm.getPlayer().gotPartyQuestItem("JBP") && !cm.haveItem(4031059)){
+            cm.sendNext("Please, bring me the #b#t4031059##k.");
+            cm.dispose();
+        } else if (cm.haveItem(4031059) && cm.getPlayer().gotPartyQuestItem("JBP")){
+            actionx["3thJobC"] = true;
+            cm.sendNext("Nice work. You have defeated my clone and brought #b#t4031059##k back safely. You have now proven yourself worthy of the 3rd job advancement from the physical standpoint. Now you should give this necklace to #b#p2020013##k in Ossyria to take on the second part of the test. Good luck. You'll need it.");
+        } else {
+            cm.sendOk("You have chosen wisely.");
             cm.dispose();
         }
-    } else if (cm.getLevel() >= 30 && cm.getJobId() == 500) {
-        actionx["2ndJob"] = true;
-        if (cm.isQuestCompleted(2191) || cm.isQuestCompleted(2192))
-            cm.sendNext("I see you have done well. I will allow you to take the next step on your long road.");
-        else
-            cm.sendNext("The progress you have made is astonishing.");
-    } else if (actionx["3thJobI"] || (cm.getPlayer().gotPartyQuestItem("JB3") && cm.getLevel() >= 70 && cm.getJobId() % 10 == 0 && parseInt(cm.getJobId() / 100) == 5 && !cm.getPlayer().gotPartyQuestItem("JBP"))){
-        actionx["3thJobI"] = true;
-        cm.sendNext("There you are. A few days ago, #b#p2020013##k of Ossyria talked to me about you. I see that you are interested in making the leap to the world of the third job advancement for pirates. To archieve that goal, I will have to test your strength in order to see whether you are worthy of the advancement. There is an opening in the middle of a cave on Victoria Island, where it'll lead you to a secret passage. Once inside, you'll face a clone of myself. Your task is to defeat him and bring #b#t4031059##k back with you.");
-    } else if (cm.getPlayer().gotPartyQuestItem("JBP") && !cm.haveItem(4031059)){
-        cm.sendNext("Please, bring me the #b#t4031059##k.");
-        cm.dispose();
-    } else if (cm.haveItem(4031059) && cm.getPlayer().gotPartyQuestItem("JBP")){
-        actionx["3thJobC"] = true;
-        cm.sendNext("Nice work. You have defeated my clone and brought #b#t4031059##k back safely. You have now proven yourself worthy of the 3rd job advancement from the physical standpoint. Now you should give this necklace to #b#p2020013##k in Ossyria to take on the second part of the test. Good luck. You'll need it.");
-    } else {
-        cm.sendOk("You have chosen wisely.");
-        cm.dispose();
     }
 }
 
@@ -63,15 +89,42 @@ function action(mode, type, selection) {
     status++;
     if (mode == 0 && type != 1)
         status -= 2;
-    if (status == -1){
+if (status == -1){
         start();
         return;
-    } else if (mode != 1 || status == 7 && type != 1 || (actionx["1stJob"] && status == 5) || (cm.haveItem(4031008) && status == 2) || (actionx["3thJobI"] && status == 1)){
-        if (mode == 0 && status == 2 && type == 1)
-            cm.sendOk("You know there is no other choice...");
-        if (!(mode == 0 && type != 1)){
+    } else {
+        if (advQuest > 0) {
+            if (advQuest < 3) {
+                var em = cm.getEventManager(advQuest == 2 ? "4jship" : "4jsuper");
+                if(!em.startInstance(cm.getPlayer())) {
+                    cm.sendOk("Someone is already challenging the test. Please try again later.");
+                }
+            } else if (advQuest < 5) {
+                if (advQuest == 3) {
+                    cm.sendOk("It is similar to that of 'Transformation', but it's much more powerful than that. Keep training, and hope to see you around.");
+                } else {
+                    cm.sendOk("Unlike most of the other skills you used as a Pirate, this one definitely is different. You can actually ride the 'Battleship' and attack enemies with it. Your DEF level will increase for the time you're on board, so that'll help you tremendously in combat situations. May you become the best Gunslinger out there...");
+                }
+            } else {
+                if (advQuest < 6) {
+                    cm.setQuestProgress(6330, 6331, 2);
+                } else {
+                    cm.setQuestProgress(6370, 6371, 2);
+                }
+
+                cm.warp(120000101);
+            }
+            
             cm.dispose();
-            return;
+        } else {
+            if (mode != 1 || status == 7 && type != 1 || (actionx["1stJob"] && status == 4) || (cm.haveItem(4031008) && status == 2) || (actionx["3thJobI"] && status == 1)){
+                if (mode == 0 && status == 2 && type == 1)
+                    cm.sendOk("You know there is no other choice...");
+                if (!(mode == 0 && type != 1)){
+                    cm.dispose();
+                    return;
+                }
+            }
         }
     }
     if (actionx["1stJob"]){

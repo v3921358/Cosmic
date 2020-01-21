@@ -1488,7 +1488,7 @@ public class MapleItemInformationProvider {
             MapleData data2 = data1.getChildByPath("info").getChildByPath(Integer.toString(level));
             if (data2 != null) {
                 for (MapleData da : data2.getChildren()) {
-                    if (Math.random() < 0.9) {
+                    if (Math.random() < 0.9) {      // 10% chance to get no upgrades?
                         if (da.getName().startsWith("incDEXMin")) {
                             list.add(new Pair<>("incDEX", Randomizer.rand(MapleDataTool.getInt(da), MapleDataTool.getInt(data2.getChildByPath("incDEXMax")))));
                         } else if (da.getName().startsWith("incSTRMin")) {
