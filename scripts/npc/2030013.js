@@ -121,12 +121,6 @@ function action(mode, type, selection) {
                     cm.dispose();
                     return;
                 }
-                var size = expedition.getMembers().size();
-                if (size == 1) {
-                    cm.sendOk("You are the only member of the expedition.");
-                    cm.dispose();
-                    return;
-                }
                 var text = "The following members make up your expedition (Click on them to expel them):\r\n";
                 text += "\r\n\t\t1." + expedition.getLeader().getName();
                 for (var i = 1; i < size; i++) {
