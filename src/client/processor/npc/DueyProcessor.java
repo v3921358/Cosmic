@@ -156,7 +156,7 @@ public class DueyProcessor {
             addMesoToDB(mesos, c.getPlayer().getName(), getAccIdFromCNAME(recipient, false), 0);
         }
         if (recipientOn && rClient != null) {
-            rClient.announce(MaplePacketCreator.sendDueyMSG(Actions.TOCLIENT_RECV_PACKAGE_MSG.getCode()));
+            rClient.announce(MaplePacketCreator.sendDueyNotification(c.getPlayer().getName(), false));
         }
         
         c.announce(MaplePacketCreator.sendDueyMSG(Actions.TOCLIENT_SEND_SUCCESSFULLY_SENT.getCode()));
