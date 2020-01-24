@@ -6283,6 +6283,15 @@ public class MaplePacketCreator {
         public static byte[] sendDueyMSG(byte operation) {
                 return sendDuey(operation, null);
         }
+        
+        public static byte[] sendDueyNotification(String senderName, boolean quick){
+        MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
+                mplew.writeShort(SendOpcode.PARCEL.getValue());
+                mplew.write(0x19);
+                mplew.writeMapleAsciiString(senderName);
+                mplew.writeBool(quick);
+                return mplew.getPacket();
+        }
 
         public static byte[] sendDuey(byte operation, List<DueyPackages> packages) {
                 final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
