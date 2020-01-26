@@ -36,16 +36,19 @@ import javax.script.ScriptEngineFactory;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 import tools.FilePrinter;
+import tools.MaplePacketCreator;
+import scripting.AbstractScriptManager;
 
-public class MapScriptManager {
+public class MapScriptManager extends AbstractScriptManager {
 
+    private static final String SCRIPT_FORMAT_FIRST_ENTER = "map/onFirstUserEnter/%s.js";
+    private static final String SCRIPT_FORMAT_ENTER = "map/onUserEnter/%s.js";
+    private static final String ENTRY_POINT = "start";
     private static MapScriptManager instance = new MapScriptManager();
     private Map<String, Invocable> scripts = new HashMap<>();
-    private ScriptEngineFactory sef;
 
     private MapScriptManager() {
-        ScriptEngineManager sem = new ScriptEngineManager();
-        sef = sem.getEngineByName("javascript").getFactory();
+        super();
     }
 
     public static MapScriptManager getInstance() {
@@ -57,45 +60,34 @@ public class MapScriptManager {
     }
 
     public boolean scriptExists(String scriptName, boolean firstUser) {
-        File scriptFile = new File("scripts/map/" + (firstUser ? "onFirstUserEnter/" : "onUserEnter/") + scriptName + ".js");
-        return scriptFile.exists();
+        if (firstUser) {
+            return super.scriptExists(String.format(SCRIPT_FORMAT_FIRST_ENTER, scriptName));    
+        }
+        else {
+            return super.scriptExists(String.format(SCRIPT_FORMAT_ENTER, scriptName));
+        }
     }
 
     public void getMapScript(MapleClient c, String scriptName, boolean firstUser) {
-        if (scripts.containsKey(scriptName)) {
-            try {
-                scripts.get(scriptName).invokeFunction("start", new MapScriptMethods(c));
-            } catch (final ScriptException | NoSuchMethodException e) {
-                e.printStackTrace();
-            }
-            return;
-        }
-        String type = firstUser ? "onFirstUserEnter/" : "onUserEnter/";
+        Invocable script = null;
+        String path = String.format((firstUser? SCRIPT_FORMAT_FIRST_ENTER : SCRIPT_FORMAT_ENTER), scriptName);
 
-        File scriptFile = new File("scripts/map/" + type + scriptName + ".js");
-        if (!scriptExists(scriptName, firstUser)) {
-            return;
-        }
-        FileReader fr = null;
-        ScriptEngine portal = sef.getScriptEngine();
-        try {
-            fr = new FileReader(scriptFile);
-            CompiledScript compiled = ((Compilable) portal).compile(fr);
-            compiled.eval();
-            final Invocable script = ((Invocable) portal);
+        if (scripts.containsKey(scriptName)) {
+            script = scripts.get(scriptName);
+        } else if(scriptExists(path)) {
+            script = getInvocable(path, null);
             scripts.put(scriptName, script);
-            script.invokeFunction("start", new MapScriptMethods(c));
-        } catch (final UndeclaredThrowableException | ScriptException ute) {
-            FilePrinter.printError(FilePrinter.MAP_SCRIPT + type + scriptName + ".txt", ute);
-        } catch (final Exception e) {
-            FilePrinter.printError(FilePrinter.MAP_SCRIPT + type + scriptName + ".txt", e);
-        } finally {
-            if (fr != null) {
-                try {
-                    fr.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        } else {
+            c.announce(MaplePacketCreator.enableActions());
+        }
+
+        if(script != null) {
+            try {
+                script.invokeFunction(ENTRY_POINT, new MapScriptMethods(c));
+            } catch (final ScriptException | NoSuchMethodException | UndeclaredThrowableException ute) {
+                FilePrinter.printError(FilePrinter.MAP_SCRIPT + path + ".txt", ute);
+            } catch(final Exception e) {
+                FilePrinter.printError(FilePrinter.MAP_SCRIPT + path + ".txt", e);
             }
         }
     }

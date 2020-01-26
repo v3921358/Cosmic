@@ -29,7 +29,7 @@ services:
       - dietstory_database
 
   dietstory_server:
-    image: benjixd/dietstory
+    image: benjixd/dietstory:java_8
     ports:
       - "7575:7575" 
       - "7576:7576" 

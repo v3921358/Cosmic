@@ -102,7 +102,7 @@ public class MapleClient {
 	private int world;
 	private long lastPong;
 	private int gmlevel;
-        private boolean flyActive;
+    private boolean flyActive;
 	private Set<String> macs = new HashSet<>();
 	private Map<String, ScriptEngine> engines = new HashMap<>();
 	private ScheduledFuture<?> idleTask = null;
@@ -792,19 +792,20 @@ public class MapleClient {
 			player.cancelAllBuffs(true);
 			player.cancelAllDebuffs();
                         
-                        player.closePlayerInteractions();
+            player.closePlayerInteractions();
+            NPCScriptManager.getInstance().dispose(this);
 			QuestScriptManager.getInstance().dispose(this);
 			
 			if (player.getEventInstance() != null) {
 				player.getEventInstance().playerDisconnected(player);
 			}
 			if (player.getMap() != null) {
-                                int mapId = player.getMapId();
+                int mapId = player.getMapId();
 				player.getMap().removePlayer(player);
                                 
-                                if(GameConstants.isDojo(mapId)) {
-                                        this.getChannelServer().freeDojoSectionIfEmpty(mapId);
-                                }
+                if(GameConstants.isDojo(mapId)) {
+                    this.getChannelServer().freeDojoSectionIfEmpty(mapId);
+                }
 			}
 
 		} catch (final Throwable t) {
@@ -813,12 +814,12 @@ public class MapleClient {
 	}
 
 	public final void disconnect(boolean shutdown, boolean cashshop) {//once per MapleClient instance
-                if (disconnecting) {
+        if (disconnecting) {
 			return;
 		}
 		disconnecting = true;
 		if (player != null && player.isLoggedin() && player.getClient() != null) {
-                        MapleMap map = player.getMap();
+            MapleMap map = player.getMap();
 			final MapleParty party = player.getParty();
 			final int idz = player.getId();
 			final int messengerid = player.getMessenger() == null ? 0 : player.getMessenger().getId();
@@ -1378,8 +1379,8 @@ public class MapleClient {
 		lastNpcClick = 0;
 	}
         
-        public void closePlayerScriptInteractions() {
-                this.removeClickedNPC();
-                NPCScriptManager.getInstance().dispose(this);
-        }
+    public void closePlayerScriptInteractions() {
+        this.removeClickedNPC();
+        NPCScriptManager.getInstance().dispose(this);
+    }
 }

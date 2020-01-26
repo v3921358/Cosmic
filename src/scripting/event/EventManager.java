@@ -54,6 +54,10 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import server.quest.MapleQuest;
 
+import tools.NashornUtil;
+
+import jdk.nashorn.api.scripting.ScriptObjectMirror;
+
 /**
  *
  * @author Matze
@@ -99,20 +103,13 @@ public class EventManager {
         }
     }
     
-    private List<Integer> convertToIntegerArray(List<Double> list) {
-        List<Integer> intList = new ArrayList<>();
-        for(Double d: list) intList.add(d.intValue());
-
-        return intList;
-    }
-    
     public long getLobbyDelay() {
         return lobbyDelay;
     }
     
     private List<Integer> getLobbyRange() {
         try {
-            return convertToIntegerArray((List<Double>)iv.invokeFunction("setLobbyRange", (Object) null));
+            return NashornUtil.JSArrayToIntegerList((ScriptObjectMirror)iv.invokeFunction("setLobbyRange", (Object) null));
         } catch (ScriptException | NoSuchMethodException ex) { // they didn't define a lobby range
             List<Integer> defaultList = new ArrayList<>();
             defaultList.add(0);

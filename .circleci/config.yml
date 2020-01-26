@@ -33,13 +33,14 @@ jobs:
       - run: # Compile Diestory Project
           name: Compile DietStory
           command: |
-            docker run --rm --env BUILD_SOURCE=local -v $(pwd):/mnt benjixd/dietstory-build
+            docker run --rm --env BUILD_SOURCE=local -v $(pwd):/mnt benjixd/dietstory-build:java_8
       - persist_to_workspace: # Persist required files for deployment
           root: ~/project
           paths:
             - cores
             - dist
             - build
+            - lib
             - scripts
             - wz
             - deploy/scripts
