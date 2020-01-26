@@ -98,6 +98,7 @@ import client.inventory.Equip;
 import client.inventory.MapleInventory;
 import client.inventory.MapleInventoryType;
 import client.inventory.MaplePet;
+import client.command.utils.PlayerRanking;
 import constants.GameConstants;
 import constants.ItemConstants;
 import constants.ServerConstants;
@@ -362,9 +363,9 @@ public class Commands {
 			player.yellowMessage("Buraisx - Developer");
 			player.yellowMessage("Rayden - Developer");
 			player.yellowMessage("Dispenser - Developer");
-                        player.yellowMessage("MapleSolaxiaV2 Staff");
-                        player.yellowMessage("Ronan - Freelance Developer");
-                        player.yellowMessage("Vcoc - Freelance Developer");
+			player.yellowMessage("MapleSolaxiaV2 Staff");
+			player.yellowMessage("Ronan - Freelance Developer");
+			player.yellowMessage("Vcoc - Freelance Developer");
 			break;
                     
 		case "lastrestart":
@@ -649,35 +650,7 @@ public class Commands {
 			break;
                     
 		case "ranks":
-			PreparedStatement ps = null;
-			ResultSet rs = null;
-                        Connection con = null;
-			try {
-                                con = DatabaseConnection.getConnection();
-				ps = con.prepareStatement("SELECT `characters`.`name`, `characters`.`level` FROM `characters` LEFT JOIN accounts ON accounts.id = characters.accountid WHERE `characters`.`gm` = '0' AND `accounts`.`banned` = '0' ORDER BY level DESC, exp DESC LIMIT 50");
-				rs = ps.executeQuery();
-				
-				player.announce(MaplePacketCreator.showPlayerRanks(9010000, rs));
-				ps.close();
-				rs.close();
-                                con.close();
-			} catch(SQLException ex) {
-				ex.printStackTrace();
-			} finally {
-				try {
-					if(ps != null && !ps.isClosed()) {
-						ps.close();
-					}
-					if(rs != null && !rs.isClosed()) {
-						rs.close();
-					}
-                                        if(con != null && !con.isClosed()) {
-						con.close();
-					}
-				} catch (SQLException e) {
-                                        e.printStackTrace();
-				}
-			}
+			player.announce(MaplePacketCreator.showPlayerRanks(9010000, PlayerRanking.getInstance().getRanking()));
 			break;
                             
                 case "apreset":

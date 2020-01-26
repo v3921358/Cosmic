@@ -66,7 +66,9 @@ import server.MapleItemInformationProvider;
 import server.life.MapleLifeFactory;
 import server.life.MapleNPC;
 import tools.MaplePacketCreator;
+import tools.NashornUtil;
 
+import jdk.nashorn.api.scripting.ScriptObjectMirror;
 /**
  *
  * @author Matze
@@ -727,21 +729,14 @@ public class EventInstanceManager {
         return (MapleLifeFactory.getMonster(mid));
     }
 
-    private List <Integer> convertToIntegerArray(List < Double > list) {
-        List <Integer> intList = new ArrayList <> ();
-        for (Double d: list) intList.add(d.intValue());
-
-        return intList;
-    }
-
-    public void setEventClearStageExp(List < Double > gain) {
+    public void setEventClearStageExp(ScriptObjectMirror gain) {
         onMapClearExp.clear();
-        onMapClearExp.addAll(convertToIntegerArray(gain));
+        onMapClearExp.addAll(NashornUtil.JSArrayToIntegerList(gain));
     }
 
-    public void setEventClearStageMeso(List < Double > gain) {
+    public void setEventClearStageMeso(ScriptObjectMirror gain) {
         onMapClearMeso.clear();
-        onMapClearMeso.addAll(convertToIntegerArray(gain));
+        onMapClearMeso.addAll(NashornUtil.JSArrayToIntegerList(gain));
     }
 
     public Integer getClearStageExp(int stage) { //stage counts from ONE.
@@ -770,8 +765,8 @@ public class EventInstanceManager {
         }
     }
 
-    public final void setExclusiveItems(List <Double> items) {
-        List <Integer> exclusive = convertToIntegerArray(items);
+    public final void setExclusiveItems(ScriptObjectMirror items) {
+        List <Integer> exclusive = NashornUtil.JSArrayToIntegerList(items);
 
         wL.lock();
         try {
@@ -783,26 +778,26 @@ public class EventInstanceManager {
         }
     }
 
-    public final void setEventRewards(List < Double > rwds, List < Double > qtys, int expGiven) {
+    public final void setEventRewards(ScriptObjectMirror rwds, ScriptObjectMirror qtys, int expGiven) {
         setEventRewards(1, rwds, qtys, expGiven);
     }
 
-    public final void setEventRewards(List < Double > rwds, List < Double > qtys) {
+    public final void setEventRewards(ScriptObjectMirror rwds, ScriptObjectMirror qtys) {
         setEventRewards(1, rwds, qtys);
     }
 
-    public final void setEventRewards(int eventLevel, List < Double > rwds, List < Double > qtys) {
+    public final void setEventRewards(int eventLevel, ScriptObjectMirror rwds, ScriptObjectMirror qtys) {
         setEventRewards(eventLevel, rwds, qtys, 0);
     }
 
-    public final void setEventRewards(int eventLevel, List < Double > rwds, List < Double > qtys, int expGiven) {
+    public final void setEventRewards(int eventLevel, ScriptObjectMirror rwds, ScriptObjectMirror qtys, int expGiven) {
         // fixed EXP will be rewarded at the same time the random item is given
 
         if (eventLevel <= 0 || eventLevel > ServerConstants.MAX_EVENT_LEVELS) return;
         eventLevel--; //event level starts from 1
 
-        List <Integer> rewardIds = convertToIntegerArray(rwds);
-        List <Integer> rewardQtys = convertToIntegerArray(qtys);
+        List <Integer> rewardIds = NashornUtil.JSArrayToIntegerList(rwds);
+        List <Integer> rewardQtys = NashornUtil.JSArrayToIntegerList(qtys);
 
         //rewardsSet and rewardsQty hold temporary values
         wL.lock();
