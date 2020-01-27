@@ -1,8 +1,8 @@
-# Add Berserk 20 to papulatus drops
+-- Papulatus | Berserk 20 added to papulatus drops
 insert ignore into drop_data (dropperid, itemid, minimum_quantity, maximum_quantity, questid, chance) values (8500002,2290022, 1, 4, 0, 40000);
-# Add Berserk 30 zakum drops
+-- Zakum | Berserk 30 added to zakum drops
 insert ignore into drop_data (dropperid, itemid, minimum_quantity, maximum_quantity, questid, chance) values (8800002,2290023, 1, 4, 0, 1080000);
-# Add Sayram's necklace to Griffey's drop for Berserk Questline
+-- Griffey | Sayram's necklace | Griffey's Necklace (6151)
 insert ignore into drop_data (dropperid, itemid, minimum_quantity, maximum_quantity, questid, chance) values (8180001,4031479, 1, 1, 6151, 999999);
-# Add Sayram's shield to Jr balrog's drop for Berserk Questline
+-- Jr. Balrog in Forgotten Shrine | Sayram's shield | Singing Shield(6152) 
 insert ignore into drop_data (dropperid, itemid, minimum_quantity, maximum_quantity, questid, chance) values (9300092,4031471, 1, 1, 6152, 40000);
