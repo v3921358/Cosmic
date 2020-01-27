@@ -57,8 +57,9 @@ public class InfoExRequirement extends MapleQuestRequirement {
 	
 	@Override
 	public boolean check(MapleCharacter chr, Integer npcid) {
-		MapleQuestStatus status = chr.getQuest(MapleQuest.getInstance(questID));
-		return infoExpected.contains(status.getInfo());
+            //The old check makes no sense: checks if current status is 0 but if you started the quest at all then it's at least 1
+            //Blanket return true taken from HeavenMS
+            return true;
 	}
 	
 	public List<String> getInfo() {

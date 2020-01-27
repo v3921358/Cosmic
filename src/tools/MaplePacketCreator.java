@@ -101,6 +101,7 @@ import client.inventory.MaplePet;
 import client.inventory.ModifyInventory;
 import client.status.MonsterStatus;
 import client.status.MonsterStatusEffect;
+import client.command.utils.PlayerRanking.Rank;
 import constants.GameConstants;
 import constants.ItemConstants;
 import constants.ServerConstants;
@@ -4129,26 +4130,22 @@ public class MaplePacketCreator {
                 return mplew.getPacket();
         }
 
-        public static byte[] showPlayerRanks(int npcid, ResultSet rs) throws SQLException {
-                final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-                mplew.writeShort(SendOpcode.GUILD_OPERATION.getValue());
-                mplew.write(0x49);
-                mplew.writeInt(npcid);
-                if (!rs.last()) { 
-                        mplew.writeInt(0);
-                        return mplew.getPacket();
-                }
-                mplew.writeInt(rs.getRow());
-                rs.beforeFirst();
-                while (rs.next()) {
-                        mplew.writeMapleAsciiString(rs.getString("name"));
-                        mplew.writeInt(rs.getInt("level"));
-                        mplew.writeInt(0);
-                        mplew.writeInt(0);
-                        mplew.writeInt(0);
-                        mplew.writeInt(0);
-                }
-                return mplew.getPacket();
+        public static byte[] showPlayerRanks(int npcid, List<Rank> ranks) {
+            final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
+            mplew.writeShort(SendOpcode.GUILD_OPERATION.getValue());
+            mplew.write(0x49);
+            mplew.writeInt(npcid);
+            mplew.writeInt(ranks.size());
+            for(Rank rank : ranks) {
+                mplew.writeMapleAsciiString(rank.getName());
+                mplew.writeInt(rank.getLevel());
+                mplew.writeInt(0);
+                mplew.writeInt(0);
+                mplew.writeInt(0);
+                mplew.writeInt(0);
+            }
+
+            return mplew.getPacket();
         }
 
         public static byte[] updateGP(int gid, int GP) {
@@ -6282,6 +6279,15 @@ public class MaplePacketCreator {
 
         public static byte[] sendDueyMSG(byte operation) {
                 return sendDuey(operation, null);
+        }
+        
+        public static byte[] sendDueyNotification(String senderName, boolean quick){
+        MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
+                mplew.writeShort(SendOpcode.PARCEL.getValue());
+                mplew.write(0x19);
+                mplew.writeMapleAsciiString(senderName);
+                mplew.writeBool(quick);
+                return mplew.getPacket();
         }
 
         public static byte[] sendDuey(byte operation, List<DueyPackages> packages) {

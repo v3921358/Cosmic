@@ -1,4 +1,6 @@
-FROM benjixd/alpine-jdk7-jce-unlimited:latest
+FROM benjixd/alpine-jdk8-jce-unlimited:latest
+
+MAINTAINER Benjamin Zhao <yl4zhao@edu.uwaterloo.ca>
 
 # Default values for server if they weren't provided
 ENV SERVER_HOST=localhost
@@ -17,4 +19,4 @@ ENV DIETSTORY_ROOT="/mnt"
 
 CMD cd ${DIETSTORY_ROOT} \
 	&& envsubst < configuration_template.ini > configuration.ini \
-	&& java -Xmx${JAVA_STATIC_MEM}m -cp "dist/*:cores/*" -Dwzpath="wz/" net.server.Server
+	&& java -Xmx${JAVA_STATIC_MEM}m -cp "dist/*:cores/*:lib/*" -Dwzpath="wz/" net.server.Server

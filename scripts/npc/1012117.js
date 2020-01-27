@@ -63,38 +63,47 @@ function action(mode, type, selection) {
             status--;
         
         if (status == 0) {
-            cm.sendSimple("If you use this regular coupon, your hair may transform into a random new look...do you still want to do it using #b#t5150040##k, I will do it anyways for you. But don't forget, it will be random!\r\n\#L2#OK! (Uses #i5150040# #t5150040#)#l");
+            cm.sendSimple("Welcome! If you have a #b#t5150040##k, I can give you a random experimental hair style I've been working on!\r\n#L0#Preview possible styles!#l\r\n#L1#I'm ready for my haircut! (Uses #i5150040# #t5150040#)#l");
         } else if (status == 1) {
-            cm.sendYesNo("If you use the EXP coupon your hair will change RANDOMLY with a chance to obtain a new experimental style that even you didn't think was possible. Are you going to use #b#t5150040##k and really change your hairstyle?");
-        }
-        else if (status == 2) {
-            if (cm.haveItem(5150040) == true){
-                hairnew = Array();
-                if (cm.getPlayer().getGender() == 0) {
-                    for(var i = 0; i < mhair.length; i++) {
-                        hairnew.push(mhair[i] + parseInt(cm.getPlayer().getHair() % 10));
-                    }
-                }
-                else {
-                    for(var i = 0; i < fhair.length; i++) {
-                        hairnew.push(fhair[i] + parseInt(cm.getPlayer().getHair() % 10));
-                    }
-                }
-                
-                cm.gainItem(5150040, -1);
-                var newHairId;
-
-       			do{ // Makes sure the hair salon actually changes your hair.
-       				newHairId = hairnew[Math.floor(Math.random() * hairnew.length)]
-       			} while (newHairId == cm.getPlayer().getHair());
-
-                cm.setHair(newHairId);
-                cm.sendOk("Enjoy your new and improved hairstyle!");
-            } else {
-                cm.sendOk("Hmmm...it looks like you don't have our designated coupon...I'm afraid I can't give you a haircut without it. I'm sorry...");
+            if (selection == 0) {
+                var styles = Array();
+                if (cm.getPlayer().getGender() == 0)
+                    for(var i = 0; i < mhair.length; i++)
+                        styles.push(mhair[i] + parseInt(cm.getPlayer().getHair()% 10));
+                if (cm.getPlayer().getGender() == 1)
+                    for(var i = 0; i < fhair.length; i++)
+                        styles.push(fhair[i] + parseInt(cm.getPlayer().getHair() % 10));   
+                cm.sendStyle("These are the styles you can possibly get today, but even I don't know what you'll end up with!", styles);
+                cm.dispose();
             }
-            
-            cm.dispose();
+            else if (selection == 1) {
+                if (cm.haveItem(5150040) == true) {
+                    hairnew = Array();
+                    if (cm.getPlayer().getGender() == 0) {
+                        for(var i = 0; i < mhair.length; i++) {
+                            hairnew.push(mhair[i] + parseInt(cm.getPlayer().getHair() % 10));
+                        }
+                    }
+                    else {
+                        for(var i = 0; i < fhair.length; i++) {
+                            hairnew.push(fhair[i] + parseInt(cm.getPlayer().getHair() % 10));
+                        }
+                    }
+                    
+                    cm.gainItem(5150040, -1);
+                    var newHairId;
+
+                    do{ // Makes sure the hair salon actually changes your hair.
+                       newHairId = hairnew[Math.floor(Math.random() * hairnew.length)]
+                    } while (newHairId == cm.getPlayer().getHair());
+
+                    cm.setHair(newHairId);
+                    cm.sendOk("Enjoy your new and improved hairstyle!");
+                } else {
+                    cm.sendOk("Hmmm...it looks like you don't have our designated coupon...I'm afraid I can't give you a haircut without it. I'm sorry...");
+                }                
+                cm.dispose();
+            }
         }
     }
 }

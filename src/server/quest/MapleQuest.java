@@ -45,6 +45,8 @@ import tools.MaplePacketCreator;
 public class MapleQuest {
 
     private static Map<Integer, MapleQuest> quests = new HashMap<>();
+    private static Map<Integer, Integer> infoNumberQuests = new HashMap<>();
+
     protected short infoNumber, id;
     protected int timeLimit, timeLimit2;
     protected String infoex;
@@ -230,9 +232,6 @@ public class MapleQuest {
         }
         for (MapleQuestRequirement r : completeReqs.values()) {
             if (r == null || !r.check(c, npcid)) {
-                if(r.getType() == MapleQuestRequirementType.MESO) { // TODO: find a way to tell the client about the new MESO requirement type.
-                    c.dropMessage(5, "You don't have enough mesos to complete this quest.");
-                }
                 return false;
             }
         }
@@ -368,6 +367,20 @@ public class MapleQuest {
     public short getInfoNumber() {
         return infoNumber;
     }
+    
+    public short getInfoNumber(Status status){
+        boolean checkEnd = status.equals(Status.STARTED);
+        Map<MapleQuestRequirementType, MapleQuestRequirement> reqs = !checkEnd ? startReqs : completeReqs;
+
+        MapleQuestRequirement req = reqs.get(MapleQuestRequirementType.INFO_NUMBER);
+        if (req != null) {
+            InfoNumberRequirement inReq = (InfoNumberRequirement) req;
+            return inReq.getInfoNumber();
+        } else {
+            return 0;
+        }
+
+    }
 
     public String getInfoEx() {
         MapleQuestRequirement req = startReqs.get(MapleQuestRequirementType.INFO_EX);
@@ -454,8 +467,10 @@ public class MapleQuest {
 			case NORMAL_AUTO_START:
 			case START:
 			case END:
+                            break;
 			case INFO_NUMBER:
-				break;
+                            ret = new InfoNumberRequirement(this, data);
+                            break;
 			default:
 				//FilePrinter.printError(FilePrinter.EXCEPTION_CAUGHT, "Unhandled Requirement Type: " + type.toString() + " QuestID: " + this.getId());
 				break;
@@ -499,6 +514,15 @@ public class MapleQuest {
 		}
 		return ret;
 	}
+        
+    public static MapleQuest getInstanceFromInfoNumber(int infoNumber) {
+        Integer id = infoNumberQuests.get(infoNumber);
+        if (id == null) {
+            id = infoNumber;
+        }
+        
+        return getInstance(id);
+    }
 	
 	public static void loadAllQuest() {
 		questInfo = questData.getData("QuestInfo.img");
@@ -509,7 +533,20 @@ public class MapleQuest {
 			for(MapleData quest : questInfo.getChildren()) {
 				int questID = Integer.parseInt(quest.getName());
 				
-				quests.put(questID, new MapleQuest(questID));
+                                MapleQuest q = new MapleQuest(questID);
+				quests.put(questID, q);
+                                
+                                int infoNumber;
+                                infoNumber = q.getInfoNumber(Status.STARTED);
+                                if (infoNumber > 0) {
+                                        infoNumberQuests.put(infoNumber, questID);
+                                }
+                                
+                                infoNumber = q.getInfoNumber(Status.COMPLETED);
+                                if (infoNumber > 0) {
+                                        infoNumberQuests.put(infoNumber, questID);
+                                }
+
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();

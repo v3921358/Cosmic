@@ -38,15 +38,17 @@ import javax.script.ScriptException;
 import tools.FilePrinter;
 import tools.MaplePacketCreator;
 
-public class ItemScriptManager {
+import scripting.AbstractScriptManager;
 
+
+public class ItemScriptManager extends AbstractScriptManager {
+    private static String SCRIPT_FORMAT = "item/%s.js";
+    private static final String ENTRY_POINT = "start";
     private static ItemScriptManager instance = new ItemScriptManager();
     private Map<String, Invocable> scripts = new HashMap<>();
-    private ScriptEngineFactory sef;
 
     private ItemScriptManager() {
-        ScriptEngineManager sem = new ScriptEngineManager();
-        sef = sem.getEngineByName("javascript").getFactory();
+        super();
     }
 
     public static ItemScriptManager getInstance() {
@@ -54,12 +56,16 @@ public class ItemScriptManager {
     }
 
     public boolean scriptExists(String scriptName) {
-        File scriptFile = new File("scripts/item/" + scriptName + ".js");
-        return scriptFile.exists();
+        return super.scriptExists(String.format(SCRIPT_FORMAT, scriptName));
     }
 
     public void getItemScript(MapleClient c, String scriptName) {
+        Invocable script = null;
+        String path = String.format(SCRIPT_FORMAT, scriptName);
+
         if (scripts.containsKey(scriptName)) {
+            script = scripts.get(scriptName);
+
             try {
                 scripts.get(scriptName).invokeFunction("start", new ItemScriptMethods(c));
             } catch (ScriptException | NoSuchMethodException ex) {
@@ -67,32 +73,21 @@ public class ItemScriptManager {
             }
             return;
         }
-        File scriptFile = new File("scripts/item/" + scriptName + ".js");
-        if (!scriptFile.exists()) {
-            c.announce(MaplePacketCreator.enableActions());
-            return;
-        }
-        FileReader fr = null;
-        ScriptEngine portal = sef.getScriptEngine();
-        try {
-            fr = new FileReader(scriptFile);
-            CompiledScript compiled = ((Compilable) portal).compile(fr);
-            compiled.eval();
-
-            final Invocable script = ((Invocable) portal);
+        else if(scriptExists(path)) {
+            script = getInvocable(path, null);
             scripts.put(scriptName, script);
-            script.invokeFunction("start", new ItemScriptMethods(c));
-        } catch (final UndeclaredThrowableException | ScriptException ute) {
-            FilePrinter.printError(FilePrinter.ITEM + scriptName + ".txt", ute);
-        } catch (final Exception e) {
-            FilePrinter.printError(FilePrinter.ITEM + scriptName + ".txt", e);
-        } finally {
-            if (fr != null) {
-                try {
-                    fr.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        }
+        else {
+            c.announce(MaplePacketCreator.enableActions());
+        }
+
+        if(script != null) {
+            try {
+                script.invokeFunction(ENTRY_POINT, new ItemScriptMethods(c));
+            } catch (final ScriptException | NoSuchMethodException | UndeclaredThrowableException ute) {
+                FilePrinter.printError(FilePrinter.ITEM + path + ".txt", ute);
+            } catch(final Exception e) {
+                FilePrinter.printError(FilePrinter.ITEM + path + ".txt", e);
             }
         }
     }

@@ -64,6 +64,9 @@ import constants.ItemConstants;
 import constants.ServerConstants;
 import server.life.MapleNPC;
 import tools.Pair;
+import tools.NashornUtil;
+
+import jdk.nashorn.api.scripting.ScriptObjectMirror;
 
 public class AbstractPlayerInteraction {
 
@@ -196,40 +199,33 @@ public class AbstractPlayerInteraction {
 		return getPlayer().getItemQuantity(itemid, false) >= quantity;
 	}
         
-        public int getItemQuantity(int itemid) {
-                return getPlayer().getItemQuantity(itemid, false);
-        }
+    public int getItemQuantity(int itemid) {
+        return getPlayer().getItemQuantity(itemid, false);
+    }
 
 	public boolean canHold(int itemid) {
-                return canHold(itemid, 1);
+        return canHold(itemid, 1);
+    }
+        
+    public boolean canHold(int itemid, int quantity) {
+        return getPlayer().canHold(itemid, quantity);
+    }
+    
+    public boolean canHoldAll(ScriptObjectMirror itemids, ScriptObjectMirror quantity) {
+        return canHoldAll(NashornUtil.JSArrayToIntegerList(itemids), NashornUtil.JSArrayToIntegerList(quantity), true);
+    }
+    
+    private boolean canHoldAll(List<Integer> itemids, List<Integer> quantity, boolean isInteger) {
+        int size = Math.min(itemids.size(), quantity.size());
+        
+        List<Pair<Item, MapleInventoryType>> addedItems = new LinkedList<>();
+        for(int i = 0; i < size; i++) {
+            Item it = new Item(itemids.get(i), (short) 0, quantity.get(i).shortValue());
+            addedItems.add(new Pair<>(it, MapleItemInformationProvider.getInstance().getInventoryType(itemids.get(i))));
         }
         
-        public boolean canHold(int itemid, int quantity) {
-                return getPlayer().canHold(itemid, quantity);
-        }
-        
-        private List<Integer> convertToIntegerArray(List<Double> list) {
-                List<Integer> intList = new LinkedList<>();
-                for(Double d: list) intList.add(d.intValue());
-
-                return intList;
-        }
-        
-        public boolean canHoldAll(List<Double> itemids, List<Double> quantity) {
-                return canHoldAll(convertToIntegerArray(itemids), convertToIntegerArray(quantity), true);
-        }
-        
-        private boolean canHoldAll(List<Integer> itemids, List<Integer> quantity, boolean isInteger) {
-            int size = Math.min(itemids.size(), quantity.size());
-            
-            List<Pair<Item, MapleInventoryType>> addedItems = new LinkedList<>();
-            for(int i = 0; i < size; i++) {
-                Item it = new Item(itemids.get(i), (short) 0, quantity.get(i).shortValue());
-                addedItems.add(new Pair<>(it, MapleItemInformationProvider.getInstance().getInventoryType(itemids.get(i))));
-            }
-            
-            return MapleInventory.checkSpots(c.getPlayer(), addedItems);
-        }
+        return MapleInventory.checkSpots(c.getPlayer(), addedItems);
+    }
      
         //---- \/ \/ \/ \/ \/ \/ \/  NOT TESTED  \/ \/ \/ \/ \/ \/ \/ \/ \/ ----
         
@@ -307,11 +303,13 @@ public class AbstractPlayerInteraction {
         public void setQuestProgress(int qid, int progress) {
                 MapleQuestStatus status = c.getPlayer().getQuest(MapleQuest.getInstance(qid));
                 status.setProgress(status.getAnyProgressKey(), String.valueOf(progress));
+                c.getPlayer().announce(MaplePacketCreator.updateQuest(status, false));
         }
         
         public void setQuestProgress(int qid, int pid, int progress) {
                 MapleQuestStatus status = c.getPlayer().getQuest(MapleQuest.getInstance(qid));
                 status.setProgress(pid, String.valueOf(progress));
+                c.getPlayer().announce(MaplePacketCreator.updateQuest(status, true));
 	}
         
         public int getQuestProgress(int qid) {

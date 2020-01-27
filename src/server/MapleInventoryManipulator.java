@@ -36,6 +36,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import tools.FilePrinter;
 
 import tools.MaplePacketCreator;
@@ -589,6 +590,17 @@ public class MapleInventoryManipulator {
     }
 
     private static boolean isWeapon(int itemId) {
-        return itemId >= 1302000 && itemId < 1492024;
+        return itemId >= 1302000 && itemId < 1500000;
     }
+     public static final class QuestConsItem {
+
+        public int questid, exp, grade;
+        public Map<Integer, Integer> items;
+        
+        public Integer getItemRequirement(int itemid) {
+            return items.get(itemid);
+        }
+        
+    }
+
 }

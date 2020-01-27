@@ -10,6 +10,6 @@ function start(ms) {
 		return;   	       
 	}
 
-	map.spawnMonsterOnGroundBelow(MapleLifeFactory.getMonster(mobId), new java.awt.Point(461, 61));
 	player.message("Amdusias has appeared!");
+	map.spawnMonsterOnGroundBelow(MapleLifeFactory.getMonster(mobId), new java.awt.Point(251, -841));
 }

@@ -1429,6 +1429,12 @@ public class MapleMap {
         spawnedMonstersOnMap.incrementAndGet();
     }
     
+    public void closeMapSpawnPoints() {
+        for (SpawnPoint spawnPoint : getMonsterSpawn()) {
+            spawnPoint.setDenySpawn(true);
+        }
+    }
+    
     public void spawnAllMonsterIdFromMapSpawnList(int id) {
         spawnAllMonsterIdFromMapSpawnList(id, 1, false);
     }
@@ -2519,6 +2525,10 @@ public class MapleMap {
 
     public boolean getEverlast() {
         return everlast;
+    }
+    
+    public Collection<SpawnPoint> getMonsterSpawn(){
+        return monsterSpawn;
     }
 
     public int getSpawnedMonstersOnMap() {

@@ -23,13 +23,13 @@ function action(mode, type, selection){
 		status--;
 
 	if(status == 0) {
-		cm.sendNext("#r\t[Requirements to Enter]\r\n\r\n\t\t1.#k Job must be a Bowman or Wind Archer.\r\n\t\t#r2.#k Must be under level 40.\r\n\t\t#r3.#k Must have #b#t4032492##k.");
+		cm.sendNext("#r\t[Requirements to Enter]\r\n\r\n\t\t1.#k Job must be a Bowman or Wind Archer.\r\n\t\t#r2.#k Must be under level 40.\r\n\t\t#r3.#k Must have #b#t4032492##k or #b#t4032482##k.");
 	}
 	else if (status == 1) {
 		var jobId = cm.getJobId();
 		if(((jobId >= 300 && jobId <= 322) || (jobId >= 1300 && jobId <= 1312)) && 
 			cm.getLevel() < 40 &&
-			cm.hasItem(4032492)) {
+			(cm.hasItem(4032482) || cm.hasItem(4032492))) {
 			cm.sendOk("#kAll conditions have been satisfied. Do you wish to enter?");
 		}
 		else {

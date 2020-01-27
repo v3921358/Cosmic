@@ -38,7 +38,7 @@ function end(mode, type, selection) {
 	else if (status == 2) {
 		if(!qm.isQuestCompleted(21302)) {
 			if(!qm.canHold(1142131)) {
-				cm.sendOk("Wow, your #bequip#k inventory is full. I need you to make at least 1 empty slot to complete this quest.");
+				qm.sendOk("Wow, your #bequip#k inventory is full. I need you to make at least 1 empty slot to complete this quest.");
 				qm.dispose();
 				return;
 			}
@@ -47,7 +47,6 @@ function end(mode, type, selection) {
 			qm.getPlayer().setMaxMp(qm.getPlayer().getMaxMp() + 275);
 			qm.getPlayer().setMaxHp(qm.getPlayer().getMaxHp() + 275);
 			qm.changeJobById(2111);
-			qm.teachSkill(21110002, 0, 20, -1);
 			qm.completeQuest();
 		}
 		qm.sendNext("Come on, keep training so you can get all your abilities back, and that way we can explore together once more!");    
