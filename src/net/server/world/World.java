@@ -716,6 +716,8 @@ public class World {
     }
     
     public void runPetSchedule() {
+        List<Integer> petsToRemove = new ArrayList<>();
+
         synchronized(activePets) {
             petUpdate = System.currentTimeMillis();
 
@@ -723,7 +725,7 @@ public class World {
                 MapleCharacter chr = this.getPlayerStorage().getCharacterById(dp.getKey() / 4);
                 Byte dpVal = (byte)(dp.getValue() + 1);
                 if(chr == null) {
-                    activePets.remove(dp.getKey());
+                    petsToRemove.add(dp.getKey());
                 }
                 else {
                     if(dpVal == ServerConstants.PET_EXHAUST_COUNT) {
@@ -732,6 +734,11 @@ public class World {
                     }
                     activePets.put(dp.getKey(), dpVal);    
                 }
+            }
+
+            // Remove pets with null chr
+            for(Integer key : petsToRemove) {
+                activePets.remove(key);
             }
         }
     }
