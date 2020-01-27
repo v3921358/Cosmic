@@ -45,31 +45,28 @@ public class EventScriptManager extends AbstractScriptManager {
         public Invocable iv;
         public EventManager em;
     }
+
+    private static final String SCRIPT_FORMAT = "event/%s.js";
+    private static final String ENTRY_POINT = "init";
+    private static final String EVENT_MANAGER_VAR = "em";
     private Map<String, EventEntry> events = new LinkedHashMap<>();
 
     public EventScriptManager(Channel cserv, String[] scripts) {
         super();
         for (String script : scripts) {
-            if (!script.equals("")) {
-                Invocable iv = getInvocable("event/" + script + ".js", null);
+            String path = String.format(SCRIPT_FORMAT, script);
+            if(scriptExists(path)) {
+                Invocable iv = getInvocable(path, null);
                 events.put(script, new EventEntry(iv, new EventManager(cserv, iv, script)));
             }
         }
     }
 
-    public EventManager getEventManager(String event) {
-        EventEntry entry = events.get(event);
-        if (entry == null) {
-            return null;
-        }
-        return entry.em;
-    }
-
     public void init() {
         for (EventEntry entry : events.values()) {
             try {
-                ((ScriptEngine) entry.iv).put("em", entry.em);
-                entry.iv.invokeFunction("init", (Object) null);
+                ((ScriptEngine) entry.iv).put(EVENT_MANAGER_VAR, entry.em);
+                entry.iv.invokeFunction(ENTRY_POINT, (Object) null);
             } catch (Exception ex) {
                 Logger.getLogger(EventScriptManager.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("Error on script: " + entry.em.getName());
@@ -86,5 +83,13 @@ public class EventScriptManager extends AbstractScriptManager {
         for (EventEntry entry : events.values()) {
             entry.em.cancel();
         }
+    }
+
+    public EventManager getEventManager(String event) {
+        EventEntry entry = events.get(event);
+        if (entry == null) {
+            return null;
+        }
+        return entry.em;
     }
 }
