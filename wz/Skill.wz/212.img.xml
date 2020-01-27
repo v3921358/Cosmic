@@ -1594,7 +1594,7 @@
         <imgdir name="1">
           <string name="hs" value="h1" />
           <int name="mpCon" value="15" />
-          <int name="mad" value="62" />
+          <int name="mad" value="122" />
           <int name="mastery" value="1" />
           <int name="time" value="10" />
           <int name="mobCount" value="2" />
@@ -1604,7 +1604,7 @@
         <imgdir name="2">
           <string name="hs" value="h2" />
           <int name="mpCon" value="15" />
-          <int name="mad" value="64" />
+          <int name="mad" value="124" />
           <int name="mastery" value="1" />
           <int name="time" value="10" />
           <int name="mobCount" value="2" />
@@ -1614,7 +1614,7 @@
         <imgdir name="3">
           <string name="hs" value="h3" />
           <int name="mpCon" value="15" />
-          <int name="mad" value="66" />
+          <int name="mad" value="126" />
           <int name="mastery" value="1" />
           <int name="time" value="10" />
           <int name="mobCount" value="2" />
@@ -1624,7 +1624,7 @@
         <imgdir name="4">
           <string name="hs" value="h4" />
           <int name="mpCon" value="15" />
-          <int name="mad" value="68" />
+          <int name="mad" value="128" />
           <int name="mastery" value="2" />
           <int name="time" value="10" />
           <int name="mobCount" value="2" />
@@ -1634,7 +1634,7 @@
         <imgdir name="5">
           <string name="hs" value="h5" />
           <int name="mpCon" value="15" />
-          <int name="mad" value="70" />
+          <int name="mad" value="130" />
           <int name="mastery" value="2" />
           <int name="time" value="10" />
           <int name="mobCount" value="2" />
@@ -1644,7 +1644,7 @@
         <imgdir name="6">
           <string name="hs" value="h6" />
           <int name="mpCon" value="15" />
-          <int name="mad" value="72" />
+          <int name="mad" value="132" />
           <int name="mastery" value="2" />
           <int name="time" value="10" />
           <int name="mobCount" value="2" />
@@ -1654,7 +1654,7 @@
         <imgdir name="7">
           <string name="hs" value="h7" />
           <int name="mpCon" value="18" />
-          <int name="mad" value="74" />
+          <int name="mad" value="134" />
           <int name="mastery" value="3" />
           <int name="time" value="10" />
           <int name="mobCount" value="3" />
@@ -1664,7 +1664,7 @@
         <imgdir name="8">
           <string name="hs" value="h8" />
           <int name="mpCon" value="18" />
-          <int name="mad" value="76" />
+          <int name="mad" value="136" />
           <int name="mastery" value="3" />
           <int name="time" value="10" />
           <int name="mobCount" value="3" />
@@ -1674,7 +1674,7 @@
         <imgdir name="9">
           <string name="hs" value="h9" />
           <int name="mpCon" value="18" />
-          <int name="mad" value="78" />
+          <int name="mad" value="138" />
           <int name="mastery" value="3" />
           <int name="time" value="10" />
           <int name="mobCount" value="3" />
@@ -1684,7 +1684,7 @@
         <imgdir name="10">
           <string name="hs" value="h10" />
           <int name="mpCon" value="18" />
-          <int name="mad" value="80" />
+          <int name="mad" value="140" />
           <int name="mastery" value="4" />
           <int name="time" value="10" />
           <int name="mobCount" value="3" />
@@ -1694,7 +1694,7 @@
         <imgdir name="11">
           <string name="hs" value="h11" />
           <int name="mpCon" value="18" />
-          <int name="mad" value="82" />
+          <int name="mad" value="142" />
           <int name="mastery" value="4" />
           <int name="time" value="10" />
           <int name="mobCount" value="3" />
@@ -1704,7 +1704,7 @@
         <imgdir name="12">
           <string name="hs" value="h12" />
           <int name="mpCon" value="18" />
-          <int name="mad" value="84" />
+          <int name="mad" value="144" />
           <int name="mastery" value="4" />
           <int name="time" value="10" />
           <int name="mobCount" value="3" />
@@ -1714,7 +1714,7 @@
         <imgdir name="13">
           <string name="hs" value="h13" />
           <int name="mpCon" value="21" />
-          <int name="mad" value="86" />
+          <int name="mad" value="146" />
           <int name="mastery" value="5" />
           <int name="time" value="10" />
           <int name="mobCount" value="4" />
@@ -1724,7 +1724,7 @@
         <imgdir name="14">
           <string name="hs" value="h14" />
           <int name="mpCon" value="21" />
-          <int name="mad" value="88" />
+          <int name="mad" value="148" />
           <int name="mastery" value="5" />
           <int name="time" value="10" />
           <int name="mobCount" value="4" />
@@ -1734,7 +1734,7 @@
         <imgdir name="15">
           <string name="hs" value="h15" />
           <int name="mpCon" value="21" />
-          <int name="mad" value="90" />
+          <int name="mad" value="150" />
           <int name="mastery" value="5" />
           <int name="time" value="10" />
           <int name="mobCount" value="4" />
@@ -1744,7 +1744,7 @@
         <imgdir name="16">
           <string name="hs" value="h16" />
           <int name="mpCon" value="21" />
-          <int name="mad" value="92" />
+          <int name="mad" value="152" />
           <int name="mastery" value="6" />
           <int name="time" value="15" />
           <int name="mobCount" value="4" />
@@ -1754,7 +1754,7 @@
         <imgdir name="17">
           <string name="hs" value="h17" />
           <int name="mpCon" value="21" />
-          <int name="mad" value="94" />
+          <int name="mad" value="154" />
           <int name="mastery" value="6" />
           <int name="time" value="15" />
           <int name="mobCount" value="4" />
@@ -1764,7 +1764,7 @@
         <imgdir name="18">
           <string name="hs" value="h18" />
           <int name="mpCon" value="21" />
-          <int name="mad" value="96" />
+          <int name="mad" value="156" />
           <int name="mastery" value="6" />
           <int name="time" value="15" />
           <int name="mobCount" value="4" />
@@ -1774,7 +1774,7 @@
         <imgdir name="19">
           <string name="hs" value="h19" />
           <int name="mpCon" value="31" />
-          <int name="mad" value="98" />
+          <int name="mad" value="158" />
           <int name="mastery" value="7" />
           <int name="time" value="15" />
           <int name="mobCount" value="5" />
@@ -1784,7 +1784,7 @@
         <imgdir name="20">
           <string name="hs" value="h20" />
           <int name="mpCon" value="31" />
-          <int name="mad" value="100" />
+          <int name="mad" value="160" />
           <int name="mastery" value="7" />
           <int name="time" value="15" />
           <int name="mobCount" value="5" />
@@ -1794,7 +1794,7 @@
         <imgdir name="21">
           <string name="hs" value="h21" />
           <int name="mpCon" value="31" />
-          <int name="mad" value="102" />
+          <int name="mad" value="162" />
           <int name="mastery" value="7" />
           <int name="time" value="15" />
           <int name="mobCount" value="5" />
@@ -1804,7 +1804,7 @@
         <imgdir name="22">
           <string name="hs" value="h22" />
           <int name="mpCon" value="31" />
-          <int name="mad" value="104" />
+          <int name="mad" value="164" />
           <int name="mastery" value="8" />
           <int name="time" value="15" />
           <int name="mobCount" value="5" />
@@ -1814,7 +1814,7 @@
         <imgdir name="23">
           <string name="hs" value="h23" />
           <int name="mpCon" value="31" />
-          <int name="mad" value="106" />
+          <int name="mad" value="166" />
           <int name="mastery" value="8" />
           <int name="time" value="15" />
           <int name="mobCount" value="5" />
@@ -1824,7 +1824,7 @@
         <imgdir name="24">
           <string name="hs" value="h24" />
           <int name="mpCon" value="31" />
-          <int name="mad" value="108" />
+          <int name="mad" value="168" />
           <int name="mastery" value="8" />
           <int name="time" value="15" />
           <int name="mobCount" value="5" />
@@ -1834,7 +1834,7 @@
         <imgdir name="25">
           <string name="hs" value="h25" />
           <int name="mpCon" value="34" />
-          <int name="mad" value="110" />
+          <int name="mad" value="170" />
           <int name="mastery" value="9" />
           <int name="time" value="15" />
           <int name="mobCount" value="6" />
@@ -1844,7 +1844,7 @@
         <imgdir name="26">
           <string name="hs" value="h26" />
           <int name="mpCon" value="34" />
-          <int name="mad" value="112" />
+          <int name="mad" value="172" />
           <int name="mastery" value="9" />
           <int name="time" value="15" />
           <int name="mobCount" value="6" />
@@ -1854,7 +1854,7 @@
         <imgdir name="27">
           <string name="hs" value="h27" />
           <int name="mpCon" value="34" />
-          <int name="mad" value="114" />
+          <int name="mad" value="174" />
           <int name="mastery" value="9" />
           <int name="time" value="15" />
           <int name="mobCount" value="6" />
@@ -1864,7 +1864,7 @@
         <imgdir name="28">
           <string name="hs" value="h28" />
           <int name="mpCon" value="34" />
-          <int name="mad" value="116" />
+          <int name="mad" value="176" />
           <int name="mastery" value="10" />
           <int name="time" value="15" />
           <int name="mobCount" value="6" />
@@ -1874,7 +1874,7 @@
         <imgdir name="29">
           <string name="hs" value="h29" />
           <int name="mpCon" value="34" />
-          <int name="mad" value="118" />
+          <int name="mad" value="178" />
           <int name="mastery" value="10" />
           <int name="time" value="15" />
           <int name="mobCount" value="6" />
@@ -1884,7 +1884,7 @@
         <imgdir name="30">
           <string name="hs" value="h30" />
           <int name="mpCon" value="34" />
-          <int name="mad" value="120" />
+          <int name="mad" value="180" />
           <int name="mastery" value="10" />
           <int name="time" value="15" />
           <int name="mobCount" value="6" />
