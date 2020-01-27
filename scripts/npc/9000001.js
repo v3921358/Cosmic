@@ -24,6 +24,8 @@
     Map(s):         Victoria Road : Lith Harbour (104000000)
     Description:         Event Assistant
 */
+importPackage(Packages.server.events.gm)
+
 var status = 0;
 
 function start() {
@@ -48,23 +50,27 @@ function action(mode, type, selection) {
             cm.sendSimple("Hey... Why don't you go with me? I think my brother will come with other people.\r\n#L0##e1.#n#b What kind of an event is it?#k#l\r\n#L1##e2.#n#b Explain the event game to me.#k#l\r\n#L2##e3.#n#b Alright, let's go!#k#l");
         } else if (status == 3) {
             if (selection == 0) {
-                cm.sendNext("All this month, MapleStory Global is celebrating its 3rd anniversary! The GM's will be holding surprise GM Events throughout the event, so stay on your toes and make sure to participate in at least one of the events for great prizes!");
+                cm.sendNext("DietStory will be regularly hosting scheduled events everyday! If you catch a notice, be sure to join in. Who knows what you might get?");
                 cm.dispose();
             } else if (selection == 1) {
                 cm.sendSimple("There are many games for this event. It will help you a lot to know how to play the game before you play it. Choose the one you want to know more of! #b\r\n#L0# Ola Ola#l\r\n#L1# MapleStory Maple Physical Fitness Test#l\r\n#L2# Snow Ball#l\r\n#L3# Coconut Harvest#l\r\n#L4# OX Quiz#l\r\n#L5# Treasure Hunt#l#k");
             } else if (selection == 2) {
-				if (cm.getEvent() != null && cm.getEvent().getLimit() > 0) {
-					cm.getPlayer().saveLocation("EVENT");
-					if (cm.getEvent().getMapId() == 109080000 || cm.getEvent().getMapId() == 109060001) 
-						cm.divideTeams();
-        
-					cm.getEvent().minusLimit();
-					cm.warp(cm.getEvent().getMapId());
-					cm.dispose();
-				} else {
-					cm.sendNext("Either the event has not been started, you already have the #bScroll of Secrets#k, or you have already participated in this event within the last 24 hours. Please try again later!");
-					cm.dispose();                
-            }
+				var event = cm.getClient().getWorldServer().getEvent();
+                if(event != null) {
+                    cm.getPlayer().saveLocation("EVENT");
+                    if(cm.getPlayer().getChannel() != event.getMap().getChannel()) {
+                        cm.sendNext("Come to Channel " + event.getMap().getChannel() + " and try again!");
+                    }
+                    else if(event.tryEnterEvent(cm.getPlayer())) {
+                        cm.sendNext("I hope you have a great time at the event!");
+                    } else {
+                        cm.sendNext("Sorry! Looks like the event has already begun or we've reached the limited amount of players for this event.");
+                    }
+                }
+                else {
+                    cm.sendNext("Either the event has not been started, you already have the #bScroll of Secrets#k, or you have already participated in this event within the last 24 hours. Please try again later!");
+                }
+                cm.dispose();
 			}
         } else if (status == 4) {
             if (selection == 0) {
@@ -80,7 +86,7 @@ function action(mode, type, selection) {
                 cm.sendNext("#b[Coconut Harvest]#k consists of two teams, Maple Team and Story Team, and the two teams duke it out to see #bwhich team gathers up the most coconuts#k. The time limit is #b5 MINUTES#k. If the game ends in a tie, an additional 2 minutes will be awarded to determine the winner. If, for some reason, the score stays tied, then the game will end in a draw. \r\n\r\nAll long-range attacks and skill-based attacks will not work here, #bonly the close-range attacks will work#k. If you don't have a weapon for the close-range attacks, you can purchase them through an NPC within the event map. No matter the level of character, the weapon, or skills, all damages applied will be the same.\r\n\r\nBeware of the obstacles and traps within the map. If the character dies during the game, the character will be eliminated from the game. The player who strikes last before the coconut drops wins. Only the coconuts that hit the ground counts, which means the ones that do not fall off the tree, or the occasional explosion of the coconuts WILL NOT COUNT. There's also a hidden portal at one of the shells at the bottom of the map, so use that wisely!");
                 cm.dispose();
             } else if (selection == 4) {
-                cm.sendNext("#b[OX Quiz]#k is a game of MapleStory smarts through X's and O's. Once you join the game, turn on the minimap by pressing #bM#k to see where the X and O are. A total of #r10 questions#k will be given, and the character that answers them all correctly wins the game. \r\n\r\nOnce the question is given, use the ladder to enter the area where the correct answer may be, be it X or O. If the character does not choose an answer or is hanging on the ladder past the time limit, the character will be eliminated. Please hold your position until [CORRECT] is off the screen before moving on. To prevent cheating of any kind, all types of chatting will be turned off during the OX Quiz.");
+                cm.sendNext("#b[OX Quiz]#k is a game of MapleStory smarts through X's and O's. Once you join the game, turn on the minimap by pressing #bM#k to see where the X and O are. A total of #r20 questions#k will be given, with 10 seconds to answer each! \r\n\r\nOnce the question is given, enter the area where the correct answer may be, be it X or O. If the character does not choose an answer or is hanging on the ladder past the time limit, the character will be eliminated. Please hold your position until [CORRECT] is off the screen before moving on.");
                 cm.dispose();
             } else if (selection == 5) {
                 cm.sendNext("#b[Treasure Hunt]#k is a game in which your goal is to find the #btreasure scrolls#k that are hidden all over the map #rin 10 minutes#k. There will be a number of mysterious treasure chests hidden away, and once you break them apart, many items will surface from the chest. Your job is to pick out the treasure scroll from those items. \r\nTreasure chests can be destroyed using #bregular attacks#k, and once you have the treasure scroll in possession, you can trade it for the Scroll of Secrets through an NPC that's in charge of trading items. The trading NPC can be found on the Treasure Hunt map, but you can also trade your scroll through #bVikin#k of Lith Harbor.\r\n\r\nThis game has its share of hidden portals and hidden teleporting spots. To use them, press the #bup arrow#k at a certain spot, and you'll be teleported to a different place. Try jumping around, for you may also run into hidden stairs or ropes. There will also be a treasure chest that'll take you to a hidden spot, and a hidden chest that can only be found through the hidden portal, so try looking around.\r\n\r\nDuring the game of Treasure Hunt, all attack skills will be #rdisabled#k, so please break the treasure chest with the regular attack.");

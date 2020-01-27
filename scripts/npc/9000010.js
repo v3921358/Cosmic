@@ -21,13 +21,22 @@
 */
 
 function start() {
-    cm.sendNext("I'm sorry but I'm afraid you didn't win the event. Try it again some other time. You can return to where you were through me.");
+    cm.sendNext("You can return to where you were through me.");
 }
 
 function action(mode, type, selection) {
     if (mode == -1) {
         cm.dispose();
     }
-    cm.warp(cm.getPlayer().getSavedLocation("EVENT"));
+
+    var location = cm.getPlayer().getSavedLocation("EVENT");
+    if(location != -1) {
+        cm.warp(location);    
+    }
+    else {
+        // Default Lith Harbor
+        cm.warp(104000000);
+    }
+    
     cm.dispose();    
 }  

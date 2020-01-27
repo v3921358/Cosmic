@@ -1908,19 +1908,18 @@ public class Commands {
 					break;
 				}
 			}
-                    break;
+            break;
         
 		case "startevent":
 			int players = 50;
 			if(sub.length > 1)
 				players = Integer.parseInt(sub[1]);
 			
-			c.getChannelServer().setEvent(new MapleEvent(player.getMapId(), players));
+			player.getMap().startEvent(player);
 			player.dropMessage(5, "The event has been set on " + player.getMap().getMapName() + " and will allow " + players + " players to join.");
                     break;
                     
 		case "endevent":
-			c.getChannelServer().setEvent(null);
 			player.dropMessage(5, "You have ended the event. No more players may join.");
                     break;
                     

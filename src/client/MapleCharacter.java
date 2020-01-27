@@ -156,6 +156,7 @@ import provider.MapleDataProviderFactory;
 import scripting.item.ItemScriptManager;
 import server.maps.MapleMapItem;
 
+
 public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     private static final String LEVEL_200 = "[Congrats] %s has reached Level 200! Congratulate %s on such an amazing achievement!";
 
@@ -2515,6 +2516,16 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             total * getExpRate(), 
             equip * getExpRate(), 
             party * getExpRate(), 
+            show, 
+            inChat, 
+            white);
+    }
+
+    public void gainExpNoModifiers(long gain, boolean show, boolean inChat, boolean white) {
+        gainExpInternal(
+            gain, 
+            0,
+            0, 
             show, 
             inChat, 
             white);
