@@ -203,14 +203,6 @@ public final class Channel {
         return ip;
     }
 
-    public MapleEvent getEvent() {
-        return event;
-    }
-
-    public void setEvent(MapleEvent event) {
-        this.event = event;
-    }
-
     public EventScriptManager getEventSM() {
         return eventSM;
     }
@@ -484,5 +476,9 @@ public final class Channel {
     
     public long getDojoFinishTime(int dojoMapId) {
         return dojoFinishTime[getDojoSlot(dojoMapId)];
+    }
+
+    public MapleEvent getEvent() {
+        return event;
     }
 }
