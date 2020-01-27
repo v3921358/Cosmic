@@ -3,8 +3,6 @@ package api.controllers;
 import java.util.List;
 
 import io.javalin.Handler;
-import org.json.JSONObject;
-import org.json.JSONArray;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;

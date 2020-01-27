@@ -45,12 +45,12 @@ public class MapleCoconut extends MapleEvent {
        private List<MapleCoconuts> coconuts = new LinkedList<MapleCoconuts>();
 
        public MapleCoconut(MapleMap map) {
-           super(1, 50);
+           super(map, 50);
            this.map = map;
        }
 
        public void startEvent() {
-           map.startEvent();
+           map.startEvent(null);
            for (int i = 0; i < 506; i++) {
                 coconuts.add(new MapleCoconuts(i));
             }

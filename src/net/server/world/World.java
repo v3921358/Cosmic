@@ -45,6 +45,9 @@ import java.util.HashSet;
 import java.util.concurrent.ScheduledFuture;
 import java.util.Calendar;
 
+import server.events.gm.core.EventScheduler;
+import server.events.gm.MapleEvent;
+
 import server.TimerManager;
 import net.server.BossEntriesWorker;
 import net.server.CharacterAutosaverWorker;
@@ -88,6 +91,8 @@ public class World {
     
     private ScheduledFuture<?> charactersSchedule;
     private ScheduledFuture<?> bossEntriesSchedule;
+
+    private EventScheduler eventScheduler;
     
     public World(int world, int flag, String eventmsg, int exprate, int droprate, int mesorate, int bossdroprate) {
         this.id = world;
@@ -776,6 +781,14 @@ public class World {
         }
     }
 
+    public void initializeEventScheduler(int channel) {
+        eventScheduler = new EventScheduler(getChannel(channel).getMapFactory());
+    }
+
+    public MapleEvent getEvent() {
+        return eventScheduler.getEvent();
+    }
+
     //reset all characters boss_entries to world defined maximum in the database
     public void resetBossEntries(){
         try{
@@ -794,17 +807,7 @@ public class World {
     }
 
     public long calculateDifferenceTillMidNight(){
-        Calendar midnight = Calendar.getInstance();
-        midnight.set(Calendar.HOUR, 0);
-        midnight.set(Calendar.MINUTE, 0);
-        midnight.set(Calendar.SECOND, 0);
-        midnight.add(Calendar.DAY_OF_MONTH, 1);
-
-        Calendar now = Calendar.getInstance();
-
-        long timeDifference = midnight.getTime().getTime() - now.getTime().getTime(); 
-
-        return timeDifference;
+        return TimerManager.calculateDifferenceFromTime(0, 0, 0);
     }
 
     public void setServerMessage(String msg) {

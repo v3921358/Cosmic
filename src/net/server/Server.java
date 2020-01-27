@@ -315,6 +315,7 @@ public class Server implements Runnable {
                     world.addChannel(channel);
                     channels.get(i).put(channelid, channel.getIP());
                 }
+                world.initializeEventScheduler(1); //initialize to channel 1
                 world.setServerMessage(p.getProperty("servermessage" + i));
                 System.out.println("Finished loading world " + i + "\r\n");
             }
