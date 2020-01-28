@@ -591,6 +591,7 @@ public class MapleStatEffect {
                 case Crusader.SHOUT:
                 case WhiteKnight.CHARGE_BLOW:
                 case Hunter.ARROW_BOMB:
+                case Ranger.STRAFE:
                 case ChiefBandit.ASSAULTER:
                 case Shadower.BOOMERANG_STEP:
                 case Brawler.BACK_SPIN_BLOW:
