@@ -6,12 +6,12 @@ import jdk.nashorn.api.scripting.ScriptUtils;
 import jdk.nashorn.api.scripting.ScriptObjectMirror;
 
 public class NashornUtil {
-	public static List<Integer> JSArrayToIntegerList(ScriptObjectMirror obj) {
-		int[] iarr = obj.to(int[].class);
-		List<Integer> intList = new ArrayList<Integer>(iarr.length);
-		for(int i : iarr) {
-			intList.add(i);
+	public static <T> List<T> JSArrayToList(ScriptObjectMirror obj, Class<T[]> type) {
+		T[] tarr = obj.to(type);
+		List<T> tList = new ArrayList<T>(tarr.length);
+		for(T t : tarr) {
+			tList.add(t);
 		}
-		return intList;
+		return tList;
 	} 
 }

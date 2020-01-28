@@ -212,7 +212,7 @@ public class AbstractPlayerInteraction {
     }
     
     public boolean canHoldAll(ScriptObjectMirror itemids, ScriptObjectMirror quantity) {
-        return canHoldAll(NashornUtil.JSArrayToIntegerList(itemids), NashornUtil.JSArrayToIntegerList(quantity), true);
+        return canHoldAll(NashornUtil.JSArrayToList(itemids, Integer[].class), NashornUtil.JSArrayToList(quantity, Integer[].class), true);
     }
     
     private boolean canHoldAll(List<Integer> itemids, List<Integer> quantity, boolean isInteger) {

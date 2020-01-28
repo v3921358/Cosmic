@@ -486,7 +486,7 @@ public class EventInstanceManager {
     public void monsterKilled(MapleCharacter chr, MapleMonster mob) {
         try {
             Integer kc = killCount.get(chr);
-            int inc = ((Double) em.getIv().invokeFunction("monsterValue", this, mob.getId())).intValue();
+            Integer inc = (Integer)em.getIv().invokeFunction("monsterValue", this, mob.getId());
             if (kc == null) {
                 kc = inc;
             } else {
@@ -731,12 +731,12 @@ public class EventInstanceManager {
 
     public void setEventClearStageExp(ScriptObjectMirror gain) {
         onMapClearExp.clear();
-        onMapClearExp.addAll(NashornUtil.JSArrayToIntegerList(gain));
+        onMapClearExp.addAll(NashornUtil.JSArrayToList(gain, Integer[].class));
     }
 
     public void setEventClearStageMeso(ScriptObjectMirror gain) {
         onMapClearMeso.clear();
-        onMapClearMeso.addAll(NashornUtil.JSArrayToIntegerList(gain));
+        onMapClearMeso.addAll(NashornUtil.JSArrayToList(gain, Integer[].class));
     }
 
     public Integer getClearStageExp(int stage) { //stage counts from ONE.
@@ -766,7 +766,7 @@ public class EventInstanceManager {
     }
 
     public final void setExclusiveItems(ScriptObjectMirror items) {
-        List <Integer> exclusive = NashornUtil.JSArrayToIntegerList(items);
+        List <Integer> exclusive = NashornUtil.JSArrayToList(items, Integer[].class);
 
         wL.lock();
         try {
@@ -796,8 +796,8 @@ public class EventInstanceManager {
         if (eventLevel <= 0 || eventLevel > ServerConstants.MAX_EVENT_LEVELS) return;
         eventLevel--; //event level starts from 1
 
-        List <Integer> rewardIds = NashornUtil.JSArrayToIntegerList(rwds);
-        List <Integer> rewardQtys = NashornUtil.JSArrayToIntegerList(qtys);
+        List <Integer> rewardIds = NashornUtil.JSArrayToList(rwds, Integer[].class);
+        List <Integer> rewardQtys = NashornUtil.JSArrayToList(qtys, Integer[].class);
 
         //rewardsSet and rewardsQty hold temporary values
         wL.lock();

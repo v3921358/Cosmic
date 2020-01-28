@@ -109,7 +109,7 @@ public class EventManager {
     
     private List<Integer> getLobbyRange() {
         try {
-            return NashornUtil.JSArrayToIntegerList((ScriptObjectMirror)iv.invokeFunction("setLobbyRange", (Object) null));
+            return NashornUtil.JSArrayToList((ScriptObjectMirror)iv.invokeFunction("setLobbyRange", (Object) null), Integer[].class);
         } catch (ScriptException | NoSuchMethodException ex) { // they didn't define a lobby range
             List<Integer> defaultList = new ArrayList<>();
             defaultList.add(0);
@@ -473,7 +473,7 @@ public class EventManager {
             Object p = iv.invokeFunction("getEligibleParty", party.getPartyMembers());
             
             if(p != null) {
-                List<MaplePartyCharacter> lmpc = new ArrayList<>((List<MaplePartyCharacter>) p);
+                List<MaplePartyCharacter> lmpc = NashornUtil.JSArrayToList((ScriptObjectMirror)p, MaplePartyCharacter[].class);
                 party.setEligibleMembers(lmpc);
                 return lmpc;
             }
