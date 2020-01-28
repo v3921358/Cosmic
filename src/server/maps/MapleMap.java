@@ -65,7 +65,7 @@ import server.TimerManager;
 import server.events.gm.MapleCoconut;
 import server.events.gm.MapleFitness;
 import server.events.gm.MapleOla;
-import server.events.gm.MapleOxQuiz;
+import server.events.gm.MapleOxQuiz.MapleOxQuiz;
 import server.events.gm.MapleSnowball;
 import server.life.MapleLifeFactory;
 import server.life.MapleLifeFactory.selfDestruction;
@@ -118,8 +118,6 @@ public class MapleMap {
     private int decHP = 0;
     private int protectItem = 0;
     private boolean town;
-    private MapleOxQuiz ox;
-    private boolean isOxQuiz = false;
     private boolean dropsOn = true;
     private String onFirstUserEnter;
     private String onUserEnter;
@@ -137,7 +135,7 @@ public class MapleMap {
     private int riceCakes = 0;
     private int bunnyDamage = 0;
     // events
-    private boolean eventstarted = false, isMuted = false;
+    private boolean isMuted = false;
     private MapleSnowball snowball0 = null;
     private MapleSnowball snowball1 = null;
     private MapleCoconut coconut;
@@ -227,6 +225,10 @@ public class MapleMap {
 
     public int getId() {
         return mapid;
+    }
+
+    public int getChannel() {
+        return channel;
     }
 
     public MapleMap getReturnMap() {
@@ -1566,7 +1568,6 @@ public class MapleMap {
                 c.announce(reactor.makeSpawnData());
             }
         });
-
     }
 
     private void respawnReactor(final MapleReactor reactor) {
@@ -1923,9 +1924,6 @@ public class MapleMap {
 
         sendObjectPlacement(chr.getClient());
         
-        if (isStartingEventMap() && !eventStarted()) {
-            chr.getMap().getPortal("join00").setPortalStatus(false);
-        }
         if (hasForcedEquip()) {
             chr.getClient().announce(MaplePacketCreator.showForcedEquip(-1));
         }
@@ -2901,22 +2899,6 @@ public class MapleMap {
         }
     }
 
-    public MapleOxQuiz getOx() {
-        return ox;
-    }
-
-    public void setOx(MapleOxQuiz set) {
-        this.ox = set;
-    }
-
-    public void setOxQuiz(boolean b) {
-        this.isOxQuiz = b;
-    }
-
-    public boolean isOxQuiz() {
-        return isOxQuiz;
-    }
-
     public void setOnUserEnter(String onUserEnter) {
         this.onUserEnter = onUserEnter;
     }
@@ -3074,27 +3056,14 @@ public class MapleMap {
         } else if (this.mapid == 109030101 || this.mapid == 109030201 || this.mapid == 109030301 || this.mapid == 109030401) {
             chr.setOla(new MapleOla(chr));
             chr.getOla().startOla();
-        } else if (this.mapid == 109020001 && getOx() == null) {
-            setOx(new MapleOxQuiz(this));
-            getOx().sendQuestion();
-            setOxQuiz(true);
+        } else if (this.mapid == 109020001) {
+            MapleOxQuiz oxQuiz = new MapleOxQuiz(this, 50);
+            oxQuiz.startEvent();
         } else if (this.mapid == 109060000 && getSnowball(chr.getTeam()) == null) {
             setSnowball(0, new MapleSnowball(0, this));
             setSnowball(1, new MapleSnowball(1, this));
             getSnowball(chr.getTeam()).startEvent();
         }
-    }
-
-    public boolean eventStarted() {
-        return eventstarted;
-    }
-
-    public void startEvent() {
-        this.eventstarted = true;
-    }
-
-    public void setEventStarted(boolean event) {
-        this.eventstarted = event;
     }
 
     public String getEventNPC() {
@@ -3112,18 +3081,6 @@ public class MapleMap {
             return null;
         }
         return sb.toString();
-    }
-
-    public boolean hasEventNPC() {
-        return this.mapid == 60000 || this.mapid == 104000000 || this.mapid == 200000000 || this.mapid == 220000000;
-    }
-
-    public boolean isStartingEventMap() {
-        return this.mapid == 109040000 || this.mapid == 109020001 || this.mapid == 109010000 || this.mapid == 109030001 || this.mapid == 109030101;
-    }
-
-    public boolean isEventMap() {
-        return this.mapid >= 109010000 && this.mapid < 109050000 || this.mapid > 109050001 && this.mapid <= 109090000;
     }
 
     public void timeMob(int id, String msg) {

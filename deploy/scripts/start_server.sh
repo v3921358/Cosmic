@@ -22,4 +22,4 @@ sudo docker run -it -d \
 	--name=${SERVER_NAME} \
 	--cpus=${CPUS} \
 	--cpu-shares=${CPU_SHARES} \
-	benjixd/dietstory
+	benjixd/dietstory:java_8

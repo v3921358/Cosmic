@@ -156,7 +156,7 @@ public class DueyProcessor {
             addMesoToDB(mesos, c.getPlayer().getName(), getAccIdFromCNAME(recipient, false), 0);
         }
         if (recipientOn && rClient != null) {
-            rClient.announce(MaplePacketCreator.sendDueyMSG(Actions.TOCLIENT_RECV_PACKAGE_MSG.getCode()));
+            rClient.announce(MaplePacketCreator.sendDueyNotification(c.getPlayer().getName(), false));
         }
         
         c.announce(MaplePacketCreator.sendDueyMSG(Actions.TOCLIENT_SEND_SUCCESSFULLY_SENT.getCode()));
@@ -169,7 +169,7 @@ public class DueyProcessor {
         try {
             con = DatabaseConnection.getConnection();
             DueyPackages dueypack;
-            try (PreparedStatement ps = con.prepareStatement("SELECT SenderName, Mesos, TimeStamp, Type, dueyitems.* FROM dueypackages LEFT JOIN dueyitems USING (PackageId) WHERE PackageId = ?")) {
+            try (PreparedStatement ps = con.prepareStatement("SELECT dueypackages.packageId, SenderName, Mesos, TimeStamp, Type, dueyitems.* FROM dueypackages LEFT JOIN dueyitems USING (PackageId) WHERE PackageId = ?")) {
                 ps.setInt(1, packageId);
                 try (ResultSet rs = ps.executeQuery()) {
                     dueypack = null;
@@ -315,36 +315,38 @@ public class DueyProcessor {
                         rs.next();
                         PreparedStatement ps2;
                         if (item.getType() == 1) { // equips
-                            ps2 = con.prepareStatement("INSERT INTO dueyitems (PackageId, itemid, quantity, upgradeslots, level, str, dex, `int`, luk, hp, mp, watk, matk, wdef, mdef, acc, avoid, hands, speed, jump, flags, owner, TimeLimit, IsTimeLimitActive) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                            ps2 = con.prepareStatement("INSERT INTO dueyitems (PackageId, itemid, quantity, upgradeslots, level, itemLevel, itemExp, str, dex, `int`, luk, hp, mp, watk, matk, wdef, mdef, acc, avoid, hands, speed, jump, flags, owner, TimeLimit, IsTimeLimitActive) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                             Equip eq = (Equip) item;
                             ps2.setInt(2, eq.getItemId());
                             ps2.setInt(3, 1);
                             ps2.setInt(4, eq.getUpgradeSlots());
                             ps2.setInt(5, eq.getLevel());
-                            ps2.setInt(6, eq.getStr());
-                            ps2.setInt(7, eq.getDex());
-                            ps2.setInt(8, eq.getInt());
-                            ps2.setInt(9, eq.getLuk());
-                            ps2.setInt(10, eq.getHp());
-                            ps2.setInt(11, eq.getMp());
-                            ps2.setInt(12, eq.getWatk());
-                            ps2.setInt(13, eq.getMatk());
-                            ps2.setInt(14, eq.getWdef());
-                            ps2.setInt(15, eq.getMdef());
-                            ps2.setInt(16, eq.getAcc());
-                            ps2.setInt(17, eq.getAvoid());
-                            ps2.setInt(18, eq.getHands());
-                            ps2.setInt(19, eq.getSpeed());
-                            ps2.setInt(20, eq.getJump());
-                            ps2.setByte(21, eq.getFlag());
-                            ps2.setString(22, eq.getOwner());
+                            ps2.setInt(6, eq.getItemLevel());
+                            ps2.setInt(7, eq.getItemExp());
+                            ps2.setInt(8, eq.getStr());
+                            ps2.setInt(9, eq.getDex());
+                            ps2.setInt(10, eq.getInt());
+                            ps2.setInt(11, eq.getLuk());
+                            ps2.setInt(12, eq.getHp());
+                            ps2.setInt(13, eq.getMp());
+                            ps2.setInt(14, eq.getWatk());
+                            ps2.setInt(15, eq.getMatk());
+                            ps2.setInt(16, eq.getWdef());
+                            ps2.setInt(17, eq.getMdef());
+                            ps2.setInt(18, eq.getAcc());
+                            ps2.setInt(19, eq.getAvoid());
+                            ps2.setInt(20, eq.getHands());
+                            ps2.setInt(21, eq.getSpeed());
+                            ps2.setInt(22, eq.getJump());
+                            ps2.setByte(23, eq.getFlag());
+                            ps2.setString(24, eq.getOwner());
                             if (timeLimit < 0) {
-                                ps2.setLong(23, eq.getExpiration());
-                                ps2.setBoolean(24, true);
+                                ps2.setLong(25, eq.getExpiration());
+                                ps2.setBoolean(26, true);
                             }
                             else {
-                                ps2.setLong(23, timeLimit);
-                                ps2.setBoolean(24, false);
+                                ps2.setLong(25, timeLimit);
+                                ps2.setBoolean(26, false);
                             }
                         } else {
                             ps2 = con.prepareStatement("INSERT INTO dueyitems (PackageId, itemid, quantity, flags, owner, TimeLimit, IsTimeLimitActive) VALUES (?, ?, ?, ?, ?, ?, ?)");
@@ -379,7 +381,7 @@ public class DueyProcessor {
         Connection con = null;
         try {
             con = DatabaseConnection.getConnection();
-            try (PreparedStatement ps = con.prepareStatement("SELECT dueypackages.packageId, SenderName, Mesos, TimeStamp, Type, itemid, quantity, upgradeslots, level, str, dex, `int`, luk, hp, mp, watk, matk, wdef, mdef, acc, avoid, hands, speed, jump, flags, owner, TimeLimit, IsTimeLimitActive FROM dueypackages LEFT JOIN dueyitems USING (PackageId) WHERE ReceiverId = ? OR ReceiverAccountId = ?")) {
+            try (PreparedStatement ps = con.prepareStatement("SELECT dueypackages.packageId, SenderName, Mesos, TimeStamp, Type, itemid, quantity, upgradeslots, level, itemLevel, itemExp, str, dex, `int`, luk, hp, mp, watk, matk, wdef, mdef, acc, avoid, hands, speed, jump, flags, owner, TimeLimit, IsTimeLimitActive FROM dueypackages LEFT JOIN dueyitems USING (PackageId) WHERE ReceiverId = ? OR ReceiverAccountId = ?")) {
                 ps.setInt(1, chr.getId());
                 ps.setInt(2, chr.getAccountID());
                 try (ResultSet rs = ps.executeQuery()) {
@@ -460,6 +462,8 @@ public class DueyProcessor {
                 Equip eq = new Equip(rs.getInt("itemid"), (byte) 0, -1);
                 eq.setUpgradeSlots((byte) rs.getInt("upgradeslots"));
                 eq.setLevel((byte) rs.getInt("level"));
+                eq.setItemLevel((byte)rs.getInt("itemLevel"));
+                eq.setItemExp(rs.getInt("itemExp"));
                 eq.setStr((short) rs.getInt("str"));
                 eq.setDex((short) rs.getInt("dex"));
                 eq.setInt((short) rs.getInt("int"));

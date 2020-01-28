@@ -26,10 +26,12 @@ import client.MapleClient;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.UndeclaredThrowableException;
 
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
+import javax.script.ScriptEngineFactory;
 import javax.script.ScriptException;
 
 import constants.ServerConstants;
@@ -40,36 +42,53 @@ import tools.FilePrinter;
  * @author Matze
  */
 public abstract class AbstractScriptManager {
+    private static final String ROOT_PATH = "scripts/%s";
+    private static final String NASHORN_LOAD_MODULE = "load('nashorn:mozilla_compat.js');" + System.lineSeparator();
 
-    protected ScriptEngine engine;
-    private ScriptEngineManager sem;
+    private ScriptEngineFactory sef;
 
     protected AbstractScriptManager() {
-        sem = new ScriptEngineManager();
+        sef = new ScriptEngineManager().getEngineByName("javascript").getFactory();
+    }
+
+    protected String getFullPath(String path) {
+        return String.format(ROOT_PATH, path);
+    }
+
+    protected boolean scriptExists(String path) {
+        File script = new File(getFullPath(path));
+        return script.exists();
     }
 
     protected Invocable getInvocable(String path, MapleClient c) {
-        path = "scripts/" + path;
-        engine = null;
+        ScriptEngine engine = null;
+
         if (c != null) {
             engine = c.getScriptEngine(path);
         }
+
         if (engine == null) {
-            File scriptFile = new File(path);
+            File scriptFile = new File(getFullPath(path));
+            engine = sef.getScriptEngine();
+
             if (!scriptFile.exists()) {
                 return null;
             }
-            engine = sem.getEngineByName("javascript");
+
             if (c != null) {
                 c.setScriptEngine(path, engine);
             }
-            try (FileReader fr = new FileReader(scriptFile)) {
-            	if (ServerConstants.JAVA_8){
-            		engine.eval("load('nashorn:mozilla_compat.js');");
-            	}
+
+            try {
+                FileReader fr = new FileReader(scriptFile);
+                engine.eval(NASHORN_LOAD_MODULE);
                 engine.eval(fr);
-            } catch (final ScriptException | IOException t) {
+                fr.close();
+            } catch (final ScriptException | IOException | UndeclaredThrowableException t) {
                 FilePrinter.printError(FilePrinter.INVOCABLE + path.substring(12, path.length()), t, path);
+                return null;
+            } catch (Exception e) {
+                FilePrinter.printError(FilePrinter.INVOCABLE + path.substring(12, path.length()), e, path);
                 return null;
             }
         }
@@ -78,6 +97,6 @@ public abstract class AbstractScriptManager {
     }
 
     protected void resetContext(String path, MapleClient c) {
-        c.removeScriptEngine("scripts/" + path);
+        c.removeScriptEngine(path);
     }
 }

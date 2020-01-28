@@ -66,6 +66,8 @@ import constants.ServerConstants;
 import java.util.Calendar;
 import server.quest.MapleQuest;
 
+import api.MapleAPI;
+
 public class Server implements Runnable {
     private static final Map<Integer, Integer> couponRates = new LinkedHashMap<>();
     private static final List<Integer> activeCoupons = new LinkedList<>();
@@ -80,6 +82,7 @@ public class Server implements Runnable {
     private final PlayerBuffStorage buffStorage = new PlayerBuffStorage();
     private final Map<Integer, MapleAlliance> alliances = new LinkedHashMap<>();
     private boolean online = false;
+    private MapleAPI api = null;
     public static long uptime = System.currentTimeMillis();
     
     public static Server getInstance() {
@@ -286,9 +289,9 @@ public class Server implements Runnable {
         CashItemFactory.getSpecialCashItems();
         System.out.println("Items loaded in " + ((System.currentTimeMillis() - timeToTake) / 1000.0) + " seconds");
         
-	timeToTake = System.currentTimeMillis();
-	MapleQuest.loadAllQuest();
-	System.out.println("Quest loaded in " + ((System.currentTimeMillis() - timeToTake) / 1000.0) + " seconds\r\n");
+        timeToTake = System.currentTimeMillis();
+        MapleQuest.loadAllQuest();
+        System.out.println("Quest loaded in " + ((System.currentTimeMillis() - timeToTake) / 1000.0) + " seconds\r\n");
 		
         try {
             Integer worldCount = Math.min(ServerConstants.WORLD_NAMES.length, Integer.parseInt(p.getProperty("worlds")));
@@ -312,6 +315,7 @@ public class Server implements Runnable {
                     world.addChannel(channel);
                     channels.get(i).put(channelid, channel.getIP());
                 }
+                world.initializeEventScheduler(1); //initialize to channel 1
                 world.setServerMessage(p.getProperty("servermessage" + i));
                 System.out.println("Finished loading world " + i + "\r\n");
             }
@@ -328,9 +332,11 @@ public class Server implements Runnable {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        
-        System.out.println("Listening on port 8484\r\n\r\n");
 
+        api = new MapleAPI(this, 8485);
+
+        System.out.println("Login server on port 8484\r\n\r\n");
+        System.out.println("API server on port 8485\r\n\r\n");
         System.out.println("Solaxia is now online.\r\n");
         online = true;
     }

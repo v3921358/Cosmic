@@ -2513,91 +2513,91 @@
           <string name="hs" value="h1" />
           <int name="mpCon" value="22" />
           <int name="time" value="2100000" />
-          <int name="pdd" value="10" />
-          <int name="mdd" value="10" />
+          <int name="pdd" value="120" />
+          <int name="mdd" value="120" />
           <int name="x" value="1" />
-          <int name="cooltime" value="90" />
+          <int name="cooltime" value="45" />
         </imgdir>
         <imgdir name="2">
           <string name="hs" value="h2" />
           <int name="mpCon" value="24" />
           <int name="time" value="2100000" />
-          <int name="pdd" value="20" />
-          <int name="mdd" value="20" />
+          <int name="pdd" value="140" />
+          <int name="mdd" value="140" />
           <int name="x" value="1" />
-          <int name="cooltime" value="90" />
+          <int name="cooltime" value="45" />
         </imgdir>
         <imgdir name="3">
           <string name="hs" value="h3" />
           <int name="mpCon" value="26" />
           <int name="time" value="2100000" />
-          <int name="pdd" value="30" />
-          <int name="mdd" value="30" />
+          <int name="pdd" value="160" />
+          <int name="mdd" value="160" />
           <int name="x" value="1" />
-          <int name="cooltime" value="90" />
+          <int name="cooltime" value="45" />
         </imgdir>
         <imgdir name="4">
           <string name="hs" value="h4" />
           <int name="mpCon" value="28" />
           <int name="time" value="2100000" />
-          <int name="pdd" value="40" />
-          <int name="mdd" value="40" />
+          <int name="pdd" value="180" />
+          <int name="mdd" value="180" />
           <int name="x" value="1" />
-          <int name="cooltime" value="90" />
+          <int name="cooltime" value="45" />
         </imgdir>
         <imgdir name="5">
           <string name="hs" value="h5" />
           <int name="mpCon" value="30" />
           <int name="time" value="2100000" />
-          <int name="pdd" value="50" />
-          <int name="mdd" value="50" />
+          <int name="pdd" value="200" />
+          <int name="mdd" value="200" />
           <int name="x" value="1" />
-          <int name="cooltime" value="90" />
+          <int name="cooltime" value="45" />
         </imgdir>
         <imgdir name="6">
           <string name="hs" value="h6" />
           <int name="mpCon" value="32" />
           <int name="time" value="2100000" />
-          <int name="pdd" value="60" />
-          <int name="mdd" value="60" />
+          <int name="pdd" value="220" />
+          <int name="mdd" value="220" />
           <int name="x" value="1" />
-          <int name="cooltime" value="90" />
+          <int name="cooltime" value="45" />
         </imgdir>
         <imgdir name="7">
           <string name="hs" value="h7" />
           <int name="mpCon" value="34" />
           <int name="time" value="2100000" />
-          <int name="pdd" value="70" />
-          <int name="mdd" value="70" />
+          <int name="pdd" value="240" />
+          <int name="mdd" value="240" />
           <int name="x" value="1" />
-          <int name="cooltime" value="90" />
+          <int name="cooltime" value="45" />
         </imgdir>
         <imgdir name="8">
           <string name="hs" value="h8" />
           <int name="mpCon" value="36" />
           <int name="time" value="2100000" />
-          <int name="pdd" value="80" />
-          <int name="mdd" value="80" />
+          <int name="pdd" value="260" />
+          <int name="mdd" value="260" />
           <int name="x" value="1" />
-          <int name="cooltime" value="90" />
+          <int name="cooltime" value="45" />
         </imgdir>
         <imgdir name="9">
           <string name="hs" value="h9" />
           <int name="mpCon" value="38" />
           <int name="time" value="2100000" />
-          <int name="pdd" value="90" />
-          <int name="mdd" value="90" />
+          <int name="pdd" value="280" />
+          <int name="mdd" value="280" />
           <int name="x" value="1" />
-          <int name="cooltime" value="90" />
+          <int name="cooltime" value="45" />
         </imgdir>
         <imgdir name="10">
           <string name="hs" value="h10" />
           <int name="mpCon" value="40" />
           <int name="time" value="2100000" />
-          <int name="pdd" value="100" />
-          <int name="mdd" value="100" />
+          <int name="pdd" value="300" />
+          <int name="mdd" value="300" />
           <int name="x" value="1" />
-          <int name="cooltime" value="90" />
+          <int name="cooltime" value="45" />
         </imgdir>
       </imgdir>
       <imgdir name="effect">

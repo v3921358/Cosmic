@@ -37,62 +37,44 @@ import javax.script.ScriptException;
 import server.MaplePortal;
 import tools.FilePrinter;
 
-public class PortalScriptManager {
+import scripting.AbstractScriptManager;
 
+public class PortalScriptManager extends AbstractScriptManager {
+
+    private static final String SCRIPT_FORMAT = "portal/%s.js";
     private static PortalScriptManager instance = new PortalScriptManager();
     private Map<String, PortalScript> scripts = new HashMap<>();
-    private ScriptEngineFactory sef;
 
     private PortalScriptManager() {
-        ScriptEngineManager sem = new ScriptEngineManager();
-        sef = sem.getEngineByName("javascript").getFactory();
+        super();
     }
 
     public static PortalScriptManager getInstance() {
         return instance;
     }
 
-    private PortalScript getPortalScript(String scriptName) {
-        if (scripts.containsKey(scriptName)) {
-            return scripts.get(scriptName);
-        }
-        File scriptFile = new File("scripts/portal/" + scriptName + ".js");
-        if (!scriptFile.exists()) {
-            scripts.put(scriptName, null);
-            return null;
-        }
-        FileReader fr = null;
-        ScriptEngine portal = sef.getScriptEngine();
-        try {
-            fr = new FileReader(scriptFile);
-            ((Compilable) portal).compile(fr).eval();
-        } catch (ScriptException | IOException | UndeclaredThrowableException e) {
-            FilePrinter.printError(FilePrinter.PORTAL + scriptName + ".txt", e);
-        } finally {
-            if (fr != null) {
-                try {
-                    fr.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        PortalScript script = ((Invocable) portal).getInterface(PortalScript.class);
-        scripts.put(scriptName, script);
-        return script;
-    }
-
     public boolean executePortalScript(MaplePortal portal, MapleClient c) {
-        try {
-            PortalScript script = getPortalScript(portal.getScriptName());
-            if (script != null) {
-                return script.enter(new PortalPlayerInteraction(c, portal));
-            }
-        } catch (UndeclaredThrowableException ute) {
-            FilePrinter.printError(FilePrinter.PORTAL + portal.getScriptName() + ".txt", ute);
-        } catch (final Exception e) {
-            FilePrinter.printError(FilePrinter.PORTAL + portal.getScriptName() + ".txt", e);
+        String scriptName = portal.getScriptName();
+        String path = String.format(SCRIPT_FORMAT, scriptName);
+        PortalScript script = null;
+
+        if(scripts.containsKey(scriptName)) {
+            script = scripts.get(scriptName);
+        } else if(scriptExists(path)) {
+            script = getInvocable(path, null).getInterface(PortalScript.class);
+            scripts.put(scriptName, script);
         }
+
+        if(script != null) {
+            try {
+                return script.enter(new PortalPlayerInteraction(c, portal));
+            } catch(final UndeclaredThrowableException ute) {
+                FilePrinter.printError(FilePrinter.PORTAL + portal.getScriptName() + ".txt", ute);
+            } catch(final Exception e) {
+                FilePrinter.printError(FilePrinter.PORTAL + portal.getScriptName() + ".txt", e);
+            }
+        }
+
         return false;
     }
 

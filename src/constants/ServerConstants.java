@@ -151,7 +151,7 @@ public class ServerConstants {
 
             //java8 And Shutdownhook
             ServerConstants.JAVA_8 = System.getProperty("java.version").startsWith("1.8");
-            System.err.println("Using JAVA 8: " + ServerConstants.JAVA_8);
+            System.out.println("Using JAVA 8: " + ServerConstants.JAVA_8);
             ServerConstants.SHUTDOWNHOOK = p.getProperty("SHUTDOWNHOOK").equalsIgnoreCase("true");
 
         } catch (Exception e) {

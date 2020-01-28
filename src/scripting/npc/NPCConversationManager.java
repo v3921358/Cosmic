@@ -62,18 +62,18 @@ import client.inventory.MaplePet;
  */
 public class NPCConversationManager extends AbstractPlayerInteraction {
 	private int npc;
-        private int npcOid;
+	private int npcOid;
 	private String scriptName;
 	private String getText;
         
-        public NPCConversationManager(MapleClient c, int npc, String scriptName) {
-               this(c, npc, -1, scriptName);
-        }
-        
+    public NPCConversationManager(MapleClient c, int npc, String scriptName) {
+        this(c, npc, -1, scriptName);
+    }
+    
 	public NPCConversationManager(MapleClient c, int npc, int oid, String scriptName) {
 		super(c);
 		this.npc = npc;
-                this.npcOid = oid;
+        this.npcOid = oid;
 		this.scriptName = scriptName;
 	}
 

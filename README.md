@@ -8,13 +8,19 @@ Credits given to Nexon, Ronan C. P. Lana, the original MapleSolaxia staff and ot
 
 The Dietstory Project aims to recreate most if not all of Maplestory v83 features offered. In addition, the Dietstory team have pursued further content from later versions of the game in order to improve the v83 experience. Such changes involves frequent additions to the v83 WZ client/server files diverging from the basic resources found in other server projects.
 
+## Server Updates!
+
+- DietStory has recently migrated a breaking change off Java 7 to supporting Java 8. See the PR for more details [here](https://github.com/BenjixD/MapleSolaxiaV2/pull/87).
+
+- DietStory server recently integrated a REST API framework (MapleAPI) to support web service communication directly to the server. 
+
 ## Download
 
 ``Launcher and resource files coming soon!``
 
 ## Setup
 
-This is a Java 7 project using the Apache Ant build framework. Alternatively, setting up the project on NetBeans 8.0.2 IDE will quickly allow you to locally build and run the project. Dietstory also provides a [Docker image](https://hub.docker.com/r/benjixd/dietstory-build) for building the Dietstory Project without an environment setup. 
+This is a Java 8 project using the Apache Ant build framework with Apache Ivy dependency manager. Alternatively, setting up the project on NetBeans 8.0.2 IDE will quickly allow you to locally build and run the project. Dietstory also provides a [Docker image](https://hub.docker.com/r/benjixd/dietstory-build) for building the Dietstory Project without an environment setup. 
 
 For general environment setup on installing a v83 Maplestory private server: http://forum.ragezone.com/f428/maplestory-private-server-v83-741739/
 
@@ -22,28 +28,30 @@ For general environment setup on installing a v83 Maplestory private server: htt
 
 ### Environment Setup
 
-Dietstory requires JDK7 with [JCE Unlimited Strength Policy 7](https://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html). Once JDK7 is installed, overwrite the following folders with the JAR files provided by jce_policy-7:
+Dietstory requires JDK8 with [JCE Unlimited Strength Policy 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Once JDK7 is installed, overwrite the following folders with the JAR files provided by jce_policy-8:
 - <PATH_TO_JAVA_HOME>\jre\lib
 - <PATH_TO_JAVA_HOME>\lib\security
 
-To build the project, [Apache Ant](https://ant.apache.org/) 1.9+ cli tool is required. Alternatively, installing [NetBeans IDE](https://netbeans.apache.org/) provides the necessary tools to build without explicitly running a terminal. If you are running NetBeans, ensure to add the external jars under `cores\` to the IDE compile-time build settings.
+To build the project, [Apache Ant](https://ant.apache.org/) 1.9 cli tool and [Apache Ivy](https://ant.apache.org/ivy/history/2.5.0/index.html) 2.5.0+ extension is required. Alternatively, installing [NetBeans IDE](https://netbeans.apache.org/) provides the necessary tools to build without explicitly running a terminal. If you are running NetBeans, ensure to add the external jars under `cores\` to the IDE compile-time build settings.
+
+> NetBeans users should look to also integrate a dependency manager such as `Apache Ivy` to build this project.
 
 #### Docker
 
 The alternative to setting up a local environment is to use Dietstory's docker image which can be pulled from the public Docker Registry. Dietstory's build image is used for DietStory's CI/CD pipeline so expect the build image to work above all else.
 
 ```
-docker pull benjixd/dietstory-build
+docker pull benjixd/dietstory-build:java_8
 ```
 
 > Note: Learn more about setting up a Docker daemon: https://www.docker.com/
 
 ### Building the Server
 
-The following command compiles the Dietstory project, replacing $JAVA_HOME with your Java 7 path:
+The following command compiles the Dietstory project, replacing $JAVA_HOME with your Java 8 path:
 
 ```
-ant -Dplatforms.JDK_1.7.home=$JAVA_HOME -Dnb.internal.action.name=rebuild clean jar
+ant -Dplatforms.JDK_1.8.home="$JAVA_HOME" -Dnb.internal.action.name=rebuild clean resolve jar
 ```
 
 #### Docker
@@ -52,19 +60,19 @@ The dietstory-build image provides the ability to build the project from a local
 
 From a local source, you will need to mount the directory containing the Dietstory project.
 ```
-docker run --rm -e BUILD_SOURCE=local -v <PATH_TO_DIETSTORY_SOURCE_ROOT>:/mnt benjixd/dietstory-build
+docker run --rm -e BUILD_SOURCE=local -v <PATH_TO_DIETSTORY_SOURCE_ROOT>:/mnt benjixd/dietstory-build:java_8
 ```
 
 From this remote source, mount a directory for the resultant build artifacts.
 ```
-docker run --rm [-e BUILD_SOURCE=repository] [-e BUILD_BRANCH=<YOUR_TARGET_BRANCH>] -v <BUILD_FOLDER>:/mnt benjixd/dietstory-build
+docker run --rm [-e BUILD_SOURCE=repository] [-e BUILD_BRANCH=<YOUR_TARGET_BRANCH>] -v <BUILD_FOLDER>:/mnt benjixd/dietstory-build:java_8
 ```
 
 > If successful, the container should provide the `build/*`, `/dist/*`, and `cores/*` artifacts.
 
 ### Database Setup
 
-Dietstory uses MySQL as its preferred database engine, although any RDBMS of your choice should suffice. Once the database has been setup, tables must be created to satisfy Dietstory's schema.
+Dietstory uses MySQL 5.7 as its preferred database engine, although any RDBMS supporting 0 datetime values of your choice should suffice. Once the database has been setup, tables must be created to satisfy Dietstory's schema.
 
 #### Setting up Dietstory schema
 

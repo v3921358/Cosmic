@@ -27,6 +27,8 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Calendar;
+
 import javax.management.MBeanServer;
 import javax.management.ObjectName;
 import tools.FilePrinter;
@@ -129,7 +131,6 @@ public class TimerManager implements TimerManagerMBean {
     public boolean isTerminated() {
         return ses.isTerminated();
     }
-
     
     private static class LoggingSaveRunnable implements Runnable {
         Runnable r;
@@ -146,5 +147,19 @@ public class TimerManager implements TimerManagerMBean {
                 FilePrinter.printError(FilePrinter.EXCEPTION_CAUGHT, t);
             }
         }
+    }
+
+    public static long calculateDifferenceFromTime(int hour, int minute, int second){
+        Calendar target = Calendar.getInstance();
+        Calendar now = Calendar.getInstance();
+
+        target.set(Calendar.HOUR_OF_DAY, hour);
+        target.set(Calendar.MINUTE, minute);
+        target.set(Calendar.SECOND, second);
+        target.add(Calendar.DAY_OF_MONTH, 1);
+
+        long timeDifference = (target.getTime().getTime() - now.getTime().getTime()) % (24 * 60 * 60 * 1000); 
+
+        return timeDifference;
     }
 }
