@@ -107,6 +107,7 @@ public class NPCScriptManager extends AbstractScriptManager {
             }
         } else {
             c.announce(MaplePacketCreator.enableActions());
+            return false;
         }
 
         return true;
