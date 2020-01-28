@@ -1,0 +1,9 @@
+<ivy-module version="2.0">
+    <info organisation="org.dietstory" module="DietStory"/>
+    <dependencies>
+        <dependency org="io.javalin" name="javalin" rev="2.8.0" />
+        <dependency org="com.fasterxml.jackson.core" name="jackson-core" rev="2.9.8" />
+        <dependency org="org.json" name="json" rev="20180813" />
+        <dependency org="org.apache.commons" name="commons-lang3" rev="3.8.1" />
+    </dependencies>
+</ivy-module>

@@ -25,6 +25,36 @@ function start() {
     action(1, 0, 0);
 }
 
+function actionWithReward(mode, type, selection) {
+    if (mode == -1) {
+        cm.dispose();
+    }else if (mode == 0){
+        cm.dispose();
+    }else{
+        if (mode == 1)
+            status++;
+        else
+            status--;
+        if (status == 0) {
+            cm.sendNext("Bam bam bam bam!! You have won the game from the \r\n#bEVENT#k. Congratulations on making it this far!");
+        } else if (status == 1) {
+            cm.sendNext("You'll be awarded the #bScroll of Secrets#k as the winning prize. On the scroll, it has secret information written in ancient characters.");
+        } else if (status == 2) {
+            cm.sendNext("The Scroll of Secrets can be deciphered by #rChun Ji#k or \r\n#rGeanie#k at Ludibrium. Bring it with you and something good's bound to happen.");
+        } else if (status == 3) {
+        if (cm.canHold(4031019)) {
+            cm.gainItem(4031019);
+            cm.warp(cm.getPlayer().getSavedLocation("EVENT"));
+            cm.dispose();
+        } else {
+            cm.sendNext("I think your Etc window is full. Please make room, then talk to me.");
+        }
+        } else if (status == 4) {
+            cm.dispose();
+        }
+    }
+}
+
 function action(mode, type, selection) {
     if (mode == -1) {
         cm.dispose();
@@ -35,22 +65,21 @@ function action(mode, type, selection) {
             status++;
         else
             status--;
-    if (status == 0) {
-    cm.sendNext("Bam bam bam bam!! You have won the game from the \r\n#bEVENT#k. Congratulations on making it this far!");
-    } else if (status == 1) {
-    cm.sendNext("You'll be awarded the #bScroll of Secrets#k as the winning prize. On the scroll, it has secret information written in ancient characters.");
-    } else if (status == 2) {
-    cm.sendNext("The Scroll of Secrets can be deciphered by #rChun Ji#k or \r\n#rGeanie#k at Ludibrium. Bring it with you and something good's bound to happen.");
-    } else if (status == 3) {
-    if (cm.canHold(4031019)) {
-    cm.gainItem(4031019);
-    cm.warp(cm.getPlayer().getSavedLocation("EVENT"));
-    cm.dispose();
-    } else {
-    cm.sendNext("I think your Etc window is full. Please make room, then talk to me.");
+
+        if (status == 0) {
+            cm.sendNext("Congratulations on making it this far! We hope you enjoyed the event!!");
+        } else if (status == 1) {
+            var location = cm.getPlayer().getSavedLocation("EVENT"); 
+            if(location != -1) {
+                cm.warp(location);    
+            }
+            else {
+                // Default Lith Harbor
+                cm.warp(104000000);
+            }
+            
+            cm.dispose();
+        }
     }
-    } else if (status == 4) {
-    cm.dispose();
-    }
-    }
-    }  
+}
+

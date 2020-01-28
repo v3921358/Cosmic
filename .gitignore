@@ -20,6 +20,9 @@ tools/MapleIdRetriever/build/
 tools/MobBookIndexer/build/
 tools/MobBookUpdate/build/
 
+# auto dependencies
+lib/
+
 # dist files
 dist/
 

@@ -3,6 +3,7 @@
  */
 
 var minPlayers = 1;
+var minLevel = 120;
 
 function init() {
     em.setProperty("started", "false");
@@ -28,6 +29,27 @@ function afterSetup(eim) {}
 function playerEntry(eim, player) {
     var map = eim.getMapFactory().getMap(910500000);
     player.changeMap(map, map.getPortal(0));
+}
+
+function getEligibleParty(party) {      //selects, from the given party, the team that is allowed to attempt this event
+    var eligible = [];
+    var hasLeader = false;
+    
+    if(party.size() > 0) {
+        var partyList = party.toArray();
+
+        for(var i = 0; i < party.size(); i++) {
+            var ch = partyList[i];
+
+            if(ch.getLevel() >= minLevel) {
+                if(ch.isLeader()) hasLeader = true;
+                eligible.push(ch);
+            }
+        }
+    }
+    
+    if(!(hasLeader && eligible.length >= minPlayers)) eligible = [];
+    return eligible;
 }
 
 function playerDead(eim, player) {
