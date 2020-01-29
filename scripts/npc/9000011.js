@@ -49,7 +49,7 @@ function action(mode, type, selection) {
                 var event = cm.getClient().getWorldServer().getEvent();
                 if(event != null) {
                 	cm.getPlayer().saveLocation("EVENT");
-                	if(cm.getPlayer().getClient().getChannel() != event.getMap().getChannel()) {
+                	if(cm.getClient().getChannel() != event.getMap().getChannel()) {
                         cm.sendNext("Come to Channel " + event.getMap().getChannel() + " and try again!");
                     }
                     else if(event.tryEnterEvent(cm.getPlayer())) {
