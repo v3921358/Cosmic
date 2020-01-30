@@ -99,6 +99,7 @@ import client.inventory.MapleInventory;
 import client.inventory.MapleInventoryType;
 import client.inventory.MaplePet;
 import client.command.utils.PlayerRanking;
+import client.command.utils.DisconnectPlayerTool;
 import constants.GameConstants;
 import constants.ItemConstants;
 import constants.ServerConstants;
@@ -879,35 +880,21 @@ public class Commands {
 				player.getMap().spawnMonsterOnGroundBelow(MapleLifeFactory.getMonster(9300166), player.getPosition());
 			}
                     break;
-                    
-                case "dc":
-                        if (sub.length < 2){
-				player.yellowMessage("Syntax: !dc <playername>");
-				break;
-			}
-                    
-			victim = c.getWorldServer().getPlayerStorage().getCharacterByName(sub[1]);
-			if (victim == null) {
-				victim = c.getChannelServer().getPlayerStorage().getCharacterByName(sub[1]);
-				if (victim == null) {
-					victim = player.getMap().getCharacterByName(sub[1]);
-					if (victim != null) {
-						try {//sometimes bugged because the map = null
-							victim.getClient().disconnect(true, false);
-							player.getMap().removePlayer(victim);
-						} catch (Exception e) {
-                                                        e.printStackTrace();
-						}
-					} else {
+
+				case "dc":
+					if (sub.length < 2){
+						player.yellowMessage("Syntax: !dc <playername>");
 						break;
 					}
-				}
-			}
-			if (player.gmLevel() < victim.gmLevel()) {
-				victim = player;
-			}
-			victim.getClient().disconnect(false, false);
-                    break;
+
+					boolean res = DisconnectPlayerTool.disconnectPlayerByName(sub[1], c.getWorldServer(), player.gmLevel());
+					if(res) {
+						c.announce(MaplePacketCreator.serverNotice(6, "Player has been disconnected successfully"));
+					}
+					else {
+						c.announce(MaplePacketCreator.serverNotice(6, "Player could not be found or couldn't be disconnected"));	
+					}
+					break;
                     
                 case "cleardrops":
 			player.getMap().clearDrops(player);

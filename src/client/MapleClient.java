@@ -791,8 +791,8 @@ public class MapleClient {
 		try {
 			player.cancelAllBuffs(true);
 			player.cancelAllDebuffs();
-                        
             player.closePlayerInteractions();
+            
             NPCScriptManager.getInstance().dispose(this);
 			QuestScriptManager.getInstance().dispose(this);
 			
@@ -814,10 +814,12 @@ public class MapleClient {
 	}
 
 	public final void disconnect(boolean shutdown, boolean cashshop) {//once per MapleClient instance
+		mutex.lock();
         if (disconnecting) {
 			return;
 		}
 		disconnecting = true;
+		mutex.unlock();
 		if (player != null && player.isLoggedin() && player.getClient() != null) {
             MapleMap map = player.getMap();
 			final MapleParty party = player.getParty();
@@ -833,17 +835,16 @@ public class MapleClient {
                         player.cancelMagicDoor();
 
 			if (channel == -1 || shutdown) {
-                                if(chrg != null) chrg.setCharacter(null);
+				if(chrg != null) chrg.setCharacter(null);
                             
-                                removePlayer();
-                                player.saveCooldowns();
-                                player.saveToDB();
-                            
+                removePlayer();
+                player.saveCooldowns();
+                player.saveToDB();            
 				player = null;
 				return;
 			}
                         
-                        removePlayer();
+            removePlayer();
 			
 			final World worlda = getWorldServer();
 			try {
@@ -916,23 +917,20 @@ public class MapleClient {
 				FilePrinter.printError(FilePrinter.ACCOUNT_STUCK, e);
 			} finally {
 				getChannelServer().removePlayer(player);
-                                
-                                if (!this.serverTransition) {
-					worlda.removePlayer(player);
-                                        
-                                        player.remapUASkill(88);    //Remap UA skill if it doesnt exist in key
-                                        player.saveCooldowns();
-                                        player.saveToDB();
-					if (player != null) {//no idea, occur :(
-						player.empty(false);
-					}
+				if (!this.serverTransition) {
+					worlda.removePlayer(player);                             
+                    player.remapUASkill(88);    //Remap UA skill if it doesnt exist in key
+                    player.saveCooldowns();
+                    player.saveToDB();
+
+					player.empty(false);
 					player.logOff();
 				}
-                                else {
-                                    player.saveCooldowns();
-                                    player.saveToDB();
-                                }
-                                player = null;
+                else {
+                    player.saveCooldowns();
+                    player.saveToDB();
+                }
+                player = null;
 			}
 		}
 		if (!serverTransition && isLoggedIn()) {
@@ -1349,13 +1347,13 @@ public class MapleClient {
 		}
 		player.getInventory(MapleInventoryType.EQUIPPED).checked(false); //test
 		player.getMap().removePlayer(player);
-                player.clearBanishPlayerData();
+        player.clearBanishPlayerData();
 		player.getClient().getChannelServer().removePlayer(player);
 		player.getClient().updateLoginState(MapleClient.LOGIN_SERVER_TRANSITION);
 		try {
 			announce(MaplePacketCreator.getChannelChange(InetAddress.getByName(socket[0]), Integer.parseInt(socket[1])));
 		} catch (IOException e) {
-                    e.printStackTrace();
+            e.printStackTrace();
 		}
 	}
 

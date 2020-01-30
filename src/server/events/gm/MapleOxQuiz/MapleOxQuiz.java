@@ -49,7 +49,7 @@ import tools.MaplePacketCreator;
  */
 public final class MapleOxQuiz extends MapleEvent {
     public static final int MAPLE_OX_MAP_ID = 109020001;
-    private static MapleDataProvider stringData = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Etc.wz"));
+    // private static MapleDataProvider stringData = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Etc.wz"));
 
     public MapleOxQuiz(MapleMap map, int limit) {
         super(map, limit);
@@ -109,7 +109,7 @@ public final class MapleOxQuiz extends MapleEvent {
     //     }, 30000); // Time to answer = 30 seconds ( Ox Quiz packet shows a 30 second timer.
     // }
 
-    private static int getOXAnswer(int imgdir, int id) {
-        return MapleDataTool.getInt(stringData.getData("OXQuiz.img").getChildByPath("" + imgdir + "").getChildByPath("" + id + "").getChildByPath("a"));
-    }
+    // private static int getOXAnswer(int imgdir, int id) {
+    //     return MapleDataTool.getInt(stringData.getData("OXQuiz.img").getChildByPath("" + imgdir + "").getChildByPath("" + id + "").getChildByPath("a"));
+    // }
 }

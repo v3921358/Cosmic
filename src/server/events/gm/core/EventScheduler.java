@@ -38,7 +38,6 @@ public class EventScheduler {
 	public void startRandomEvent() {
 		lock.lock();
 		currentEvent = events.get(ThreadLocalRandom.current().nextInt(0, events.size()));
-		currentEvent.reset();
 		currentEvent.startEvent();
 		try {
 			currentEvent.waitForEvent();
@@ -46,6 +45,7 @@ public class EventScheduler {
 			e.printStackTrace();
 		}
 
+		currentEvent.reset();
 		currentEvent = null;
 		lock.unlock();
 	}
