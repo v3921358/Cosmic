@@ -10,7 +10,8 @@ import java.util.Calendar;
 
 public class FilePrinter {
 
-    public static final String 
+    public static final String
+            UNAUTHORIZED = "unauthorized.txt",
             ACCOUNT_STUCK = "accountStuck.txt",
             EXCEPTION_CAUGHT = "exceptionCaught.txt",
             CLIENT_START = "clientStartError.txt",

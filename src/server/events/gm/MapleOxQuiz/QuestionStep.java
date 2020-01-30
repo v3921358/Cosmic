@@ -114,13 +114,13 @@ public class QuestionStep extends EventStep {
 			if (chr != null) {
 				if (isCorrectAnswer(chr, answer)) {
 					GiveExpOnCorrectAnswer(chr);
-					map.startMapEffect(CORRECT_MSG, MAP_EFFECT, 7 * 1000);
+					chr.startMapEffect(CORRECT_MSG, MAP_EFFECT, 7 * 1000);
 					chr.getClient().announce(MaplePacketCreator.showEffect("quest/party/clear"));
 					chr.getClient().announce(MaplePacketCreator.playSound("Party1/Clear"));
         			results.put(chr, results.getOrDefault(chr, 0) + 1);
 				}
 				else {
-					map.startMapEffect(INCORRECT_MSG, MAP_EFFECT, 7 * 1000);
+					chr.startMapEffect(INCORRECT_MSG, MAP_EFFECT, 7 * 1000);
 					chr.getClient().announce(MaplePacketCreator.showEffect("quest/party/wrong_kor"));
         			chr.getClient().announce(MaplePacketCreator.playSound("Party1/Failed"));
         			results.put(chr, results.getOrDefault(chr, 0));

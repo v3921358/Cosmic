@@ -122,19 +122,9 @@ public class DueyProcessor {
         }
         
         c.getPlayer().gainMeso(-finalcost, false);
-        
-        boolean recipientOn = false;
-        MapleClient rClient = null;
-        int channel = c.getWorldServer().find(recipient);
-        if (channel > -1) {
-            recipientOn = true;
-            Channel rcserv = c.getWorldServer().getChannel(channel);
-            rClient = rcserv.getPlayerStorage().getCharacterByName(recipient).getClient();
-        }
 
         if (ServerConstants.USE_DEBUG){
             System.out.print(c.getPlayer().getName() + " sends to " + recipient + mesos + " Mesos ");
-            
         }
         
         if (inventoryId > 0) {
@@ -155,8 +145,10 @@ public class DueyProcessor {
         } else {
             addMesoToDB(mesos, c.getPlayer().getName(), getAccIdFromCNAME(recipient, false), 0);
         }
-        if (recipientOn && rClient != null) {
-            rClient.announce(MaplePacketCreator.sendDueyNotification(c.getPlayer().getName(), false));
+
+        MapleCharacter recip = c.getWorldServer().getPlayerStorage().getCharacterById(accid);
+        if(recip != null && recip.isLoggedin()) {
+            recip.getClient().announce(MaplePacketCreator.sendDueyNotification(c.getPlayer().getName(), false));
         }
         
         c.announce(MaplePacketCreator.sendDueyMSG(Actions.TOCLIENT_SEND_SUCCESSFULLY_SENT.getCode()));

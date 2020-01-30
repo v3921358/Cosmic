@@ -369,7 +369,7 @@ public class World {
 
     public void updateParty(MapleParty party, PartyOperation operation, MaplePartyCharacter target) {
         for (MaplePartyCharacter partychar : party.getMembers()) {
-            MapleCharacter chr = getPlayerStorage().getCharacterByName(partychar.getName());
+            MapleCharacter chr = getPlayerStorage().getCharacterById(partychar.getId());
             if (chr != null) {
                 if (operation == PartyOperation.DISBAND) {
                     chr.setParty(null);
@@ -384,7 +384,7 @@ public class World {
         switch (operation) {
             case LEAVE:
             case EXPEL:
-                MapleCharacter chr = getPlayerStorage().getCharacterByName(target.getName());
+                MapleCharacter chr = getPlayerStorage().getCharacterById(target.getId());
                 if (chr != null) {
                     chr.getClient().announce(MaplePacketCreator.updateParty(chr.getClient().getChannel(), party, operation, target));
                     chr.setParty(null);
@@ -449,7 +449,7 @@ public class World {
     public void partyChat(MapleParty party, String chattext, String namefrom) {
         for (MaplePartyCharacter partychar : party.getMembers()) {
             if (!(partychar.getName().equals(namefrom))) {
-                MapleCharacter chr = getPlayerStorage().getCharacterByName(partychar.getName());
+                MapleCharacter chr = getPlayerStorage().getCharacterById(partychar.getId());
                 if (chr != null) {
                     chr.getClient().announce(MaplePacketCreator.multiChat(namefrom, chattext, 1));
                 }

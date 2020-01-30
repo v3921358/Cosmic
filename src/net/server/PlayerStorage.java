@@ -41,8 +41,8 @@ public class PlayerStorage {
         try {
             storage.put(chr.getId(), chr);
         } finally {
-	    wlock.unlock();
-	}
+            wlock.unlock();
+        }
     }
 
     public MapleCharacter removePlayer(int chr) {
