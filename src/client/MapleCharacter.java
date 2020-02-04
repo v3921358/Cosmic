@@ -7182,60 +7182,6 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     public void setLastSnowballAttack(long time) {
         this.snowballattack = time;
     }
-    //Monster Carnival
-    private int cp = 0;
-    private int obtainedcp = 0;
-    private MonsterCarnivalParty carnivalparty;
-    private MonsterCarnival carnival;
-
-    public MonsterCarnivalParty getCarnivalParty() {
-        return carnivalparty;
-    }
-
-    public void setCarnivalParty(MonsterCarnivalParty party) {
-        this.carnivalparty = party;
-    }
-
-    public MonsterCarnival getCarnival() {
-        return carnival;
-    }
-
-    public void setCarnival(MonsterCarnival car) {
-        this.carnival = car;
-    }
-
-    public int getCP() {
-        return cp;
-    }
-
-    public int getObtainedCP() {
-        return obtainedcp;
-    }
-
-    public void addCP(int cp) {
-        this.cp += cp;
-        this.obtainedcp += cp;
-    }
-
-    public void useCP(int cp) {
-        this.cp -= cp;
-    }
-
-    public void setObtainedCP(int cp) {
-        this.obtainedcp = cp;
-    }
-
-    public int getAndRemoveCP() {
-        int rCP = 10;
-        if (cp < 9) {
-            rCP = cp;
-            cp = 0;
-        } else {
-            cp -= 10;
-        }
-
-        return rCP;
-    }
 
     public AutobanManager getAutobanManager() {
         return autoban;
