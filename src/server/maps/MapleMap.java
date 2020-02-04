@@ -2947,7 +2947,6 @@ public class MapleMap {
                 if (timeLimit != 0 && timeLimit < System.currentTimeMillis()) {
                     warpEveryone(getForcedReturnId());
                 }
-                
                 if (getCharacters().isEmpty()) {
                     resetReactors();
                     killAllMonsters();
@@ -2956,10 +2955,22 @@ public class MapleMap {
                     if (mapid >= 922240100 && mapid <= 922240119) {
                         toggleHiddenNPC(9001108);
                     }
-                    mapMonitor.cancel(true);
+                    removeMapTimer();
                 }
             }
         }, 1000);
+    }
+
+    public void removeMapTimer() {
+        chrWLock.lock();
+        try {
+            if(mapMonitor != null) {
+                mapMonitor.cancel(true);
+                mapMonitor = null;
+            }
+        } finally {
+            chrWLock.unlock();
+        }
     }
 
     public void setFieldLimit(int fieldLimit) {
@@ -3208,5 +3219,12 @@ public class MapleMap {
             }
 
         }, 5 * 1000);
+    }
+
+    public void dispose() {
+        setEventInstance(null);
+        clearMapObjects();
+        removeMapTimer();
+        stopItemMonitor();
     }
 }
