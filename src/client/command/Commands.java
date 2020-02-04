@@ -2375,6 +2375,18 @@ public class Commands {
                 MapleMonster monster;
         
                 switch(sub[0]) {
+                case "debugtasks":
+                	long active_tasks = TimerManager.getInstance().getActiveCount();
+                	int queued_tasks = TimerManager.getInstance().getQueuedTasks();
+                	long completed_tasks = TimerManager.getInstance().getCompletedTaskCount();
+                	long total_tasks = TimerManager.getInstance().getTaskCount();
+
+                	player.message(String.format("Active Tasks:\t%d", active_tasks));
+                	player.message(String.format("Queued Tasks:\t%d", queued_tasks));
+                	player.message(String.format("Completed Tasks:\t%d", completed_tasks));
+                	player.message(String.format("Total Tasks:\t%d", total_tasks));
+                	break;
+
                 case "debugmonster":
 			List<MapleMapObject> monsters = player.getMap().getMapObjectsInRange(player.getPosition(), Double.POSITIVE_INFINITY, Arrays.asList(MapleMapObjectType.MONSTER));
 			for (MapleMapObject monstermo : monsters) {

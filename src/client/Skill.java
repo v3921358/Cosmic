@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import server.MapleStatEffect;
 import server.life.Element;
+import tools.FilePrinter;
 
 public class Skill {
     private int id;
@@ -44,7 +45,14 @@ public class Skill {
     }
 
     public MapleStatEffect getEffect(int level) {
-        return effects.get(level - 1);
+        try {
+            return effects.get(level - 1);    
+        }
+        catch (ArrayIndexOutOfBoundsException e) {
+            FilePrinter.printError(String.format("%s%d.txt", FilePrinter.SKILL, id), e, String.format("Tried to obtain invalid level %d.", level));
+            throw e;
+        }
+        
     }
 
     public int getMaxLevel() {

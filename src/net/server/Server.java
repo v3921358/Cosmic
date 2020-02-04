@@ -333,7 +333,7 @@ public class Server implements Runnable {
             ex.printStackTrace();
         }
 
-        api = new MapleAPI(this, 8485);
+        //api = new MapleAPI(this, 8485);
 
         System.out.println("Login server on port 8484\r\n\r\n");
         System.out.println("API server on port 8485\r\n\r\n");

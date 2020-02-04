@@ -73,7 +73,7 @@ public final class UseItemHandler extends AbstractMaplePacketHandler {
                 if(c.getPlayer().getLevel() < 50){
                     int currentExp = c.getPlayer().getExp();
                     int expToLevel = ExpTable.getExpNeededForLevel(c.getPlayer().getLevel());
-                    c.getPlayer().gainExp(expToLevel - currentExp);
+                    c.getPlayer().gainExpNoModifiers(expToLevel - currentExp, true, true, true);
                     remove(c, slot);
                 }
                 return;
