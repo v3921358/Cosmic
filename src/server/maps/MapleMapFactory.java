@@ -407,7 +407,7 @@ public class MapleMapFactory {
         
         for(MapleMap map: mapValues) {
             map.dispose();  
-        } 
+        }
         this.event = null;
     }
 }

@@ -582,8 +582,10 @@ public class MapleMap {
     private void stopItemMonitor() {
         chrWLock.lock();
         try {
-            itemMonitor.cancel(false);
-            itemMonitor = null;
+            if(itemMonitor != null) {
+                itemMonitor.cancel(false);
+                itemMonitor = null;    
+            }
         } finally {
             chrWLock.unlock();
         }
