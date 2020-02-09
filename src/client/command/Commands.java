@@ -887,8 +887,8 @@ public class Commands {
 						break;
 					}
 
-					boolean res = DisconnectPlayerTool.disconnectPlayerByName(sub[1], c.getWorldServer(), player.gmLevel());
-					if(res) {
+					if(DisconnectPlayerTool.disconnectPlayerByName(sub[1], c.getWorldServer(), player.gmLevel()) ||
+						DisconnectPlayerTool.forceDisconnectPlayerOnMapByName(player.getMap(), sub[1], player.gmLevel())) {
 						c.announce(MaplePacketCreator.serverNotice(6, "Player has been disconnected successfully"));
 					}
 					else {
