@@ -88,6 +88,10 @@ public class MapleCarnivalFactory {
             targetsAll = _targetsAll;
         }
 
+        public int getId() {
+            return skillid;
+        }
+
         public MobSkill getSkill() {
             return getMobSkill(skillid, level);
         }
@@ -98,6 +102,14 @@ public class MapleCarnivalFactory {
 
         public MapleDisease getDisease() {
             return MapleDisease.getBySkill(skillid);
+        }
+
+        public int getRequiredCP() {
+            return cpLoss;
+        }
+
+        public boolean targetAll() {
+            return targetsAll;
         }
     }
 }
