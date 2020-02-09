@@ -100,6 +100,12 @@ public class MonsterCarnival {
             this.map = map;
             this.startTime = System.currentTimeMillis() + 10 * 60 * 1000;
 
+            //Initalize CP
+            this.redCP = 0;
+            this.redTotalCP = 0;
+            this.blueCP = 0;
+            this.blueTotalCP = 0;
+
             this.map.getMCMapComponent().setMC(this);
 
             if (MonsterCarnivalMapComponent.isPurpleCPQMap(map.getId())) {
@@ -136,14 +142,18 @@ public class MonsterCarnival {
                 }
             }, RESPAWN_INTERVAL);
 
-            //Initialize CP
-            setTotalCP(0, Team.RED);
-            setTotalCP(0, Team.BLUE);
-            setCP(0, Team.RED);
-            setCP(0, Team.BLUE);
+            //Start
+            startMonsterCarnival();
             
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private void startMonsterCarnival() {
+        for(MapleCharacter chr : map.getAllPlayers()) {
+            chr.getClient().announce(MaplePacketCreator.getClock(getTimeLeftSeconds()));
+            chr.getClient().announce(MaplePacketCreator.startMonsterCarnival(chr));
         }
     }
 
