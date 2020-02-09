@@ -11,7 +11,7 @@
  this program unader any cother version of the GNU Affero General Public
  License.
 
- This program is distributed in the hope that it will be useful,
+ This program is distributed in the hope that it will be useful,a
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU Affero General Public License for more details.
@@ -100,7 +100,8 @@ import server.maps.PlayerNPCs;
 import server.maps.SavedLocation;
 import server.maps.SavedLocationType;
 import server.partyquest.MonsterCarnival;
-import server.partyquest.MonsterCarnivalParty;
+import server.partyquest.MonsterCarnival.Team;
+import server.partyquest.monstercarnival.components.MonsterCarnivalPlayerComponent;
 import server.partyquest.PartyQuest;
 import server.quest.MapleQuest;
 import tools.DatabaseConnection;
@@ -156,6 +157,7 @@ import provider.MapleDataProvider;
 import provider.MapleDataProviderFactory;
 import scripting.item.ItemScriptManager;
 import server.maps.MapleMapItem;
+
 
 
 public class MapleCharacter extends AbstractAnimatedMapleMapObject {
@@ -300,6 +302,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     private int banishSp = -1;
     private long banishTime = 0;
     private Map<Integer, Integer> bossEntries = new HashMap<Integer, Integer>();
+    private MonsterCarnivalPlayerComponent mcPlayerComponent;
 
     private MapleCharacter() {
         useCS = false;
@@ -636,6 +639,19 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
 
     public void addVisibleMapObject(MapleMapObject mo) {
         visibleMapObjects.add(mo);
+    }
+
+    public void initializeMCPlayerComponent(MonsterCarnival mc, Team team) {
+        this.mcPlayerComponent = new MonsterCarnivalPlayerComponent(client, mc, team);
+    }
+
+    public void disposeMCPlayerComponent() {
+        this.mcPlayerComponent.dispose();
+        this.mcPlayerComponent = null;
+    }
+
+    public MonsterCarnivalPlayerComponent getMCPlayerComponent() {
+        return mcPlayerComponent;
     }
 
     public void ban(String reason) {
@@ -5133,8 +5149,6 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             MapleInventoryManipulator.removeById(client, MapleItemInformationProvider.getInstance().getInventoryType(charmID[i]), charmID[i], 1, true, false);
         } else if (mapid > 925020000 && mapid < 925030000) {
             this.dojoStage = 0;
-        } else if (mapid > 980000100 && mapid < 980000700) {
-            getMap().broadcastMessage(this, MaplePacketCreator.CPQDied(this));
         } else if (getJob() != MapleJob.BEGINNER) { //Hmm...
             int XPdummy = ExpTable.getExpNeededForLevel(getLevel());
             if (getMap().isTown()) {

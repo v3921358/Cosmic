@@ -73,7 +73,6 @@ import server.maps.MapleReactor;
 import server.maps.MapleSummon;
 import server.maps.PlayerNPCs;
 import server.movement.LifeMovementFragment;
-import server.partyquest.MonsterCarnivalParty;
 import tools.data.output.LittleEndianWriter;
 import tools.data.output.MaplePacketLittleEndianWriter;
 import client.BuddylistEntry;
@@ -7132,6 +7131,35 @@ public class MaplePacketCreator {
                 mplew.writePos(startPos);
                 serializeMovementList(mplew, res);
                 return mplew.getPacket();
+        }
+
+        public static byte[] CPUpdate(boolean party, int curCP, int totalCP, int team) { // CPQ
+            MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
+            if (!party) {
+                    mplew.writeShort(SendOpcode.MONSTER_CARNIVAL_OBTAINED_CP.getValue());
+            } else {
+                    mplew.writeShort(SendOpcode.MONSTER_CARNIVAL_PARTY_CP.getValue());
+                    mplew.write(team); // team?
+            }
+            mplew.writeShort(curCP);
+            mplew.writeShort(totalCP);
+            return mplew.getPacket();
+        }
+
+        public static byte[] CPQMessage(byte message) {
+            final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter(3);
+            mplew.writeShort(SendOpcode.MONSTER_CARNIVAL_MESSAGE.getValue());
+            mplew.write(message); // Message
+            return mplew.getPacket();
+        }
+
+        public static byte[] playerSummoned(String name, int tab, int number) {
+            MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
+            mplew.writeShort(SendOpcode.MONSTER_CARNIVAL_SUMMON.getValue());
+            mplew.write(tab);
+            mplew.write(number);
+            mplew.writeMapleAsciiString(name);
+            return mplew.getPacket();
         }
 
         /**

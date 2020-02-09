@@ -76,7 +76,7 @@ import server.life.MonsterDropEntry;
 import server.life.MonsterGlobalDropEntry;
 import server.life.SpawnPoint;
 import server.partyquest.MonsterCarnival;
-import server.partyquest.MonsterCarnivalParty;
+import server.partyquest.monstercarnival.components.MonsterCarnivalMapComponent;
 import server.partyquest.Pyramid;
 import scripting.event.EventInstanceManager;
 import server.life.MonsterListener;
@@ -144,6 +144,8 @@ public class MapleMap {
     private final WriteLock chrWLock;
     private final ReadLock objectRLock;
     private final WriteLock objectWLock;
+    //Components
+    MonsterCarnivalMapComponent mcMapComponent;
 
     public MapleMap(int mapid, int world, int channel, int returnMapId, float monsterRate) {
         this.mapid = mapid;
@@ -231,6 +233,10 @@ public class MapleMap {
         return channel;
     }
 
+    public Channel getChannelServer() {
+        return Server.getInstance().getWorld(world).getChannel(channel);
+    }
+
     public MapleMap getReturnMap() {
         return Server.getInstance().getWorld(world).getChannel(channel).getMapFactory().getMap(returnMapId);
     }
@@ -260,6 +266,20 @@ public class MapleMap {
             }
         } finally {
             objectRLock.unlock();
+        }
+    }
+
+    public void initializeMCMapComponent() {
+        this.mcMapComponent = new MonsterCarnivalMapComponent();
+    }
+
+    public MonsterCarnivalMapComponent getMCMapComponent() {
+        return mcMapComponent;
+    }
+
+    public void resetMCMapComponent() {
+        if(this.mcMapComponent != null) {
+            this.mcMapComponent.reset();       
         }
     }
     
@@ -770,12 +790,10 @@ public class MapleMap {
     }
     
     public List<MapleCharacter> getAllPlayers() {
-        List<MapleCharacter> character = new LinkedList<>();
+        List<MapleCharacter> character;
         chrRLock.lock();
         try {
-            for (MapleCharacter a : characters) {
-                character.add(a);
-            }
+            character = new ArrayList<>(characters);
         } finally {
             chrRLock.unlock();
         }
@@ -799,6 +817,15 @@ public class MapleMap {
         }
         
         return character;
+    }
+
+    public final List<MapleReactor> getAllReactors() {
+        List<MapleReactor> list = new LinkedList<>();
+        for (MapleMapObject mmo : getReactors()) {
+            list.add((MapleReactor) mmo);
+        }
+        
+        return list;
     }
     
     public int countAlivePlayers() {
@@ -1000,6 +1027,10 @@ public class MapleMap {
                     mc.resetPlayerAggro();
                 }
             }
+        }
+
+        if(chr.getMCPlayerComponent() != null && getMCMapComponent() != null) {
+            chr.getMCPlayerComponent().gainCP(monster.getCP());
         }
         
         monster.dispatchMonsterKilled();
@@ -1365,15 +1396,6 @@ public class MapleMap {
         spawnMonster(mob);
     }
 
-    public void spawnCPQMonster(MapleMonster mob, Point pos, int team) {
-        Point spos = new Point(pos.x, pos.y - 1);
-        spos = calcPointBelow(spos);
-        spos.y--;
-        mob.setPosition(spos);
-        mob.setTeam(team);
-        spawnMonster(mob);
-    }
-
     public void addBunnyHit() {
         bunnyDamage++;
         if (bunnyDamage > 5) {
@@ -1468,6 +1490,9 @@ public class MapleMap {
         
         monster.setMap(this);
         if(getEventInstance() != null) getEventInstance().registerMonster(monster);
+        if(getMCMapComponent() != null && getMCMapComponent().getMC() != null) {
+            getMCMapComponent().getMC().applyBuff(monster);
+        }
 
         spawnAndAddRangedMapObject(monster, new DelayedPacketCreation() {
             @Override
@@ -3216,5 +3241,6 @@ public class MapleMap {
         clearMapObjects();
         removeMapTimer();
         stopItemMonitor();
+        resetMCMapComponent();
     }
 }
