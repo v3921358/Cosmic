@@ -73,6 +73,8 @@ import server.maps.MapleReactor;
 import server.maps.MapleSummon;
 import server.maps.PlayerNPCs;
 import server.movement.LifeMovementFragment;
+import server.partyquest.MonsterCarnival.Team;
+import server.partyquest.monstercarnival.components.MonsterCarnivalPlayerComponent;
 import tools.data.output.LittleEndianWriter;
 import tools.data.output.MaplePacketLittleEndianWriter;
 import client.BuddylistEntry;
@@ -7076,6 +7078,34 @@ public class MaplePacketCreator {
             mplew.write(tab);
             mplew.write(number);
             mplew.writeMapleAsciiString(name);
+            return mplew.getPacket();
+        }
+
+        public static byte[] playerDiedMessage(String name, int lostCP, int team) { // CPQ
+            MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
+
+            mplew.writeShort(SendOpcode.MONSTER_CARNIVAL_DIED.getValue());
+            mplew.write(team); // team
+            mplew.writeMapleAsciiString(name);
+            mplew.write(lostCP);
+            return mplew.getPacket();
+        }
+
+        public static byte[] startMonsterCarnival(MapleCharacter chr) {
+            final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter(25);
+            final MonsterCarnivalPlayerComponent mcPlayer = chr.getMCPlayerComponent();
+            final Team team = mcPlayer.getTeam();
+
+            mplew.writeShort(SendOpcode.MONSTER_CARNIVAL_START.getValue());
+            mplew.write(team.value); // team
+            mplew.writeShort(mcPlayer.getCP()); // Obtained CP - Used CP
+            mplew.writeShort(mcPlayer.getTotalCP()); // Total Obtained CP
+            mplew.writeShort(mcPlayer.getMonsterCarnival().getCP(team)); // Obtained CP - Used CP of the team
+            mplew.writeShort(mcPlayer.getMonsterCarnival().getTotalCP(team)); // Total Obtained CP of the team
+            mplew.writeShort(mcPlayer.getMonsterCarnival().getCP(team == Team.RED ? Team.BLUE : Team.RED)); // Obtained CP - Used CP of the other team
+            mplew.writeShort(mcPlayer.getMonsterCarnival().getTotalCP(team == Team.RED ? Team.BLUE : Team.RED)); // Total Obtained CP of the other team
+            mplew.writeShort(0); // Probably useless nexon shit
+            mplew.writeLong(0); // Probably useless nexon shit
             return mplew.getPacket();
         }
 
