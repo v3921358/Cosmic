@@ -1,8 +1,8 @@
 /*
-	This file is part of the OdinMS Maple Story Server
+    This file is part of the OdinMS Maple Story Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
-		       Matthias Butz <matze@odinms.de>
-		       Jan Christian Meyer <vimes@odinms.de>
+               Matthias Butz <matze@odinms.de>
+               Jan Christian Meyer <vimes@odinms.de>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -22,11 +22,10 @@
 
 /* Edited by: Benjixd
     NPC Name: Spiegelmann
-    Description: Monster Carnival Assistant & CP1 host
+    Description: CPQ2 host
 */
 
 var status = 0;
-var CPQ_MAP = 980000000;
 var CPQ2_MAP = 980030000;
 
 function start() {
@@ -50,31 +49,10 @@ function action(mode, type, selection) {
         status--;
     }
 
-    if(cm.getPlayer().getMapId() == CPQ_MAP) {
-        spiegelmannInOfficeCPQ1(mode, type, selection);
-    } else {
-        spiegelmannInTown(mode, type, selection);
-    }
+    spiegelmannInOfficeCPQ2(mode, type, selection);
 }
 
-function spiegelmannInTown(mode, type, selection) {
-    if(status == 1) {
-        cm.sendNext("Haha! I am Spiegelmann, the creator of this Monster Carnival. Would you like to try it out?");
-    } else if(status == 2) {
-        cm.sendSimple("Which monster carnival would you like to participate in?\r\n#L0##e1.#n#b The Monster Carnival#k#l\r\n#L1##e2.#n#b The 2nd Monster Carnival#k#l");
-    } else if (status == 3) {
-        cm.getPlayer().saveLocation("MIRROR");
-        if(selection == 0) {
-            cm.warp(CPQ_MAP);
-        } else if(selection == 1) {
-            cm.warp(CPQ2_MAP);
-        }
-        cm.sendNext("Good luck out there!");
-        cm.dispose();
-    }
-}
-
-function spiegelmannInOfficeCPQ1(mode, type, selection) {
+function spiegelmannInOfficeCPQ2(mode, type, selection) {
     if(status == 1) {
         cm.sendOk("Hello");
         cm.dispose();
