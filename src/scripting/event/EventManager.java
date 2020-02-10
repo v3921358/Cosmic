@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -79,6 +80,7 @@ public class EventManager {
     private String name;
     private Lock lobbyLock = new ReentrantLock();
     private Lock queueLock = new ReentrantLock();
+    private AtomicInteger workers = new AtomicInteger();
     
     private static final int limitGuilds = 10;  // max numbers of guilds in queue for GPQ.
     private static final int maxLobbys = 8;     // an event manager holds up to this amount of concurrent lobbys
@@ -157,6 +159,10 @@ public class EventManager {
     
     public Invocable getIv() {
         return iv;
+    }
+
+    public int getWorkerCount() {
+        return workers.get();
     }
 
     public EventInstanceManager getInstance(String name) {
@@ -636,6 +642,10 @@ public class EventManager {
         Thread t = new Thread(new EventManagerWorker());  //call new thread to fill up readied instances queue
         t.start();
     }
+
+    public Collection<EventInstanceManager> getReadyInstances() {
+        return Collections.unmodifiableCollection(readyInstances);
+    }
     
     private EventInstanceManager getReadyInstance() {
         queueLock.lock();
@@ -672,7 +682,9 @@ public class EventManager {
     
         @Override
         public void run() {
+            workers.incrementAndGet();
             instantiateQueuedInstance();
+            workers.decrementAndGet();
         }
     }
 }
