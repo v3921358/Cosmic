@@ -129,6 +129,22 @@ public final class ItemConstants {
     public static boolean isPartyAllcure(int itemId) {
         return itemId == 2022433;
     }
+    
+    public static boolean isEquipment(int itemId){
+        return itemId < 2000000 && itemId != 0;
+    }
+    
+    public static boolean isMakerReagent(int itemId){
+        return itemId / 10000 == 425;
+    }
+    
+    public static boolean isWeapon(int itemId){
+        return itemId >= 1300000 && itemId < 1500000;
+    }
+    
+    public static boolean isAccessory(int itemId){
+        return itemId >=1110000 && itemId < 1140000;
+    }
 
     public static MapleInventoryType getInventoryType(final int itemId) {
 	final byte type = (byte) (itemId / 1000000);

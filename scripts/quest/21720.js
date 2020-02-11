@@ -31,7 +31,7 @@ function end(mode, type, selection) {
     } else if (status == 7) {
 	if (qm.getQuestStatus(21720) == 1) {
 	    qm.forceCompleteQuest();
-	    qm.teachSkill(21001003, qm.getPlayer().getSkillLevel(21001003), 20, -1);
+	    //qm.teachSkill(21001003, qm.getPlayer().getSkillLevel(21001003), 20, -1);
 	    qm.gainExp(3900 * qm.getPlayer().getExpRate());
 	}
 		qm.showIntro("Effect/BasicEff.img/AranGetSkill");

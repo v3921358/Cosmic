@@ -230,7 +230,7 @@ public class ItemAction extends MapleQuestAction {
                         gainList.add(selected);
                 }
                 
-		if (!MapleInventory.checkSpots(chr, gainList, allSlotUsed)) {
+		if (!MapleInventory.checkSpots(chr, gainList, allSlotUsed, false)) {
 			chr.dropMessage(1, "Please check if you have enough space in your inventory.");
 			return false;
 		}

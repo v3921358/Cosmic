@@ -63,7 +63,7 @@ function end(mode, type, selection) {
             qm.sendNext("For now, let me teach you the #bCombo Smash#k, with it you will be able to deal massive amount of damage to many monsters at once. We will need to use it if we want to stand a chance against the Black Wings now, so don't forget it!");
         } else if(status == 2) {
             qm.forceCompleteQuest();
-            qm.teachSkill(21100004, 0, 20, -1); // combo smash
+            //qm.teachSkill(21100004, 0, 20, -1); // combo smash
             qm.dispose();
         }
     }
