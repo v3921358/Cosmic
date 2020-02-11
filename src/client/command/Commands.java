@@ -90,6 +90,7 @@ import client.MapleBuffStat;
 import client.MapleCharacter;
 import client.MapleClient;
 import client.MapleJob;
+import client.MapleQuestStatus;
 import client.MapleStat;
 import client.Skill;
 import client.SkillFactory;
@@ -104,6 +105,7 @@ import constants.GameConstants;
 import constants.ItemConstants;
 import constants.ServerConstants;
 import java.util.ArrayList;
+import java.util.Map;
 import server.life.SpawnPoint;
 import server.maps.FieldLimit;
 
@@ -2479,6 +2481,36 @@ public class Commands {
 			TimerManager tMan = TimerManager.getInstance();
 			player.dropMessage(6, "Total Task: " + tMan.getTaskCount() + " Current Task: " + tMan.getQueuedTasks() + " Active Task: " + tMan.getActiveCount() + " Completed Task: " + tMan.getCompletedTaskCount());
 			break;
+                
+                case "debugquest":
+                    if (sub.length >= 2){
+                        MapleQuestStatus qs;
+                        try{
+                            qs = c.getPlayer().getQuest(MapleQuest.getInstance(Integer.parseInt(sub[1])));
+                            StringBuilder msg = new StringBuilder();
+                            msg.append(qs.getQuest().getName()).append(": ").append(qs.getStatus().toString()).append("\n");
+                            if (qs.getStatus() == MapleQuestStatus.Status.STARTED){
+                                Map<Integer, String> prog = qs.getProgress();
+                                if (!prog.isEmpty()){
+                                    msg.append("Progress: \n");
+                                    for (Map.Entry<Integer, String> p : prog.entrySet()){
+                                        msg.append(p.getKey()).append(": ").append(p.getValue()).append("\n");
+                                    }
+                                }
+                            }
+                            c.getPlayer().dropMessage(6, msg.toString());
+                        }
+                        catch (NumberFormatException nfe){
+                            player.yellowMessage("Bad QuestID. Syntax: debugquest [QuestID]");
+                            return false;
+                        }
+                        catch (Exception e){
+                            player.yellowMessage("Error occurred while processing data. See logs for details.");
+                            e.printStackTrace();
+                            return false;
+                        }
+                    }
+                    break;
                     
                 default:
                         return false;

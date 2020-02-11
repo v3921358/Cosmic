@@ -77,6 +77,7 @@ public class ServerConstants {
     //Some Gameplay Enhancing Configurations
     //Scroll Configuration
     public static final boolean USE_PERFECT_SCROLLING = false;   //Scrolls doesn't use slots upon failure.
+    public static final boolean USE_PERFECT_GM_SCROLL = false;   //Scrolling by GM succeeds every time
     public static final boolean USE_ENHANCED_CHSCROLL = false;   //Equips even more powerful with chaos upgrade.
     public static final boolean USE_ENHANCED_CRAFTING = false;   //Applys chaos scroll on every equip crafted.
     
@@ -134,6 +135,8 @@ public class ServerConstants {
 
     //Maximum number of times players can enter bosses
     public static final int MAX_DAILY_BOSS_ENTRANCES = 2;
+    
+    //Maker properties
 	
     //Properties
     static {

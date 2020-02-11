@@ -113,6 +113,7 @@ import client.inventory.Equip;
 import client.inventory.Item;
 import client.inventory.ItemFactory;
 import client.inventory.MapleInventory;
+import client.inventory.MapleInventoryProof;
 import client.inventory.MapleInventoryType;
 import client.inventory.MaplePet;
 import client.inventory.MapleWeaponType;
@@ -316,6 +317,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             }
             inventory[type.ordinal()] = new MapleInventory(this, type, (byte) b);
         }
+        inventory[MapleInventoryType.CANHOLD.ordinal()] = new MapleInventoryProof(this);
         for (int i = 0; i < SavedLocationType.values().length; i++) {
             savedLocations[i] = null;
         }
@@ -2587,23 +2589,24 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         this.updateSingleStat(MapleStat.FAME, this.fame);
     }
     
-    public void gainMeso(int gain) {
-        gainMeso(gain, true, false, true);
+    public boolean gainMeso(int gain) {
+        return gainMeso(gain, true, false, true);
     }
 
-    public void gainMeso(int gain, boolean show) {
-        gainMeso(gain, show, false, false);
+    public boolean gainMeso(int gain, boolean show) {
+        return gainMeso(gain, show, false, false);
     }
 
-    public void gainMeso(int gain, boolean show, boolean enableActions, boolean inChat) {
+    public boolean gainMeso(int gain, boolean show, boolean enableActions, boolean inChat) {
         if (meso.get() + gain < 0) {
             client.announce(MaplePacketCreator.enableActions());
-            return;
+            return false;
         }
         updateSingleStat(MapleStat.MESO, meso.addAndGet(gain), enableActions);
         if (show) {
             client.announce(MaplePacketCreator.getShowMesoGain(gain, inChat));
         }
+        return true;
     }
 
     public void genericGuildMessage(int code) {
@@ -3633,6 +3636,12 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
 
     public int getPossibleReports() {
         return possibleReports;
+    }
+    
+    public void  addQuest(final MapleQuestStatus qs){
+        synchronized(quests){
+            quests.put(qs.getQuestID(), qs);
+        }
     }
 
     public final byte getQuestStatus(final int quest) {
@@ -6863,9 +6872,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     }
     
     public void updateQuest(MapleQuestStatus quest) {
-        synchronized (quests) {
-            quests.put(quest.getQuestID(), quest);
-        }
+        addQuest(quest);
         if (quest.getStatus().equals(MapleQuestStatus.Status.STARTED)) {
             announce(MaplePacketCreator.updateQuest(quest, false));
             if (quest.getQuest().getInfoNumber() > 0) {
