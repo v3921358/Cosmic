@@ -116,8 +116,14 @@ public class EventInstanceManager {
     public EventInstanceManager(EventManager em, String name) {
         this.em = em;
         this.name = name;
-        mapFactory = new MapleMapFactory(this, MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Map.wz")), MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/String.wz")), (byte) 0, (byte) 1); //Fk this
-        mapFactory.setChannel(em.getChannelServer().getId());
+    }
+
+    public EventInstanceManager(EventManager em, String name, boolean createMaps) {
+        this.em = em;
+        this.name = name;
+        if(createMaps) {
+            initMapFactory();
+        }
     }
 
     public void setName(String name) {
@@ -126,6 +132,11 @@ public class EventInstanceManager {
 
     public EventManager getEm() {
         return em;
+    }
+
+    public void initMapFactory() {
+        this.mapFactory = new MapleMapFactory(this, MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Map.wz")), MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/String.wz")), (byte) 0, (byte) 1);
+        this.mapFactory.setChannel(em.getChannelServer().getId());
     }
 
     public int getEventPlayersJobs() {
