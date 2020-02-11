@@ -74,7 +74,7 @@ function end(mode, type, selection) {
             qm.sendNext("We recently found an ancient scroll that holds the secrets to the Hero's everlasting endurance, and I think it's a fitting reward for your endeavours. Behold, the #rCombo Drain#k Skill: that let's you heal back a portion of damage dealt to the monsters.");
             qm.gainItem(4032323, -1);
             qm.gainExp(6037);
-            qm.teachSkill(21100005, 0, 20, -1); // combo drain
+            //qm.teachSkill(21100005, 0, 20, -1); // combo drain
             qm.forceCompleteQuest();
             
             qm.dispose();

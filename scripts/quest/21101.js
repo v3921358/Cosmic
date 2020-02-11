@@ -51,6 +51,7 @@ function start(mode, type, selection) {
             qm.getPlayer().setRemainingSp((qm.getPlayer().getLevel() - 10) * 3 + 1);
             qm.getPlayer().setMaxHp(qm.getPlayer().getMaxHp() + 275);
             qm.getPlayer().setMaxMp(qm.getPlayer().getMaxMp() + 15);
+            // Teach Combo Ability and Polearm Booster
             qm.teachSkill(21000000, 0, 10, -1);
             qm.teachSkill(21001003, 0, 20, -1);
             //qm.getPlayer().changeSkillLevel(SkillFactory.getSkill(20009000), 0, -1);

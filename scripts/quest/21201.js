@@ -58,6 +58,7 @@ function end(mode, type, selection) {
 			qm.gainItem(1142130, true);
 			qm.getPlayer().setMaxMp(qm.getPlayer().getMaxMp() + 275);
 			qm.changeJobById(2110);
+            // Teach Polearm Mastery, Final Charge, Combo Smash, Combo Drain
 			qm.teachSkill(21100000, 0, 20, -1);
 			qm.teachSkill(21100002, 0, 30, -1);
 			qm.teachSkill(21100004, 0, 20, -1);
