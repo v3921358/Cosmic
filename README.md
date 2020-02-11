@@ -103,7 +103,7 @@ Now that you have a running server, you should be able to access the server thro
 
 Alternatively, using the docker command to spin up the server with 4 channels:
 ```
-docker run --rm -it -v ${PWD}:/mnt -p 7575:7575 -p 7576:7576 -p 7577:7577 -p 8484:8484 benjixd/dietstory
+docker run --rm -it -v ${PWD}:/mnt -p 7575:7575 -p 7576:7576 -p 7577:7577 -p 8484:8484 -p 8485:8485 benjixd/dietstory
 ```
 > Environment variables: MYSQL_DB_USER, MYSQL_ROOT_PASSWORD, MYSQL_HOST_NAME, JAVA_STATIC_MEM
 
@@ -132,6 +132,7 @@ The docker compose file spins up a MySQL container and then runs a set of initia
 - 7576:7576 # Channel 2
 - 7577:7577 # Channel 3
 - 8484:8484 # Server Listener
+- 8485:8485 # Maple API
 ```
 > This docker-compose configuration is NOT meant to be used in a production setting. Consider using MySQL secrets to secure the database and avoid using root user. The docker compose file is meant to do quick local initialization and dev testing.
 

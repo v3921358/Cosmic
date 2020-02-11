@@ -69,6 +69,8 @@ import server.quest.MapleQuest;
 import api.MapleAPI;
 
 public class Server implements Runnable {
+    private static final int LOGIN_PORT = 8484;
+    private static final int API_PORT = 8485;
     private static final Map<Integer, Integer> couponRates = new LinkedHashMap<>();
     private static final List<Integer> activeCoupons = new LinkedList<>();
     
@@ -328,15 +330,15 @@ public class Server implements Runnable {
         acceptor.getSessionConfig().setIdleTime(IdleStatus.BOTH_IDLE, 30);
         acceptor.setHandler(new MapleServerHandler());
         try {
-            acceptor.bind(new InetSocketAddress(8484));
+            acceptor.bind(new InetSocketAddress(LOGIN_PORT));
         } catch (IOException ex) {
             ex.printStackTrace();
         }
 
-        //api = new MapleAPI(this, 8485);
+        // api = new MapleAPI(this, API_PORT);
 
-        System.out.println("Login server on port 8484\r\n\r\n");
-        System.out.println("API server on port 8485\r\n\r\n");
+        System.out.println("Login server on port " + LOGIN_PORT + "\r\n\r\n");
+        System.out.println("API server on port 8485 " + API_PORT + "\r\n\r\n");
         System.out.println("Solaxia is now online.\r\n");
         online = true;
     }
