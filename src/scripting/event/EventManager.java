@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -79,10 +80,13 @@ public class EventManager {
     private String name;
     private Lock lobbyLock = new ReentrantLock();
     private Lock queueLock = new ReentrantLock();
+    private AtomicInteger workers = new AtomicInteger();
+    private ScheduledFuture<?> cacheTimer;
     
     private static final int limitGuilds = 10;  // max numbers of guilds in queue for GPQ.
-    private static final int maxLobbys = 8;     // an event manager holds up to this amount of concurrent lobbys
+    private static final int maxLobbys = 2;     // an event manager holds up to this amount of concurrent lobbys
     private static final long lobbyDelay = 10;  // 10 seconds cooldown before reopening a lobby
+    private static final int CACHE_READY_INSTANCE_TIMEOUT = 60 * 60 * 1000; // 1 hour ready instance caching
 
     public EventManager(Channel cserv, Invocable iv, String name) {
         this.server = Server.getInstance();
@@ -93,6 +97,7 @@ public class EventManager {
         
         this.openedLobbys = new ArrayList<>();
         for(int i = 0; i < maxLobbys; i++) this.openedLobbys.add(false);
+        scheduleCacheRemoval();
     }
 
     public void cancel() {
@@ -105,6 +110,22 @@ public class EventManager {
     
     public long getLobbyDelay() {
         return lobbyDelay;
+    }
+
+    private void scheduleCacheRemoval() {
+        queueLock.lock();
+        if(cacheTimer != null) {
+            cacheTimer.cancel(true);
+        }
+        queueLock.unlock();
+
+        cacheTimer = TimerManager.getInstance().schedule(new Runnable() {
+            public void run() {
+                queueLock.lock();
+                readyInstances.clear();
+                queueLock.unlock();
+            }
+        }, CACHE_READY_INSTANCE_TIMEOUT);
     }
     
     private List<Integer> getLobbyRange() {
@@ -159,6 +180,10 @@ public class EventManager {
         return iv;
     }
 
+    public int getWorkerCount() {
+        return workers.get();
+    }
+
     public EventInstanceManager getInstance(String name) {
         return instances.get(name);
     }
@@ -171,12 +196,13 @@ public class EventManager {
         EventInstanceManager ret = getReadyInstance();
         
         if(ret == null) {
-            ret = new EventInstanceManager(this, name);
+            ret = new EventInstanceManager(this, name, true);
         } else {
             ret.setName(name);
         }
         
         instances.put(name, ret);
+        scheduleCacheRemoval();
         return ret;
     }
 
@@ -636,6 +662,10 @@ public class EventManager {
         Thread t = new Thread(new EventManagerWorker());  //call new thread to fill up readied instances queue
         t.start();
     }
+
+    public Collection<EventInstanceManager> getReadyInstances() {
+        return Collections.unmodifiableCollection(readyInstances);
+    }
     
     private EventInstanceManager getReadyInstance() {
         queueLock.lock();
@@ -657,9 +687,9 @@ public class EventManager {
     private void instantiateQueuedInstance() {
         queueLock.lock();
         try {
-            if(readyInstances.size() >= Math.ceil((double)maxLobbys / 3.0)) return;
+            if(readyInstances.size() >= maxLobbys) return;
             
-            readyInstances.add(new EventInstanceManager(this, "sampleName" + readyId));
+            readyInstances.add(new EventInstanceManager(this, "sampleName" + readyId, true));
             readyId++;
         } finally {
             queueLock.unlock();
@@ -672,7 +702,9 @@ public class EventManager {
     
         @Override
         public void run() {
+            workers.incrementAndGet();
             instantiateQueuedInstance();
+            workers.decrementAndGet();
         }
     }
 }

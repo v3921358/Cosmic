@@ -58,7 +58,7 @@ function writeSolaxiaCommandsLv5() {    //Developer
         comm_cursor = comm_lv5;
         desc_cursor = desc_lv5;
 
-        addCommand("debugtasks", "");
+        addCommand("performance", "");
         addCommand("debugmonster", "");
         addCommand("debugpacket", "");
         addCommand("debugportal", "");

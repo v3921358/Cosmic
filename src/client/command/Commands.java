@@ -101,6 +101,7 @@ import client.inventory.MapleInventoryType;
 import client.inventory.MaplePet;
 import client.command.utils.PlayerRanking;
 import client.command.utils.DisconnectPlayerTool;
+import client.command.utils.PerformanceStatTool;
 import constants.GameConstants;
 import constants.ItemConstants;
 import constants.ServerConstants;
@@ -2377,16 +2378,9 @@ public class Commands {
                 MapleMonster monster;
         
                 switch(sub[0]) {
-                case "debugtasks":
-                	long active_tasks = TimerManager.getInstance().getActiveCount();
-                	int queued_tasks = TimerManager.getInstance().getQueuedTasks();
-                	long completed_tasks = TimerManager.getInstance().getCompletedTaskCount();
-                	long total_tasks = TimerManager.getInstance().getTaskCount();
-
-                	player.message(String.format("Active Tasks:\t%d", active_tasks));
-                	player.message(String.format("Queued Tasks:\t%d", queued_tasks));
-                	player.message(String.format("Completed Tasks:\t%d", completed_tasks));
-                	player.message(String.format("Total Tasks:\t%d", total_tasks));
+                case "performance":
+                	PerformanceStatTool.PrintTimerManagerTasksToPlayer(player);
+                	PerformanceStatTool.PrintEventInstanceTasksToPlayer(player);
                 	break;
 
                 case "debugmonster":
