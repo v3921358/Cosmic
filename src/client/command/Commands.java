@@ -378,7 +378,7 @@ public class Commands {
 			int days    = (int) ((milliseconds / (1000*60*60*24)));
  			player.yellowMessage("Server has been online for " + days + " days " + hours + " hours " + minutes + " minutes and " + seconds + " seconds.");
 			break;
-
+			
 		case "gacha":
 			Gachapon gacha = null;
 			String search = joinStringFrom(sub, 1);
@@ -656,11 +656,6 @@ public class Commands {
 		
 		case "spreset":
 			c.getAbstractPlayerInteraction().openNpc(9010000, "spreset");
-			// which job do you want to reset?
-			// which skill do you want to reset?
-			// You have been returned xxx sp
-			// remainingSp[GameConstants.getSkillBook(job.getId())] += 3;
-			// statup.add(new Pair<>(MapleStat.AVAILABLESP, remainingSp[GameConstants.getSkillBook(job.getId())]));
 			break;
 
 		case "apreset":
