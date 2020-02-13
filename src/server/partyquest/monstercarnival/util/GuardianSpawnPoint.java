@@ -9,12 +9,22 @@ import server.partyquest.MonsterCarnival.Team;
  */
 public class GuardianSpawnPoint {
 
+    // Values to reset to
+    private Point origPosition;
+    private Team origTeam;
+
     private Point position;
     private boolean taken;
     private Team team;
 
-    public GuardianSpawnPoint(Point a) {
+    public GuardianSpawnPoint(Point a, int team) {
+        this.origPosition = a;
         this.position = a;
+        
+        this.origTeam = Team.getTeamFromInt(team);
+        this.team = Team.getTeamFromInt(team);
+
+        this.taken = false;
     }
 
     public Point getPosition() {
@@ -43,5 +53,11 @@ public class GuardianSpawnPoint {
 
     public void setTeam(int team) {
         this.team = Team.getTeamFromInt(team);
+    }
+
+    public void reset() {
+        this.team = this.origTeam;
+        this.position = this.origPosition;
+        this.taken = false;
     }
 }

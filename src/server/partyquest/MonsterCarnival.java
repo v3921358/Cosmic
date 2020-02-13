@@ -41,6 +41,17 @@ public class MonsterCarnival {
     public static final int CPQ1_OUT_MAP_ID = 980000010;
     public static final int CPQ2_OUT_MAP_ID = 980030010;
 
+    //Rewards
+    public static final int[] rewardReq = new int[]{50, 250, 500, Integer.MAX_VALUE};
+    public static final int[] winnerReward = new int[]{7500, 21500, 25500, 30000};
+    public static final int[] loserReward = new int[]{1000, 7000, 8500, 10000};
+    public static final String[] rewardComment = new String[] {
+        "[D-Rank] I know you can do better than that!",
+        "[C-Rank] Not bad! Practice makes perfect!",
+        "[B-Rank] Nice! You're on your way to being a champion!",
+        "[A-Rank] Awesome! You really showed up out there!",
+    };
+
     public static enum GuardianSpawnCode {
         SUCCESS,
         INVALID,
@@ -79,7 +90,7 @@ public class MonsterCarnival {
     private MapleParty p1, p2;
     private MapleMap map;
     private ScheduledFuture<?> timer, respawnTask;
-    private long startTime = 0;
+    private long endTime = 0;
     private int summonsR = 0, summonsB = 0;
     private int redCP, blueCP, redTotalCP, blueTotalCP;
     private CPQType type;
@@ -99,7 +110,7 @@ public class MonsterCarnival {
             this.p1 = p1;
             this.p2 = p2;
             this.map = map;
-            this.startTime = System.currentTimeMillis() + 10 * 60 * 1000;
+            this.endTime = System.currentTimeMillis() + map.getMCMapComponent().getTimeDefault() * 1000;
             this.isFinished = false;
 
             //Initalize CP
@@ -108,6 +119,7 @@ public class MonsterCarnival {
             this.blueCP = 0;
             this.blueTotalCP = 0;
 
+            this.map.resetFully();
             this.map.getMCMapComponent().setMC(this);
 
             if (MonsterCarnivalMapComponent.isPurpleCPQMap(map.getId())) {
@@ -298,28 +310,24 @@ public class MonsterCarnival {
 
     public GuardianSpawnCode trySpawnGuardian(MCSkill skill, Team team) {
         MonsterCarnivalMapComponent mcMap = this.map.getMCMapComponent();
-        GuardianSpawnPoint pt = mcMap.getNextGuardianSpawnPoint(team);
+        GuardianSpawnPoint pt = mcMap.getRandomGuardianSpawnPoint(team);
         int reactorId = 9980000 + team.value;
 
         if(skill == null || pt == null) {
-            System.out.println("Invalid Reactor");
             return GuardianSpawnCode.INVALID;
         }
 
         if(!canGuardian(team)) {
-            System.out.println("Cannot reactor");
             return GuardianSpawnCode.CANNOT_GUARDIAN;
         }
 
         if(team == Team.RED && redTeamBuffs.size() >= MAX_TEAM_GUARDIANS || 
             team == Team.BLUE && blueTeamBuffs.size() >= MAX_TEAM_GUARDIANS) {
-            System.out.println("Max count reactor");
             return GuardianSpawnCode.MAX_COUNT_REACHED;
         }
 
         if(team == Team.RED && redTeamBuffs.containsKey(skill.getId()) ||
             team == Team.BLUE && blueTeamBuffs.containsKey(skill.getId())) {
-            System.out.println("Already exists reactor");
             return GuardianSpawnCode.ALREADY_EXISTS;
         }
 
@@ -333,6 +341,7 @@ public class MonsterCarnival {
             MapleReactor reactor = new MapleReactor(MapleReactorFactory.getReactorS(reactorId), reactorId);
             reactor.initializeMCReactorComponent(this);
             pt.setTaken(true);
+            pt.setTeam(team);
             reactor.setPosition(pt.getPosition());
             reactor.resetReactorActions();
             reactor.getMCReactorComponent().setGuardian(pt);
@@ -345,7 +354,6 @@ public class MonsterCarnival {
             e.printStackTrace();
         }
 
-        System.out.println("spawned reactor");
         return GuardianSpawnCode.SUCCESS;
     }
 
@@ -363,9 +371,10 @@ public class MonsterCarnival {
 
     private void buffMonsters(Team team, MCSkill skill) {
         if (skill == null) return;
-        
+
         for (MapleMonster mob : map.getMonsters()) {
             if (mob.getTeam() == team.value) {
+                System.out.println("Buffing Monster");
                 skill.getSkill().applyEffect(null, mob, false, null);
             }
         }
@@ -437,6 +446,7 @@ public class MonsterCarnival {
                 if(mc != null && mc.getMCPlayerComponent() != null) {
                     mc.getMCPlayerComponent().setFestivalPoints(mc.getMCPlayerComponent().getTeam() == Team.RED ? this.redTotalCP : this.blueTotalCP);
                     if(type == CPQType.CPQ1) {
+
                         mc.changeMap(cs.getMapFactory().getMap(map.getId() + (winner == mc.getMCPlayerComponent().getTeam() ? 2 : 3)));
                     } else {
                         mc.changeMap(cs.getMapFactory().getMap(map.getId() + (winner == mc.getMCPlayerComponent().getTeam() ? 200 : 300)));
@@ -469,13 +479,30 @@ public class MonsterCarnival {
         try {
             for(MapleCharacter mc : map.getAllPlayers()) {
                 if(mc != null && mc.getMCPlayerComponent() != null) {
+                    // Dispel debuffs
                     mc.dispelDebuffs();
+
+                    // Play animations
                     mc.getClient().announce(
                         MaplePacketCreator.showEffect(
                             winner == mc.getMCPlayerComponent().getTeam() ? "quest/carnival/win" : "quest/carnival/lose"));
                     mc.getClient().announce(
                         MaplePacketCreator.playSound(
-                            winner == mc.getMCPlayerComponent().getTeam() ? "MobCarnival/Win" : "MobCarnival/Win"));
+                            winner == mc.getMCPlayerComponent().getTeam() ? "MobCarnival/Win" : "MobCarnival/Lose"));
+
+                    // Distribute Rewards
+                    for(int i = 0; i < rewardReq.length; i++) {
+                        int totalCP = mc.getMCPlayerComponent().getTeam() == Team.RED ? redTotalCP : blueTotalCP;
+                        if(totalCP < rewardReq[i]) {
+                            if(mc.getMCPlayerComponent().getTeam() == winner) {
+                                mc.gainExp(winnerReward[i]);
+                            } else {
+                                mc.gainExp(loserReward[i]);
+                            }
+                            mc.dropMessage(rewardComment[i]);
+                            break;
+                        }
+                    }
                 }
             }
         } catch(Exception e) {
@@ -498,7 +525,7 @@ public class MonsterCarnival {
     }
 
     public long getTimeLeft() {
-        return (startTime - System.currentTimeMillis());
+        return (endTime - System.currentTimeMillis());
     }
 
     public int getTimeLeftSeconds() {

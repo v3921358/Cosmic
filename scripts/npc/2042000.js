@@ -86,7 +86,12 @@ function spiegelmannInOfficeCPQ1(mode, type, selection) {
 
     if(party != null && cm.getPlayer() == party.getLeader().getPlayer()) {
         if(status == 1) {
-            cm.sendSimple("Welcome to Monster Carnival! The following lobbies are available for participation:\r\n" + getFreeLobbySelectionMsg(carnivalManager));    
+            if(carnivalManager.isWaitingForSession(party)) {
+                cm.sendOk("Your party currently has a pending request to join a lobby. Please wait for a response.");
+                cm.dispose();
+            } else {
+                cm.sendSimple("Welcome to Monster Carnival! The following lobbies are available for participation:\r\n" + getFreeLobbySelectionMsg(carnivalManager));    
+            }
         }
         else if(status == 2) {
             if(partyRequirementsMet(party)) {

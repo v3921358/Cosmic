@@ -421,8 +421,9 @@ public class MapleMapFactory {
             mcMap.setMaxReactors(MapleDataTool.getIntConvert("guardianGenMax", mcData, 16));
             MapleData guardianGenData = mcData.getChildByPath("guardianGenPos");
             for (MapleData node : guardianGenData.getChildren()) {
-                GuardianSpawnPoint pt = new GuardianSpawnPoint(new Point(MapleDataTool.getIntConvert("x", node), MapleDataTool.getIntConvert("y", node)));
-                pt.setTeam(MapleDataTool.getIntConvert("team", node, -1));
+                GuardianSpawnPoint pt = new GuardianSpawnPoint(
+                    new Point(MapleDataTool.getIntConvert("x", node), MapleDataTool.getIntConvert("y", node)), 
+                    MapleDataTool.getIntConvert("team", node, -1));
                 pt.setTaken(false);
                 mcMap.addGuardianSpawnPoint(pt);
             }

@@ -1,5 +1,6 @@
 package server.partyquest.monstercarnival.components;
 
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -154,17 +155,34 @@ public class MonsterCarnivalMapComponent {
 
     // public methods
     public GuardianSpawnPoint getNextGuardianSpawnPoint(Team team) {
-        System.out.println("GSP size: " + guardianSpawns.size());
         for(GuardianSpawnPoint gsp : this.guardianSpawns) {
-            System.out.println("GSP Team: " + gsp.getTeam().value);
-            if(gsp.getTeam() == team && !gsp.isTaken()) {
+            if((gsp.getTeam() == team || gsp.getTeam() == Team.NONE)  && !gsp.isTaken()) {
                 return gsp;
             }
         }
         return null;
     }
 
+    public GuardianSpawnPoint getRandomGuardianSpawnPoint(Team team) {
+        List<GuardianSpawnPoint> valid = new ArrayList<>();
+        for(GuardianSpawnPoint gsp : this.guardianSpawns) {
+            if((gsp.getTeam() == team || gsp.getTeam() == Team.NONE)  && !gsp.isTaken()) {
+                valid.add(gsp);
+            }
+        }
+
+        if(valid.size() > 0) {
+            return valid.get(ThreadLocalRandom.current().nextInt(0, valid.size()));    
+        }
+        else {
+            return null;
+        }
+    }
+
     public void reset() {
         this.mc = null;
+        for(GuardianSpawnPoint gsp : this.guardianSpawns) {
+            gsp.reset();
+        }
     }
 }

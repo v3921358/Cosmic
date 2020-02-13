@@ -68,6 +68,10 @@ public class MonsterCarnivalManager {
         return this.channel;
     }
 
+    public boolean isWaitingForSession(MapleParty party) {
+        return waitingForSession.contains(party);
+    }
+
     public List<Integer> getAvailableMaps(CPQType type) {
         List<Integer> openMaps = new ArrayList<>();
 
@@ -230,7 +234,7 @@ public class MonsterCarnivalManager {
         }
     }
 
-    private void healthCheckLobby(int mapId) {
+    public void healthCheckLobby(int mapId) {
         if(lobbies.containsKey(mapId)) {
             if(!lobbies.get(mapId).healthCheck()) {
                 endLobby(mapId);
@@ -238,7 +242,7 @@ public class MonsterCarnivalManager {
         }
     }
 
-    private void healthCheckPQ(int mapId) {
+    public void healthCheckPQ(int mapId) {
         if(sessions.containsKey(mapId)) {
             if(!sessions.get(mapId).healthCheck()) {
                 endCarnivalPQ(mapId);
