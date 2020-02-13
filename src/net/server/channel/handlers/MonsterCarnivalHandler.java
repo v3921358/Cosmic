@@ -149,8 +149,10 @@ public final class MonsterCarnivalHandler extends AbstractMaplePacketHandler {
                 neededCP = handleProtectors(c, num);
             }
 
-            mcPlayer.gainCP(-neededCP);
-            c.getPlayer().getMap().broadcastMessage(MaplePacketCreator.playerSummoned(c.getPlayer().getName(), tab, num));
+            if(neededCP != 0) {
+                mcPlayer.gainCP(-neededCP);
+                c.getPlayer().getMap().broadcastMessage(MaplePacketCreator.playerSummoned(c.getPlayer().getName(), tab, num));
+            }
         }catch (Exception e) {
             e.printStackTrace();
         }

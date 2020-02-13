@@ -45,7 +45,7 @@ function action(mode, type, selection) {
         return;
     }
 
-    if (status >= 4 && mode == 0) {
+    if (mode == 0 && type > 0) {
         cm.dispose();
         return;
     }
@@ -84,7 +84,7 @@ function spiegelmannInOfficeCPQ1(mode, type, selection) {
     var carnivalManager = cm.getClient().getChannelServer().getMCManager();
     var party = cm.getPlayer().getParty();
 
-    if(party != null && cm.getPlayer() == party.getLeader()) {
+    if(party != null && cm.getPlayer() == party.getLeader().getPlayer()) {
         if(status == 1) {
             cm.sendSimple("Welcome to Monster Carnival! The following lobbies are available for participation:\r\n" + getFreeLobbySelectionMsg(carnivalManager));    
         }
@@ -97,7 +97,7 @@ function spiegelmannInOfficeCPQ1(mode, type, selection) {
                     cm.dispose();
                 }
                 else if(carnivalManager.getLobby(selectedMap) != null) {
-                    cm.sendYesNo(getInitiatorTeamString(selectedMap) + "\r\nWould you like to challenge this team?");
+                    cm.sendYesNo(getInitiatorTeamString(selectedMap, carnivalManager) + "\r\nWould you like to challenge this team?");
                 } else {
                     cm.sendOk("Looks like something went wrong. Please try again.");
                     cm.dispose();
@@ -109,14 +109,10 @@ function spiegelmannInOfficeCPQ1(mode, type, selection) {
             }
         }
         else if(status == 3) {
-            if(selection == 0) {
-                if(carnivalManager.tryJoinLobby(cm.getPlayer().getParty(), selectedMap)) {
-                    cm.sendOk("Please wait...");
-                } else {
-                    cm.sendOk("Looks like someone is already challenging this party. Please try again.");
-                }
-            } else if(selection == 1) {
-                cm.sendOk("Have a nice day!");
+            if(carnivalManager.tryJoinLobby(cm.getPlayer().getParty(), selectedMap)) {
+                cm.sendOk("Please wait...");
+            } else {
+                cm.sendOk("Looks like someone is already challenging this party. Please try again.");
             }
             cm.dispose();
         }

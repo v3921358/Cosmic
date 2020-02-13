@@ -22,7 +22,7 @@ import net.server.world.MaplePartyCharacter;
 import scripting.npc.NPCScriptManager;
 
 public class MonsterCarnivalManager {
-    public static final int DELAY_START_CPQ_FROM_LOBBY = 10 * 1000;
+    public static final int DELAY_START_CPQ_FROM_LOBBY = 10; //in seconds
     public static final int CPQ1_OFFICE_MAP_ID = 980000000;
     public static final int CPQ2_OFFICE_MAP_ID = 980030000;
     public static final int[] CPQ1_LOBBY_MAP_ID = new int[] {
@@ -112,7 +112,9 @@ public class MonsterCarnivalManager {
 
         lobbyLock.writeLock().lock();
         try {
-            if (!lobbies.containsKey(lobbyMapId) && !sessions.containsKey(sessionMapId)) {
+            if (!lobbies.containsKey(lobbyMapId) && 
+                !sessions.containsKey(sessionMapId) && 
+                !waitingForSession.contains(party)) {
                 MapleMap lobbyMap = channel.getMapFactory().getMap(lobbyMapId);
                 MapleMap returnTo = channel.getMapFactory().getMap(officeMapId);
                 lobbies.put(lobbyMapId, new MonsterCarnivalLobby(party, lobbyMap, returnTo, type));
@@ -130,7 +132,8 @@ public class MonsterCarnivalManager {
         lobbyLock.writeLock().lock();
         try {
             MonsterCarnivalLobby lobby = lobbies.get(mapId);
-            if(lobby != null) {
+            if(lobby != null &&
+                !waitingForSession.contains(party)) {
                 if(lobby.tryAddChallenger(party)) {
                     waitingForSession.add(party);
                     return true;
@@ -148,7 +151,10 @@ public class MonsterCarnivalManager {
         try {
             MonsterCarnivalLobby lobby = lobbies.get(mapId);
             if(lobby != null) {
-                return lobby.ackChallenger(DELAY_START_CPQ_FROM_LOBBY);
+                if(lobby.ackChallenger(DELAY_START_CPQ_FROM_LOBBY)) {
+                    startCarnivalPQ(lobby);
+                    return true;
+                }
             }
         } finally {
             lobbyLock.readLock().unlock();
@@ -188,14 +194,16 @@ public class MonsterCarnivalManager {
         }
     }
 
-    public void startCarnivalPQ(int lobbyMapId, CPQType type) {
-        int carnivalMapId = lobbyMapId + (type == CPQType.CPQ1 ? 1 : 100);
+    public void startCarnivalPQ(int lobbyMapId) {
+        startCarnivalPQ(getLobby(lobbyMapId));
+    }
 
+    public void startCarnivalPQ(MonsterCarnivalLobby lobby) {
+        int carnivalMapId = lobby.getMap().getId() + (lobby.getCPQType() == CPQType.CPQ1 ? 1 : 100);
         TimerManager.getInstance().schedule(new Runnable() {
             @Override
             public void run() {
-                MonsterCarnivalLobby lobby = endLobby(lobbyMapId);
-
+                endLobby(lobby.getMap().getId());
                 lobbyLock.writeLock().lock();
                 sessionLock.writeLock().lock();
                 try {
@@ -210,7 +218,7 @@ public class MonsterCarnivalManager {
                     lobbyLock.writeLock().unlock();
                 }
             }
-        }, DELAY_START_CPQ_FROM_LOBBY);
+        }, DELAY_START_CPQ_FROM_LOBBY * 1000);
     }
 
     public void endCarnivalPQ(int mapId) {

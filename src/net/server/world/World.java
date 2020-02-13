@@ -383,6 +383,25 @@ public class World {
         }
 
         party.partyOp(operation, target);
+        for (MaplePartyCharacter partychar : party.getMembers()) {
+            MapleCharacter chr = getPlayerStorage().getCharacterById(partychar.getId());
+            if (chr != null && operation != PartyOperation.DISBAND) {
+                chr.setParty(party);
+                chr.setMPC(partychar);
+            }
+            chr.getClient().announce(MaplePacketCreator.updateParty(chr.getClient().getChannel(), party, operation, target));
+        }
+
+        switch (operation) {
+            case LEAVE:
+            case EXPEL:
+                MapleCharacter chr = getPlayerStorage().getCharacterById(target.getId());
+                if (chr != null) {
+                    chr.getClient().announce(MaplePacketCreator.updateParty(chr.getClient().getChannel(), party, operation, target));
+                }
+            default:
+                break;
+        }
     }
 
     public int find(String name) {

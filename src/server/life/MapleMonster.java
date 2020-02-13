@@ -491,6 +491,7 @@ public class MapleMonster extends AbstractLoadedMapleLife {
         if (controllers == newController) {
             return;
         }
+
         if (controllers != null) {
             controllers.stopControllingMonster(this);
             controllers.getClient().announce(MaplePacketCreator.stopControllingMonster(getObjectId()));

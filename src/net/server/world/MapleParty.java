@@ -178,13 +178,10 @@ public class MapleParty {
         members.add(member);
         nextEntry++;
         member.getPlayer().setParty(this);
-
-        notify(operation, member);
+        member.getPlayer().setMPC(member);
     }
 
     private void removeMember(PartyOperation operation, MaplePartyCharacter member) {
-        notify(operation, member);
-
         histMembers.remove(member.getId());   
         members.remove(member);
         member.getPlayer().setParty(null);
@@ -192,21 +189,15 @@ public class MapleParty {
     }
 
     private void disband(PartyOperation operation, MaplePartyCharacter member) {
-        notify(operation, member);
-
         for(MaplePartyCharacter mpc : members) {
             mpc.getPlayer().setParty(null);
             mpc.getPlayer().setMPC(null);
         }
-
-        histMembers.clear();
-        members.clear();
     }
 
 
     private void setLeader(PartyOperation operation, MaplePartyCharacter member) {
         this.leaderId = member.getId();
-        notify(operation, member);
     }
 
     private void updateMember(PartyOperation operation, MaplePartyCharacter member) {
@@ -215,10 +206,9 @@ public class MapleParty {
                 members.set(i, member);
             }
         }
-        notify(operation, member);
     }
 
-    private void notify(PartyOperation operation, MaplePartyCharacter target) {
+    public void notify(PartyOperation operation, MaplePartyCharacter target) {
         for(MaplePartyCharacter mpc : members) {
             MapleCharacter chr = mpc.getPlayer();
             chr.getClient().announce(MaplePacketCreator.updateParty(chr.getClient().getChannel(), this, operation, target));

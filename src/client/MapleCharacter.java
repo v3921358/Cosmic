@@ -643,9 +643,11 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
 
     public void initializeMCPlayerComponent(MonsterCarnival mc, Team team) {
         this.mcPlayerComponent = new MonsterCarnivalPlayerComponent(client, mc, team);
+        this.team = (byte)team.value;
     }
 
     public void disposeMCPlayerComponent() {
+        this.team = 0;
         this.mcPlayerComponent.dispose();
         this.mcPlayerComponent = null;
     }

@@ -177,18 +177,19 @@ public class MonsterCarnival {
         boolean p1Exists = false;
         boolean p2Exists = false;
 
+        if(isFinished || map == null) {
+            return false;
+        }
+
         for(MapleCharacter chr : map.getAllPlayers()) {
-            if(p1.getMemberById(chr.getId()) != null) {
+            if(p1 != null && p1.getMemberById(chr.getId()) != null) {
                 p1Exists = true;
-            }else if(p2.getMemberById(chr.getId()) != null) {
+            }else if(p2 != null && p2.getMemberById(chr.getId()) != null) {
                 p2Exists = true;
             }
         }
 
-        if(isFinished) {
-            return false;
-        }
-        else if(!(p1Exists && p2Exists)) {
+        if(!(p1Exists && p2Exists)) {
             earlyFinish();
             return false;
         }
@@ -262,7 +263,7 @@ public class MonsterCarnival {
     }
 
     public void applySkillToEnemiesOf(MCSkill skill, Team team) {
-        MapleParty enemyParty = (team == Team.RED) ? p1 : p2;
+        MapleParty enemyParty = (team == Team.RED) ? p2 : p1;
         MapleDisease disease = skill.getDisease();
 
         if(skill.targetAll()) {
@@ -286,11 +287,11 @@ public class MonsterCarnival {
     public boolean canGuardian(Team team) {
         int teamReactors = 0;
         for (MapleReactor react : map.getAllReactors()) {
-            if (react.getName().substring(0, 1).contentEquals(Integer.toString(team.value))) {
+            if (react.getMCReactorComponent().getTeam() == team) {
                 teamReactors += 1;
             }
         }
-        
+        System.out.println("Reactors: " + teamReactors + " , " + map.getMCMapComponent().getMaxReactors());
         return teamReactors < map.getMCMapComponent().getMaxReactors();
 
     }
@@ -301,20 +302,24 @@ public class MonsterCarnival {
         int reactorId = 9980000 + team.value;
 
         if(skill == null || pt == null) {
+            System.out.println("Invalid Reactor");
             return GuardianSpawnCode.INVALID;
         }
 
         if(!canGuardian(team)) {
+            System.out.println("Cannot reactor");
             return GuardianSpawnCode.CANNOT_GUARDIAN;
         }
 
         if(team == Team.RED && redTeamBuffs.size() >= MAX_TEAM_GUARDIANS || 
             team == Team.BLUE && blueTeamBuffs.size() >= MAX_TEAM_GUARDIANS) {
+            System.out.println("Max count reactor");
             return GuardianSpawnCode.MAX_COUNT_REACHED;
         }
 
         if(team == Team.RED && redTeamBuffs.containsKey(skill.getId()) ||
             team == Team.BLUE && blueTeamBuffs.containsKey(skill.getId())) {
+            System.out.println("Already exists reactor");
             return GuardianSpawnCode.ALREADY_EXISTS;
         }
 
@@ -340,6 +345,7 @@ public class MonsterCarnival {
             e.printStackTrace();
         }
 
+        System.out.println("spawned reactor");
         return GuardianSpawnCode.SUCCESS;
     }
 

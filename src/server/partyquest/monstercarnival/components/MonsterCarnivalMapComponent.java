@@ -154,7 +154,9 @@ public class MonsterCarnivalMapComponent {
 
     // public methods
     public GuardianSpawnPoint getNextGuardianSpawnPoint(Team team) {
+        System.out.println("GSP size: " + guardianSpawns.size());
         for(GuardianSpawnPoint gsp : this.guardianSpawns) {
+            System.out.println("GSP Team: " + gsp.getTeam().value);
             if(gsp.getTeam() == team && !gsp.isTaken()) {
                 return gsp;
             }

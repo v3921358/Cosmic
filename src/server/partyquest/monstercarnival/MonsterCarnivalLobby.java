@@ -15,7 +15,7 @@ import scripting.npc.NPCScriptManager;
 import tools.MaplePacketCreator;
 
 public class MonsterCarnivalLobby {
-    public static final int LOBBY_WAIT_TIMEOUT = 3 * 60 * 1000;
+    public static final int LOBBY_WAIT_TIMEOUT = 3 * 60; //in seconds
     public static final int[] NPC_CHAT_ASSISTANT = new int[] { 2042003, 2042004, 2042008, 2042009 }; // Assistants
     public static final String CHALLENGE_CONVERSATION = "cpq_challenge";
     
@@ -45,6 +45,10 @@ public class MonsterCarnivalLobby {
 
     public MapleParty getChallenger() {
         return challenger;
+    }
+
+    public MapleMap getMap() {
+        return map;
     }
 
     public CPQType getCPQType() {
@@ -110,12 +114,11 @@ public class MonsterCarnivalLobby {
     }
 
     public void prePQDelay(int startDelay) {
-        endLobby();
         map.broadcastMessage(MaplePacketCreator.getClock(startDelay));
     }
 
     public void endLobby() {
-        if(!timer.isDone()) {
+        if(timer != null && !timer.isDone()) {
             timer.cancel(true);
             timer = null;
         }
@@ -148,7 +151,7 @@ public class MonsterCarnivalLobby {
                 kickAll();
                 endLobby();
             }
-        }, LOBBY_WAIT_TIMEOUT);
+        }, LOBBY_WAIT_TIMEOUT * 1000);
     }
 
     private void kickAll() {

@@ -26,11 +26,8 @@ function action(mode, type, selection) {
         return;
     }
 
-    if(mode == 1) {
-        status++;
-    } else {
-        status--;
-    }
+    // Mode is used as a Yes/No selection here
+    status++;
 
     var carnivalManager = cm.getClient().getChannelServer().getMCManager();
 
@@ -38,9 +35,9 @@ function action(mode, type, selection) {
         cm.sendYesNo(getChallengerTeamString(cm.getPlayer(), carnivalManager) + "\r\nWould you like to battle this party at the Monster Carnival?");
     }
     else if(status == 1) {
-        if(selection == 0) {
+        if(mode == 1) {
             carnivalManager.ackJoinLobby(cm.getPlayer().getMapId());
-        } else if (selection == 1) {
+        } else {
             carnivalManager.denyJoinLobby(cm.getPlayer().getMapId());
         }
         cm.dispose();
