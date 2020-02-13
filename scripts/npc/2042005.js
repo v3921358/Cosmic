@@ -29,6 +29,7 @@ var status = 0;
 var CPQ2_MAP = 980030000;
 
 function start() {
+    status = 0;
     action(1, 0, 0);
 }
 

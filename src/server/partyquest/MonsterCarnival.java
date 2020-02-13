@@ -88,6 +88,7 @@ public class MonsterCarnival {
     private List<Point> takenSpawns = new LinkedList<>();
     private ReadWriteLock redCPLock = new ReentrantReadWriteLock();
     private ReadWriteLock blueCPLock = new ReentrantReadWriteLock();
+    private boolean isFinished;
 
     public MonsterCarnival(MapleParty p1, MapleParty p2, MapleMap map, CPQType type) {
         try {
@@ -99,6 +100,7 @@ public class MonsterCarnival {
             this.p2 = p2;
             this.map = map;
             this.startTime = System.currentTimeMillis() + 10 * 60 * 1000;
+            this.isFinished = false;
 
             //Initalize CP
             this.redCP = 0;
@@ -127,20 +129,6 @@ public class MonsterCarnival {
                 mc.changeMap(map, map.getPortal(bluePortal));
                 mc.dropMessage(6, LanguageConstants.getMessage(mc, LanguageConstants.CPQEntry));   
             }
-            
-            // thanks Atoot, Vcoc for noting double CPQ functional being sent to players in CPQ start
-            timer = TimerManager.getInstance().schedule(new Runnable() {
-                @Override
-                public void run() {
-                    timeUp();
-                }
-            }, map.getMCMapComponent().getTimeDefault() * 1000); // thanks Atoot for noticing an irregular "event extended" issue here
-            respawnTask = TimerManager.getInstance().register(new Runnable() {
-                @Override
-                public void run() {
-                    respawn();
-                }
-            }, RESPAWN_INTERVAL);
 
             //Start
             startMonsterCarnival();
@@ -151,6 +139,21 @@ public class MonsterCarnival {
     }
 
     private void startMonsterCarnival() {
+        // thanks Atoot, Vcoc for noting double CPQ functional being sent to players in CPQ start
+        timer = TimerManager.getInstance().schedule(new Runnable() {
+            @Override
+            public void run() {
+                timeUp();
+            }
+        }, map.getMCMapComponent().getTimeDefault() * 1000); // thanks Atoot for noticing an irregular "event extended" issue here
+        
+        respawnTask = TimerManager.getInstance().register(new Runnable() {
+            @Override
+            public void run() {
+                respawn();
+            }
+        }, RESPAWN_INTERVAL);
+
         for(MapleCharacter chr : map.getAllPlayers()) {
             chr.getClient().announce(MaplePacketCreator.getClock(getTimeLeftSeconds()));
             chr.getClient().announce(MaplePacketCreator.startMonsterCarnival(chr));
@@ -166,6 +169,11 @@ public class MonsterCarnival {
     }
 
     public void playerDisconnected(int charid) {
+        healthCheck();
+        map.broadcastMessage(MaplePacketCreator.serverNotice(1, "Player Disconnected."));
+    }
+
+    public boolean healthCheck() {
         boolean p1Exists = false;
         boolean p2Exists = false;
 
@@ -177,11 +185,15 @@ public class MonsterCarnival {
             }
         }
 
-        map.broadcastMessage(MaplePacketCreator.serverNotice(1, "Player Disconnected."));
-
-        if(!(p1Exists && p2Exists)) {
-            earlyFinish();
+        if(isFinished) {
+            return false;
         }
+        else if(!(p1Exists && p2Exists)) {
+            earlyFinish();
+            return false;
+        }
+
+        return true;
     }
 
     private void earlyFinish() {
@@ -398,6 +410,7 @@ public class MonsterCarnival {
         p2 = null;
         map.dispose();
         map = null;
+        isFinished = true;
 
         if (this.respawnTask != null) {
             this.respawnTask.cancel(true);

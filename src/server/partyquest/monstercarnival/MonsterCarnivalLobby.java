@@ -6,10 +6,13 @@ import client.MapleClient;
 import client.MapleCharacter;
 import server.TimerManager;
 import server.partyquest.MonsterCarnival;
+import server.partyquest.MonsterCarnival.CPQType;
+import server.partyquest.monstercarnival.MonsterCarnivalManager;
 import server.maps.MapleMap;
 import net.server.world.MapleParty;
 import net.server.world.MaplePartyCharacter;
 import scripting.npc.NPCScriptManager;
+import tools.MaplePacketCreator;
 
 public class MonsterCarnivalLobby {
     public static final int LOBBY_WAIT_TIMEOUT = 3 * 60 * 1000;
@@ -21,13 +24,18 @@ public class MonsterCarnivalLobby {
     private MapleParty challenger;
     private MapleMap map;
     private MapleMap returnTo;
+    private CPQType type;
     private boolean isWaiting;
 
-    public MonsterCarnivalLobby(MapleParty init, MapleMap map, MapleMap returnTo) {
+    public MonsterCarnivalLobby(MapleParty init, MapleMap map, MapleMap returnTo, CPQType type) {
         this.initiator = init;
         this.map = map;
         this.returnTo = returnTo;
         this.isWaiting = true;
+        this.type = type;
+
+        warpToLobby(initiator);
+        map.broadcastMessage(MaplePacketCreator.getClock(LOBBY_WAIT_TIMEOUT));
         timer = startLobbyCountdown();
     }
 
@@ -39,12 +47,27 @@ public class MonsterCarnivalLobby {
         return challenger;
     }
 
+    public CPQType getCPQType() {
+        return type;
+    }
+
     public boolean getIsWaiting() {
         return isWaiting;
     }
 
+    public void warpToLobby(MapleParty p) {
+        MapleCharacter leader = p.getLeader().getPlayer();
+
+        for(MaplePartyCharacter mpc : p.getMembers()) {
+            MapleCharacter mc = mpc.getPlayer();
+            if(mc.getMap() == leader.getMap()) {
+                mc.changeMap(map);
+            }
+        }
+    }
+
     public boolean tryAddChallenger(MapleParty party) {
-        if(challenger != null) {
+        if(challenger != null || !isWaiting) {
             return false;
         }
         
@@ -58,23 +81,55 @@ public class MonsterCarnivalLobby {
         return true;
     }
 
-    public void resetChallenger() {
+    public boolean ackChallenger(int startDelay) {
+        if(challenger != null && challenger.getLeader() != null && isWaiting) {
+            warpToLobby(challenger);
+            prePQDelay(startDelay);
+            return true;
+        }
+        return false;
+    }
+
+    public void denyChallenger() {
+        NPCScriptManager.getInstance().start(
+            challenger.getLeader().getPlayer().getClient(), 
+            getAssistantInMap(), 
+            "cpq_challenge_deny", 
+            null);
+
         challenger = null;
     }
 
     public boolean healthCheck() {
-        if(initiator.getLeader() == null || initiator.getLeader().getPlayer().getMap() != map) {
+        if(initiator.getLeader() == null || initiator.getLeader().getPlayer().getMap() != map || !isWaiting) {
+            isWaiting = false;
+            kickAll();
             return false;
         }
         return true;
     }
 
+    public void prePQDelay(int startDelay) {
+        endLobby();
+        map.broadcastMessage(MaplePacketCreator.getClock(startDelay));
+    }
+
     public void endLobby() {
-        isWaiting = false;
         if(!timer.isDone()) {
             timer.cancel(true);
             timer = null;
         }
+        isWaiting = false;
+    }
+
+    public boolean checkReady() {
+        // Check both parties present and leaders in Lobby map
+        if(initiator != null && challenger != null) {
+            if(initiator.getLeader() != null && challenger.getLeader() != null) {
+                return initiator.getLeader().getPlayer().getMap() == map && challenger.getLeader().getPlayer().getMap() == map;
+            }
+        }
+        return false;
     }
 
     private int getAssistantInMap() {
