@@ -88,7 +88,10 @@ public class MonsterCarnival {
     private List<Point> takenSpawns = new LinkedList<>();
     private ReadWriteLock redCPLock = new ReentrantReadWriteLock();
     private ReadWriteLock blueCPLock = new ReentrantReadWriteLock();
+<<<<<<< HEAD
     private boolean isFinished;
+=======
+>>>>>>> a9a4c54a4161c6b025865aabbf240f2b34b82d1c
 
     public MonsterCarnival(MapleParty p1, MapleParty p2, MapleMap map, CPQType type) {
         try {
@@ -100,7 +103,10 @@ public class MonsterCarnival {
             this.p2 = p2;
             this.map = map;
             this.startTime = System.currentTimeMillis() + 10 * 60 * 1000;
+<<<<<<< HEAD
             this.isFinished = false;
+=======
+>>>>>>> a9a4c54a4161c6b025865aabbf240f2b34b82d1c
 
             //Initalize CP
             this.redCP = 0;
@@ -129,16 +135,38 @@ public class MonsterCarnival {
                 mc.changeMap(map, map.getPortal(bluePortal));
                 mc.dropMessage(6, LanguageConstants.getMessage(mc, LanguageConstants.CPQEntry));   
             }
+<<<<<<< HEAD
 
             //Start
             startMonsterCarnival();
             
+=======
+            
+            // thanks Atoot, Vcoc for noting double CPQ functional being sent to players in CPQ start
+            timer = TimerManager.getInstance().schedule(new Runnable() {
+                @Override
+                public void run() {
+                    timeUp();
+                }
+            }, map.getMCMapComponent().getTimeDefault() * 1000); // thanks Atoot for noticing an irregular "event extended" issue here
+            respawnTask = TimerManager.getInstance().register(new Runnable() {
+                @Override
+                public void run() {
+                    respawn();
+                }
+            }, RESPAWN_INTERVAL);
+
+            //Start
+            startMonsterCarnival();
+            
+>>>>>>> a9a4c54a4161c6b025865aabbf240f2b34b82d1c
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private void startMonsterCarnival() {
+<<<<<<< HEAD
         // thanks Atoot, Vcoc for noting double CPQ functional being sent to players in CPQ start
         timer = TimerManager.getInstance().schedule(new Runnable() {
             @Override
@@ -154,6 +182,8 @@ public class MonsterCarnival {
             }
         }, RESPAWN_INTERVAL);
 
+=======
+>>>>>>> a9a4c54a4161c6b025865aabbf240f2b34b82d1c
         for(MapleCharacter chr : map.getAllPlayers()) {
             chr.getClient().announce(MaplePacketCreator.getClock(getTimeLeftSeconds()));
             chr.getClient().announce(MaplePacketCreator.startMonsterCarnival(chr));
@@ -169,11 +199,14 @@ public class MonsterCarnival {
     }
 
     public void playerDisconnected(int charid) {
+<<<<<<< HEAD
         healthCheck();
         map.broadcastMessage(MaplePacketCreator.serverNotice(1, "Player Disconnected."));
     }
 
     public boolean healthCheck() {
+=======
+>>>>>>> a9a4c54a4161c6b025865aabbf240f2b34b82d1c
         boolean p1Exists = false;
         boolean p2Exists = false;
 
@@ -185,6 +218,7 @@ public class MonsterCarnival {
             }
         }
 
+<<<<<<< HEAD
         if(isFinished) {
             return false;
         }
@@ -194,6 +228,13 @@ public class MonsterCarnival {
         }
 
         return true;
+=======
+        map.broadcastMessage(MaplePacketCreator.serverNotice(1, "Player Disconnected."));
+
+        if(!(p1Exists && p2Exists)) {
+            earlyFinish();
+        }
+>>>>>>> a9a4c54a4161c6b025865aabbf240f2b34b82d1c
     }
 
     private void earlyFinish() {
@@ -289,12 +330,66 @@ public class MonsterCarnival {
             if (react.getName().substring(0, 1).contentEquals(Integer.toString(team.value))) {
                 teamReactors += 1;
             }
+<<<<<<< HEAD
         }
         
         return teamReactors < map.getMCMapComponent().getMaxReactors();
 
     }
 
+    public GuardianSpawnCode trySpawnGuardian(MCSkill skill, Team team) {
+        MonsterCarnivalMapComponent mcMap = this.map.getMCMapComponent();
+        GuardianSpawnPoint pt = mcMap.getNextGuardianSpawnPoint(team);
+        int reactorId = 9980000 + team.value;
+
+        if(skill == null || pt == null) {
+            return GuardianSpawnCode.INVALID;
+=======
+>>>>>>> a9a4c54a4161c6b025865aabbf240f2b34b82d1c
+        }
+        
+        return teamReactors < map.getMCMapComponent().getMaxReactors();
+
+    }
+
+<<<<<<< HEAD
+        if(!canGuardian(team)) {
+            return GuardianSpawnCode.CANNOT_GUARDIAN;
+        }
+
+        if(team == Team.RED && redTeamBuffs.size() >= MAX_TEAM_GUARDIANS || 
+            team == Team.BLUE && blueTeamBuffs.size() >= MAX_TEAM_GUARDIANS) {
+            return GuardianSpawnCode.MAX_COUNT_REACHED;
+        }
+
+        if(team == Team.RED && redTeamBuffs.containsKey(skill.getId()) ||
+            team == Team.BLUE && blueTeamBuffs.containsKey(skill.getId())) {
+            return GuardianSpawnCode.ALREADY_EXISTS;
+        }
+
+        if (team == Team.RED) {
+            redTeamBuffs.put(skill.getId(), skill);
+        } else if (team == Team.BLUE) {
+            blueTeamBuffs.put(skill.getId(), skill);
+        }
+
+        try {
+            MapleReactor reactor = new MapleReactor(MapleReactorFactory.getReactorS(reactorId), reactorId);
+            reactor.initializeMCReactorComponent(this);
+            pt.setTaken(true);
+            reactor.setPosition(pt.getPosition());
+            reactor.resetReactorActions();
+            reactor.getMCReactorComponent().setGuardian(pt);
+            reactor.getMCReactorComponent().setTeam(team);
+            reactor.getMCReactorComponent().setSkill(skill);
+            map.spawnReactor(reactor);
+            buffMonsters(team, skill);
+            reactor.hitReactor(map.getAllPlayers().get(0).getClient());
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
+=======
     public GuardianSpawnCode trySpawnGuardian(MCSkill skill, Team team) {
         MonsterCarnivalMapComponent mcMap = this.map.getMCMapComponent();
         GuardianSpawnPoint pt = mcMap.getNextGuardianSpawnPoint(team);
@@ -340,6 +435,7 @@ public class MonsterCarnival {
             e.printStackTrace();
         }
 
+>>>>>>> a9a4c54a4161c6b025865aabbf240f2b34b82d1c
         return GuardianSpawnCode.SUCCESS;
     }
 
@@ -372,12 +468,21 @@ public class MonsterCarnival {
                     mons.dispelSkill(skill.getSkill());
                 }
             }
+<<<<<<< HEAD
         }
         if (team == Team.RED) {
             redTeamBuffs.remove(skill);
         } else {
             blueTeamBuffs.remove(skill);
         }
+=======
+        }
+        if (team == Team.RED) {
+            redTeamBuffs.remove(skill);
+        } else {
+            blueTeamBuffs.remove(skill);
+        }
+>>>>>>> a9a4c54a4161c6b025865aabbf240f2b34b82d1c
     }
 
     protected void dispose() {
@@ -410,7 +515,10 @@ public class MonsterCarnival {
         p2 = null;
         map.dispose();
         map = null;
+<<<<<<< HEAD
         isFinished = true;
+=======
+>>>>>>> a9a4c54a4161c6b025865aabbf240f2b34b82d1c
 
         if (this.respawnTask != null) {
             this.respawnTask.cancel(true);
