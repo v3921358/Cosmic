@@ -57,7 +57,7 @@ function end(mode, type, selection) {
 			qm.gainItem(1142132, true);
 			qm.changeJobById(2112);
 			
-			
+			// Teaches High Mastery, Over Swing, MW, Freeze Standing
 			qm.teachSkill(21121000, 0, 10, -1);
 			qm.teachSkill(21120001, 0, 10, -1);
 			qm.teachSkill(21121003, 0, 10, -1);

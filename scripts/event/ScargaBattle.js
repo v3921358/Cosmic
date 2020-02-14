@@ -4,7 +4,7 @@
 */
 
 var isPq = true;
-var minPlayers = 6, maxPlayers = 30;
+var minPlayers = 2, maxPlayers = 30;
 var minLevel = 100, maxLevel = 255;
 var entryMap = 551030200;
 var exitMap = 551030100;
@@ -14,7 +14,7 @@ var clearMap = 551030100;
 var minMapId = 551030200;
 var maxMapId = 551030200;
 
-var eventTime = 60;     // 60 minutes for boss stg
+var eventTime = 120;     // 60 minutes for boss stg
 
 var lobbyRange = [0, 0];
 

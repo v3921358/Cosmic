@@ -27,6 +27,7 @@ public class FilePrinter {
             REACTOR = "reactors/",
             QUEST = "quests/",
             ITEM = "items/",
+            SKILL = "skill/",
             MOB_MOVEMENT = "mobmovement.txt",
             MAP_SCRIPT = "mapscript/",
             DIRECTION = "directions/",

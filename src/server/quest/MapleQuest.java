@@ -244,7 +244,6 @@ public class MapleQuest {
                 if (!a.check(c, null)) { // would null be good ?
                         return;
                 }
-                a.run(c, null);
             }
             forceStart(c, npc);
         }
@@ -287,7 +286,7 @@ public class MapleQuest {
     public boolean forceStart(MapleCharacter c, int npc) {
         MapleQuestStatus newStatus = new MapleQuestStatus(this, MapleQuestStatus.Status.STARTED, npc);
         newStatus.setForfeited(c.getQuest(this).getForfeited());
-
+        
         if (timeLimit > 0) {
             newStatus.setExpirationTime(System.currentTimeMillis() + (timeLimit * 1000));
             c.questTimeLimit(this, timeLimit);
@@ -296,8 +295,11 @@ public class MapleQuest {
             newStatus.setExpirationTime(System.currentTimeMillis() + timeLimit2);
             c.questTimeLimit2(this, newStatus.getExpirationTime());
         }
-        
+        c.addQuest(newStatus);
+        for (MapleQuestAction a : startActs.values())
+            a.run(c, null);
         c.updateQuest(newStatus);
+        
         return true;
     }
 
@@ -508,6 +510,9 @@ public class MapleQuest {
 			case SKILL:
 				ret = new SkillAction(this, data);
 				break;
+                        case INFO:
+                                ret = new InfoAction(this, data);
+                                break;
 			default:
 				//FilePrinter.printError(FilePrinter.EXCEPTION_CAUGHT, "Unhandled Action Type: " + type.toString() + " QuestID: " + this.getId());
 				break;

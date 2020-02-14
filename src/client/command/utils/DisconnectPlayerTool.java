@@ -4,7 +4,7 @@ import client.MapleCharacter;
 
 import net.server.channel.Channel;
 import net.server.world.World;
-
+import server.maps.MapleMap;
 import tools.FilePrinter;
 
 public class DisconnectPlayerTool {
@@ -24,7 +24,7 @@ public class DisconnectPlayerTool {
 			}
 		}
 
-		return disconnectPlayer(chr, authority);
+		return disconnectPlayer(chr, authority, false);
 	}
 
 	public static boolean disconnectPlayerById(int accId, World world, int authority) {
@@ -42,10 +42,22 @@ public class DisconnectPlayerTool {
 			}
 		}
 
-		return disconnectPlayer(chr, authority);
+		return disconnectPlayer(chr, authority, false);
 	}
 
-	private static boolean disconnectPlayer(MapleCharacter chr, int authority) {
+	public static boolean forceDisconnectPlayerOnMapByName(MapleMap map, String chrName, int authority) {
+		// Find character in map
+		MapleCharacter chr = map.getCharacterByName(chrName);
+		return disconnectPlayer(chr, authority, true);
+	}
+
+	public static boolean forceDisconnectPlayerOnMapById(MapleMap map, int accId, int authority) {
+		// Find character in map
+		MapleCharacter chr = map.getCharacterById(accId);
+		return disconnectPlayer(chr, authority, true);
+	}
+
+	private static boolean disconnectPlayer(MapleCharacter chr, int authority, boolean shutdown) {
 		if(chr == null) {
 			return false;
 		}
@@ -59,7 +71,7 @@ public class DisconnectPlayerTool {
 			if(chr.getMap() == null) {
 				FilePrinter.printError(FilePrinter.ACCOUNT_STUCK, String.format("Character {%s} is not in a valid map.", chr.getName()));
 			} 
-			chr.getClient().disconnect(true, false);
+			chr.getClient().disconnect(shutdown, false);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

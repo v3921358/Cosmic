@@ -1,6 +1,6 @@
 /*
     This file is part of the HeavenMS MapleStory Server
-    Copyleft (L) 2016 - 2018 RonanLana
+    Copyleft (L) 2016 - 2019 RonanLana
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -17,6 +17,10 @@
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+/*  Maker Skill
+	A Surprise Outcome
+	3rd skill level
+ */
 
 var status = -1;
 
@@ -35,14 +39,22 @@ function end(mode, type, selection) {
             status--;
         
         if (status == 0) {
-            qm.sendNext("Aran, you came back home safe! So, how fared the mission in Mu Lung? #rGentleman#k ambushed and stole the seal rock again? That's unfortunate. At least you are unharmed, I'm glad.");
+            qm.sendNext("Bothering me again? What's it?");
         } else if (status == 1) {
-            qm.sendNext("I've researched some skill books, trying to trace any lost skills of yours. Good news I found one of them: it's the #rFinal Charge#k! With it you will be able to draw closer opposing monsters at each swipe. It's a fine improvement for your arsenal, isn't it?");
+            if(qm.haveItem(4031980, 1)) {
+                qm.sendNext("You crafted a #b#t4031980##k?! How comes, how did you do it?? ... Well, that can't be helped, I guess. The student surpassed the teacher! Youth sure do wonders to one's perception capabilities.\r\n\r\nYou are now ready to take the last step on mastering the Maker skill, contemplate it at it's finest form!");
+            } else {
+                qm.sendNext("... Please step aside, I can't finish this work if I'm being distracted at every moment.");
+                qm.dispose();
+                return;
+            }
         } else if (status == 2) {
-            qm.gainExp(20000);
-            //qm.teachSkill(21100002, 0, 30, -1); // final charge
-            
             qm.forceCompleteQuest();
+            
+            qm.gainItem(4031980, -1);
+            var skillid = Math.floor(qm.getPlayer().getJob().getId() / 1000) * 10000000 + 1007;
+            qm.teachSkill(skillid, 3, 3, -1);
+            qm.gainExp(300000);
             
             qm.dispose();
         }

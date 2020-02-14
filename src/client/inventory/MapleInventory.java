@@ -45,12 +45,12 @@ import tools.FilePrinter;
  * @author Matze, Ronan
  */
 public class MapleInventory implements Iterable<Item> {
-    private MapleCharacter owner;
-    private Map<Short, Item> inventory = new LinkedHashMap<>();
-    private byte slotLimit;
-    private MapleInventoryType type;
-    private boolean checked = false;
-    private Lock lock = new ReentrantLock();
+    protected MapleCharacter owner;
+    protected Map<Short, Item> inventory = new LinkedHashMap<>();
+    protected byte slotLimit;
+    protected MapleInventoryType type;
+    protected boolean checked = false;
+    protected Lock lock = new ReentrantLock();
     
     public MapleInventory(MapleCharacter mc, MapleInventoryType type, byte slotLimit) {
         this.owner = mc;
@@ -399,10 +399,18 @@ public class MapleInventory implements Iterable<Item> {
         List<Integer> zeroedList = new ArrayList<>(5);
         for(byte i = 0; i < 5; i++) zeroedList.add(0);
         
-        return checkSpots(chr, items, zeroedList);
+        return checkSpots(chr, items, zeroedList, false);
     }
     
-    public static boolean checkSpots(MapleCharacter chr, List<Pair<Item, MapleInventoryType>> items, List<Integer> typesSlotsUsed) {
+    public static boolean checkSpots(MapleCharacter chr, List<Pair<Item, MapleInventoryType>> items, boolean useProofInv) {
+        int invTypesSize = MapleInventoryType.values().length;
+        List<Integer> zeroedList = new ArrayList<>(invTypesSize);
+        for(byte i = 0; i < invTypesSize; i++) zeroedList.add(0);
+        
+        return checkSpots(chr, items, zeroedList, useProofInv);
+    }
+    
+    public static boolean checkSpots(MapleCharacter chr, List<Pair<Item, MapleInventoryType>> items, List<Integer> typesSlotsUsed, boolean useProofInv) {
         // assumption: no "UNDEFINED" or "EQUIPPED" items shall be tested here, all counts are >= 0.
         
         Map<Integer, Short> rcvItems = new LinkedHashMap<>();
@@ -540,5 +548,17 @@ public class MapleInventory implements Iterable<Item> {
         } finally {
             lock.unlock();
         }
+    }
+    
+    public void lockInventory() {
+        lock.lock();
+    }
+    
+    public void unlockInventory() {
+        lock.unlock();
+    }
+        
+    public void dispose() {
+        owner = null;
     }
 }

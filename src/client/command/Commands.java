@@ -90,6 +90,7 @@ import client.MapleBuffStat;
 import client.MapleCharacter;
 import client.MapleClient;
 import client.MapleJob;
+import client.MapleQuestStatus;
 import client.MapleStat;
 import client.Skill;
 import client.SkillFactory;
@@ -100,10 +101,12 @@ import client.inventory.MapleInventoryType;
 import client.inventory.MaplePet;
 import client.command.utils.PlayerRanking;
 import client.command.utils.DisconnectPlayerTool;
+import client.command.utils.PerformanceStatTool;
 import constants.GameConstants;
 import constants.ItemConstants;
 import constants.ServerConstants;
 import java.util.ArrayList;
+import java.util.Map;
 import server.life.SpawnPoint;
 import server.maps.FieldLimit;
 
@@ -891,8 +894,8 @@ public class Commands {
 						break;
 					}
 
-					boolean res = DisconnectPlayerTool.disconnectPlayerByName(sub[1], c.getWorldServer(), player.gmLevel());
-					if(res) {
+					if(DisconnectPlayerTool.disconnectPlayerByName(sub[1], c.getWorldServer(), player.gmLevel()) ||
+						DisconnectPlayerTool.forceDisconnectPlayerOnMapByName(player.getMap(), sub[1], player.gmLevel())) {
 						c.announce(MaplePacketCreator.serverNotice(6, "Player has been disconnected successfully"));
 					}
 					else {
@@ -2379,6 +2382,11 @@ public class Commands {
                 MapleMonster monster;
         
                 switch(sub[0]) {
+                case "performance":
+                	PerformanceStatTool.PrintTimerManagerTasksToPlayer(player);
+                	PerformanceStatTool.PrintEventInstanceTasksToPlayer(player);
+                	break;
+
                 case "debugmonster":
 			List<MapleMapObject> monsters = player.getMap().getMapObjectsInRange(player.getPosition(), Double.POSITIVE_INFINITY, Arrays.asList(MapleMapObjectType.MONSTER));
 			for (MapleMapObject monstermo : monsters) {
@@ -2471,6 +2479,36 @@ public class Commands {
 			TimerManager tMan = TimerManager.getInstance();
 			player.dropMessage(6, "Total Task: " + tMan.getTaskCount() + " Current Task: " + tMan.getQueuedTasks() + " Active Task: " + tMan.getActiveCount() + " Completed Task: " + tMan.getCompletedTaskCount());
 			break;
+                
+                case "debugquest":
+                    if (sub.length >= 2){
+                        MapleQuestStatus qs;
+                        try{
+                            qs = c.getPlayer().getQuest(MapleQuest.getInstance(Integer.parseInt(sub[1])));
+                            StringBuilder msg = new StringBuilder();
+                            msg.append(qs.getQuest().getName()).append(": ").append(qs.getStatus().toString()).append("\n");
+                            if (qs.getStatus() == MapleQuestStatus.Status.STARTED){
+                                Map<Integer, String> prog = qs.getProgress();
+                                if (!prog.isEmpty()){
+                                    msg.append("Progress: \n");
+                                    for (Map.Entry<Integer, String> p : prog.entrySet()){
+                                        msg.append(p.getKey()).append(": ").append(p.getValue()).append("\n");
+                                    }
+                                }
+                            }
+                            c.getPlayer().dropMessage(6, msg.toString());
+                        }
+                        catch (NumberFormatException nfe){
+                            player.yellowMessage("Bad QuestID. Syntax: debugquest [QuestID]");
+                            return false;
+                        }
+                        catch (Exception e){
+                            player.yellowMessage("Error occurred while processing data. See logs for details.");
+                            e.printStackTrace();
+                            return false;
+                        }
+                    }
+                    break;
                     
                 default:
                         return false;

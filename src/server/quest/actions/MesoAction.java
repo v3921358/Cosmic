@@ -45,6 +45,17 @@ public class MesoAction extends MapleQuestAction {
 	public void processData(MapleData data) {
 		mesos = MapleDataTool.getInt(data);
 	}
+        
+        @Override
+        public boolean check(MapleCharacter chr, Integer ExtSelection){
+            if (mesos > 0)
+                return true;
+            if(chr.getMeso() < -mesos){
+                chr.dropMessage(1, "You don't have enough mesos (Need: " + -mesos + ").");
+                return false;
+            }
+            return true;
+        }
 	
 	@Override
 	public void run(MapleCharacter chr, Integer extSelection) {

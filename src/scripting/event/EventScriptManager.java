@@ -92,4 +92,32 @@ public class EventScriptManager extends AbstractScriptManager {
         }
         return entry.em;
     }
+
+    public int countEvents() {
+        return events.size();
+    }
+
+    public int countEventReadyInstances() {
+        int total = 0;
+        for (EventEntry entry : events.values()) {
+            total += entry.em.getReadyInstances().size();
+        }
+        return total;
+    }
+
+    public int countEventActiveInstances() {
+        int total = 0;
+        for (EventEntry entry : events.values()) {
+            total += entry.em.getInstances().size();
+        }
+        return total;
+    }
+
+    public int countEventWorkers() {
+        int total = 0;
+        for (EventEntry entry : events.values()) {
+            total += entry.em.getWorkerCount();
+        }
+        return total;   
+    }
 }

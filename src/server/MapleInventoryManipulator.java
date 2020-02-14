@@ -319,6 +319,8 @@ public class MapleInventoryManipulator {
         Item item = c.getPlayer().getInventory(type).getItem(slot);
         boolean allowZero = consume && ItemConstants.isRechargable(item.getItemId());
         c.getPlayer().getInventory(type).removeItem(slot, quantity, allowZero);
+        if (type == MapleInventoryType.CANHOLD)
+            return;
         if (item.getQuantity() == 0 && !allowZero) {
             c.announce(MaplePacketCreator.modifyInventory(fromDrop, Collections.singletonList(new ModifyInventory(3, item))));
         } else {

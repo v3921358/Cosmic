@@ -75,12 +75,13 @@ public class QuestionStep extends EventStep {
 
 	private void getProblems(int numQuestions) {
 		OkHttpClient httpClient = new OkHttpClient();
+		Response response = null;
 		Request request = new Request.Builder()
             .url(String.format(OPEN_TRIVIA_URL, numQuestions))
             .build();
 
         try {
-        	Response response = httpClient.newCall(request).execute();
+        	response = httpClient.newCall(request).execute();
         	JSONObject jsonObj = new JSONObject(response.body().string());
         	JSONArray jsonArr = jsonObj.getJSONArray("results");
         	for(int i = 0; i < jsonArr.length(); i++) {
@@ -88,6 +89,11 @@ public class QuestionStep extends EventStep {
         	}
         } catch(IOException e) {
         	e.printStackTrace();
+        } finally {
+        	if(response != null) {
+        		response.close();
+        	}
+        	httpClient.dispatcher().executorService().shutdown();
         }
 	}
 

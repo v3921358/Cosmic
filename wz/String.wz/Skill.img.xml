@@ -3158,36 +3158,36 @@
 	<imgdir name="1311006">
 		<string name="name" value="Dragon Roar"/>
 		<string name="desc" value="[Master Level : 30]\n Attacks up to 15 monsters at once by temporarily stunning them.  It works only when more than 50% of HP is left.\nRequired Skill : #cAt least Level 3 on Sacrifice#"/>
-		<string name="h1" value="Use 16 MP, 59% HP, Damage 96%, Attack Range 110%, Stun for 4 Seconds"/>
-		<string name="h2" value="Use 16 MP, 58% HP, Damage 102%, Attack Range 120%, Stun for 4 Seconds"/>
-		<string name="h3" value="Use 16 MP, 57% HP, Damage 108%, Attack Range 130%, Stun for 4 Seconds"/>
-		<string name="h4" value="Use 16 MP, 56% HP, Damage 114%, Attack Range 140%, Stun for 4 Seconds"/>
-		<string name="h5" value="Use 16 MP, 55% HP, Damage 120%, Attack Range 150%, Stun for 4 Seconds"/>
-		<string name="h6" value="Use 16 MP, 54% HP, Damage 126%, Attack Range 160%, Stun for 4 Seconds"/>
-		<string name="h7" value="Use 16 MP, 53% HP, Damage 132%, Attack Range 170%, Stun for 4 Seconds"/>
-		<string name="h8" value="Use 16 MP, 52% HP, Damage 138%, Attack Range 180%, Stun for 4 Seconds"/>
-		<string name="h9" value="Use 16 MP, 51% HP, Damage 144%, Attack Range 190%, Stun for 4 Seconds"/>
-		<string name="h10" value="Use 24 MP, 50% HP, Damage 150%, Attack Range 200%, Stun for 3 Seconds"/>
-		<string name="h11" value="Use 24 MP, 49% HP, Damage 155%, Attack Range 210%, Stun for 3 Seconds"/>
-		<string name="h12" value="Use 24 MP, 48% HP, Damage 160%, Attack Range 220%, Stun for 3 Seconds"/>
-		<string name="h13" value="Use 24 MP, 47% HP, Damage 165%, Attack Range 230%, Stun for 3 Seconds"/>
-		<string name="h14" value="Use 24 MP, 46% HP, Damage 170%, Attack Range 240%, Stun for 3 Seconds"/>
-		<string name="h15" value="Use 24 MP, 45% HP, Damage 175%, Attack Range 250%, Stun for 3 Seconds"/>
-		<string name="h16" value="Use 24 MP, 44% HP, Damage 180%, Attack Range 260%, Stun for 3 Seconds"/>
-		<string name="h17" value="Use 24 MP, 43% HP, Damage 185%, Attack Range 270%, Stun for 3 Seconds"/>
-		<string name="h18" value="Use 24 MP, 42% HP, Damage 190%, Attack Range 190%, Stun for 3 Seconds"/>
-		<string name="h19" value="Use 24 MP, 41% HP, Damage 195%, Attack Range 290%, Stun for 3 Seconds"/>
-		<string name="h20" value="Use 24 MP, 40% HP, Damage 200%, Attack Range 300%, Stun for 3 Seconds"/>
-		<string name="h21" value="Use 30 MP, 39% HP, Damage 204%, Attack Range 310%, Stun for 2 Seconds"/>
-		<string name="h22" value="Use 30 MP, 38% HP, Damage 208%, Attack Range 320%, Stun for 2 Seconds"/>
-		<string name="h23" value="Use 30 MP, 37% HP, Damage 212%, Attack Range 330%, Stun for 2 Seconds"/>
-		<string name="h24" value="Use 30 MP, 36% HP, Damage 216%, Attack Range 340%, Stun for 2 Seconds"/>
-		<string name="h25" value="Use 30 MP, 35% HP, Damage 220%, Attack Range 350%, Stun for 2 Seconds"/>
-		<string name="h26" value="Use 30 MP, 34% HP, Damage 224%, Attack Range 360%, Stun for 2 Seconds"/>
-		<string name="h27" value="Use 30 MP, 33% HP, Damage 228%, Attack Range 370%, Stun for 2 Seconds"/>
-		<string name="h28" value="Use 30 MP, 32% HP, Damage 232%, Attack Range 380%, Stun for 2 Seconds"/>
-		<string name="h29" value="Use 30 MP, 31% HP, Damage 236%, Attack Range 390%, Stun for 2 Seconds"/>
-		<string name="h30" value="Use 30 MP, 30% HP, Damage 240%, Attack Range 400%, Stun for 2 Seconds"/>
+		<string name="h1" value="Use 16 MP, 59% HP, Damage 710%, Attack Range 110%, Stun for 4 Seconds"/>
+		<string name="h2" value="Use 16 MP, 58% HP, Damage 720%, Attack Range 120%, Stun for 4 Seconds"/>
+		<string name="h3" value="Use 16 MP, 57% HP, Damage 730%, Attack Range 130%, Stun for 4 Seconds"/>
+		<string name="h4" value="Use 16 MP, 56% HP, Damage 740%, Attack Range 140%, Stun for 4 Seconds"/>
+		<string name="h5" value="Use 16 MP, 55% HP, Damage 750%, Attack Range 150%, Stun for 4 Seconds"/>
+		<string name="h6" value="Use 16 MP, 54% HP, Damage 760%, Attack Range 160%, Stun for 4 Seconds"/>
+		<string name="h7" value="Use 16 MP, 53% HP, Damage 770%, Attack Range 170%, Stun for 4 Seconds"/>
+		<string name="h8" value="Use 16 MP, 52% HP, Damage 780%, Attack Range 180%, Stun for 4 Seconds"/>
+		<string name="h9" value="Use 16 MP, 51% HP, Damage 790%, Attack Range 190%, Stun for 4 Seconds"/>
+		<string name="h10" value="Use 24 MP, 50% HP, Damage 800%, Attack Range 200%, Stun for 3 Seconds"/>
+		<string name="h11" value="Use 24 MP, 49% HP, Damage 810%, Attack Range 210%, Stun for 3 Seconds"/>
+		<string name="h12" value="Use 24 MP, 48% HP, Damage 820%, Attack Range 220%, Stun for 3 Seconds"/>
+		<string name="h13" value="Use 24 MP, 47% HP, Damage 830%, Attack Range 230%, Stun for 3 Seconds"/>
+		<string name="h14" value="Use 24 MP, 46% HP, Damage 840%, Attack Range 240%, Stun for 3 Seconds"/>
+		<string name="h15" value="Use 24 MP, 45% HP, Damage 850%, Attack Range 250%, Stun for 3 Seconds"/>
+		<string name="h16" value="Use 24 MP, 44% HP, Damage 860%, Attack Range 260%, Stun for 3 Seconds"/>
+		<string name="h17" value="Use 24 MP, 43% HP, Damage 870%, Attack Range 270%, Stun for 3 Seconds"/>
+		<string name="h18" value="Use 24 MP, 42% HP, Damage 880%, Attack Range 190%, Stun for 3 Seconds"/>
+		<string name="h19" value="Use 24 MP, 41% HP, Damage 890%, Attack Range 290%, Stun for 3 Seconds"/>
+		<string name="h20" value="Use 24 MP, 40% HP, Damage 900%, Attack Range 300%, Stun for 3 Seconds"/>
+		<string name="h21" value="Use 30 MP, 39% HP, Damage 910%, Attack Range 310%, Stun for 2 Seconds"/>
+		<string name="h22" value="Use 30 MP, 38% HP, Damage 920%, Attack Range 320%, Stun for 2 Seconds"/>
+		<string name="h23" value="Use 30 MP, 37% HP, Damage 930%, Attack Range 330%, Stun for 2 Seconds"/>
+		<string name="h24" value="Use 30 MP, 36% HP, Damage 940%, Attack Range 340%, Stun for 2 Seconds"/>
+		<string name="h25" value="Use 30 MP, 35% HP, Damage 950%, Attack Range 350%, Stun for 2 Seconds"/>
+		<string name="h26" value="Use 30 MP, 34% HP, Damage 960%, Attack Range 360%, Stun for 2 Seconds"/>
+		<string name="h27" value="Use 30 MP, 33% HP, Damage 970%, Attack Range 370%, Stun for 2 Seconds"/>
+		<string name="h28" value="Use 30 MP, 32% HP, Damage 980%, Attack Range 380%, Stun for 2 Seconds"/>
+		<string name="h29" value="Use 30 MP, 31% HP, Damage 990%, Attack Range 390%, Stun for 2 Seconds"/>
+		<string name="h30" value="Use 30 MP, 30% HP, Damage 1000%, Attack Range 400%, Stun for 2 Seconds"/>
 	</imgdir>
 	<imgdir name="1311007">
 		<string name="name" value="Power Crash"/>
