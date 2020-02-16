@@ -28,6 +28,8 @@ import server.partyquest.monstercarnival.components.MonsterCarnivalMapComponent;
 import server.partyquest.monstercarnival.components.MonsterCarnivalPlayerComponent;
 import server.partyquest.monstercarnival.util.GuardianSpawnPoint;
 import server.partyquest.monstercarnival.util.MonsterCarnivalMob;
+import server.partyquest.monstercarnival.util.MonsterCarnivalMobSpawnPoint;
+import tools.Pair;
 import tools.MaplePacketCreator;
 
 /**
@@ -42,9 +44,12 @@ public class MonsterCarnival {
     public static final int CPQ2_OUT_MAP_ID = 980030010;
 
     //Rewards
-    public static final int[] rewardReq = new int[]{50, 250, 500, Integer.MAX_VALUE};
-    public static final int[] winnerReward = new int[]{7500, 21500, 25500, 30000};
-    public static final int[] loserReward = new int[]{1000, 7000, 8500, 10000};
+    public static final int[] rewardReqCPQ1 = new int[]{50, 250, 500, Integer.MAX_VALUE};
+    public static final int[] rewardReqCPQ2 = new int[]{50, 250, 500, Integer.MAX_VALUE};
+    public static final int[] winnerRewardCPQ1 = new int[]{7500, 21500, 25500, 30000};
+    public static final int[] winnerRewardCPQ2 = new int[]{10000, 55500, 70000, 87500};
+    public static final int[] loserRewardCPQ1 = new int[]{1000, 7000, 8500, 10000};
+    public static final int[] loserRewardCPQ2 = new int[]{3500, 12500, 25000, 35000};
     public static final String[] rewardComment = new String[] {
         "[D-Rank] I know you can do better than that!",
         "[C-Rank] Not bad! Practice makes perfect!",
@@ -96,9 +101,10 @@ public class MonsterCarnival {
     private CPQType type;
     private Map<Integer, MCSkill> blueTeamBuffs = new HashMap<>();
     private Map<Integer, MCSkill> redTeamBuffs = new HashMap<>();
-    private List<Point> takenSpawns = new LinkedList<>();
+    private Map<MonsterCarnivalMobSpawnPoint, Pair<SpawnPoint, SpawnPoint>> takenSpawns = new HashMap<>();
     private ReadWriteLock redCPLock = new ReentrantReadWriteLock();
     private ReadWriteLock blueCPLock = new ReentrantReadWriteLock();
+    private ReadWriteLock spawnPointLock = new ReentrantReadWriteLock();
     private boolean isFinished;
 
     public MonsterCarnival(MapleParty p1, MapleParty p2, MapleMap map, CPQType type) {
@@ -163,13 +169,18 @@ public class MonsterCarnival {
             @Override
             public void run() {
                 respawn();
+
             }
         }, RESPAWN_INTERVAL);
 
         for(MapleCharacter chr : map.getAllPlayers()) {
-            chr.getClient().announce(MaplePacketCreator.getClock(getTimeLeftSeconds()));
-            chr.getClient().announce(MaplePacketCreator.startMonsterCarnival(chr));
+            playerEnterMonsterCarnival(chr);
         }
+    }
+
+    public void playerEnterMonsterCarnival(MapleCharacter chr) {
+        chr.getClient().announce(MaplePacketCreator.getClock(getTimeLeftSeconds()));
+        chr.getClient().announce(MaplePacketCreator.startMonsterCarnival(chr));
     }
 
     private void respawn() {
@@ -233,45 +244,49 @@ public class MonsterCarnival {
 
     public boolean trySummon(MonsterCarnivalMob mob, Team team) {
         // Cannot summon if requirements aren't met
-        if(canSummon(team)) {
-           addSummon(team); 
-        }
-        else {
-            return false;
-        }
-        
-        Point spawnPos = getRandomSP(team);
-        MapleMonster monster = MapleLifeFactory.getMonster(mob.getId());
-        monster.setPosition(spawnPos);
-        
-        map.addMonsterSpawn(monster, 1, team.value);
-        map.addAllMonsterSpawn(monster, 1, team.value);        
+        MonsterCarnivalMobSpawnPoint spawnPos = getRandomSP(team);
+        spawnPointLock.writeLock().lock();
+        try {
+            if(canSummon(team) && spawnPos != null && !takenSpawns.containsKey(spawnPos)) {
+                addSummon(team);
+            }
+            else {
+                return false;
+            }
 
-        return true;
+            MapleMonster monster = MapleLifeFactory.getMonster(mob.getId());
+            monster.setPosition(spawnPos.getPosition());
+            
+            SpawnPoint sp = map.addMonsterSpawn(monster, 1, team.value);
+            SpawnPoint asp = map.addAllMonsterSpawn(monster, 1, team.value);        
+
+            takenSpawns.put(spawnPos, new Pair<SpawnPoint, SpawnPoint>(sp, asp));
+            return true;    
+        }
+        finally {
+            spawnPointLock.writeLock().unlock();
+        }
     }
 
-    private Point getRandomSP(Team team) {
-        if (takenSpawns.size() > 0) {
-            for (SpawnPoint sp : map.getMonsterSpawn()) {
-                for (Point pt : takenSpawns) {
-                    if ((sp.getPosition().x == pt.x && sp.getPosition().y == pt.y) 
-                        || (sp.getTeam() != team.value && !MonsterCarnivalMapComponent.isBlueCPQMap(map.getId()))) {
-                        continue;
-                    } else {
-                        takenSpawns.add(pt);
-                        return sp.getPosition();
-                    }
+    private MonsterCarnivalMobSpawnPoint getRandomSP(Team team) {
+        List<MonsterCarnivalMobSpawnPoint> availableSP = new LinkedList<>();
+        spawnPointLock.readLock().lock();
+        try {
+            for(MonsterCarnivalMobSpawnPoint sp : map.getMCMapComponent().getMobSpawnPoints()) {
+                if(!takenSpawns.containsKey(sp) && (sp.getTeam() == team || sp.getTeam() == Team.NONE)) {
+                    availableSP.add(sp);
                 }
             }
-        } else {
-            for (SpawnPoint sp : map.getMonsterSpawn()) {
-                if (sp.getTeam() == team.value || MonsterCarnivalMapComponent.isBlueCPQMap(map.getId())) {
-                    takenSpawns.add(sp.getPosition());
-                    return sp.getPosition();
-                }
-            }
+
+            if(availableSP.size() > 0) {
+                MonsterCarnivalMobSpawnPoint sp = availableSP.get(ThreadLocalRandom.current().nextInt(0, availableSP.size()));
+                return sp;
+            } else {
+                return null;
+            }    
+        } finally {
+            spawnPointLock.readLock().unlock();
         }
-        return null;
     }
 
     public void applySkillToEnemiesOf(MCSkill skill, Team team) {
@@ -303,7 +318,6 @@ public class MonsterCarnival {
                 teamReactors += 1;
             }
         }
-        System.out.println("Reactors: " + teamReactors + " , " + map.getMCMapComponent().getMaxReactors());
         return teamReactors < map.getMCMapComponent().getMaxReactors();
 
     }
@@ -360,11 +374,11 @@ public class MonsterCarnival {
     public void applyBuff(MapleMonster monster) {
         if(monster.getTeam() == Team.RED.value) {
             for(MCSkill skill : redTeamBuffs.values()) {
-                skill.getSkill().applyEffect(null, monster, false, null);
+                skill.getSkill().applyEffect(null, monster, true, null);
             }
         } else if(monster.getTeam() == Team.BLUE.value) {
             for(MCSkill skill : blueTeamBuffs.values()) {
-                skill.getSkill().applyEffect(null, monster, false, null);
+                skill.getSkill().applyEffect(null, monster, true, null);
             }
         }
     }
@@ -374,8 +388,7 @@ public class MonsterCarnival {
 
         for (MapleMonster mob : map.getMonsters()) {
             if (mob.getTeam() == team.value) {
-                System.out.println("Buffing Monster");
-                skill.getSkill().applyEffect(null, mob, false, null);
+                skill.getSkill().applyEffect(null, mob, true, null);
             }
         }
     }
@@ -389,9 +402,9 @@ public class MonsterCarnival {
             }
         }
         if (team == Team.RED) {
-            redTeamBuffs.remove(skill);
+            redTeamBuffs.remove(skill.getId());
         } else {
-            blueTeamBuffs.remove(skill);
+            blueTeamBuffs.remove(skill.getId());
         }
     }
 
@@ -419,6 +432,10 @@ public class MonsterCarnival {
             }
         }
 
+        for(Pair<SpawnPoint, SpawnPoint> spSet : takenSpawns.values()) {
+            map.removeMonsterSpawn(spSet.getLeft());
+            map.removeAllMonsterSpawn(spSet.getRight());
+        }
         redTotalCP = 0;
         blueTotalCP = 0;
         p1 = null;
@@ -463,6 +480,10 @@ public class MonsterCarnival {
 
     private void timeUp() {
         Team winner;
+        int[] rewardReq = this.type == CPQType.CPQ1 ? rewardReqCPQ1 : rewardReqCPQ2;
+        int[] winnerReward = this.type == CPQType.CPQ1 ? winnerRewardCPQ1 : winnerRewardCPQ2;
+        int[] loserReward = this.type == CPQType.CPQ1 ? loserRewardCPQ1 : loserRewardCPQ2;
+
         if(redTotalCP > blueTotalCP) {
             winner = Team.RED;
         } else if (blueTotalCP > redTotalCP) {

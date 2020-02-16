@@ -106,7 +106,10 @@ public class MonsterCarnivalLobby {
     }
 
     public boolean healthCheck() {
-        if(initiator.getLeader() == null || initiator.getLeader().getPlayer().getMap() != map || !isWaiting) {
+        if(initiator.getLeader() == null || 
+            initiator.getLeader().getPlayer().getMap() != map || 
+            !initiator.getLeader().isOnline() ||
+            !isWaiting) {
             isWaiting = false;
             kickAll();
             return false;

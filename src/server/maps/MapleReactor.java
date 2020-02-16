@@ -289,7 +289,9 @@ public class MapleReactor extends AbstractMapleMapObject {
                 } else {
                     state++;
                     map.broadcastMessage(MaplePacketCreator.triggerReactor(this, stance));
-                    ReactorScriptManager.getInstance().act(c, this);
+                    if (this.getId() != 9980000 && this.getId() != 9980001) {
+                        ReactorScriptManager.getInstance().act(c, this);
+                    }
 
                     setShouldCollect(true);
                     refreshReactorTimeout();

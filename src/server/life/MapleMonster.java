@@ -50,6 +50,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.concurrent.locks.ReadWriteLock;
 import net.server.world.MapleParty;
 import net.server.world.MaplePartyCharacter;
 import server.TimerManager;
@@ -81,6 +83,7 @@ public class MapleMonster extends AbstractLoadedMapleLife {
     private final HashMap<Integer, AtomicInteger> takenDamage = new HashMap<>();
 
     private ReentrantLock monsterLock = new ReentrantLock();
+    private ReadWriteLock usedSkillLock = new ReentrantReadWriteLock();
 
     public MapleMonster(int id, MapleMonsterStats stats) {
         super(id);
@@ -849,8 +852,7 @@ public class MapleMonster extends AbstractLoadedMapleLife {
         this.usedSkills.add(new Pair<>(skillId, level));
         if (this.skillsUsed.containsKey(new Pair<>(skillId, level))) {
             int times = this.skillsUsed.get(new Pair<>(skillId, level)) + 1;
-            this.skillsUsed.remove(new Pair<>(skillId, level));
-            this.skillsUsed.put(new Pair<>(skillId, level), times);
+            this.skillsUsed.replace(new Pair<>(skillId, level), times);
         } else {
             this.skillsUsed.put(new Pair<>(skillId, level), 1);
         }
@@ -867,15 +869,21 @@ public class MapleMonster extends AbstractLoadedMapleLife {
     }
 
     public void clearSkill(int skillId, int level) {
-        int index = -1;
-        for (Pair<Integer, Integer> skill : usedSkills) {
-            if (skill.getLeft() == skillId && skill.getRight() == level) {
-                index = usedSkills.indexOf(skill);
-                break;
+        usedSkillLock.writeLock().lock();
+        try {
+            int index = -1;
+            for (Pair<Integer, Integer> skill : usedSkills) {
+                if (skill.getLeft() == skillId && skill.getRight() == level) {
+                    index = usedSkills.indexOf(skill);
+                    break;
+                }
             }
+            if (index != -1) {
+                usedSkills.remove(index);
+            }    
         }
-        if (index != -1) {
-            usedSkills.remove(index);
+        finally {
+            usedSkillLock.writeLock().unlock();
         }
     }
 

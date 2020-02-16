@@ -1490,9 +1490,6 @@ public class MapleMap {
         
         monster.setMap(this);
         if(getEventInstance() != null) getEventInstance().registerMonster(monster);
-        if(getMCMapComponent() != null && getMCMapComponent().getMC() != null) {
-            getMCMapComponent().getMC().applyBuff(monster);
-        }
 
         spawnAndAddRangedMapObject(monster, new DelayedPacketCreation() {
             @Override
@@ -1502,6 +1499,9 @@ public class MapleMap {
         }, null);
         
         updateMonsterController(monster);
+        if(getMCMapComponent() != null && getMCMapComponent().getMC() != null) {
+            getMCMapComponent().getMC().applyBuff(monster);
+        }
 
         if (monster.getDropPeriodTime() > 0) { //9300102 - Watchhog, 9300061 - Moon Bunny (HPQ), 9300093 - Tylus
             if (monster.getId() == 9300102) {
@@ -2359,7 +2359,7 @@ public class MapleMap {
      * @param monster
      * @param mobTime
      */
-    public void addMonsterSpawn(MapleMonster monster, int mobTime, int team) {
+    public SpawnPoint addMonsterSpawn(MapleMonster monster, int mobTime, int team) {
         Point newpos = calcPointBelow(monster.getPosition());
         newpos.y -= 1;
         SpawnPoint sp = new SpawnPoint(monster, newpos, !monster.isMobile(), mobTime, mobInterval, team);
@@ -2367,13 +2367,23 @@ public class MapleMap {
         if (sp.shouldSpawn() || mobTime == -1) {// -1 does not respawn and should not either but force ONE spawn
             spawnMonster(sp.getMonster());
         }
+        return sp;
     }
     
-    public void addAllMonsterSpawn(MapleMonster monster, int mobTime, int team) {
+    public SpawnPoint addAllMonsterSpawn(MapleMonster monster, int mobTime, int team) {
         Point newpos = calcPointBelow(monster.getPosition());
         newpos.y -= 1;
         SpawnPoint sp = new SpawnPoint(monster, newpos, !monster.isMobile(), mobTime, mobInterval, team);
         allMonsterSpawn.add(sp);
+        return sp;
+    }
+
+    public void removeMonsterSpawn(SpawnPoint sp) {
+        monsterSpawn.remove(sp);
+    }
+
+    public void removeAllMonsterSpawn(SpawnPoint sp) {
+        allMonsterSpawn.remove(sp);
     }
     
     public void reportMonsterSpawnPoints(MapleCharacter chr) {

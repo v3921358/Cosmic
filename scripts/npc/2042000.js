@@ -96,17 +96,13 @@ function spiegelmannInOfficeCPQ1(mode, type, selection) {
         else if(status == 2) {
             if(partyRequirementsMet(party)) {
                 selectedMap = selection;
-                var result = carnivalManager.tryInitiateLobby(cm.getPlayer().getParty(), selectedMap, MonsterCarnival.CPQType.CPQ1);
-                if(result) {
-                    cm.sendOk("Looks like the lobby is currently vacant. Please wait for an opponent...");
-                    cm.dispose();
+                var result = carnivalManager.getLobby(selectedMap);
+                if(result == null) {
+                    cm.sendYesNo("Looks like the lobby is currently vacant. Would you like to go in?");
                 }
-                else if(carnivalManager.getLobby(selectedMap) != null) {
+                else {
                     cm.sendYesNo(getInitiatorTeamString(selectedMap, carnivalManager) + "\r\nWould you like to challenge this team?");
-                } else {
-                    cm.sendOk("Looks like something went wrong. Please try again.");
-                    cm.dispose();
-                }
+                }               
             }
             else {
                 cm.sendOk("Your party does not meet the minimum level " + minLevelReq + " requirement.");
@@ -114,12 +110,16 @@ function spiegelmannInOfficeCPQ1(mode, type, selection) {
             }
         }
         else if(status == 3) {
-            if(carnivalManager.tryJoinLobby(cm.getPlayer().getParty(), selectedMap)) {
+            if(carnivalManager.tryInitiateLobby(cm.getPlayer().getParty(), selectedMap, MonsterCarnival.CPQType.CPQ1)) {
+                cm.dispose();
+            }
+            else if(carnivalManager.tryJoinLobby(cm.getPlayer().getParty(), selectedMap)) {
                 cm.sendOk("Please wait...");
+                cm.dispose();
             } else {
                 cm.sendOk("Looks like someone is already challenging this party. Please try again.");
+                cm.dispose();
             }
-            cm.dispose();
         }
     } else {
         cm.sendNext("Please ask your party leader to speak with me!");

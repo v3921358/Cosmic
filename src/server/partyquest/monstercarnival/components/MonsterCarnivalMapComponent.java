@@ -8,6 +8,7 @@ import server.partyquest.MonsterCarnival;
 import server.partyquest.MonsterCarnival.Team;
 import server.partyquest.monstercarnival.util.GuardianSpawnPoint;
 import server.partyquest.monstercarnival.util.MonsterCarnivalMob;
+import server.partyquest.monstercarnival.util.MonsterCarnivalMobSpawnPoint;
 
 public class MonsterCarnivalMapComponent {
 	private int maxMobs;
@@ -19,6 +20,7 @@ public class MonsterCarnivalMapComponent {
 
 	private final List<Integer> skillIds = new ArrayList();
     private final List<GuardianSpawnPoint> guardianSpawns = new ArrayList<>();
+    private final List<MonsterCarnivalMobSpawnPoint> mobSpawnPoints = new ArrayList<>();
     private final List<MonsterCarnivalMob> mobsToSpawn = new ArrayList<>();
 
 	// ==== Static Methods ==== //
@@ -151,6 +153,14 @@ public class MonsterCarnivalMapComponent {
 
     public final void addMobSpawn(int mobId, int spendCP) {
     	this.mobsToSpawn.add(new MonsterCarnivalMob(mobId, spendCP));
+    }
+
+    public final void addMobSpawnPoint(MonsterCarnivalMobSpawnPoint sp) {
+        this.mobSpawnPoints.add(sp);
+    }
+
+    public List<MonsterCarnivalMobSpawnPoint> getMobSpawnPoints() {
+        return this.mobSpawnPoints;
     }
 
     // public methods

@@ -24,5 +24,5 @@
 */
 
 function act() {
-        rm.getReactor().getMCReactorComponent().dispelAllMonsters();
+    rm.getReactor().getMCReactorComponent().dispelAllMonsters();
 }

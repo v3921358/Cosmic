@@ -46,6 +46,7 @@ import server.life.MapleMonster;
 import server.partyquest.monstercarnival.components.MonsterCarnivalMapComponent;
 import server.partyquest.monstercarnival.util.GuardianSpawnPoint;
 import server.partyquest.monstercarnival.util.MonsterCarnivalMob;
+import server.partyquest.monstercarnival.util.MonsterCarnivalMobSpawnPoint;
 import scripting.event.EventInstanceManager;
 import tools.DatabaseConnection;
 import tools.StringUtil;
@@ -415,7 +416,14 @@ public class MapleMapFactory {
         if (mcData != null) {
             MonsterCarnivalMapComponent mcMap = map.getMCMapComponent();
             mcMap.setDeathCP(MapleDataTool.getIntConvert("deathCP", mcData, 0));
-            mcMap.setMaxMobs(MapleDataTool.getIntConvert("mobGenMax", mcData, 20));    // thanks Atoot for noticing CPQ1 bf. 3 and 4 not accepting spawns due to undefined limits, Lame for noticing a need to cap mob spawns even on such undefined limits
+            mcMap.setMaxMobs(MapleDataTool.getIntConvert("mobGenMax", mcData, 16));    // thanks Atoot for noticing CPQ1 bf. 3 and 4 not accepting spawns due to undefined limits, Lame for noticing a need to cap mob spawns even on such undefined limits
+            MapleData mobGenPosData = mcData.getChildByPath("mobGenPos");
+            for(MapleData node : mobGenPosData.getChildren()) {
+                mcMap.addMobSpawnPoint(new MonsterCarnivalMobSpawnPoint(
+                        new Point(MapleDataTool.getIntConvert("x", node), MapleDataTool.getIntConvert("y", node)),
+                        MapleDataTool.getIntConvert("team", node, -1)
+                    ));
+            }
             mcMap.setTimeDefault(MapleDataTool.getIntConvert("timeDefault", mcData, 0));
             mcMap.setTimeExpand(MapleDataTool.getIntConvert("timeExpand", mcData, 0));
             mcMap.setMaxReactors(MapleDataTool.getIntConvert("guardianGenMax", mcData, 16));
