@@ -12,7 +12,7 @@
     <int name="MDDamage" value="150"/>
     <int name="acc" value="100"/>
     <int name="eva" value="20"/>
-    <int name="exp" value="3"/>
+    <int name="exp" value="190"/>
     <int name="undead" value="0"/>
     <int name="pushed" value="550"/>
     <float name="fs" value="10.0"/>

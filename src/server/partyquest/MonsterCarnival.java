@@ -47,9 +47,9 @@ public class MonsterCarnival {
     public static final int[] rewardReqCPQ1 = new int[]{50, 250, 500, Integer.MAX_VALUE};
     public static final int[] rewardReqCPQ2 = new int[]{50, 250, 500, Integer.MAX_VALUE};
     public static final int[] winnerRewardCPQ1 = new int[]{7500, 21500, 25500, 30000};
-    public static final int[] winnerRewardCPQ2 = new int[]{10000, 55500, 70000, 87500};
+    public static final int[] winnerRewardCPQ2 = new int[]{20000, 111000, 140000, 175000};
     public static final int[] loserRewardCPQ1 = new int[]{1000, 7000, 8500, 10000};
-    public static final int[] loserRewardCPQ2 = new int[]{3500, 12500, 25000, 35000};
+    public static final int[] loserRewardCPQ2 = new int[]{7000, 25000, 50000, 70000};
     public static final String[] rewardComment = new String[] {
         "[D-Rank] I know you can do better than that!",
         "[C-Rank] Not bad! Practice makes perfect!",
