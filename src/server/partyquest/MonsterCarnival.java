@@ -585,7 +585,7 @@ public class MonsterCarnival {
                 blueCPLock.readLock().unlock();
             }
         } else {
-            throw new RuntimeException("Unkown team");
+            throw new RuntimeException("Unknown team");
         }
     }
 
@@ -623,7 +623,7 @@ public class MonsterCarnival {
                 blueCPLock.readLock().unlock();
             }
         } else {
-            throw new RuntimeException("Unkown team: " + team);
+            throw new RuntimeException("Unknown team: " + team);
         }
     }
 
