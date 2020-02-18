@@ -447,7 +447,11 @@ public class SkillFactory {
         
         return null;
     }
-    
+    public static List<Skill> getJobSkillsAsArray(MapleJob job) {
+        List<Skill> skillsArr = new ArrayList<Skill>(getJobSkills(job).keySet());
+        return skillsArr;
+    }
+
     public static class SkillMiscInfo {
         
         private String iconPath;

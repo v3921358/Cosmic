@@ -1,6 +1,7 @@
 logs/
 .idea/
 .DS_Store
+docker/dev_compose/.env
 
 # Terraform config
 .terraform

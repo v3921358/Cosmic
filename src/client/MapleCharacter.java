@@ -946,7 +946,9 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         }
         
         List<MapleBuffStatValueHolder> toCancel = deregisterBuffStats(buffstats);
-        if (effect.getSourceId() == Spearman.HYPER_BODY || effect.getSourceId() == GM.HYPER_BODY || effect.getSourceId() == SuperGM.HYPER_BODY) {
+        if (!overwrite && (effect.getSourceId() == Spearman.HYPER_BODY || 
+            effect.getSourceId() == GM.HYPER_BODY || 
+            effect.getSourceId() == SuperGM.HYPER_BODY)) {
             List<Pair<MapleStat, Integer>> statup = new ArrayList<>(4);
             statup.add(new Pair<>(MapleStat.HP, Math.min(hp, maxhp)));
             statup.add(new Pair<>(MapleStat.MP, Math.min(mp, maxmp)));
