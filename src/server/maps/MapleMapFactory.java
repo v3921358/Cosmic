@@ -43,6 +43,10 @@ import server.PortalFactory;
 import server.life.AbstractLoadedMapleLife;
 import server.life.MapleLifeFactory;
 import server.life.MapleMonster;
+import server.partyquest.monstercarnival.components.MonsterCarnivalMapComponent;
+import server.partyquest.monstercarnival.util.GuardianSpawnPoint;
+import server.partyquest.monstercarnival.util.MonsterCarnivalMob;
+import server.partyquest.monstercarnival.util.MonsterCarnivalMobSpawnPoint;
 import scripting.event.EventInstanceManager;
 import tools.DatabaseConnection;
 import tools.StringUtil;
@@ -219,6 +223,13 @@ public class MapleMapFactory {
                         MapleMonster monster = (MapleMonster) myLife;
                         int mobTime = MapleDataTool.getInt("mobTime", life, 0);
                         int team = MapleDataTool.getInt("team", life, -1);
+                        if (MonsterCarnivalMapComponent.isCPQ2Map(mapid) && type.equals("m")) {
+                            if ((Integer.parseInt(life.getName()) % 2) == 0) {
+                                team = 0;
+                            } else {
+                                team = 1;
+                            }
+                        }
                         if (mobTime == -1) { //does not respawn, force spawn once
                             map.spawnMonster(monster);
                         } else {
@@ -254,6 +265,10 @@ public class MapleMapFactory {
                     
                     map.setMapName("");
                     map.setStreetName("");
+                }
+
+                if(MonsterCarnivalMapComponent.isCPQMap(mapid) || MonsterCarnivalMapComponent.isCPQ2Map(mapid)) {
+                    initCPQData(map, mapData);
                 }
 
                 map.setClock(mapData.getChildByPath("clock") != null);
@@ -392,6 +407,45 @@ public class MapleMapFactory {
             return Collections.unmodifiableMap(maps);
         } finally {
             mapsRLock.unlock();
+        }
+    }
+
+    public void initCPQData(MapleMap map, MapleData mapData) {
+        MapleData mcData = mapData.getChildByPath("monsterCarnival");
+        map.initializeMCMapComponent();
+        if (mcData != null) {
+            MonsterCarnivalMapComponent mcMap = map.getMCMapComponent();
+            mcMap.setDeathCP(MapleDataTool.getIntConvert("deathCP", mcData, 0));
+            mcMap.setMaxMobs(MapleDataTool.getIntConvert("mobGenMax", mcData, 16));    // thanks Atoot for noticing CPQ1 bf. 3 and 4 not accepting spawns due to undefined limits, Lame for noticing a need to cap mob spawns even on such undefined limits
+            MapleData mobGenPosData = mcData.getChildByPath("mobGenPos");
+            for(MapleData node : mobGenPosData.getChildren()) {
+                mcMap.addMobSpawnPoint(new MonsterCarnivalMobSpawnPoint(
+                        new Point(MapleDataTool.getIntConvert("x", node), MapleDataTool.getIntConvert("y", node)),
+                        MapleDataTool.getIntConvert("team", node, -1)
+                    ));
+            }
+            mcMap.setTimeDefault(MapleDataTool.getIntConvert("timeDefault", mcData, 0));
+            mcMap.setTimeExpand(MapleDataTool.getIntConvert("timeExpand", mcData, 0));
+            mcMap.setMaxReactors(MapleDataTool.getIntConvert("guardianGenMax", mcData, 16));
+            MapleData guardianGenData = mcData.getChildByPath("guardianGenPos");
+            for (MapleData node : guardianGenData.getChildren()) {
+                GuardianSpawnPoint pt = new GuardianSpawnPoint(
+                    new Point(MapleDataTool.getIntConvert("x", node), MapleDataTool.getIntConvert("y", node)), 
+                    MapleDataTool.getIntConvert("team", node, -1));
+                pt.setTaken(false);
+                mcMap.addGuardianSpawnPoint(pt);
+            }
+            if (mcData.getChildByPath("skill") != null) {
+                for (MapleData area : mcData.getChildByPath("skill")) {
+                    mcMap.addSkillId(MapleDataTool.getInt(area));
+                }
+            }
+
+            if (mcData.getChildByPath("mob") != null) {
+                for (MapleData area : mcData.getChildByPath("mob")) {
+                    mcMap.addMobSpawn(MapleDataTool.getInt(area.getChildByPath("id")), MapleDataTool.getInt(area.getChildByPath("spendCP")));
+                }
+            }
         }
     }
     

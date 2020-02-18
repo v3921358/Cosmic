@@ -1,223 +1,160 @@
 /*
-	This file is part of the OdinMS Maple Story Server
-    Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
-		       Matthias Butz <matze@odinms.de>
-		       Jan Christian Meyer <vimes@odinms.de>
+ This file is part of the OdinMS Maple Story Server
+ Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
+ Matthias Butz <matze@odinms.de>
+ Jan Christian Meyer <vimes@odinms.de>
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Affero General Public License as
-    published by the Free Software Foundation version 3 as published by
-    the Free Software Foundation. You may not use, modify or distribute
-    this program under any other version of the GNU Affero General Public
-    License.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Affero General Public License as
+ published by the Free Software Foundation version 3 as published by
+ the Free Software Foundation. You may not use, modify or distribute
+ this program under any other version of the GNU Affero General Public
+ License.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU Affero General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
+ You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package net.server.channel.handlers;
 
 import client.MapleCharacter;
 import client.MapleClient;
+import client.MapleDisease;
 import java.awt.Point;
+import java.util.List;
 import net.AbstractMaplePacketHandler;
-import server.partyquest.MonsterCarnival;
+import net.server.world.MapleParty;
+import net.server.world.MaplePartyCharacter;
 import server.life.MapleLifeFactory;
-import server.maps.MapleReactor;
-import server.maps.MapleReactorFactory;
+import server.life.MapleMonster;
+import server.partyquest.MapleCarnivalFactory;
+import server.partyquest.MapleCarnivalFactory.MCSkill;
+import server.partyquest.MonsterCarnival;
+import server.partyquest.MonsterCarnival.GuardianSpawnCode;
+import server.partyquest.monstercarnival.components.MonsterCarnivalMapComponent;
+import server.partyquest.monstercarnival.components.MonsterCarnivalPlayerComponent;
+import server.partyquest.monstercarnival.util.GuardianSpawnPoint;
+import server.partyquest.monstercarnival.util.MonsterCarnivalMob;
 import tools.MaplePacketCreator;
+import tools.Pair;
 import tools.data.input.SeekableLittleEndianAccessor;
 
 /**
- *
- * @author kevintjuh93
- */
-public final class MonsterCarnivalHandler extends AbstractMaplePacketHandler{
+    *@author Drago (Dragohe4rt)
+    *@author Benjixd
+*/
+
+public final class MonsterCarnivalHandler extends AbstractMaplePacketHandler {
+
+    private int handleMonsterSpawn(MapleClient c, int mobNum) {
+        final MonsterCarnivalMob mob = c.getPlayer().getMap().getMCMapComponent().getMob(mobNum);
+        final MonsterCarnivalPlayerComponent mcPlayer = c.getPlayer().getMCPlayerComponent();
+        final MonsterCarnival mcpq = mcPlayer.getMonsterCarnival();
+
+        if(mob == null || mcPlayer.getCP() < mob.getRequiredCP()) {
+            c.announce(MaplePacketCreator.CPQMessage((byte) 1));
+            c.announce(MaplePacketCreator.enableActions());
+            return 0;
+        }
+
+        if(mcpq.trySummon(mob, mcPlayer.getTeam())) {
+            c.announce(MaplePacketCreator.enableActions());
+        }
+        else {
+            c.announce(MaplePacketCreator.CPQMessage((byte) 2));
+            c.announce(MaplePacketCreator.enableActions());
+        }
+        return mob.getRequiredCP();
+    }
+
+    private int handleDebuff(MapleClient c, int skillNum) {
+        final Integer skillId = c.getPlayer().getMap().getMCMapComponent().getSkillId(skillNum);
+        final MonsterCarnivalPlayerComponent mcPlayer = c.getPlayer().getMCPlayerComponent();
+        final MonsterCarnival mcpq = mcPlayer.getMonsterCarnival();
+
+        // Check invalid Skill
+        if(skillId == null) {
+            c.getPlayer().dropMessage(5, "Invalid skill use ignored.");
+            c.announce(MaplePacketCreator.enableActions());
+            return 0;
+        }
+
+        // Check skill requirements met
+        final MCSkill skill = MapleCarnivalFactory.getInstance().getSkill(skillId);
+        if(mcPlayer.getCP() < skill.getRequiredCP()) {
+            c.announce(MaplePacketCreator.CPQMessage((byte) 1));
+            c.announce(MaplePacketCreator.enableActions());
+            return 0;
+        }
+
+        mcpq.applySkillToEnemiesOf(skill, mcPlayer.getTeam());
+
+        c.announce(MaplePacketCreator.enableActions());
+        return skill.getRequiredCP();
+    }
+
+    private int handleProtectors(MapleClient c, int skillNum) {
+        final MCSkill skill = MapleCarnivalFactory.getInstance().getGuardian(skillNum);
+        final MonsterCarnivalPlayerComponent mcPlayer = c.getPlayer().getMCPlayerComponent();
+        final MonsterCarnival mcpq = mcPlayer.getMonsterCarnival();
+
+        //Check skill requirements
+        if(skill == null || mcPlayer.getCP() < skill.getRequiredCP()) {
+            c.announce(MaplePacketCreator.CPQMessage((byte) 1));
+            c.announce(MaplePacketCreator.enableActions());
+            return 0;
+        }
+
+        GuardianSpawnCode code = mcpq.trySpawnGuardian(skill, mcPlayer.getTeam());
+        if(code == GuardianSpawnCode.SUCCESS) {
+            c.announce(MaplePacketCreator.enableActions());
+            return skill.getRequiredCP();
+        }
+        else if(code == GuardianSpawnCode.CANNOT_GUARDIAN) {
+            c.announce(MaplePacketCreator.CPQMessage((byte) 2));
+            c.announce(MaplePacketCreator.enableActions());
+            return 0;
+        }
+        else if(code == GuardianSpawnCode.INVALID) {
+            c.announce(MaplePacketCreator.CPQMessage((byte) 3));
+            c.announce(MaplePacketCreator.enableActions());
+            return 0;
+        }
+        else if(code == GuardianSpawnCode.MAX_COUNT_REACHED || code == GuardianSpawnCode.ALREADY_EXISTS) {
+            c.announce(MaplePacketCreator.CPQMessage((byte) 4));
+            c.announce(MaplePacketCreator.enableActions());
+            return 0;
+        }
+        
+        return 0;
+    }
+
+    @Override
     public void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
-        MapleCharacter chr = c.getPlayer();
-        MonsterCarnival carnival = chr.getCarnival();
-        int tab = slea.readByte();
-        int number = slea.readShort();
-        if (carnival != null) {
-            if (chr.getCarnivalParty() != carnival.getPartyRed() || chr.getCarnivalParty() != carnival.getPartyBlue()) {
-                chr.getMap().broadcastMessage(MaplePacketCreator.leaveCPQ(chr));
-                chr.changeMap(980000010);
-            }
-            if (chr.getCP() > getPrice(tab, number)) {
-                if (tab == 0) { //SPAWNING
-                    if (chr.getCarnivalParty().canSummon()) {
-                        chr.getMap().spawnCPQMonster(MapleLifeFactory.getMonster(getMonster(number)), new Point(1, 1), carnival.oppositeTeam(chr.getCarnivalParty()).getTeam());
-                        chr.getCarnivalParty().summon();
-                    } else
-                        chr.announce(MaplePacketCreator.CPQMessage((byte) 2));
+        try {
+            int tab = slea.readByte();
+            int num = slea.readByte();
+            MonsterCarnivalPlayerComponent mcPlayer = c.getPlayer().getMCPlayerComponent();
 
-                } else if (tab == 1) {
-
-                } else if (tab == 2) {
-                    int rid = 9980000 + chr.getTeam();
-                        MapleReactor reactor = new MapleReactor(MapleReactorFactory.getReactor(rid), rid);
-                        /*switch (number) {
-                            case 0:
-                                reactor.setMonsterStatus(tab, MonsterStatus.WEAPON_ATTACK_UP, MobSkillFactory.getMobSkill(150, 1));
-                                break;
-                            case 1:
-                                reactor.setMonsterStatus(tab, MonsterStatus.WEAPON_DEFENSE_UP, MobSkillFactory.getMobSkill(151, 1));
-                                break;
-                            case 2:
-                                reactor.setMonsterStatus(tab, MonsterStatus.MAGIC_ATTACK_UP, MobSkillFactory.getMobSkill(152, 1));
-                                break;
-                            case 3:
-                                reactor.setMonsterStatus(tab, MonsterStatus.MAGIC_DEFENSE_UP, MobSkillFactory.getMobSkill(153, 1));
-                                break;
-                            case 4:
-                                reactor.setMonsterStatus(tab, MonsterStatus.ACC, MobSkillFactory.getMobSkill(154, 1));
-                                break;
-                            case 5:
-                                reactor.setMonsterStatus(tab, MonsterStatus.AVOID, MobSkillFactory.getMobSkill(155, 1));
-                                break;
-                            case 6:
-                                reactor.setMonsterStatus(tab, MonsterStatus.SPEED, MobSkillFactory.getMobSkill(156, 1));
-                                break;
-                            case 7:
-                                reactor.setMonsterStatus(tab, MonsterStatus.WEAPON_IMMUNITY, MobSkillFactory.getMobSkill(140, 1));
-                                break;
-                            case 8:
-                                reactor.setMonsterStatus(tab, MonsterStatus.MAGIC_IMMUNITY, MobSkillFactory.getMobSkill(141, 1));
-                                break;
-                        } */
-                        chr.getMap().spawnReactor(reactor);
-                }
-            } else {
-                chr.getMap().broadcastMessage(MaplePacketCreator.CPQMessage((byte) 1));
+            int neededCP = 0;
+            if (tab == 0) {
+                neededCP = handleMonsterSpawn(c, num);
+            } else if (tab == 1) { //debuffs
+                neededCP = handleDebuff(c, num);
+            } else if (tab == 2) { //protectors
+                neededCP = handleProtectors(c, num);
             }
-        } else {
-            chr.announce(MaplePacketCreator.CPQMessage((byte) 5));
+
+            if(neededCP != 0) {
+                mcPlayer.gainCP(-neededCP);
+                c.getPlayer().getMap().broadcastMessage(MaplePacketCreator.playerSummoned(c.getPlayer().getName(), tab, num));
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
         }
-        chr.announce(MaplePacketCreator.enableActions());
-    }
-
-    public int getMonster(int num) {
-        int mid = 0;
-        num++;
-        switch (num) {
-            case 1:
-                mid = 9300127;
-                break;
-            case 2:
-                mid = 9300128;
-                break;
-            case 3:
-                mid = 9300129;
-                break;
-            case 4:
-                mid = 9300130;
-                break;
-            case 5:
-                mid = 9300131;
-                break;
-            case 6:
-                mid = 9300132;
-                break;
-            case 7:
-                mid = 9300133;
-                break;
-            case 8:
-                mid = 9300134;
-                break;
-            case 9:
-                mid = 9300135;
-                break;
-            case 10:
-                mid = 9300136;
-                break;
-        }
-        return mid;
-    }
-
-    public int getPrice(int num, int tab) {
-        int price = 0;
-        num++;
-
-        if (tab == 0) {
-            switch (num) {
-                case 1:
-                case 2:
-                    price = 7;
-                    break;
-                case 3:
-                case 4:
-                    price = 8;
-                    break;
-                case 5:
-                case 6:
-                    price = 9;
-                    break;
-                case 7:
-                    price = 10;
-                    break;
-                case 8:
-                    price = 11;
-                    break;
-                case 9:
-                    price = 12;
-                    break;
-                case 10:
-                    price = 30;
-                    break;
-            }
-        } else if (tab == 1) {
-            switch (num) {
-                case 1:
-                    price = 17;
-                    break;
-                case 2:
-                case 4:
-                    price = 19;
-                    break;
-                case 3:
-                    price = 12;
-                    break;
-                case 5:
-                    price = 16;
-                    break;
-                case 6:
-                    price = 14;
-                    break;
-                case 7:
-                    price = 22;
-                    break;
-                case 8:
-                    price = 18;
-                    break;
-            }
-        } else {
-            switch (num) {
-                case 1:
-                case 3:
-                    price = 17;
-                    break;
-                case 2:
-                case 4:
-                case 6:
-                    price = 16;
-                    break;
-                case 5:
-                    price = 13;
-                    break;
-                case 7:
-                    price = 12;
-                    break;
-                case 8:
-                case 9:
-                    price = 35;
-                    break;
-            }
-        }
-        return price;
     }
 }
