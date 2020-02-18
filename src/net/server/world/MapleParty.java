@@ -29,6 +29,9 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Map;
 import java.util.Comparator;
+import client.MapleCharacter;
+import net.server.world.PartyOperation;
+import tools.MaplePacketCreator;
 
 public class MapleParty {
     private int leaderId;
@@ -48,31 +51,6 @@ public class MapleParty {
 
     public boolean containsMembers(MaplePartyCharacter member) {
         return members.contains(member);
-    }
-
-    public void addMember(MaplePartyCharacter member) {
-        histMembers.put(member.getId(), nextEntry);
-        nextEntry++;
-        
-        members.add(member);
-    }
-
-    public void removeMember(MaplePartyCharacter member) {
-        histMembers.remove(member.getId());
-        
-        members.remove(member);
-    }
-
-    public void setLeader(MaplePartyCharacter victim) {
-        this.leaderId = victim.getId();
-    }
-
-    public void updateMember(MaplePartyCharacter member) {
-        for (int i = 0; i < members.size(); i++) {
-            if (members.get(i).getId() == member.getId()) {
-                members.set(i, member);
-            }
-        }
     }
     
     public MaplePartyCharacter getMemberById(int id) {
@@ -167,5 +145,73 @@ public class MapleParty {
             return false;
         }
         return true;
+    }
+
+    // Party Operations
+    public void partyOp(PartyOperation operation, MaplePartyCharacter target) {
+        switch(operation) {
+            case JOIN:
+                addMember(operation, target);
+                break;
+            case EXPEL:
+            case LEAVE:
+                removeMember(operation, target);
+                break;
+            case DISBAND:
+                disband(operation, target);
+                break;
+            case SILENT_UPDATE:
+            case LOG_ONOFF:
+                updateMember(operation, target);
+                break;
+            case CHANGE_LEADER:
+                setLeader(operation, target);
+                break;
+            default:
+                System.out.println("Unhandled updateParty operation " + operation.name());
+        }
+    }
+    //
+
+    private void addMember(PartyOperation operation, MaplePartyCharacter member) {
+        histMembers.put(member.getId(), nextEntry);
+        members.add(member);
+        nextEntry++;
+        member.getPlayer().setParty(this);
+        member.getPlayer().setMPC(member);
+    }
+
+    private void removeMember(PartyOperation operation, MaplePartyCharacter member) {
+        histMembers.remove(member.getId());   
+        members.remove(member);
+        member.getPlayer().setParty(null);
+        member.getPlayer().setMPC(null);
+    }
+
+    private void disband(PartyOperation operation, MaplePartyCharacter member) {
+        for(MaplePartyCharacter mpc : members) {
+            mpc.getPlayer().setParty(null);
+            mpc.getPlayer().setMPC(null);
+        }
+    }
+
+
+    private void setLeader(PartyOperation operation, MaplePartyCharacter member) {
+        this.leaderId = member.getId();
+    }
+
+    private void updateMember(PartyOperation operation, MaplePartyCharacter member) {
+        for (int i = 0; i < members.size(); i++) {
+            if (members.get(i).getId() == member.getId()) {
+                members.set(i, member);
+            }
+        }
+    }
+
+    public void notify(PartyOperation operation, MaplePartyCharacter target) {
+        for(MaplePartyCharacter mpc : members) {
+            MapleCharacter chr = mpc.getPlayer();
+            chr.getClient().announce(MaplePacketCreator.updateParty(chr.getClient().getChannel(), this, operation, target));
+        }
     }
 }

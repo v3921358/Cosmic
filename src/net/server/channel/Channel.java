@@ -60,6 +60,8 @@ import server.expeditions.MapleExpeditionType;
 import server.maps.HiredMerchant;
 import server.maps.MapleMap;
 import server.maps.MapleMapFactory;
+import server.partyquest.monstercarnival.MonsterCarnivalManager;
+
 import tools.MaplePacketCreator;
 import client.MapleCharacter;
 import constants.ServerConstants;
@@ -87,6 +89,7 @@ public final class Channel {
     private long[] dojoFinishTime;
     private ScheduledFuture<?>[] dojoTask;
     private Map<Integer, Integer> dojoParty = new HashMap<>();
+    private MonsterCarnivalManager mcManager;
     
     public Channel(final int world, final int channel) {
         this.world = world;
@@ -119,6 +122,8 @@ public final class Channel {
                 dojoFinishTime[i] = 0;
                 dojoTask[i] = null;
             }
+
+            mcManager = new MonsterCarnivalManager(this);
             
             System.out.println("    Channel " + getId() + ": Listening on port " + port);
         } catch (Exception e) {
@@ -205,6 +210,10 @@ public final class Channel {
 
     public EventScriptManager getEventSM() {
         return eventSM;
+    }
+
+    public MonsterCarnivalManager getMCManager() {
+        return mcManager;
     }
 
     public void broadcastGMPacket(final byte[] data) {

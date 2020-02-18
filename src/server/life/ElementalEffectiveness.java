@@ -35,7 +35,7 @@ public enum ElementalEffectiveness {
             case 4:
                 return NEUTRAL;
             default:
-                throw new IllegalArgumentException("Unkown effectiveness: " + num);
+                throw new IllegalArgumentException("Unknown effectiveness: " + num);
         }
     }
 }

@@ -367,65 +367,41 @@ public class World {
         return parties.remove(partyid);
     }
 
-    public void updateParty(MapleParty party, PartyOperation operation, MaplePartyCharacter target) {
-        for (MaplePartyCharacter partychar : party.getMembers()) {
-            MapleCharacter chr = getPlayerStorage().getCharacterById(partychar.getId());
-            if (chr != null) {
-                if (operation == PartyOperation.DISBAND) {
-                    chr.setParty(null);
-                    chr.setMPC(null);
-                } else {
-                    chr.setParty(party);
-                    chr.setMPC(partychar);
-                }
-                chr.getClient().announce(MaplePacketCreator.updateParty(chr.getClient().getChannel(), party, operation, target));
-            }
-        }
-        switch (operation) {
-            case LEAVE:
-            case EXPEL:
-                MapleCharacter chr = getPlayerStorage().getCharacterById(target.getId());
-                if (chr != null) {
-                    chr.getClient().announce(MaplePacketCreator.updateParty(chr.getClient().getChannel(), party, operation, target));
-                    chr.setParty(null);
-                    chr.setMPC(null);
-                }
-		default:
-			break;
-        }
-    }
-
     public void updateParty(int partyid, PartyOperation operation, MaplePartyCharacter target) {
         MapleParty party = getParty(partyid);
-        if (party == null) {
-            throw new IllegalArgumentException("no party with the specified partyid exists");
-        }
-        switch (operation) {
-            case JOIN:
-                party.addMember(target);
-                break;
-            case EXPEL:
-            case LEAVE:
-                party.removeMember(target);
-                break;
+
+        switch(operation) {
             case DISBAND:
                 disbandParty(partyid);
-                break;
-            case SILENT_UPDATE:
-            case LOG_ONOFF:
-                party.updateMember(target);
                 break;
             case CHANGE_LEADER:
                 MapleCharacter mc = party.getLeader().getPlayer();
                 if(mc.getEventInstance() != null && mc.getEventInstance().isEventLeader(mc)) {
                     mc.getEventInstance().changedLeader(target.getPlayer());
                 }
-                party.setLeader(target);
                 break;
-            default:
-                System.out.println("Unhandled updateParty operation " + operation.name());
         }
-        updateParty(party, operation, target);
+
+        party.partyOp(operation, target);
+        for (MaplePartyCharacter partychar : party.getMembers()) {
+            MapleCharacter chr = getPlayerStorage().getCharacterById(partychar.getId());
+            if (chr != null && operation != PartyOperation.DISBAND) {
+                chr.setParty(party);
+                chr.setMPC(partychar);
+            }
+            chr.getClient().announce(MaplePacketCreator.updateParty(chr.getClient().getChannel(), party, operation, target));
+        }
+
+        switch (operation) {
+            case LEAVE:
+            case EXPEL:
+                MapleCharacter chr = getPlayerStorage().getCharacterById(target.getId());
+                if (chr != null) {
+                    chr.getClient().announce(MaplePacketCreator.updateParty(chr.getClient().getChannel(), party, operation, target));
+                }
+            default:
+                break;
+        }
     }
 
     public int find(String name) {

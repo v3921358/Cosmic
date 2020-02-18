@@ -1,1 +1,0 @@
-Extra classes for Monster Carnival. Can possibly be used for implementing MCPQ.

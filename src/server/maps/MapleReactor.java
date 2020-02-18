@@ -33,6 +33,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import scripting.reactor.ReactorScriptManager;
 import server.TimerManager;
+import server.partyquest.MonsterCarnival;
+import server.partyquest.monstercarnival.components.MonsterCarnivalReactorComponent;
 import tools.MaplePacketCreator;
 import tools.Pair;
 
@@ -54,6 +56,7 @@ public class MapleReactor extends AbstractMapleMapObject {
     private boolean attackHit;
     private ScheduledFuture<?> timeoutTask = null;
     private Lock reactorLock = new ReentrantLock(true);
+    private MonsterCarnivalReactorComponent mcReactorComponent = null;
 
     public MapleReactor(MapleReactorStats stats, int rid) {
         this.evstate = (byte)0;
@@ -141,6 +144,14 @@ public class MapleReactor extends AbstractMapleMapObject {
 
     public void setAlive(boolean alive) {
         this.alive = alive;
+    }
+
+    public void initializeMCReactorComponent(MonsterCarnival mc) {
+        this.mcReactorComponent = new MonsterCarnivalReactorComponent(mc);
+    }
+
+    public MonsterCarnivalReactorComponent getMCReactorComponent() {
+        return mcReactorComponent;
     }
 
     @Override
@@ -278,7 +289,9 @@ public class MapleReactor extends AbstractMapleMapObject {
                 } else {
                     state++;
                     map.broadcastMessage(MaplePacketCreator.triggerReactor(this, stance));
-                    ReactorScriptManager.getInstance().act(c, this);
+                    if (this.getId() != 9980000 && this.getId() != 9980001) {
+                        ReactorScriptManager.getInstance().act(c, this);
+                    }
 
                     setShouldCollect(true);
                     refreshReactorTimeout();
