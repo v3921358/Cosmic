@@ -21,23 +21,20 @@
 */
 
 status = -1;
+var PQ_TIMER = 600; //10 minutes
 var minLevel = 120;
 var recruitMap = 211000001;
+
 var job;
 var sel;
 actionx = {"Mental" : false, "Physical" : false};
 
-function start() {    
-    if (!(cm.getPlayer().getLevel() >= 70 && parseInt(cm.getJobId() / 100) == 1)){
-        cm.sendNext("Hi there.");
-        cm.dispose();
-        return;
-    }
+function start() {
     if (cm.haveItem(4031058))
         actionx["Mental"] = true;
     else if (cm.haveItem(4031057))
         actionx["Physical"] = true;
-    cm.sendSimple("Can I help you?#b#L0#I want to make the 3th job advancement.\r\n#L1#Please allow me to do the Zakum Dungeon Quest.\r\nI would like to enter El Nath PQ.");
+    cm.sendSimple("Can I help you?\r\n#b#L0#I want to make the 3th job advancement.\r\n#L1#Please allow me to do the Zakum Dungeon Quest.\r\n#L2#I would like to enter El Nath PQ.");
 }
 
 function action(mode, type, selection){
@@ -118,15 +115,17 @@ function action(mode, type, selection){
         } else if(sel == 2) {
             if(cm.getWarpMap(921100300).getCharacters().size() > 0)
                 cm.sendOk("There is someone currently in this map, come back later.");
-            else if(cm.getPlayer().getParty() == null || cm.getPlayer().getParty().getLeaderId() != cm.getPlayer().getId()) {
+            else if(cm.getPlayer().getParty() == null || !cm.getPlayer().getMPC().isLeader()) {
                 cm.sendOk("Please have your party leader speak to me.");
             }
-            else if(!getPQRequirementsMet(cm.getPlayer().getParty())) {
-                cm.sendOk("Your party does not fulfill the minimum level requirement for this PQ.").
+            else if(!getPQRequirementsMet(cm.getPlayer().getParty().getMembers())) {
+                cm.sendOk("Your party does not fulfill the minimum level requirement for this PQ.");
             }
             else {
+                cm.getPlayer().getMap().removeMapTimer();
                 cm.resetMapObjects(921100300);
                 cm.warpParty(921100300);
+                cm.getPlayer().getMap().addMapTimer(PQ_TIMER);
             }
             cm.dispose();
         }
