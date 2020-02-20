@@ -69,7 +69,7 @@ public final class MobDamageMobFriendlyHandler extends AbstractMaplePacketHandle
                 }
                 
 		if (monster.getId() == 9300061) {
-                        MapleMap map = c.getPlayer().getEventInstance().getMapInstance(monster.getMap().getId());
+            MapleMap map = c.getPlayer().getEventInstance().getMapInstance(monster.getMap().getId());
 			map.addBunnyHit();
 		}
 
