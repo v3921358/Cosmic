@@ -108,7 +108,7 @@ public class World {
         petUpdate = System.currentTimeMillis();
         mountUpdate = petUpdate;
         
-        //petsSchedule = TimerManager.getInstance().register(new PetFullnessWorker(this), 60 * 1000, 60 * 1000);
+        petsSchedule = TimerManager.getInstance().register(new PetFullnessWorker(this), 60 * 1000, 60 * 1000);
         mountsSchedule = TimerManager.getInstance().register(new MountTirednessWorker(this), 60 * 1000, 60 * 1000);
         charactersSchedule = TimerManager.getInstance().register(new CharacterAutosaverWorker(this), 60 * 60 * 1000, 60 * 60 * 1000);
         bossEntriesSchedule = TimerManager.getInstance().register(new BossEntriesWorker(this), 60 * 1000 * 1440, calculateDifferenceTillMidNight());
@@ -710,6 +710,10 @@ public class World {
                     }
                     activePets.put(dp.getKey(), dpVal);    
                 }
+            }
+
+            for (Integer petToRemove : petsToRemove) {
+                activePets.remove(petToRemove);
             }
         }
     }
