@@ -22,7 +22,12 @@
 Author: kevintjuh93
 */ 
 
+var KERNING_CITY_MAP = 103000000;
+
 function enter(pi) {
-    pi.warp(pi.getPlayer().getSavedLocation("MIRROR"));
+    var map = pi.getPlayer().getSavedLocation("MIRROR");
+    if(map == -1) map = KERNING_CITY_MAP;
+    
+    pi.warp(map);
     return true;
 }
