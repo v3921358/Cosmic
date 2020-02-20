@@ -700,7 +700,7 @@ public class World {
             for(Map.Entry<Integer, Byte> dp: activePets.entrySet()) {
                 MapleCharacter chr = this.getPlayerStorage().getCharacterById(dp.getKey() / 4);
                 Byte dpVal = (byte)(dp.getValue() + 1);
-                if(chr == null) {
+                if(chr == null || !chr.isLoggedin()) {
                     petsToRemove.add(dp.getKey());
                 }
                 else {
