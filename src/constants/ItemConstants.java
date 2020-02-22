@@ -102,6 +102,10 @@ public final class ItemConstants {
     public static boolean isCleanSlate(int scrollId) {
         return scrollId > 2048999 && scrollId < 2049004;
     }
+
+    public static boolean isInnocenceScroll(int scrollId) {
+        return scrollId >= 2049600 && scrollId <= 2049618;
+    }
     
     public static boolean isFlagModifier(int scrollId, byte flag) {
         if(scrollId == 2041058 && ((flag & ItemConstants.COLD) == ItemConstants.COLD)) return true;

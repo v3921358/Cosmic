@@ -299,6 +299,28 @@ public class Equip extends Item {
         this.perfect = perfection;
     }
 
+    public void resetStats() {
+        Map<String, Integer> equipStats = MapleItemInformationProvider.getInstance().getEquipStats(getItemId());
+        this.str = equipStats.get("STR");
+        this.dex = equipStats.get("DEX");
+        this._int = equipStats.get("INT");
+        this.luk = equipStats.get("LUK");
+        this.hp = equipStats.get("MHP");
+        this.mp = equipStats.get("MMP");
+        this.watk = equipStats.get("PAD");
+        this.matk = equipStats.get("MAD");
+        this.wdef = equipStats.get("PDD");
+        this.mdef = equipStats.get("MDD");
+        this.acc = equipStats.get("ACC");
+        this.avoid = equipStats.get("EVA");
+        this.speed = equipStats.get("Speed");
+        this.jump = equipStats.get("Jump");
+        this.vicious = 0;
+        this.upgradeSlots = equipStats.get("tuc");
+        this.itemLevel = 1;
+        this.itemExp = 0;
+    }
+
     private int getStatModifier(boolean isAttribute) {
         // each set of stat points grants a chance for a bonus stat point upgrade at equip level up.
         
