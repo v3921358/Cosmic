@@ -101,7 +101,7 @@ Now that you have a running server, you should be able to access the server thro
 
 ### Docker
 
-Alternatively, using the docker command to spin up the server with 4 channels:
+Alternatively, using the docker command to spin up the server with 5 channels:
 ```
 docker run --rm -it -v ${PWD}:/mnt -p 7575:7575 -p 7576:7576 -p 7577:7577 -p 8484:8484 -p 8485:8485 benjixd/dietstory
 ```
@@ -148,7 +148,7 @@ For players looking to connect to a hosted Dietstory server, the Dietstory clien
 
 ## Additional Notes
 
-If by any means the program did not open, or raise an error (incorrect parameter) and you are using Windows 8 or 10, it probably might be some compatibility issue. Try running the executable in the following settings:
+If by any means the program did not open, or raise an error (incorrect parameter) and you are using Windows 8 or 10, it might be a compatibility issue. Try running the executable using the following settings:
 - Run in compatibility mode: Windows 7
 - Unchecked reduced color mode
 - 640 x 480 resolution
@@ -162,7 +162,7 @@ If by any means the program did not open, or raise an error (incorrect parameter
 ## WZ Editing
 
 DO NOT USE the server's XMLs for reimporting into the client's WZ, it WILL generate some kind of bugs afterwards.
-- Use instead the HaRepacker 4.2.4, encryption "GMS (old)".
+- Instead use the HaRepacker 4.2.4, encryption "GMS (old)".
 - Open the desired WZ for editing and, USING THE UI, make the desired changes.
 - Save the changed WZ, overwriting the original content at the client folder.
 - Finally, RE-EXPORT ("Private Server..." exporting option) the changed XMLs into the server's WZ.XML files, overwriting the old contents.
