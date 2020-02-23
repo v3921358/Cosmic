@@ -57,6 +57,7 @@ public final class ScrollHandler extends AbstractMaplePacketHandler {
         if ((ws & 2) == 2) {
             whiteScroll = true;
         }
+        System.out.println("USING SCROLL");
         MapleItemInformationProvider ii = MapleItemInformationProvider.getInstance();
         Equip toScroll = (Equip) c.getPlayer().getInventory(MapleInventoryType.EQUIPPED).getItem(dst);
         Skill LegendarySpirit = SkillFactory.getSkill(1003);
@@ -72,7 +73,7 @@ public final class ScrollHandler extends AbstractMaplePacketHandler {
 
         if (((Equip) toScroll).getUpgradeSlots() < 1 && 
             !ItemConstants.isCleanSlate(scroll.getItemId()) &&
-            !ItemConstants.isInnocenceScroll(scroll.getItemId)) {
+            !ItemConstants.isInnocenceScroll(scroll.getItemId())) {
             c.announce(MaplePacketCreator.getInventoryFull());
             return;
         }

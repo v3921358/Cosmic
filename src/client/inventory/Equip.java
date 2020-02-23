@@ -301,22 +301,22 @@ public class Equip extends Item {
 
     public void resetStats() {
         Map<String, Integer> equipStats = MapleItemInformationProvider.getInstance().getEquipStats(getItemId());
-        this.str = equipStats.get("STR");
-        this.dex = equipStats.get("DEX");
-        this._int = equipStats.get("INT");
-        this.luk = equipStats.get("LUK");
-        this.hp = equipStats.get("MHP");
-        this.mp = equipStats.get("MMP");
-        this.watk = equipStats.get("PAD");
-        this.matk = equipStats.get("MAD");
-        this.wdef = equipStats.get("PDD");
-        this.mdef = equipStats.get("MDD");
-        this.acc = equipStats.get("ACC");
-        this.avoid = equipStats.get("EVA");
-        this.speed = equipStats.get("Speed");
-        this.jump = equipStats.get("Jump");
+        this.str = equipStats.get("STR").shortValue();
+        this.dex = equipStats.get("DEX").shortValue();
+        this._int = equipStats.get("INT").shortValue();
+        this.luk = equipStats.get("LUK").shortValue();
+        this.hp = equipStats.get("MHP").shortValue();
+        this.mp = equipStats.get("MMP").shortValue();
+        this.watk = equipStats.get("PAD").shortValue();
+        this.matk = equipStats.get("MAD").shortValue();
+        this.wdef = equipStats.get("PDD").shortValue();
+        this.mdef = equipStats.get("MDD").shortValue();
+        this.acc = equipStats.get("ACC").shortValue();
+        this.avoid = equipStats.get("EVA").shortValue();
+        this.speed = equipStats.get("Speed").shortValue();
+        this.jump = equipStats.get("Jump").shortValue();
         this.vicious = 0;
-        this.upgradeSlots = equipStats.get("tuc");
+        this.upgradeSlots = equipStats.get("tuc").byteValue();
         this.itemLevel = 1;
         this.itemExp = 0;
     }

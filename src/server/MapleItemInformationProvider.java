@@ -886,7 +886,7 @@ public class MapleItemInformationProvider {
                         case 2049608:
                         case 2049609:
                         case 2049610:
-                            equip.resetStats();
+                            nEquip.resetStats();
                             break;
 
                         default:
