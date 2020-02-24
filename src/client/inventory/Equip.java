@@ -301,23 +301,24 @@ public class Equip extends Item {
 
     public void resetStats() {
         Map<String, Integer> equipStats = MapleItemInformationProvider.getInstance().getEquipStats(getItemId());
-        this.str = equipStats.get("STR").shortValue();
-        this.dex = equipStats.get("DEX").shortValue();
-        this._int = equipStats.get("INT").shortValue();
-        this.luk = equipStats.get("LUK").shortValue();
-        this.hp = equipStats.get("MHP").shortValue();
-        this.mp = equipStats.get("MMP").shortValue();
-        this.watk = equipStats.get("PAD").shortValue();
-        this.matk = equipStats.get("MAD").shortValue();
-        this.wdef = equipStats.get("PDD").shortValue();
-        this.mdef = equipStats.get("MDD").shortValue();
-        this.acc = equipStats.get("ACC").shortValue();
-        this.avoid = equipStats.get("EVA").shortValue();
-        this.speed = equipStats.get("Speed").shortValue();
-        this.jump = equipStats.get("Jump").shortValue();
+        this.str = equipStats.containsKey("STR") ? equipStats.get("STR").shortValue() : 0;
+        this.dex = equipStats.containsKey("STR") ? equipStats.get("DEX").shortValue() : 0;
+        this._int = equipStats.containsKey("INT")? equipStats.get("INT").shortValue() : 0;
+        this.luk = equipStats.containsKey("LUK")? equipStats.get("LUK").shortValue() : 0;
+        this.hp = equipStats.containsKey("MHP")? equipStats.get("MHP").shortValue() : 0;
+        this.mp = equipStats.containsKey("MMP")? equipStats.get("MMP").shortValue() : 0;
+        this.watk = equipStats.containsKey("PAD")? equipStats.get("PAD").shortValue() : 0;
+        this.matk = equipStats.containsKey("MAD")? equipStats.get("MAD").shortValue() : 0;
+        this.wdef = equipStats.containsKey("PDD")? equipStats.get("PDD").shortValue() : 0;
+        this.mdef = equipStats.containsKey("MDD")? equipStats.get("MDD").shortValue() : 0;
+        this.acc = equipStats.containsKey("ACC")? equipStats.get("ACC").shortValue() : 0;
+        this.avoid = equipStats.containsKey("EVA")? equipStats.get("EVA").shortValue() : 0;
+        this.speed = equipStats.containsKey("Speed")? equipStats.get("Speed").shortValue() : 0;
+        this.jump = equipStats.containsKey("Jump")? equipStats.get("Jump").shortValue() : 0;
         this.vicious = 0;
-        this.upgradeSlots = equipStats.get("tuc").byteValue();
+        this.upgradeSlots = equipStats.containsKey("tuc") ? equipStats.get("tuc").byteValue() : 0;
         this.itemLevel = 1;
+        this.level = 0;
         this.itemExp = 0;
     }
 

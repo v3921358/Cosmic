@@ -67,6 +67,15 @@ public class MapleInventory implements Iterable<Item> {
         return type.equals(MapleInventoryType.EQUIP) || type.equals(MapleInventoryType.EQUIPPED);
     }
 
+    public byte size() {
+        lock.lock();
+        try {
+            return (byte)inventory.size();
+        } finally {
+            lock.unlock();
+        }
+    }
+
     public byte getSlotLimit() {
         lock.lock();
         try {
@@ -89,6 +98,15 @@ public class MapleInventory implements Iterable<Item> {
         lock.lock();
         try {
             return Collections.unmodifiableCollection(inventory.values());
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public Map<Short, Item> map() {
+        lock.lock();
+        try {
+            return Collections.unmodifiableMap(inventory);
         } finally {
             lock.unlock();
         }
