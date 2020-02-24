@@ -2138,7 +2138,7 @@ public class Commands {
                                         player.equipChanged();
                                 } else {
                                         int itemId = Integer.parseInt(sub[2]);
-                                        if(!(itemId >= 30000 && itemId < 44417) || MapleItemInformationProvider.getInstance().getName(itemId) == null) {
+                                        if(!(itemId >= 30000 && itemId < 50000) || MapleItemInformationProvider.getInstance().getName(itemId) == null) {
                                                 player.yellowMessage("Hair id '" + sub[2] + "' does not exist.");
                                                 break;
                                         }
