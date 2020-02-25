@@ -131,9 +131,9 @@ public final class ScrollHandler extends AbstractMaplePacketHandler {
     public boolean canScroll(int scrollid, int itemid) {
         int sid = scrollid / 100;
 
-        if(ItemConstants.isChaosScroll(itemid) ||
-            ItemConstants.isCleanSlate(itemid) ||
-            ItemConstants.isInnocenceScroll(itemid)) {
+        if(ItemConstants.isChaosScroll(scrollid) ||
+            ItemConstants.isCleanSlate(scrollid) ||
+            ItemConstants.isInnocenceScroll(scrollid)) {
             return true;
         } 
         else {

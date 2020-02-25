@@ -6,4 +6,4 @@ VALUE (0, 0, 2049610, 1, 1, 0, 300, "Innocence Scroll 100% (Untradeable)");
 
 # Scroll shop at Spindle - adding innocence scroll
 INSERT INTO shopitems (`shopitemid`, `shopid`, `itemid`, `price`, `pitch`, `position`) VALUES
-(995033, 9201082, 2049610, 6000000, 0, 273);
+(995309, 9201082, 2049610, 60000000, 0, 273);
