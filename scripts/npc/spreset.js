@@ -32,10 +32,6 @@ function action(mode, type, selection) {
         var player = cm.getPlayer();
         var playerJob = player.getJob().getId();
 
-        // checks for the second digit from right
-        // 422 -> 4.22
-        var jobBase = playerJob / 100;
-
         if (status == 0) {
             var sendStr;
             if(player.getJob().isA(MapleJob.BEGINNER) || player.getJob().isA(MapleJob.NOBLESSE) || player.getJob().isA(MapleJob.LEGEND)) {
@@ -49,7 +45,7 @@ function action(mode, type, selection) {
                 var jobAmount = 0;
 
                 // checks for first job.  If not, increase the amount of jobs based on current job
-                if (jobBase % 100 === 0 ) {
+                if (playerJob % 100 === 0 ) {
                     jobAmount ++;
                 } else {
                     jobAmount = jobLevel + 2;
@@ -82,7 +78,7 @@ function action(mode, type, selection) {
 
             // Find the job based on selection
             if(selection == 0) {
-                selectedJob = MapleJob.getById(Math.floor(jobBase) * 100);
+                selectedJob = MapleJob.getById(Math.floor(playerJob/100) * 100);
             } else if(selection == 1) {
                 selectedJob = MapleJob.getById(Math.floor(playerJob/10) * 10);
             } else if(selection == 2) {
@@ -97,8 +93,12 @@ function action(mode, type, selection) {
             // Reset SP for skills attached to selected job
             for(var i = 0; i < jobSkills.length; i++){
                 var skillLevel = player.getSkillLevel(jobSkills[i]);
-                player.changeSkillLevel(jobSkills[i], 0, player.getMasterLevel(jobSkills[i]), -1)
-                additionalSP += skillLevel;    
+                // If you have points put in a skill, reset.  Otherwise if your skill level is 0, do nothing
+                if(skillLevel !== 0)
+                {
+                    player.changeSkillLevel(jobSkills[i], 0, player.getMasterLevel(jobSkills[i]), -1)
+                    additionalSP += skillLevel;    
+                }
             }
 
             // return SP
