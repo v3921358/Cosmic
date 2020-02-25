@@ -656,7 +656,13 @@ public class Commands {
 		case "ranks":
 			player.announce(MaplePacketCreator.showPlayerRanks(9010000, PlayerRanking.getInstance().getRanking()));
 			break;
-		
+		case "innocence":
+			if(sub.length != 1){
+				player.yellowMessage("Syntax: !innocence");
+			}
+			c.getAbstractPlayerInteraction().openNpc(9010000, "innocence_scroll");
+			break;
+
 		case "spreset":
 			c.getAbstractPlayerInteraction().openNpc(9010000, "spreset");
 			break;
