@@ -36,13 +36,14 @@ var NUM_CHOICES_GENDER_BASED = 4;
 var NUM_UNIVERSAL_CHOICES = 4;
 var BASE_HAIR_VALUE = 30000;
 var MIN_HAIR_TYPE_1 = 30000;
-var MAX_HAIR_TYPE_1 = 40000;
-var MIN_HAIR_TYPE_2 = 40000;
+var MAX_HAIR_TYPE_1 = 39000;
+var MIN_HAIR_TYPE_2 = 39000;
 var MAX_HAIR_TYPE_2 = 50000;
+var BLACK_LIST = [32150]; 
 
-var mhair = Array();
-var fhair = Array();
-var hairnew = Array();
+var mhair = new Array();
+var fhair = new Array();
+var hairnew = new Array();
 
 function start() {
     status = -1;
@@ -51,9 +52,14 @@ function start() {
             LocalDate.now( ZoneOffset.UTC ) 
         );
 
-    initMaleHair(week);
-    initFemaleHair(week);
-
+    if(cm.getPlayer().getGender() == 0) {
+        initMaleHair(week);
+        print("Male hairs of the week:" + mhair);
+    } else if(cm.getPlayer().getGender() == 1) {
+        initFemaleHair(week);
+        print("Female hairs of the week:" + fhair);
+    }
+    
     action(1, 0, 0);
 }
 
@@ -123,8 +129,12 @@ function initMaleHair(week) {
     // Gender Based Choice
     for(var i = 0; i < NUM_CHOICES_GENDER_BASED; i++) {
         while(true) {
-            var randomHair = (rand.nextInt(MAX_HAIR_TYPE_1/10 - MIN_HAIR_TYPE_1/10) + MIN_HAIR_TYPE_1/10) * 10;
-            if(isMaleHairType1(randomHair) && MapleItemInformationProvider.getInstance().getName(randomHair) != null) {
+            var randomHair = (prng.nextInt(MAX_HAIR_TYPE_1/10 - MIN_HAIR_TYPE_1/10) + MIN_HAIR_TYPE_1/10) * 10;
+            if(isMaleHairType1(randomHair) && 
+                MapleItemInformationProvider.getInstance().getName(randomHair) != null &&
+                !checkExists(mhair, randomHair) &&
+                !checkExists(BLACK_LIST, randomHair)) 
+            {
                 mhair.push(randomHair);
                 break;
             }
@@ -133,11 +143,20 @@ function initMaleHair(week) {
 
     // Universal Based Choice
     for(var i = 0; i < NUM_UNIVERSAL_CHOICES; i++) {
+        var retry = 0;
         while(true) {
-            var randomHair = (rand.nextInt(MAX_HAIR_TYPE_2/10 - MIN_HAIR_TYPE_2/10) + MIN_HAIR_TYPE_2/10) * 10;
-            if(MapleItemInformationProvider.getInstance().getName(randomHair) != null) {
+            var randomHair = (prng.nextInt(MAX_HAIR_TYPE_2/10 - MIN_HAIR_TYPE_2/10) + MIN_HAIR_TYPE_2/10) * 10;
+            if(MapleItemInformationProvider.getInstance().getName(randomHair) != null &&
+                !checkExists(mhair, randomHair) &&
+                !checkExists(BLACK_LIST, randomHair)) 
+            {
                 mhair.push(randomHair);
                 break;
+            } else if(retry > 1000) {
+                break;
+            }
+            else {
+                retry++;
             }
         }
     }
@@ -148,11 +167,21 @@ function initFemaleHair(week) {
 
     // Gender Based Choice
     for(var i = 0; i < NUM_CHOICES_GENDER_BASED; i++) {
+        var retry = 0;
         while(true) {
-            var randomHair = (rand.nextInt(MAX_HAIR_TYPE_1/10 - MIN_HAIR_TYPE_1/10) + MIN_HAIR_TYPE_1/10) * 10;
-            if(!isMaleHairType1(randomHair) && MapleItemInformationProvider.getInstance().getName(randomHair) != null) {
+            var randomHair = (prng.nextInt(MAX_HAIR_TYPE_1/10 - MIN_HAIR_TYPE_1/10) + MIN_HAIR_TYPE_1/10) * 10;
+            if(!isMaleHairType1(randomHair) && 
+                MapleItemInformationProvider.getInstance().getName(randomHair) != null &&
+                !checkExists(fhair, randomHair) &&
+                !checkExists(BLACK_LIST, randomHair)) 
+            {
                 fhair.push(randomHair);
                 break;
+            } else if(retry > 100) {
+                break;
+            }
+            else {
+                retry++;
             }
         }
     }
@@ -160,8 +189,10 @@ function initFemaleHair(week) {
     // Universal Based Choice
     for(var i = 0; i < NUM_UNIVERSAL_CHOICES; i++) {
         while(true) {
-            var randomHair = (rand.nextInt(MAX_HAIR_TYPE_2/10 - MIN_HAIR_TYPE_2/10) + MIN_HAIR_TYPE_2/10) * 10;
-            if(MapleItemInformationProvider.getInstance().getName(randomHair) != null) {
+            var randomHair = (prng.nextInt(MAX_HAIR_TYPE_2/10 - MIN_HAIR_TYPE_2/10) + MIN_HAIR_TYPE_2/10) * 10;
+            if(MapleItemInformationProvider.getInstance().getName(randomHair) != null &&
+                !checkExists(fhair, randomHair) &&
+                !checkExists(BLACK_LIST, randomHair)) {
                 fhair.push(randomHair);
                 break;
             }
@@ -185,5 +216,15 @@ function isMaleHairType1(id) {
         case 34740:
             return true;
     }
+    return false;
+}
+
+function checkExists(array, element) {
+    for(var i = 0; i < array.length; i++) {
+        if(array[i] == element) {
+            return true;
+        }
+    }
+
     return false;
 }
