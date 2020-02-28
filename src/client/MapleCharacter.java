@@ -6833,7 +6833,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
 
         this.getClient().getWorldServer().unregisterPetHunger(this, getPetIndex(pet));
         getMap().broadcastMessage(this, MaplePacketCreator.showPet(this, pet, true, hunger), true);
-        
+
         removePet(pet, shift_left);
         commitExcludedItems();
 
