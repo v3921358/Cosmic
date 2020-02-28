@@ -27,9 +27,23 @@
 importPackage(Packages.server.events.gm)
 
 var status = 0;
+var golden_maple_leaf = 4000313;
+var item_cost_1 = 1;
+var item_cost_2 = 5;
+var item_cost_3 = 20;
+var item_cost_4 = 100;
 
 function start() {
     cm.sendNext("Hey, I'm #bJean#k. I am waiting for my brother #bPaul#k. He is supposed to be here by now...");
+}
+
+function maybe_trade_golden_maple_leaf(item_cost, item_name) {
+    if (cm.haveItem(golden_maple_leaf, item_cost)) {
+        cm.getPlayer().announce(MaplePacketCreator.earnTitleMessage("You have gained " + item_name));
+        cm.gainItem(golden_maple_leaf, -1 * item_cost);
+    } else {
+        cm.sendSimple("Looks like you don't have enough Golden Maple Leaves for that item.");
+    }
 }
 
 function action(mode, type, selection) {
@@ -47,7 +61,7 @@ function action(mode, type, selection) {
         if (status == 1) {
             cm.sendNextPrev("Hmm... What should I do? The event will start, soon... Many people went to participate in the event, so we better be hurry...");
         } else if (status == 2) {
-            cm.sendSimple("Hey... Why don't you go with me? I think my brother will come with other people.\r\n#L0##e1.#n#b What kind of an event is it?#k#l\r\n#L1##e2.#n#b Explain the event game to me.#k#l\r\n#L2##e3.#n#b Alright, let's go!#k#l");
+            cm.sendSimple("Hey... Why don't you go with me? I think my brother will come with other people.\r\n#L0##e1.#n#b What kind of an event is it?#k#l\r\n#L1##e2.#n#b Explain the event game to me.#k#l\r\n#L2##e3.#n#b Alright, let's go!#k#l\r\n#L3##e4.#n#b Trade for items.");
         } else if (status == 3) {
             if (selection == 0) {
                 cm.sendNext("DietStory will be regularly hosting scheduled events everyday! If you catch a notice, be sure to join in. Who knows what you might get?");
@@ -71,6 +85,28 @@ function action(mode, type, selection) {
                     cm.sendNext("Either the event has not been started, you already have the #bScroll of Secrets#k, or you have already participated in this event within the last 24 hours. Please try again later!");
                 }
                 cm.dispose();
+			} else if (selection == 3) {
+			    /* TODO: Add items to trade for */
+			    let trade_msg = "You currently have #b#c" + golden_maple_leaf + " #i" + golden_maple_leaf + " items.#k \r\nWhat item would you like to trade for?\r\n"
+                                 "#L2049100 for 1 #c" + golden_maple_leaf "#i" + golden_maple_leaf + "\r\n"
+                                 "#L2049100 for 5 #c" + golden_maple_leaf "#i" + golden_maple_leaf + "\r\n"
+                                 "#L2049100 for 20 #c" + golden_maple_leaf "#i" + golden_maple_leaf + "\r\n"
+                                 "#L2049100 for 100 #c" + golden_maple_leaf "#i" + golden_maple_leaf + "\r\n")
+
+                cm.sendSimple(trade_msg);
+			    if (selection == 1) {
+
+			    } else if (selection == 2) {
+			        maybe_trade_golden_maple_leaf(item_cost_1, "item1");
+			    } else if (selection == 3) {
+			        maybe_trade_golden_maple_leaf(item_cost_2, "item2");
+			    } else if (selection == 4) {
+                    maybe_trade_golden_maple_leaf(item_cost_3, "item3");
+			    } else if (selection == 5) {
+			        maybe_trade_golden_maple_leaf(item_cost_4, "item4");
+			    }
+
+			    cm.sendNextPrev(trade_msg);
 			}
         } else if (status == 4) {
             if (selection == 0) {

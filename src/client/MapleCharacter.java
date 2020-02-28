@@ -303,6 +303,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     private long banishTime = 0;
     private Map<Integer, Integer> bossEntries = new HashMap<Integer, Integer>();
     private MonsterCarnivalPlayerComponent mcPlayerComponent;
+    private int latestEventPlacement;
 
     private MapleCharacter() {
         useCS = false;
@@ -7448,6 +7449,14 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         for(Map.Entry bossEntry: bossEntries.entrySet()){
             bossEntries.put((Integer)bossEntry.getKey(), 0);
         }
+    }
+
+    public void setLatestEventPlacement(int latestEventPlacement) {
+        this.latestEventPlacement = latestEventPlacement;
+    }
+
+    public int getLatestEventPlacement() {
+        return this.latestEventPlacement;
     }
 
 }
