@@ -51,7 +51,7 @@ public class ServerConstants {
     public static final boolean USE_REFRESH_RANK_MOVE = true;
     public static final boolean USE_ENFORCE_MDOOR_POSITION = true;  //Forces mystic door to be spawned near spawnpoints. (since things bugs out other way, and this helps players to locate the door faster)
     public static final boolean USE_ERASE_UNTRADEABLE_DROP = true;  //Forces flagged untradeable items to disappear when dropped.
-    public static final boolean CHECK_QUEST_MAX_LVL = true;         //Checks if character is under max level allowed for quest.
+    public static final boolean CHECK_QUEST_MAX_LVL = false;         //Checks if character is under max level allowed for quest.
     
     //Server Rates And Experience
     public static final int EXP_RATE = 2;

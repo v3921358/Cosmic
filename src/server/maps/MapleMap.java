@@ -1041,6 +1041,12 @@ public class MapleMap {
         this.killMonster(mob, (MapleCharacter) getPlayers().get(0), false);
     }
 
+    public void killAllPlayers() {
+        for(MapleMapObject obj : getPlayers()) {
+            ((MapleCharacter) obj).setHpMp(0);
+        }
+    }
+
     public void killMonster(int monsId) {
         List<MapleMapObject> mmoL = new LinkedList(getMapObjects());
         

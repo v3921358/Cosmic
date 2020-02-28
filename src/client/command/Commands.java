@@ -656,7 +656,13 @@ public class Commands {
 		case "ranks":
 			player.announce(MaplePacketCreator.showPlayerRanks(9010000, PlayerRanking.getInstance().getRanking()));
 			break;
-		
+		case "innocence":
+			if(sub.length != 1){
+				player.yellowMessage("Syntax: !innocence");
+			}
+			c.getAbstractPlayerInteraction().openNpc(9010000, "innocence_scroll");
+			break;
+
 		case "spreset":
 			c.getAbstractPlayerInteraction().openNpc(9010000, "spreset");
 			break;
@@ -2138,7 +2144,7 @@ public class Commands {
                                         player.equipChanged();
                                 } else {
                                         int itemId = Integer.parseInt(sub[2]);
-                                        if(!(itemId >= 30000 && itemId < 44417) || MapleItemInformationProvider.getInstance().getName(itemId) == null) {
+                                        if(!(itemId >= 30000 && itemId < 50000) || MapleItemInformationProvider.getInstance().getName(itemId) == null) {
                                                 player.yellowMessage("Hair id '" + sub[2] + "' does not exist.");
                                                 break;
                                         }

@@ -594,7 +594,7 @@ public class MapleItemInformationProvider {
             Map<String, Integer> stats = this.getEquipStats(scrollId);
             Map<String, Integer> eqstats = this.getEquipStats(equip.getItemId());
             
-            if (((nEquip.getUpgradeSlots() > 0 || ItemConstants.isCleanSlate(scrollId))) || isGM) {
+            if (((nEquip.getUpgradeSlots() > 0 || ItemConstants.isCleanSlate(scrollId)) || ItemConstants.isInnocenceScroll(scrollId)) || isGM) {
                 double prop = (double)stats.get("success");
                 if (vegaItemId == 5610000) {
                     prop = 30.0;
@@ -875,7 +875,20 @@ public class MapleItemInformationProvider {
                                 }
                             }
                             break;
-                            
+                        case 2049600:
+                        case 2049601:
+                        case 2049602:
+                        case 2049603:
+                        case 2049604:
+                        case 2049605:
+                        case 2049606:
+                        case 2049607:
+                        case 2049608:
+                        case 2049609:
+                        case 2049610:
+                            nEquip.resetStats();
+                            break;
+
                         default:
                             for (Entry<String, Integer> stat : stats.entrySet()) {
                                 switch (stat.getKey()) {

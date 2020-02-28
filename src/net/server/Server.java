@@ -335,10 +335,10 @@ public class Server implements Runnable {
             ex.printStackTrace();
         }
 
-        // api = new MapleAPI(this, API_PORT);
+        api = new MapleAPI(this, API_PORT);
 
         System.out.println("Login server on port " + LOGIN_PORT + "\r\n\r\n");
-        System.out.println("API server on port 8485 " + API_PORT + "\r\n\r\n");
+        System.out.println("API server on port " + API_PORT + "\r\n\r\n");
         System.out.println("Solaxia is now online.\r\n");
         online = true;
     }
