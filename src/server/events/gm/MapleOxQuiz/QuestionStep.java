@@ -157,7 +157,7 @@ public class QuestionStep extends EventStep {
 
         map.broadcastMessage(mplew.getPacket());
 	}
-
+	
 	private void updateEventRanking() {
 		List<MapleCharacter> chars = new ArrayList<>(map.getCharacters());
 		for (MapleCharacter chr : chars) {

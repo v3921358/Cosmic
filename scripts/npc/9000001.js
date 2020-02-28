@@ -32,12 +32,13 @@ var item_cost_1 = 1;
 var item_cost_2 = 5;
 var item_cost_3 = 20;
 var item_cost_4 = 100;
+var item_cost_5 = 500;
 
 function start() {
     cm.sendNext("Hey, I'm #bJean#k. I am waiting for my brother #bPaul#k. He is supposed to be here by now...");
 }
 
-function maybe_trade_golden_maple_leaf(item_cost, item_name) {
+function maybeTradeGoldenMapleLeaf(item_cost, item_name) {
     if (cm.haveItem(golden_maple_leaf, item_cost)) {
         cm.getPlayer().announce(MaplePacketCreator.earnTitleMessage("You have gained " + item_name));
         cm.gainItem(golden_maple_leaf, -1 * item_cost);
@@ -86,24 +87,25 @@ function action(mode, type, selection) {
                 }
                 cm.dispose();
 			} else if (selection == 3) {
-			    /* TODO: Add items to trade for */
-			    let trade_msg = "You currently have #b#c" + golden_maple_leaf + " #i" + golden_maple_leaf + " items.#k \r\nWhat item would you like to trade for?\r\n"
-                                 "#L2049100 for 1 #c" + golden_maple_leaf "#i" + golden_maple_leaf + "\r\n"
-                                 "#L2049100 for 5 #c" + golden_maple_leaf "#i" + golden_maple_leaf + "\r\n"
-                                 "#L2049100 for 20 #c" + golden_maple_leaf "#i" + golden_maple_leaf + "\r\n"
-                                 "#L2049100 for 100 #c" + golden_maple_leaf "#i" + golden_maple_leaf + "\r\n")
+			    /* TODO: Add items to trade for, currently its set to Chaos scrolls */
+			    var trade_msg = "You currently have #b#c" + golden_maple_leaf + " #i" + golden_maple_leaf +
+			                    " items.#k \r\nWhat item would you like to trade for?\r\n" +
+                                "#L2049100 for 1 #c" + golden_maple_leaf "#i" + golden_maple_leaf + "\r\n" +
+                                "#L2049100 for 5 #c" + golden_maple_leaf "#i" + golden_maple_leaf + "\r\n" +
+                                "#L2049100 for 20 #c" + golden_maple_leaf "#i" + golden_maple_leaf + "\r\n" +
+                                "#L2049100 for 100 #c" + golden_maple_leaf "#i" + golden_maple_leaf + "\r\n")
 
                 cm.sendSimple(trade_msg);
 			    if (selection == 1) {
-
+                    maybeTradeGoldenMapleLeaf(item_cost_1, "item1"
 			    } else if (selection == 2) {
-			        maybe_trade_golden_maple_leaf(item_cost_1, "item1");
+			        maybeTradeGoldenMapleLeaf(item_cost_2, "item2");
 			    } else if (selection == 3) {
-			        maybe_trade_golden_maple_leaf(item_cost_2, "item2");
+			        maybeTradeGoldenMapleLeaf(item_cost_3, "item3");
 			    } else if (selection == 4) {
-                    maybe_trade_golden_maple_leaf(item_cost_3, "item3");
+                    maybeTradeGoldenMapleLeaf(item_cost_4, "item4");
 			    } else if (selection == 5) {
-			        maybe_trade_golden_maple_leaf(item_cost_4, "item4");
+			        maybeTradeGoldenMapleLeaf(item_cost_5, "item5");
 			    }
 
 			    cm.sendNextPrev(trade_msg);
