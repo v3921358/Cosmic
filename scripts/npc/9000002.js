@@ -19,7 +19,6 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 var status = 0;
-var golden_maple_leaf = 4000313;
 
 function start() {
     status = -1;
@@ -56,27 +55,6 @@ function actionWithReward(mode, type, selection) {
     }
 }
 
-function getRewardThenWarp(location) {
-    if (cm.canHold(golden_maple_leaf)) {
-        if (cm.getPlayer().getEventRanking()) == 1) {
-            cm.gainItem(golden_maple_leaf, 10);
-        } else if (cm.getPlayer().getEventRanking()) == 2) {
-            cm.gainItem(golden_maple_leaf, 5);
-        } else if (cm.getPlayer().getEventRanking()) == 3) {
-            cm.gainItem(golden_maple_leaf, 3);
-        } else if (cm.getPlayer().getEventRanking()) == 4) {
-            cm.gainItem(golden_maple_leaf, 2);
-        } else if (cm.getPlayer().getEventRanking()) == 5) {
-            cm.gainItem(golden_maple_leaf, 1);
-        }
-        cm.getPlayer().setEventRanking(0);
-        cm.warp(location);
-        cm.dispose();
-    } else {
-        cm.sendNext("I think your Etc window is full. Please make room, then talk to me.");
-    }
-}
-
 function action(mode, type, selection) {
     if (mode == -1) {
         cm.dispose();
@@ -92,10 +70,13 @@ function action(mode, type, selection) {
             cm.sendNext("Congratulations on making it this far! We hope you enjoyed the event!!");
         } else if (status == 1) {
             var location = cm.getPlayer().getSavedLocation("EVENT"); 
-            if(location == -1) {
-                location = 104000000; // Lith Harbor
+            if(location != -1) {
+                cm.warp(location);    
             }
-            getRewardThenWarp(location);
+            else {
+                // Default Lith Harbor
+                cm.warp(104000000);
+            }
             
             cm.dispose();
         }
