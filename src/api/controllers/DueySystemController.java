@@ -9,6 +9,7 @@ import client.processor.npc.DueyProcessor;
 public class DueySystemController {
 	public static final String ACCOUNT_ID_KEY = "account_id";
 	public static final String ITEM_ID_KEY = "item_id";
+	public static final String FLAG_KEY = "flag";
 	public static final String QUANTITY_KEY = "quantity";
 	public static final String MESOS_KEY = "mesos";
 	public static final String SENDER_KEY = "sender";
@@ -18,12 +19,13 @@ public class DueySystemController {
 		try {
 			int accountId = Integer.parseInt(ctx.formParam(ACCOUNT_ID_KEY));
 			int itemId = Integer.parseInt(ctx.formParam(ITEM_ID_KEY));
+			byte flag = Byte.parseByte(ctx.formParam(FLAG_KEY));
 			int quantity = Integer.parseInt(ctx.formParam(QUANTITY_KEY));
 			int mesos = Integer.parseInt(ctx.formParam(MESOS_KEY));
 			String sender = ctx.formParam(SENDER_KEY);
 			long timeLimit = Long.parseLong(ctx.formParam(TIME_LIMIT_KEY));
 
-			DueyProcessor.sendItem(itemId, quantity, mesos, timeLimit, sender, accountId);
+			DueyProcessor.sendItem(itemId, flag, quantity, mesos, timeLimit, sender, accountId);
 
 			ctx.status(200);
 		} catch(Exception e) {

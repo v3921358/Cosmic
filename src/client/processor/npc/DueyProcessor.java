@@ -219,34 +219,36 @@ public class DueyProcessor {
     // \/\/\/\/\/\/\/ METHODS FOR API \/\/\/\/\/\/\/\/
     
     // Sends a non-equipment item to an account
-    public static void sendItem(int itemId, int quantity, int mesos, String sender, int recvAcctId){
-        sendItem(itemId, quantity, mesos, -1, sender, 0, recvAcctId);
+    public static void sendItem(int itemId, byte flag, int quantity, int mesos, String sender, int recvAcctId){
+        sendItem(itemId, flag, quantity, mesos, -1, sender, 0, recvAcctId);
     }
     
     // Sends a time-limited item to an account
-    public static void sendItem(int itemId, int quantity, int mesos, long timeLimit, String sender, int recvAcctId){
-        sendItem(itemId, quantity, mesos, timeLimit, sender, 0, recvAcctId);
+    public static void sendItem(int itemId, byte flag, int quantity, int mesos, long timeLimit, String sender, int recvAcctId){
+        sendItem(itemId, flag, quantity, mesos, timeLimit, sender, 0, recvAcctId);
     }
     
     // Sends a time-limited item
-    public static void sendItem(int itemId, int quantity, int mesos, long timeLimit, String sender, int recipientId, int recvAcctId){
+    public static void sendItem(int itemId, byte flag, int quantity, int mesos, long timeLimit, String sender, int recipientId, int recvAcctId){
         if (itemId < 2000000){
-            sendEquip(itemId, mesos, timeLimit, sender, recipientId, recvAcctId);
+            sendEquip(itemId, flag, mesos, timeLimit, sender, recipientId, recvAcctId);
             return;
         }
         Item item = new Item(itemId, (short) 0, (short) quantity);
+        item.setFlag((byte)(item.getFlag() | flag));
         addItemToDB(item, quantity, mesos, sender, recipientId, recvAcctId, timeLimit);
     }
     
     // Sends an equipment with standard stats
-    public static void sendEquip(int itemId, int mesos, String sender, int recvAcctId){
-        sendEquip(itemId, mesos, -1, sender, 0, recvAcctId);
+    public static void sendEquip(int itemId, byte flag, int mesos, String sender, int recvAcctId){
+        sendEquip(itemId, flag, mesos, -1, sender, 0, recvAcctId);
     }
     
     // Sends a time-limited equipment item with standard stats
-    public static void sendEquip(int itemId, int mesos, long timeLimit, String sender, int recipientId, int recvAcctId){
+    public static void sendEquip(int itemId, byte flag, int mesos, long timeLimit, String sender, int recipientId, int recvAcctId){
         MapleItemInformationProvider infopro = MapleItemInformationProvider.getInstance();
         Equip eq = (Equip)infopro.getEquipById(itemId);
+        eq.setFlag((byte)(eq.getFlag() | flag));
         addItemToDB(eq, 1, mesos, sender, recipientId, recvAcctId, timeLimit);
     }
     
