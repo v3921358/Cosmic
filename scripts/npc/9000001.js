@@ -37,7 +37,7 @@ var item_cost_5 = 500;
 var chaos_scroll = 2049100;
 
 function start() {
-    cm.sendNext("Hey, I'm #bJean#k. I am waiting for my brother #bPaul#k. He is supposed to be here by now...");
+    cm.sendNext("Hey, I'm #bJean#k. I'm waiting for my brother #bPaul#k. He's supposed to be here by now...");
 }
 
 function maybeTradeGoldenMapleLeaf(cm, item_cost, item_name, item_id) {
@@ -64,16 +64,16 @@ function action(mode, type, selection) {
         else
             status--;
         if (status == 1) {
-            cm.sendNextPrev("Hmm... What should I do? The event will start, soon... Many people went to participate in the event, so we better be hurry...");
+            cm.sendNextPrev("Hmm... What should I do? The event will start, soon... Many people want to participate in the event, so we better hurry...");
         } else if (status == 2) {
-            cm.sendSimple("Hey... Why don't you go with me? I think my brother will come with other people.\r\n#L0##e1.#n#b What kind of an event is it?#k#l\r\n#L1##e2.#n#b Explain the event game to me.#k#l\r\n#L2##e3.#n#b Alright, let's go!#k#l\r\n#L3##e4.#n#b Trade for items.");
+            cm.sendSimple("Hey... Why don't you go with me? I think my brother will come with other people.\r\n#L0##e1.#n#b What kind of an event is it?#k#l\r\n#L1##e2.#n#b Alright, let's go!#k#l\r\n#L2##e3.#n#b Trade for items.");
         } else if (status == 3) {
             if (selection == 0) {
                 cm.sendNext("DietStory will be regularly hosting scheduled events everyday! If you catch a notice, be sure to join in. Who knows what you might get?");
                 cm.dispose();
+//            } else if (selection == 1) {
+//                cm.sendSimple("There are many games for this event. It will help you a lot to know how to play the game before you play it. Choose the one you want to know more of! #b\r\n#L0# Ola Ola#l\r\n#L1# MapleStory Maple Physical Fitness Test#l\r\n#L2# Snow Ball#l\r\n#L3# Coconut Harvest#l\r\n#L4# OX Quiz#l\r\n#L5# Treasure Hunt#l#k");
             } else if (selection == 1) {
-                cm.sendSimple("There are many games for this event. It will help you a lot to know how to play the game before you play it. Choose the one you want to know more of! #b\r\n#L0# Ola Ola#l\r\n#L1# MapleStory Maple Physical Fitness Test#l\r\n#L2# Snow Ball#l\r\n#L3# Coconut Harvest#l\r\n#L4# OX Quiz#l\r\n#L5# Treasure Hunt#l#k");
-            } else if (selection == 2) {
 				var event = cm.getClient().getWorldServer().getEvent();
                 if(event != null) {
                     cm.getPlayer().saveLocation("EVENT");
@@ -90,7 +90,7 @@ function action(mode, type, selection) {
                     cm.sendNext("Either the event has not been started, you already have the #bScroll of Secrets#k, or you have already participated in this event within the last 24 hours. Please try again later!");
                 }
                 cm.dispose();
-			} else if (selection == 3) {
+			} else if (selection == 2) {
 			    /* TODO: Add items to trade for, currently its set to Chaos scrolls */
 			    var trade_msg = "You currently have #b#c" + golden_maple_leaf + " #i" + golden_maple_leaf +
 			                    " items.#k \r\nWhat item would you like to trade for?\r\n" +
@@ -114,11 +114,6 @@ function action(mode, type, selection) {
             }
             cm.dispose();
        }
-
-//
-//			    cm.sendNextPrev(trade_msg);
-//                cm.dispose();
-//			}
 //        } else if (status == 4) {
 //            if (selection == 0) {
 //                cm.sendNext("#b[Ola Ola]#k is a game where participants climb ladders to reach the top. Climb your way up and move to the next level by choosing the correct portal out of the numerous portals available. \r\n\r\nThe game consists of three levels, and the time limit is #b6 MINUTES#k. During [Ola Ola], you #bwon't be able to jump, teleport, haste, or boost your speed using potions or items#k. There are also trick portals that'll lead you to a strange place, so please be aware of those.");
