@@ -27,22 +27,25 @@
 importPackage(Packages.server.events.gm)
 
 var status = 0;
-var golden_maple_leaf = 4000313;
-var item_cost_1 = 1;
-var item_cost_2 = 5;
-var item_cost_3 = 20;
-var item_cost_4 = 100;
-var item_cost_5 = 500;
+var golden_maple_leaf_id = 4000313;
 
-var chaos_scroll = 2049100;
+var chaos_scroll_cost = 3;
+var innocence_scroll_cost = 3;
+var onyx_apple_cost = 10;
+var white_scroll_cost = 50;
+
+var chaos_scroll_id = 2049100;
+var innocence_scroll_id = 2049610; // 100%
+var onyx_apple_id = 2022179;
+var white_scroll_id = 2340000;
 
 function start() {
     cm.sendNext("Hey, I'm #bJean#k. I'm waiting for my brother #bPaul#k. He's supposed to be here by now...");
 }
 
 function maybeTradeGoldenMapleLeaf(cm, item_cost, item_name, item_id) {
-    if (cm.haveItem(golden_maple_leaf, item_cost)) {
-        cm.gainItem(golden_maple_leaf, -1 * item_cost);
+    if (cm.haveItem(golden_maple_leaf_id, item_cost)) {
+        cm.gainItem(golden_maple_leaf_id, -1 * item_cost);
         cm.gainItem(item_id, 1);
         cm.sendOk("You just got a " + item_name);
     } else {
@@ -92,25 +95,24 @@ function action(mode, type, selection) {
                 cm.dispose();
 			} else if (selection == 2) {
 			    /* TODO: Add items to trade for, currently its set to Chaos scrolls */
-			    var trade_msg = "You currently have #b#c" + golden_maple_leaf + " #i" + golden_maple_leaf +
+			    var trade_msg = "You currently have #b#c" + golden_maple_leaf_id + " #i" + golden_maple_leaf_id +
 			                    " items.#k \r\nWhat item would you like to trade for?\r\n" +
-                                "#L0##e1.#n#b #i" + chaos_scroll + "#   for " + item_cost_1 + " #n#b #i" + golden_maple_leaf + "#\r\n" +
-                                "#L1##e2.#n#b #i" + chaos_scroll + "#   for " + item_cost_2 + " #n#b #i" + golden_maple_leaf + "#\r\n" +
-                                "#L2##e3.#n#b #i" + chaos_scroll + "#   for " + item_cost_3 + " #n#b #i" + golden_maple_leaf + "#\r\n" +
-                                "#L3##e4.#n#b #i" + chaos_scroll + "#   for " + item_cost_4 + " #n#b #i" + golden_maple_leaf + "#\r\n";
+                                "#L0##e1.#n#b #i" + chaos_scroll_id + "#   for " + chaos_scroll_cost + " #n#b #i" + golden_maple_leaf_id + "#\r\n" +
+                                "#L1##e2.#n#b #i" + innocence_scroll_id + "#   for " + innocence_scroll_cost + " #n#b #i" + golden_maple_leaf_id + "#\r\n" +
+                                "#L2##e3.#n#b #i" + onyx_apple_id + "#   for " + onyx_apple_cost + " #n#b #i" + golden_maple_leaf_id + "#\r\n" +
+                                "#L3##e4.#n#b #i" + white_scroll_id + "#   for " + white_scroll_cost + " #n#b #i" + golden_maple_leaf_id + "#\r\n";
 
                 cm.sendSimple(trade_msg);
-                //cm.dispose();
             }
         } else if (status == 4) {
 			if (selection == 0) {
-                maybeTradeGoldenMapleLeaf(cm, item_cost_1, "item1", chaos_scroll);
+                maybeTradeGoldenMapleLeaf(cm, chaos_scroll_cost, "Chaos Scroll", chaos_scroll_id);
             } else if (selection == 1) {
-                maybeTradeGoldenMapleLeaf(cm, item_cost_2, "item2", chaos_scroll);
+                maybeTradeGoldenMapleLeaf(cm, innocence_scroll_cost, "Innocence Scroll", innocence_scroll_id);
             } else if (selection == 2) {
-                maybeTradeGoldenMapleLeaf(cm, item_cost_3, "item3", chaos_scroll);
+                maybeTradeGoldenMapleLeaf(cm, onyx_apple_cost, "Onyx Apple", onyx_apple_id);
             } else if (selection == 3) {
-                maybeTradeGoldenMapleLeaf(cm, item_cost_4, "item4", chaos_scroll);
+                maybeTradeGoldenMapleLeaf(cm, white_scroll_cost, "White Scroll", white_scroll_id);
             }
             cm.dispose();
        }
