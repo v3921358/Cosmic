@@ -56,7 +56,7 @@ function actionWithReward(mode, type, selection) {
     }
 }
 
-function getRewardThenWarp(location) {
+function getRewardThenWarp(cm, location) {
     if (cm.canHold(golden_maple_leaf)) {
         if (cm.getPlayer().getEventRanking()) == 1) {
             cm.gainItem(golden_maple_leaf, 10);
@@ -95,7 +95,7 @@ function action(mode, type, selection) {
             if(location == -1) {
                 location = 104000000; // Lith Harbor
             }
-            getRewardThenWarp(location);
+            getRewardThenWarp(cm, location);
             
             cm.dispose();
         }
