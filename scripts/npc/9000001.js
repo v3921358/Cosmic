@@ -67,12 +67,19 @@ function action(mode, type, selection) {
         else
             status--;
         if (status == 1) {
-            cm.sendNextPrev("Hmm... What should I do? The event will start, soon... Many people want to participate in the event, so we better hurry...");
+            cm.sendNextPrev("Hmm... What should I do? The event will start, soon... " +
+                            "Many people want to participate in the event, so we better hurry...");
         } else if (status == 2) {
-            cm.sendSimple("Hey... Why don't you go with me? I think my brother will come with other people.\r\n#L0##e1.#n#b What kind of an event is it?#k#l\r\n#L1##e2.#n#b Alright, let's go!#k#l\r\n#L2##e3.#n#b Trade for items.");
+            cm.sendSimple("Hey... Why don't you go with me? I think my brother will come with other people.\r\n" +
+                          "#L0##e1.#n#b What kind of an event is it?#k#l\r\n" +
+                          "#L1##e2.#n#b Alright, let's go!#k#l\r\n" +
+                          "#L2##e3.#n#b Trade for items.");
+
         } else if (status == 3) {
             if (selection == 0) {
-                cm.sendNext("DietStory will be regularly hosting scheduled events everyday! If you catch a notice, be sure to join in. Who knows what you might get?");
+                cm.sendNext("DietStory will be regularly hosting scheduled events everyday! " +
+                            "If you catch a notice, be sure to join in. Who knows what you might get?");
+
                 cm.dispose();
 //            } else if (selection == 1) {
 //                cm.sendSimple("There are many games for this event. It will help you a lot to know how to play the game before you play it. Choose the one you want to know more of! #b\r\n#L0# Ola Ola#l\r\n#L1# MapleStory Maple Physical Fitness Test#l\r\n#L2# Snow Ball#l\r\n#L3# Coconut Harvest#l\r\n#L4# OX Quiz#l\r\n#L5# Treasure Hunt#l#k");
@@ -95,12 +102,13 @@ function action(mode, type, selection) {
                 cm.dispose();
 			} else if (selection == 2) {
 			    /* TODO: Add items to trade for, currently its set to Chaos scrolls */
-			    var trade_msg = "You currently have #b#c" + golden_maple_leaf_id + " #i" + golden_maple_leaf_id +
-			                    " items.#k \r\nWhat item would you like to trade for?\r\n" +
-                                "#L0##e1.#n#b #i" + chaos_scroll_id + "#   for " + chaos_scroll_cost + " #n#b #i" + golden_maple_leaf_id + "#\r\n" +
-                                "#L1##e2.#n#b #i" + innocence_scroll_id + "#   for " + innocence_scroll_cost + " #n#b #i" + golden_maple_leaf_id + "#\r\n" +
-                                "#L2##e3.#n#b #i" + onyx_apple_id + "#   for " + onyx_apple_cost + " #n#b #i" + golden_maple_leaf_id + "#\r\n" +
-                                "#L3##e4.#n#b #i" + white_scroll_id + "#   for " + white_scroll_cost + " #n#b #i" + golden_maple_leaf_id + "#\r\n";
+			    var trade_msg = "You currently have #c" + golden_maple_leaf_id +"# #i" + golden_maple_leaf_id +
+			                    "#\r\nWhat item would you like to trade for?\r\n" +
+			                    "#rWARNING: If you click \"Next\" you will trade for a Chaos Scroll.#k \r\n" +
+                                "#L0##e#n" + chaos_scroll_cost + "#i" + golden_maple_leaf_id + "#   for #i" + chaos_scroll_id + "#\r\n" +
+                                "#L1##e#n" + innocence_scroll_cost + "#i" + golden_maple_leaf_id + "#   for #i" + innocence_scroll_id + "#\r\n" +
+                                "#L2##e#n" + onyx_apple_cost + "#i" + golden_maple_leaf_id + "#   for #i" + onyx_apple_id + "#\r\n" +
+                                "#L3##e#n" + white_scroll_cost + "#i" + golden_maple_leaf_id + "#   for #i" + white_scroll_id + "#\r\n";
 
                 cm.sendSimple(trade_msg);
             }
