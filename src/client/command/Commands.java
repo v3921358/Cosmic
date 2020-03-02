@@ -667,12 +667,12 @@ public class Commands {
 			c.getAbstractPlayerInteraction().openNpc(9010000, "spreset");
 			break;
 
-		case "apreset":
-			if(sub.length != 1){
-				player.yellowMessage("Syntax: !apreset");
-			}
-			c.getAbstractPlayerInteraction().openNpc(9010000, "apreset");
-			break;
+		// case "apreset":
+		// 	if(sub.length != 1){
+		// 		player.yellowMessage("Syntax: !apreset");
+		// 	}
+		// 	c.getAbstractPlayerInteraction().openNpc(9010000, "apreset");
+		// 	break;
 			
 		case "ultsp":
 			if(sub.length != 1){
