@@ -30,7 +30,7 @@ var status = 0;
 var golden_maple_leaf_id = 4000313;
 
 var chaos_scroll_cost = 3;
-var innocence_scroll_cost = 3;
+var innocence_scroll_cost = 7;
 var onyx_apple_cost = 10;
 var white_scroll_cost = 50;
 
