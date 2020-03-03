@@ -24,7 +24,7 @@
  * @purpose Warps to the Junior Balrog map for the Rush Skill.
  */
 function enter(pi) {
-    if(pi.isQuestStarted(6202)) {
+    if(pi.isQuestStarted(6201)) {
         if(pi.getWarpMap(910200000).countPlayers() == 0) {
             pi.resetMapObjects(910200000);
             pi.warp(910200000, 0);
