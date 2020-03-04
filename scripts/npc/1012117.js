@@ -124,7 +124,7 @@ function action(mode, type, selection) {
 }
 
 function initMaleHair(week) {
-    var prng = new Random(week * BASE_HAIR_VALUE * 'm');
+    var prng = new Random(week * BASE_HAIR_VALUE * 109);
 
     // Gender Based Choice
     for(var i = 0; i < NUM_CHOICES_GENDER_BASED; i++) {
@@ -163,7 +163,7 @@ function initMaleHair(week) {
 }
 
 function initFemaleHair(week) {
-    var prng = new Random(week * BASE_HAIR_VALUE * 'f');
+    var prng = new Random(week * BASE_HAIR_VALUE * 102);
 
     // Gender Based Choice
     for(var i = 0; i < NUM_CHOICES_GENDER_BASED; i++) {
