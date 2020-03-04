@@ -138,6 +138,14 @@ public class AbstractPlayerInteraction {
         }
     }
 
+    public int getLatestEventPlacing() {
+        return getPlayer().getLatestEventPlacement();
+    }
+
+    public void setLatestEventPlacing(int placing) {
+        getPlayer().setLatestEventPlacement(placing);
+    }
+
     public List<MapleCharacter> getPartyMembers() {
         if (getPlayer().getParty() == null) {
             return null;

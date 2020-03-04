@@ -478,16 +478,15 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
 		return true;
 	}
         
-        public Object[] getAvailableMasteryBooks() {
-                return MapleItemInformationProvider.getInstance().usableMasteryBooks(this.getPlayer()).toArray();
-        }
-        
-        public Object[] getAvailableSkillBooks() {
-                return MapleItemInformationProvider.getInstance().usableSkillBooks(this.getPlayer()).toArray();
-        }
-        
-        public Object[] getNamesWhoDropsItem(Integer itemId) {
-                return MapleItemInformationProvider.getInstance().getWhoDrops(itemId).toArray();
-        }
-        
+	public Object[] getAvailableMasteryBooks() {
+			return MapleItemInformationProvider.getInstance().usableMasteryBooks(this.getPlayer()).toArray();
+	}
+
+	public Object[] getAvailableSkillBooks() {
+			return MapleItemInformationProvider.getInstance().usableSkillBooks(this.getPlayer()).toArray();
+	}
+
+	public Object[] getNamesWhoDropsItem(Integer itemId) {
+			return MapleItemInformationProvider.getInstance().getWhoDrops(itemId).toArray();
+	}
 }
