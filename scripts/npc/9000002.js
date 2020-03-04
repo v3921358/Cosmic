@@ -47,7 +47,7 @@ function getRewardThenWarp(cm, location) {
 
     if (cm.canHold(golden_maple_leaf, amount_to_gain)) {
         cm.gainItem(golden_maple_leaf, amount_to_gain);
-        cm.setLatestEventPlacing(1);
+        cm.setLatestEventPlacing(0);
         cm.warp(location);
         cm.dispose();
     } else {
