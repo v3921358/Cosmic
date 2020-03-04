@@ -32,10 +32,7 @@ function start() {
 }
 
 function getRewardThenWarp(cm, location) {
-    var amount_to_gain = 20;
-    cm.gainFame(5);
-    cm.setLatestEventPlacing(1);
-    cm.gainFame(5);
+    var amount_to_gain = 0;
     if (cm.getLatestEventPlacing() == 1) {
         amount_to_gain = 10;
     } else if (cm.getLatestEventPlacing() == 2) {
@@ -44,15 +41,14 @@ function getRewardThenWarp(cm, location) {
         amount_to_gain = 3;
     } else if (cm.getLatestEventPlacing() == 4) {
         amount_to_gain = 2;
-    } else if (cmgetLatestEventPlacing() == 5) {
+    } else if (cm.getLatestEventPlacing() == 5) {
         amount_to_gain = 1;
     }
 
     if (cm.canHold(golden_maple_leaf, amount_to_gain)) {
         cm.gainItem(golden_maple_leaf, amount_to_gain);
-        //cm.gainFame(5);
-        //cm.setLatestEventPlacing(1);
-        //cm.warp(location);
+        cm.setLatestEventPlacing(1);
+        cm.warp(location);
         cm.dispose();
     } else {
         cm.sendNext("I think your Etc window is full. Please make room, then talk to me.");
