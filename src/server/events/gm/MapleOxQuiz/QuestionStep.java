@@ -71,6 +71,7 @@ public class QuestionStep extends EventStep {
 
 		// Show Ranking
 		showRanking();
+		updateEventRanking();
 	}
 
 	private void getProblems(int numQuestions) {
@@ -155,6 +156,25 @@ public class QuestionStep extends EventStep {
         	});
 
         map.broadcastMessage(mplew.getPacket());
+	}
+	
+	private void updateEventRanking() {
+		List<MapleCharacter> chars = new ArrayList<>(map.getCharacters());
+		for (MapleCharacter chr : chars) {
+			int points = results.get(chr);
+			if (points == 20) {
+				chr.setLatestEventPlacement(1);
+			} else if (points >= 17) {
+				chr.setLatestEventPlacement(2);
+			} else if (points >= 13) {
+				chr.setLatestEventPlacement(3);
+			} else if (points >= 10) {
+				chr.setLatestEventPlacement(4);
+			} else {
+				chr.setLatestEventPlacement(5);
+			}
+
+		}
 	}
 
 	private boolean isCorrectAnswer(MapleCharacter chr, boolean answer) {

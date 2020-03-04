@@ -18,66 +18,62 @@
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+/*
+    NPC Name:       Pietro
+    Map(s):         Receiving the reward for the event (109050000)
+    Description:    Event Assistant
+*/
 var status = 0;
+var golden_maple_leaf = 4000313;
 
 function start() {
     status = -1;
     action(1, 0, 0);
 }
 
-function actionWithReward(mode, type, selection) {
-    if (mode == -1) {
+function getRewardThenWarp(cm, location) {
+    var amount_to_gain = 0;
+    if (cm.getLatestEventPlacing() == 1) {
+        amount_to_gain = 10;
+    } else if (cm.getLatestEventPlacing() == 2) {
+        amount_to_gain = 5;
+    } else if (cm.getLatestEventPlacing() == 3) {
+        amount_to_gain = 3;
+    } else if (cm.getLatestEventPlacing() == 4) {
+        amount_to_gain = 2;
+    } else if (cm.getLatestEventPlacing() == 5) {
+        amount_to_gain = 1;
+    }
+
+    if (cm.canHold(golden_maple_leaf, amount_to_gain)) {
+        cm.gainItem(golden_maple_leaf, amount_to_gain);
+        cm.setLatestEventPlacing(0);
+        cm.warp(location);
         cm.dispose();
-    }else if (mode == 0){
-        cm.dispose();
-    }else{
-        if (mode == 1)
-            status++;
-        else
-            status--;
-        if (status == 0) {
-            cm.sendNext("Bam bam bam bam!! You have won the game from the \r\n#bEVENT#k. Congratulations on making it this far!");
-        } else if (status == 1) {
-            cm.sendNext("You'll be awarded the #bScroll of Secrets#k as the winning prize. On the scroll, it has secret information written in ancient characters.");
-        } else if (status == 2) {
-            cm.sendNext("The Scroll of Secrets can be deciphered by #rChun Ji#k or \r\n#rGeanie#k at Ludibrium. Bring it with you and something good's bound to happen.");
-        } else if (status == 3) {
-        if (cm.canHold(4031019)) {
-            cm.gainItem(4031019);
-            cm.warp(cm.getPlayer().getSavedLocation("EVENT"));
-            cm.dispose();
-        } else {
-            cm.sendNext("I think your Etc window is full. Please make room, then talk to me.");
-        }
-        } else if (status == 4) {
-            cm.dispose();
-        }
+    } else {
+        cm.sendNext("I think your Etc window is full. Please make room, then talk to me.");
     }
 }
 
 function action(mode, type, selection) {
     if (mode == -1) {
         cm.dispose();
-    }else if (mode == 0){
+    } else if (mode == 0) {
         cm.dispose();
-    }else{
-        if (mode == 1)
+    } else {
+        if (mode == 1) {
             status++;
-        else
+        } else {
             status--;
-
+        }
         if (status == 0) {
             cm.sendNext("Congratulations on making it this far! We hope you enjoyed the event!!");
         } else if (status == 1) {
-            var location = cm.getPlayer().getSavedLocation("EVENT"); 
-            if(location != -1) {
-                cm.warp(location);    
+            var location = cm.getPlayer().getSavedLocation("EVENT");
+            if (location == -1) {
+                location = 104000000; // Lith Harbor
             }
-            else {
-                // Default Lith Harbor
-                cm.warp(104000000);
-            }
-            
+            getRewardThenWarp(cm, location);
             cm.dispose();
         }
     }
