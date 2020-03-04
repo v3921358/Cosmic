@@ -2,6 +2,7 @@
 
 SERVER_NAME=dietstory-game-server
 SERVER_PATH=/apps/dietstory-server
+SERVER_NETWORK=dietstory-service
 
 if [ "$APPLICATION_NAME" == "dietstory-game-app-dev" ]; then
 	CPUS=1
@@ -22,4 +23,5 @@ sudo docker run -it -d \
 	--name=${SERVER_NAME} \
 	--cpus=${CPUS} \
 	--cpu-shares=${CPU_SHARES} \
+	--net=${SERVER_NETWORK} \
 	benjixd/dietstory:java_8
