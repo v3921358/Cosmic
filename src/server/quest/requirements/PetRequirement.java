@@ -55,6 +55,8 @@ public class PetRequirement extends MapleQuestRequirement {
 	@Override
 	public boolean check(MapleCharacter chr, Integer npcid) {
 		for(MaplePet pet : chr.getPets()) {
+                        if (pet == null) continue; 
+                    
 			if(petIDs.contains(pet.getItemId()))
 				return true;
 		}

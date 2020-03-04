@@ -29,7 +29,7 @@ function action(mode, type, selection) {
         status--;
     }
 
-    if(cm.getPlayer().getMapId( == KERNING_CITY_MAP)) {
+    if(cm.getPlayer().getMapId()  == KERNING_CITY_MAP) {
         spiegelmannInTown(mode, type, selection);
     } else {
         spiegelmannInExitMap(mode, type, selection);

@@ -218,7 +218,6 @@ function writeSolaxiaCommandsLv0() {    //Common
         addCommand("bosshp", "");
         addCommand("ranks", "");
         addCommand("innocence", "");
-        addCommand("apreset", "");
         addCommand("spreset", "");
         addCommand("ultsp");
 }
