@@ -67,7 +67,7 @@ function action(mode, type, selection) {
         else
             status--;
         if (status == 1) {
-            cm.sendSimple("Huh? What kind of an event? Well, that's...\r\n"" +
+            cm.sendSimple("Huh? What kind of an event? Well, that's...\r\n" +
                           "#L0##e1.#n#b What kind of an event is it?#k#l\r\n" +
                           "#L1##e2.#n#b Alright, let's go!#k#l\r\n" +
                           "#L2##e3.#n#b Trade for items.");
