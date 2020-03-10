@@ -56,7 +56,7 @@ function action(mode, type, selection) {
             } else if (selection == 2) {
                 beauty = 2;
                 haircolor = Array();
-                var current = (cm.getPlayer().getHair() / 10) | 0;
+                var current = ((cm.getPlayer().getHair() / 10) | 0) * 10;
                 for (var i = 0; i < 8; i++)
                     haircolor.push(current + i);
                 cm.sendYesNo("If you use a regular coupon your hair will change RANDOMLY. Do you still want to use #b#t5151004##k and change it up?");
