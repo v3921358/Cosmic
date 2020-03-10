@@ -56,12 +56,8 @@ function action(mode, type, selection) {
                 }
                 cm.dispose();
             } else if (selection == 2) {
-                if (cm.getPlayer().getGender() == 0) {
-                    var current = cm.getPlayer().getFace() % 100 + 20000;
-                }
-                if (cm.getPlayer().getGender() == 1) {
-                    var current = cm.getPlayer().getFace() % 100 + 21000;
-                }
+                var faceId = cm.getPlayer().getFace();
+                var current = faceId % 100 + 1000*(Math.floor(faceId/1000));
                 colors = Array();
                 colors = Array(current , current + 100, current + 200, current + 300, current +400, current + 500, current + 600, current + 700);
                 cm.sendStyle("With our specialized machine, you can see yourself after the treatment in advance. What kind of lens would you like to wear? Choose the style of your liking.", colors);

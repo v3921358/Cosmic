@@ -53,23 +53,15 @@ function action(mode, type, selection) {
                 cm.sendSimple("Which coupon would you like to buy?\r\n#L0#Cosmetic Lenses for " + regprice + " mesos: #i5152012##t5152012##l\r\n#L1#Cosmetic Lenses for " + vipprice + " mesos: #i5152015##t5152015##l");
             } else if (selection == 1) {
                 beauty = 1;
-                if (cm.getPlayer().getGender() == 0) {
-                    var current = cm.getPlayer().getFace() % 100 + 20000;
-                }
-                if (cm.getPlayer().getGender() == 1) {
-                    var current = cm.getPlayer().getFace() % 100 + 21000;
-                }
+                var faceId = cm.getPlayer().getFace();
+                var current = faceId % 100 + 1000*(Math.floor(faceId/1000));
                 colors = Array();
-                colors = Array(current , current + 100, current + 200, current + 300, current +400, current + 500, current + 600, current + 700);
+                colors = Array(current , current + 100, current + 200, current + 300, current +400, current + 500, current + 600, current + 700, current + 800, current + 900);
                 cm.sendYesNo("If you use the regular coupon, you'll be awarded a random pair of cosmetic lenses. Are you going to use a #b#t5152012##k and really make the change to your eyes?");
             } else if (selection == 2) {
                 beauty = 2;
-                if (cm.getPlayer().getGender() == 0) {
-                    var current = cm.getPlayer().getFace() % 100 + 20000;
-                }
-                if (cm.getPlayer().getGender() == 1) {
-                    var current = cm.getPlayer().getFace() % 100 + 21000;
-                }
+                var faceId = cm.getPlayer().getFace();
+                var current = faceId % 100 + 1000*(Math.floor(faceId/1000));
                 colors = Array();
                 colors = Array(current , current + 100, current + 200, current + 300, current +400, current + 500, current + 600, current + 700);
                 cm.sendStyle("With our new computer program, you can see yourself after the treatment in advance. What kind of lens would you like to wear? Please choose the style of your liking.", colors);
