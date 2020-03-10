@@ -11,7 +11,7 @@ import server.maps.MapleMapFactory;
 import server.TimerManager;
 
 public class EventScheduler {
-	public static final int EVENT_HOUR = 3;	//TODO: Eventually schedule this from database (10 PM EST -> 3 AM UTC)
+	public static final int EVENT_HOUR = 2;	//TODO: Eventually schedule this from database (10 PM EST -> 3 AM UTC, 10PM EDT -> 2 AM UTC)
 	public static final int MAX_PLAYERS_IN_EVENT = 100;
 
 	private List<MapleEvent> events = new ArrayList<>();
