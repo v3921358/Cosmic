@@ -4814,7 +4814,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
                     pse.setInt(1, charid);
                     ResultSet rse = pse.executeQuery();
                     while(rse.next()) {
-                        MapleQuest q = MapleQuest.getInstance(rs.getShort("quest"));
+                        MapleQuest q = MapleQuest.getInstance(rse.getShort("quest"));
                         MapleQuestStatus status = new MapleQuestStatus(q, MapleQuestStatus.Status.getById(rse.getInt("status")));
                         long cTime = rse.getLong("time");
                         long eTime = rse.getLong("expires");
@@ -4834,7 +4834,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
                     ResultSet rse = pse.executeQuery();
                     while(rse.next()) {
                         MapleQuestStatus status = ret.quests.get(rse.getShort("quest"));
-                        status.setProgress(rs.getInt("progressid"), rse.getString("progress"));
+                        status.setProgress(rse.getInt("progressid"), rse.getString("progress"));
                     }
                     rse.close();
                     pse.close();
@@ -4842,7 +4842,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
                 try(PreparedStatement pse = con.prepareStatement("SELECT qs.quest AS quest, mm.mapid AS mapid FROM queststatus qs INNER JOIN medalmaps mm ON qs.queststatusid = mm.queststatusid WHERE qs.characterid = ?")) {
                     pse.setInt(1, charid);
                     ResultSet rse = pse.executeQuery();
-                    while(rs.next()) {
+                    while(rse.next()) {
                         MapleQuestStatus status = ret.quests.get(rse.getShort("quest"));
                         status.addMedalMap(rse.getInt("mapid"));
                     }
