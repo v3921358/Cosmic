@@ -1950,24 +1950,15 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
                             }
                     }
 
-                    try (PreparedStatement ps = con.prepareStatement("SELECT queststatusid FROM queststatus WHERE characterid = ?")) {
-                            ps.setInt(1, cid);
-
-                            try (ResultSet rs = ps.executeQuery()) {
-                                    while (rs.next()) {
-                                            int queststatusid = rs.getInt("queststatusid");
-
-                                            try (PreparedStatement ps2 = con.prepareStatement("DELETE FROM medalmaps WHERE queststatusid = ?")) {
-                                                    ps2.setInt(1, queststatusid);
-                                                    ps2.executeUpdate();
-                                            }
-
-                                            try (PreparedStatement ps2 = con.prepareStatement("DELETE FROM questprogress WHERE queststatusid = ?")) {
-                                                    ps2.setInt(1, queststatusid);
-                                                    ps2.executeUpdate();
-                                            }
-                                    }
-                            }
+                    try (PreparedStatement ps = con.prepareStatement("DELETE FROM medalmaps mm INNER JOIN queststatus qs ON qs.queststatusid = mm.queststatusid WHERE qs.characterid = ?")) {
+                        ps.setInt(1, cid);
+                        ps.executeUpdate();
+                        ps.close();
+                    }
+                    try (PreparedStatement ps = con.prepareStatement("DELETE FROM questprogress qp INNER JOIN queststatus qs ON qs.queststatusid = qp.queststatus WHERE qs.characterid = ?")) {
+                        ps.setInt(1, cid);
+                        ps.executeUpdate();
+                        ps.close();
                     }
 
                     try (PreparedStatement ps = con.prepareStatement("SELECT id FROM mts_cart WHERE cid = ?")) {
@@ -4819,44 +4810,47 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             rs.close();
             ps.close();
             if (channelserver) {
-                ps = con.prepareStatement("SELECT * FROM queststatus WHERE characterid = ?");
-                ps.setInt(1, charid);
-                rs = ps.executeQuery();
-                PreparedStatement psf;
-                try (PreparedStatement pse = con.prepareStatement("SELECT * FROM questprogress WHERE queststatusid = ?")) {
-                    psf = con.prepareStatement("SELECT mapid FROM medalmaps WHERE queststatusid = ?");
-                    while (rs.next()) {
-                        MapleQuest q = MapleQuest.getInstance(rs.getShort("quest"));
-                        MapleQuestStatus status = new MapleQuestStatus(q, MapleQuestStatus.Status.getById(rs.getInt("status")));
-                        long cTime = rs.getLong("time");
+                try(PreparedStatement pse = con.prepareStatement("SELECT quest, status, time, expires, forfeited FROM queststatus WHERE characterid = ?")) {
+                    pse.setInt(1, charid);
+                    ResultSet rse = pse.executeQuery();
+                    while(rse.next()) {
+                        MapleQuest q = MapleQuest.getInstance(rse.getShort("quest"));
+                        MapleQuestStatus status = new MapleQuestStatus(q, MapleQuestStatus.Status.getById(rse.getInt("status")));
+                        long cTime = rse.getLong("time");
+                        long eTime = rse.getLong("expires");
                         if (cTime > -1) {
                             status.setCompletionTime(cTime * 1000);
                         }
-
-                        long eTime = rs.getLong("expires");
                         if (eTime > 0) {
                             status.setExpirationTime(eTime);
                         }
-
-                        status.setForfeited(rs.getInt("forfeited"));
+                        status.setForfeited(rse.getInt("forfeited"));
                         ret.quests.put(q.getId(), status);
-                        pse.setInt(1, rs.getInt("queststatusid"));
-                        try (ResultSet rsProgress = pse.executeQuery()) {
-                            while (rsProgress.next()) {
-                                status.setProgress(rsProgress.getInt("progressid"), rsProgress.getString("progress"));
-                            }
-                        }
-                        psf.setInt(1, rs.getInt("queststatusid"));
-                        try (ResultSet medalmaps = psf.executeQuery()) {
-                            while (medalmaps.next()) {
-                                status.addMedalMap(medalmaps.getInt("mapid"));
-                            }
-                        }
                     }
-                    rs.close();
-                    ps.close();
+                    rse.close();
+                    pse.close();
                 }
-                psf.close();
+                try(PreparedStatement pse = con.prepareStatement("SELECT qs.quest AS quest, qp.progressid AS progressid, qp.progress AS progress FROM queststatus qs INNER JOIN questprogress qp ON qs.queststatusid = qp.queststatusid WHERE qs.characterid = ?")) {
+                    pse.setInt(1, charid);
+                    ResultSet rse = pse.executeQuery();
+                    while(rse.next()) {
+                        MapleQuestStatus status = ret.quests.get(rse.getShort("quest"));
+                        status.setProgress(rse.getInt("progressid"), rse.getString("progress"));
+                    }
+                    rse.close();
+                    pse.close();
+                }
+                try(PreparedStatement pse = con.prepareStatement("SELECT qs.quest AS quest, mm.mapid AS mapid FROM queststatus qs INNER JOIN medalmaps mm ON qs.queststatusid = mm.queststatusid WHERE qs.characterid = ?")) {
+                    pse.setInt(1, charid);
+                    ResultSet rse = pse.executeQuery();
+                    while(rse.next()) {
+                        MapleQuestStatus status = ret.quests.get(rse.getShort("quest"));
+                        status.addMedalMap(rse.getInt("mapid"));
+                    }
+                    rse.close();
+                    pse.close();
+                }
+
                 ps = con.prepareStatement("SELECT skillid,skilllevel,masterlevel,expiration FROM skills WHERE characterid = ?");
                 ps.setInt(1, charid);
                 rs = ps.executeQuery();
