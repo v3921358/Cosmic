@@ -4824,6 +4824,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
                         if (eTime > 0) {
                             status.setExpirationTime(eTime);
                         }
+                        status.setForfeited(rse.getInt("forfeited"));
                         ret.quests.put(q.getId(), status);
                     }
                     rse.close();
