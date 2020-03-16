@@ -1211,7 +1211,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         statup.add(new Pair<>(MapleStat.AVAILABLESP, remainingSp[GameConstants.getSkillBook(job.getId())]));
         statup.add(new Pair<>(MapleStat.JOB, Integer.valueOf(job.getId())));
         if (dragon != null) {
-            getMap().broadcastMessage(MaplePacketCreator.removeDragon(dragon.getOwner().getId()));
+            getMap().broadcastMessage(MaplePacketCreator.removeDragon(dragon.getObjectId()));
             dragon = null;
         }
         recalcLocalStats();
@@ -6958,7 +6958,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
 
     @Override
     public int getObjectId() {
-        return getId() | (1 << 16);
+        return getId();
     }
 
     @Override

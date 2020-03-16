@@ -86,6 +86,7 @@ import tools.Pair;
 import tools.Randomizer;
 
 public class MapleMap {
+    private static final int OBJ_OID_BASE = (1 << 25);
     private static final List<MapleMapObjectType> rangedMapobjectTypes = Arrays.asList(MapleMapObjectType.SHOP, MapleMapObjectType.ITEM, MapleMapObjectType.NPC, MapleMapObjectType.MONSTER, MapleMapObjectType.DOOR, MapleMapObjectType.SUMMON, MapleMapObjectType.REACTOR);
     private Map<Integer, MapleMapObject> mapobjects = new LinkedHashMap<>();
     private Collection<SpawnPoint> monsterSpawn = Collections.synchronizedList(new LinkedList<SpawnPoint>());
@@ -101,7 +102,7 @@ public class MapleMap {
     private MapleFootholdTree footholds = null;
     private Rectangle mapArea = new Rectangle();
     private int mapid;
-    private AtomicInteger runningOid = new AtomicInteger(100);
+    private AtomicInteger runningOid = new AtomicInteger(OBJ_OID_BASE);
     private int returnMapId;
     private int channel, world;
     private byte monsterRate;
@@ -405,8 +406,8 @@ public class MapleMap {
     }
 
     private int getUsableOID() {
-        if (runningOid.incrementAndGet() > 2000000000) {
-            runningOid.set(1000);
+        if (runningOid.incrementAndGet() >= OBJ_OID_BASE * 2) {
+            runningOid.set(OBJ_OID_BASE * 10); // reset to unlikely used OIDs
         }
         objectRLock.lock();
         try {
