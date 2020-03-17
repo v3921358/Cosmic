@@ -51,7 +51,7 @@ public class MapleDragon extends AbstractAnimatedMapleMapObject {
 
     @Override
     public int getObjectId() {
-        return owner.getId();
+        return owner.getObjectId();
     }
 
     @Override
