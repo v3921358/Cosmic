@@ -56,7 +56,7 @@ public class QuestScriptManager extends AbstractScriptManager {
 		MapleQuest quest = MapleQuest.getInstance(questid);
 		String path = String.format(SCRIPT_FORMAT, Short.toString(questid)); 
 
-		if (!c.getPlayer().getQuest(quest).getStatus().equals(MapleQuestStatus.Status.NOT_STARTED)) {
+		if (!quest.canStart(c.getPlayer(), npc)) {
 			dispose(c);
 			return;
 		}
