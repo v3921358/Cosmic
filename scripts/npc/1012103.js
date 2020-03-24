@@ -29,6 +29,7 @@ var haircolorprice = 1000000;
 var mhair = Array(30030, 30020, 30000, 30310, 30330, 30060, 30150, 30410, 30210, 30140, 30120, 30200);
 var fhair = Array(31050, 31040, 31000, 31150, 31310, 31300, 31160, 31100, 31410, 31030, 31080, 31070);
 var hairnew = Array();
+var haircolor = Array();
 
 function start() {
     status = -1;
@@ -58,7 +59,6 @@ function action(mode, type, selection) {
                 cm.sendStyle("I can totally change up your hairstyle and make it look so good. Why don't you change it up a bit? If you have #b#t5150001##k I'll change it for you. Choose the one to your liking~.", hairnew);
             } else if (selection == 2) {
                 beauty = 2;
-                haircolor = Array();
                 var current = parseInt(cm.getPlayer().getHair()/10)*10;
                 for(var i = 0; i < 8; i++)
                     haircolor.push(current + i);
