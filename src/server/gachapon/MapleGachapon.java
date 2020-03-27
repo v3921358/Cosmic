@@ -43,7 +43,8 @@ public class MapleGachapon {
 		SHOWA_SPA_MALE(9100106, 90, 8, 2, new ShowaSpaMale()),
 		SHOWA_SPA_FEMALE(9100107, 90, 8, 2, new ShowaSpaFemale()),
 		NEW_LEAF_CITY(9100109, 90, 8, 2, new NewLeafCity()),
-		NAUTILUS_HARBOR(9100117, 90, 8, 2, new NautilusHarbor());
+		NAUTILUS_HARBOR(9100117, 90, 8, 2, new NautilusHarbor()),
+                SPECIAL(-2, 21, 0, 0, new SpecialGacha());
 
 		private GachaponItems gachapon;
 		private int npcId;
@@ -79,6 +80,11 @@ public class MapleGachapon {
 			int chance = Randomizer.nextInt(gacha.length + global.length);
 			return chance < gacha.length ? gacha[chance] : global[chance - gacha.length];
 		}
+                
+                public int getItemNoGlobal(int tier){
+                    int[] gacha = getItems(tier);
+                    return gacha[Randomizer.nextInt(gacha.length)];
+                }
 
 		public static Gachapon getByNpcId(int npcId) {
 			for (Gachapon gacha : Gachapon.values()) {
@@ -100,6 +106,13 @@ public class MapleGachapon {
 		int item = gacha.getItem(tier);
 		return new MapleGachaponItem(tier, item);
 	}
+        
+        public MapleGachaponItem processWithoutGlobal(int npcId){
+            Gachapon gacha = Gachapon.getByNpcId(npcId);
+            int tier = gacha.getTier();
+            int item = gacha.getItemNoGlobal(tier);
+            return new MapleGachaponItem(tier, item);
+        }
 	
 	public class MapleGachaponItem {
 		private int id;

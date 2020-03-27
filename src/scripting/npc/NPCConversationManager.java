@@ -55,6 +55,8 @@ import client.SkillFactory;
 import client.inventory.Item;
 import client.inventory.ItemFactory;
 import client.inventory.MaplePet;
+import constants.ItemConstants;
+import server.gachapon.GachaponItems;
 
 /**
  *
@@ -364,6 +366,31 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
 			Server.getInstance().broadcastMessage(MaplePacketCreator.gachaponMessage(itemGained, map, getPlayer()));
 		}
 	}
+        
+        public void doSpecialGachapon() {
+            MapleGachaponItem prize = MapleGachapon.getInstance().processWithoutGlobal(-2);
+            
+            Item itemGained = gainItem(prize.getId(), (short) 1, false, true);
+            itemGained.setFlag((byte)(itemGained.getFlag() | ItemConstants.LOCK));
+            
+            getPlayer().forceUpdateItem(itemGained);
+            
+            sendNext("You have obtained a #b#t" + prize.getId() + "##k.");
+            LogHelper.logGacha(getPlayer(), prize.getId(), "Special");
+            Server.getInstance().broadcastMessage(MaplePacketCreator.gachaponMessage(itemGained, "Special", getPlayer()));
+        }
+        
+        public void checkSpecialGachapon(){
+            int[] items = MapleGachapon.Gachapon.SPECIAL.getItems(0);
+            StringBuilder str = new StringBuilder();
+            MapleItemInformationProvider ii = MapleItemInformationProvider.getInstance();
+            str.append("Available prizes:\r\n");
+            for (int id : items){
+                str.append(ii.getName(id) + ", ");
+            }
+            str.delete(str.length() - 2, str.length()).append("\r\n");
+            sendPrev(str.toString());
+        }
         
         public void upgradeAlliance() {
                 MapleAlliance alliance = Server.getInstance().getAlliance(c.getPlayer().getGuild().getAllianceId());
