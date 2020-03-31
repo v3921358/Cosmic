@@ -15,7 +15,7 @@ public class SpecialGacha extends GachaponItems {
     public int[] getCommonItems() {
         return new int[]{
             //SCG, Flamekeeper 
-            1082221, 1082246,
+            1082223, 1082246,
 
             //Pink Gaia, Pink Adv, Purple Adv, Purple Gaia, Blackfist, Zakum
             1102084, 1102041, 1102042, 1102086, 1102206, 1102194,
