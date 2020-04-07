@@ -7,6 +7,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import server.events.gm.MapleEvent;
 import server.events.gm.MapleOxQuiz.MapleOxQuiz;
+import server.events.gm.MapleScavengerHunt.MapleScavengerHunt;
 import server.maps.MapleMapFactory;
 import server.TimerManager;
 
@@ -25,7 +26,7 @@ public class EventScheduler {
 	private void registerEvents(MapleMapFactory mmf) {
 		//MapleOxQuiz
 		events.add(new MapleOxQuiz(mmf.getMap(MapleOxQuiz.MAPLE_OX_MAP_ID), MAX_PLAYERS_IN_EVENT));
-
+		events.add(new MapleScavengerHunt(mmf, mmf.getMap(MapleScavengerHunt.LOADING_MAP_ID), MAX_PLAYERS_IN_EVENT));
 		// Register start event task
 		TimerManager.getInstance().register(new Runnable() {
 			@Override

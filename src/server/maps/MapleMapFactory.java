@@ -410,6 +410,10 @@ public class MapleMapFactory {
         }
     }
 
+    public List<MapleData> getMapNames() {
+        return nameData.getChildren();
+    } 
+
     public void initCPQData(MapleMap map, MapleData mapData) {
         MapleData mcData = mapData.getChildByPath("monsterCarnival");
         map.initializeMCMapComponent();

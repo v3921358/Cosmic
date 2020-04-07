@@ -51,30 +51,28 @@ public final class NPCTalkHandler extends AbstractMaplePacketHandler {
             MapleNPC npc = (MapleNPC) obj;
             if(ServerConstants.USE_DEBUG == true) c.getPlayer().dropMessage(5, "Talking to NPC " + npc.getId());
             
-            if (npc.getId() == 9010009) {   //is duey
+            if (c.getCM() != null || c.getQM() != null) {
+                c.announce(MaplePacketCreator.enableActions());
+                return;
+            } else if(npc.usingOverrideScript()) {
+                NPCScriptManager.getInstance().start(c, npc.getId(), npc.getOverrideScript(), null);
+            } else if(npc.getId() == 9010009) { // is duey
                 c.getPlayer().setNpcCooldown(System.currentTimeMillis());
                 c.announce(MaplePacketCreator.sendDuey((byte) 8, DueyProcessor.loadItems(c.getPlayer())));
+            } else if(npc.getId() >= 9100100 && npc.getId() <= 9100200) { // generic gachapon
+                NPCScriptManager.getInstance().start(c, npc.getId(), "gachapon", null);
             } else {
-                if (c.getCM() != null || c.getQM() != null) {
-                    c.announce(MaplePacketCreator.enableActions());
-                    return;
-                }
-                if(npc.getId() >= 9100100 && npc.getId() <= 9100200) {
-                    // Custom handling for gachapon scripts to reduce the amount of scripts needed.
-                    NPCScriptManager.getInstance().start(c, npc.getId(), "gachapon", null);
-                } else {
-                    boolean hasNpcScript = NPCScriptManager.getInstance().start(c, npc.getId(), oid, null);
-                    if (!hasNpcScript) {
-                        if (!npc.hasShop()) {
-                            FilePrinter.printError(FilePrinter.NPC_UNCODED, "NPC " + npc.getName() + "(" + npc.getId() + ") is not coded.\r\n");
-                            return;
-                        } else if(c.getPlayer().getShop() != null) {
-                            c.announce(MaplePacketCreator.enableActions());
-                            return;
-                        }
-                        
-                        npc.sendShop(c);
+                boolean hasNpcScript = NPCScriptManager.getInstance().start(c, npc.getId(), oid, null);
+                if (!hasNpcScript) {
+                    if (!npc.hasShop()) {
+                        FilePrinter.printError(FilePrinter.NPC_UNCODED, "NPC " + npc.getName() + "(" + npc.getId() + ") is not coded.\r\n");
+                        return;
+                    } else if(c.getPlayer().getShop() != null) {
+                        c.announce(MaplePacketCreator.enableActions());
+                        return;
                     }
+                    
+                    npc.sendShop(c);
                 }
             }
         } else if (obj instanceof PlayerNPCs) {

@@ -9334,4 +9334,9 @@
     <string name="n1" value="What I need is perfect pitch! I hear anyone can get it if they level up."/>
     <string name="func" value="I Need Perfect Pitch"/>
   </imgdir>
+  <imgdir name="9950000">
+    <string name="name" value="Bruce"/>
+    <string name="s0" value="Maya needs our help!"/>
+    <string name="s1" value="These ingredients are hard to come by."/>
+  </imgdir>
 </imgdir>
