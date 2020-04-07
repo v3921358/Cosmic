@@ -33,7 +33,7 @@ public class EventScheduler {
 			public void run() {
 				startRandomEvent();
 			}
-		}, 60 * 1000 * 12, TimerManager.calculateDifferenceFromTime(EVENT_HOUR, 0, 0));
+		}, 60 * 1000 * 1440, TimerManager.calculateDifferenceFromTime(EVENT_HOUR, 0, 0));
 	}
 
 	public void startRandomEvent() {
