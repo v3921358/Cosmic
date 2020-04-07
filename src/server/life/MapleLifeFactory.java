@@ -189,6 +189,10 @@ public class MapleLifeFactory {
         return new MapleNPC(nid, new MapleNPCStats(MapleDataTool.getString(nid + "/name", npcStringData, "MISSINGNO")));
     }
 
+    public static MapleNPC getNPC(int nid, String overrideScript) {
+        return new MapleNPC(nid, new MapleNPCStats(MapleDataTool.getString(nid + "/name", npcStringData, "MISSINGNO")), overrideScript);
+    }
+
     public static class BanishInfo {
 
         private int map;

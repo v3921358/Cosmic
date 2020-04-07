@@ -424,7 +424,7 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
 	}
 
 	public MapleEvent getEvent() {
-		return c.getChannelServer().getEvent();
+		return c.getWorldServer().getEvent();
 	}
 
 	public void divideTeams() {

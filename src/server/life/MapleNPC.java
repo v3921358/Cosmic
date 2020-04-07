@@ -28,10 +28,26 @@ import tools.MaplePacketCreator;
 
 public class MapleNPC extends AbstractLoadedMapleLife {
     private MapleNPCStats stats;
+    private String overrideScript;
 
     public MapleNPC(int id, MapleNPCStats stats) {
         super(id);
         this.stats = stats;
+        this.overrideScript = null;
+    }
+
+    public MapleNPC(int id, MapleNPCStats stats, String overrideScript) {
+        super(id);
+        this.stats = stats;
+        this.overrideScript = overrideScript;
+    }
+
+    public boolean usingOverrideScript() {
+        return overrideScript != null;
+    }
+
+    public String getOverrideScript() {
+        return overrideScript;
     }
 
     public boolean hasShop() {
