@@ -685,6 +685,9 @@ public class Commands {
 				player.yellowMessage("This command is intended for Explorers only.");
 				
 			break;
+                case "specialgacha":
+                    c.getAbstractPlayerInteraction().openNpc(9100100, "specialgacha");
+                    break;
 		default:
 				return false;
 		}

@@ -220,6 +220,7 @@ function writeSolaxiaCommandsLv0() {    //Common
         addCommand("innocence", "");
         addCommand("spreset", "");
         addCommand("ultsp");
+        addCommand("specialgacha");
 }
 
 function writeSolaxiaCommands() {

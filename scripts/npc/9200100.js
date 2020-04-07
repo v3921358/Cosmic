@@ -56,7 +56,7 @@ function action(mode, type, selection) {
              	var current = faceId % 100 + 1000*(Math.floor(faceId/1000));
 
                 colors = Array();
-                colors = Array(current , current + 100, current + 200, current + 300, current + 400, current + 500, current + 600, current + 700, current + 800, current + 900);
+                colors = Array(current , current + 100, current + 200, current + 300, current + 400, current + 500, current + 600, current + 700, current + 800);
                 cm.sendYesNo("If you use the regular coupon, you'll be awarded a random pair of cosmetic lenses. Are you going to use a #b#t5152010##k and really make the change to your eyes?");
             } else if (selection == 2) {
                 beauty = 2;
