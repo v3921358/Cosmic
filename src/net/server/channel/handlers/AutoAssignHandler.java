@@ -342,17 +342,33 @@ public class AutoAssignHandler extends AbstractMaplePacketHandler {
                 statEqpd[2] += nEquip.getLuk();
                 statEqpd[3] += nEquip.getInt();
             }
-            
-            for (int i = 0; i < 2; i++) {
-                int type = slea.readInt();
-                int tempVal = slea.readInt();
-                if (tempVal < 0 || tempVal > c.getPlayer().getRemainingAp()) {
-                    return;
-                }
-                total += tempVal;
-                extras += gainStatByType(chr, MapleStat.getBy5ByteEncoding(type), statGain, statEqpd, tempVal);
+
+            int remainingAp = chr.getRemainingAp();
+            int typeValue = slea.readInt();
+            int tempValue = slea.readInt();
+            MapleStat statType = MapleStat.getBy5ByteEncoding(typeValue);
+            if (statType == null || tempValue < 0 || tempValue > remainingAp) {
+                return;
             }
-            int remainingAp = (chr.getRemainingAp() - total) + extras;
+
+            int typeValue2 = slea.readInt();
+            int tempValue2 = slea.readInt();
+            MapleStat2 statType2 = MapleStat.getBy5ByteEncoding(typeValue2);
+            if (statType2 == null || tempValue2 < 0 || tempValue2 > remainingAp) {
+                return;
+            }
+
+            total += tempValue;
+            total += tempValue2;
+
+            if (total > remainingAp) {
+                return;
+            }
+
+            extras += gainStatByType(chr, statType, statGain, statEqpd, tempValue);
+            extras += gainStatByType(chr, statType2, statGain, statEqpd, tempValue2);
+
+            remainingAp = (chr.getRemainingAp() - total) + extras;
             chr.setRemainingAp(remainingAp);
             chr.updateSingleStat(MapleStat.AVAILABLEAP, remainingAp);
             c.announce(MaplePacketCreator.enableActions());
